@@ -13,9 +13,19 @@ class Clientes extends Migration
      */
     public function up()
     {
+
+
         Schema::create('clientes', function (Blueprint $table) {
+
+
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
             $table->string('razao_social');
+            $table->string('logradouro')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('estado')->nullable();
             $table->string('caixa_postal')->nullable();
             $table->integer('document_id')->unsigned();
             $table->string('banco')->nullable();
@@ -24,8 +34,11 @@ class Clientes extends Migration
             $table->timestamps();
 
 
-            $table->foreign('document_id')->references('id')->on('documents');
 
+        });
+
+        Schema::table('clientes', function($table) {
+            $table->foreign('document_id')->references('id')->on('documents');
         });
     }
 

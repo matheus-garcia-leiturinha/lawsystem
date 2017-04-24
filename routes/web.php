@@ -15,4 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('clientes', 'ClientController@listar');
+Route::group(['prefix' => 'clientes'], function () {
+
+    Route::get('/', 'ClientController@listar')->name('clientes.listar');
+    Route::get('/criar', 'ClientController@criar')->name('clientes.criar');;
+    Route::post('/save', 'ClientController@save')->name('clientes.salvar');;
+
+});

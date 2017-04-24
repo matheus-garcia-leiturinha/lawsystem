@@ -14,6 +14,10 @@ class Documents extends Migration
     public function up()
     {
         Schema::create('documents', function (Blueprint $table) {
+
+
+            $table->engine = 'InnoDB';
+
             $table->increments('id');
             $table->enum('type',['cpf','cnpj']);
             $table->string('number');

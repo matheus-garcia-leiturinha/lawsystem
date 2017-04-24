@@ -12,4 +12,10 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+    .js('resources/assets/js/datatables.js', 'public/js')
+    .js('resources/assets/js/libs/respond.min.js', 'public/js/lib')
+    .js('resources/assets/js/libs/html5shiv.min.js', 'public/js/lib')
+    .js('resources/assets/js/libs/bootstrap.min.js', 'public/js/lib')
+    .js('resources/assets/js/libs/jquery.min.js', 'public/js/lib')
+   .less('resources/assets/less/app.less', 'public/css');
+

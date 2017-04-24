@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Clientes;
+use App\Documents;
 use Illuminate\Http\Request;
 use Nayjest\Grids\Grid;
 use Nayjest\Grids\GridConfig;
@@ -35,9 +37,7 @@ class ClientController extends Controller
 
     public function listar()
     {
-
-        $query = (new User)
-            ->newQuery();
+        $query = (new Clientes)->with('documents')->newQuery();
 
 
         $grid = new Grid(
@@ -51,8 +51,8 @@ class ClientController extends Controller
                     # simple results numbering, not related to table PK or any obtained data
                     new IdFieldConfig,
                     (new FieldConfig)
-                        ->setName('name')
-                        ->setLabel('Name')
+                        ->setName('razao_social')
+                        ->setLabel('Nome')
                         ->setCallback(function ($val) {
                             return "<span class='glyphicon glyphicon-user'></span>{$val}";
                         })
@@ -62,17 +62,41 @@ class ClientController extends Controller
                                 ->setOperator(FilterConfig::OPERATOR_LIKE)
                         )
                     ,
+//                    (new FieldConfig)
+//                        ->setName('email')
+//                        ->setLabel('Email')
+//                        ->setSortable(true)
+//                        ->setCallback(function ($val) {
+//                            $icon = '<span class="glyphicon glyphicon-envelope"></span>&nbsp;';
+//                            return
+//                                '<small>'
+//                                . $icon
+//                                . \HTML::link("mailto:$val", $val)
+//                                . '</small>';
+//                        })
+//                        ->addFilter(
+//                            (new FilterConfig)
+//                                ->setOperator(FilterConfig::OPERATOR_LIKE)
+//                        )
+//                    ,
                     (new FieldConfig)
-                        ->setName('email')
-                        ->setLabel('Email')
+                        ->setName('documents.type')
+                        ->setLabel('Tipo de Documento')
                         ->setSortable(true)
                         ->setCallback(function ($val) {
-                            $icon = '<span class="glyphicon glyphicon-envelope"></span>&nbsp;';
-                            return
-                                '<small>'
-                                . $icon
-                                . \HTML::link("mailto:$val", $val)
-                                . '</small>';
+                            return "<span class='glyphicon glyphicon-id'></span>{$val}";
+                        })
+                        ->addFilter(
+                            (new FilterConfig)
+                                ->setOperator(FilterConfig::OPERATOR_LIKE)
+                        )
+                    ,
+                    (new FieldConfig)
+                        ->setName('documents.number')
+                        ->setLabel('Número do Documento')
+                        ->setSortable(true)
+                        ->setCallback(function ($val) {
+                            return "<span class='glyphicon glyphicon-id'></span>{$val}";
                         })
                         ->addFilter(
                             (new FilterConfig)
@@ -141,6 +165,62 @@ class ClientController extends Controller
 
 
         return view('clients.list', ['grid' => $grid ]);
+
+    }
+
+
+    public function criar()
+    {
+        return view('clients.create');
+
+
+    }
+
+    public function save(Request $request)
+    {
+
+        $type = $request->input('type');
+
+        switch($type)
+        {
+            case "cpf":
+                $name = $request->input('fname');
+                $type_value = $request->input('ftype_value');
+                break;
+            case "cnpj":
+                $name = $request->input('jname');
+                $type_value = $request->input('jtype_value');
+                break;
+        }
+
+        $logradouro = $request->input('logradouro');
+        $numero = $request->input('numero');
+        $cidade = $request->input('cidade');
+        $estado = $request->input('estado');
+        $caixa_postal = $request->input('caixa_postal');
+        $banco = $request->input('banco');
+        $agencia = $request->input('agencia');
+        $conta = $request->input('conta');
+
+        $document = new Documents;
+            $document->type = $type;
+            $document->number = $type_value;
+        $document->save();
+
+        $client = new Clientes;
+            $client->razao_social = $name;
+            $client->logradouro = $logradouro;
+            $client->document_id = $document->id;
+            $client->cidade = $cidade;
+            $client->estado = $estado;
+            $client->caixa_postal = $caixa_postal;
+            $client->banco = $banco;
+            $client->agencia = $agencia;
+            $client->conta = $conta;
+        $client->save();
+
+        return redirect()->route('clientes.listar');
+
 
     }
 }

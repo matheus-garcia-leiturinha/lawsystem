@@ -30,3 +30,29 @@ Route::group(['prefix' => 'processos'], function () {
     Route::post('/save', 'ProcessController@save')->name('processos.salvar');;
 
 });
+
+Route::group(['prefix' => 'advogados'], function () {
+
+    Route::get('/', 'AdvocatesController@listar')->name('advogados.listar');
+    Route::get('/criar', 'AdvocatesController@criar')->name('advogados.criar');;
+    Route::post('/save', 'AdvocatesController@save')->name('advogados.salvar');;
+
+});
+
+
+Route::group(['prefix' => 'tribunais'], function () {
+
+    Route::get('/', 'TribunalController@listar')->name('tribunais.listar');
+    Route::get('/criar', 'TribunalController@criar')->name('tribunais.criar');;
+    Route::post('/save', 'TribunalController@save')->name('tribunais.salvar');;
+
+});
+
+
+Route::group(['prefix' => 'varas'], function () {
+
+    Route::get('/', 'VaraController@listar')->name('varas.listar');
+    Route::get('/criar', 'VaraController@criar')->name('varas.criar');;
+    Route::post('/save', 'VaraController@save')->name('varas.salvar');;
+
+});

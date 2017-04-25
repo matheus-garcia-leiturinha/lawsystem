@@ -24,8 +24,8 @@ class CreateProcessTable extends Migration
 
             $table->string('numero_processual');
             $table->smallInteger('natureza');
-            $table->integer('tribunal');
-            $table->integer('vara');
+            $table->integer('tribunal_id')->unsigned();
+            $table->integer('vara_id')->unsigned();
 
 
             $table->enum('polo',['ativo','passivo']);
@@ -44,6 +44,7 @@ class CreateProcessTable extends Migration
 
 
 
+            $table->integer('contrario_id')->unsigned(); // author
             $table->integer('client_id')->unsigned(); // author
             $table->integer('adv_owner')->unsigned();
             $table->integer('adv_third_party')->unsigned();
@@ -55,9 +56,17 @@ class CreateProcessTable extends Migration
         });
 
         Schema::table('processos', function($table) {
+
+            $table->foreign('contrario_id')->references('id')->on('contrario');
+
             $table->foreign('client_id')->references('id')->on('clientes');
+
             $table->foreign('adv_owner')->references('id')->on('advogados');
             $table->foreign('adv_third_party')->references('id')->on('advogados');
+
+            $table->foreign('tribunal_id')->references('id')->on('tribunal');
+            $table->foreign('vara_id')->references('id')->on('vara');
+
             $table->foreign('pericia_id')->references('id')->on('pericias');
         });
     }

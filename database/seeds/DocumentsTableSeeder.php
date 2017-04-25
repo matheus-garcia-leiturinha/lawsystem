@@ -12,7 +12,7 @@ class DocumentsTableSeeder extends Seeder
     public function run()
     {
         DB::table('documents')->insert([
-            'number' => '111.111.111-11',
+            'number' => '11111111111',
         ]);
     }
 }

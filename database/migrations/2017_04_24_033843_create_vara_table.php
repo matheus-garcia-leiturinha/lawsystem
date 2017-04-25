@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Documents extends Migration
+class CreateVaraTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,20 @@ class Documents extends Migration
      */
     public function up()
     {
-        Schema::create('documents', function (Blueprint $table) {
+        //
+        Schema::create('vara', function (Blueprint $table) {
 
 
             $table->engine = 'InnoDB';
 
-            $table->increments('id');
-            $table->enum('type',['cpf','cnpj']);
-            $table->string('number');
+            $table->integer('id')->unsigned();
+            $table->primary('id');
+            $table->string('nome');
+            $table->string('cidade');
             $table->timestamps();
+
+
+
         });
     }
 
@@ -32,5 +37,7 @@ class Documents extends Migration
      */
     public function down()
     {
+        //
+        Schema::dropIfExists('vara');
     }
 }

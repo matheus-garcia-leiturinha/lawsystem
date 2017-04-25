@@ -19,3 +19,4 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/libs/jquery.min.js', 'public/js/lib')
    .less('resources/assets/less/app.less', 'public/css');
 
+

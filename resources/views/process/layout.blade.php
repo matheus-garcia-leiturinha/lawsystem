@@ -12,6 +12,6 @@
 
     @parent();
 
-	<script src="{{ asset('/js/clients.js') }}"></script>
+	<script src="{{ asset('/js/process.js') }}"></script>
 
 @endsection

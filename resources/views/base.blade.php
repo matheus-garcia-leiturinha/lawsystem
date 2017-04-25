@@ -22,6 +22,8 @@
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap-theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/datatables.css') }}">
     <body>
+
+        <a type="button" class="btn btn-primary btn-lg" href={{ url('/') }} >HOME</a>
         <div class="container">
             @yield('content')
         </div>
@@ -31,4 +33,7 @@
 	<script src="{{ asset('/js/lib/bootstrap.min.js') }}"></script>
 	<script src="{{ asset('/js/datatables.js') }}"></script>
 	<script src="{{ asset('/js/app.js') }}"></script>
+
+    @yield('scripts')
+
 </html>

@@ -12251,6 +12251,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
 __webpack_require__(1);
 
 $(document).ready(function () {
+
     $('#table').DataTable();
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))

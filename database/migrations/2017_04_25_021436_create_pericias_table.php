@@ -14,6 +14,19 @@ class CreatePericiasTable extends Migration
     public function up()
     {
         //
+
+        Schema::create('pericias', function (Blueprint $table) {
+
+
+            $table->engine = 'InnoDB';
+
+            $table->increments('id');
+            $table->string('type');
+            $table->timestamps();
+
+
+
+        });
     }
 
     /**
@@ -24,5 +37,7 @@ class CreatePericiasTable extends Migration
     public function down()
     {
         //
+
+        Schema::dropIfExists('pericias');
     }
 }

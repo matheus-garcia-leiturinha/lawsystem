@@ -14,6 +14,24 @@ class CreateAdvocatesTable extends Migration
     public function up()
     {
         //
+
+
+        Schema::create('advogados', function (Blueprint $table) {
+
+
+            $table->engine = 'InnoDB';
+
+            $table->increments('id');
+            $table->string('oab');
+            $table->string('nome');
+            $table->integer('telefone');
+            $table->string('email');
+            $table->timestamps();
+
+
+
+        });
+
     }
 
     /**
@@ -24,5 +42,7 @@ class CreateAdvocatesTable extends Migration
     public function down()
     {
         //
+
+        Schema::dropIfExists('advogados');
     }
 }

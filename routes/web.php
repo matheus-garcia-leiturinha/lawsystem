@@ -22,3 +22,11 @@ Route::group(['prefix' => 'clientes'], function () {
     Route::post('/save', 'ClientController@save')->name('clientes.salvar');;
 
 });
+
+Route::group(['prefix' => 'processos'], function () {
+
+    Route::get('/', 'ProcessController@listar')->name('processos.listar');
+    Route::get('/criar', 'ProcessController@criar')->name('processos.criar');;
+    Route::post('/save', 'ProcessController@save')->name('processos.salvar');;
+
+});

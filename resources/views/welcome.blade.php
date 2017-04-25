@@ -84,6 +84,7 @@
 
                 <div class="links">
                     <a href="{{ url('/clientes') }}">Clientes</a>
+                    <a href="{{ url('/processos') }}">Processos</a>
                 </div>
             </div>
         </div>

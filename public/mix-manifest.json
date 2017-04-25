@@ -1,8 +1,9 @@
 {
   "/js/app.js": "/js/app.js",
-  "/js/lib/respond.min.js": "/js/lib/respond.min.js",
+  "/css/app.css": "/css/app.css",
   "/js/lib/jquery.min.js": "/js/lib/jquery.min.js",
-  "/js/lib/html5shiv.min.js": "/js/lib/html5shiv.min.js",
   "/js/lib/bootstrap.min.js": "/js/lib/bootstrap.min.js",
-  "/js/datatables.js": "/js/datatables.js"
+  "/js/datatables.js": "/js/datatables.js",
+  "/js/lib/respond.min.js": "/js/lib/respond.min.js",
+  "/js/lib/html5shiv.min.js": "/js/lib/html5shiv.min.js"
 }

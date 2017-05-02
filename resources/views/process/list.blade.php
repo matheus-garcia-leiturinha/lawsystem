@@ -1,45 +1,39 @@
 
-@extends('clients.layout')
+@extends('process.layout')
 
-@section('title', 'Listar Clientes')
+@section('title', 'Listar Processos')
 
 @section('content')
 
-    <a type="button" class="btn btn-primary btn-lg" href={{ url('/clientes/criar') }} >Criar Cliente</a>
+    <a type="button" class="btn btn-primary btn-lg" href={{ url('/processos/criar') }} >Criar Processo</a>
 
 
 
   <table id="table" class="display" cellspacing="0" width="100%">
           <thead>
               <tr>
-                  <th>Nome / Razão Social</th>
-                  <th>Logradouro</th>
-                  <th>Cidade</th>
-                  <th>Estado</th>
-                  <th>Tipo do Documento</th>
-                  <th>Documento</th>
+                  <th>Número Processual</th>
+                  <th>Natureza</th>
+                  <th>Tribunal</th>
+                  <th>Vara</th>
               </tr>
           </thead>
           <tfoot>
               <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>Número Processual</th>
+                  <th>Natureza</th>
+                  <th>Tribunal</th>
+                  <th>Vara</th>
               </tr>
           </tfoot>
           <tbody>
 
-              @foreach ($clients as $client)
+              @foreach ($processes as $process)
                   <tr>
-                        <td>{{ $client->razao_social }}</td>
-                        <td>{{ $client->logradouro }}</td>
-                        <td>{{ $client->cidade }}</td>
-                        <td>{{ $client->estado }}</td>
-                        <td>{{ $client->documents->type }}</td>
-                        <td>{{ $client->documents->number }}</td>
+                        <td>{{ $process->numero_processual }}</td>
+                        <td>{{ $process->natureza }}</td>
+                        <td>{{ $process->tribunal }}</td>
+                        <td>{{ $process->vara }}</td>
                   </tr>
               @endforeach
 

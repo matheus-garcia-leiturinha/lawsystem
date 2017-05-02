@@ -22,12 +22,12 @@
           </thead>
           <tfoot>
               <tr>
-                  <th>Name</th>
-                  <th>Position</th>
-                  <th>Office</th>
-                  <th>Age</th>
-                  <th>Start date</th>
-                  <th>Salary</th>
+                  <th>Nome / Razão Social</th>
+                  <th>Logradouro</th>
+                  <th>Cidade</th>
+                  <th>Estado</th>
+                  <th>Tipo do Documento</th>
+                  <th>Documento</th>
               </tr>
           </tfoot>
           <tbody>

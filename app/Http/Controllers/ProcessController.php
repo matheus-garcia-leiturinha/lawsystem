@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Processos;
 use Illuminate\Http\Request;
 
 class ProcessController extends Controller
@@ -14,8 +15,17 @@ class ProcessController extends Controller
         $process = Processos::all();
 
 
-        return view('process.list', ['process' => $process ]);
+        return view('process.list', ['processes' => $process ]);
 
     }
+
+
+    public function criar()
+    {
+        return view('process.create');
+
+
+    }
+
 
 }

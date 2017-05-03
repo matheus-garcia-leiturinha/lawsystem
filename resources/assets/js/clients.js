@@ -59,6 +59,7 @@ $(document).ready(function(){
         )
         {
              console.error("Algo de errado não está certo");
+            return false;
         }
 
 

@@ -10348,6 +10348,7 @@ $(document).ready(function () {
 
     $("input[name='type']").on("change", function () {
 
+        createMask();
         $(".doc").removeClass("checked");
 
         var classname = "div.doc." + $(this).val();
@@ -10385,11 +10386,26 @@ $(document).ready(function () {
 
         if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("input[name='estado']")) || Form.isEmpty($("input[name='caixa_postal']")) || Form.isEmpty($("input[name='banco']")) || Form.isEmpty($("input[name='agencia']")) || Form.isEmpty($("input[name='conta']"))) {
             console.error("Algo de errado não está certo");
+            return false;
         }
 
         return false;
     });
 });
+
+function createMask() {
+    // Mascaras
+    var cpf = $("input[name='ftype_value']");
+
+    var cpfmask = new Inputmask("999.999.999-99");
+    cpfmask.mask(cpf);
+
+    var cnpj = $("input[name='jtype_value']");
+
+    var cnpjmask = new Inputmask("99.999.999/9999-99");
+    cnpjmask.mask(cnpj);
+    // Fim máscaras
+}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })

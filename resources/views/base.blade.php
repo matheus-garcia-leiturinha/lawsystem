@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap-theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/datatables.css') }}">
+        <link rel="stylesheet" href="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.css') }}">
 
         @yield('styles')
 
@@ -38,6 +39,7 @@
         <script src="{{ asset('/js/datatables.js') }}"></script>
         <script src="{{ asset('/js/app.js') }}"></script>
         <script src="{{ asset('/frameworks/inputmask/jquery.inputmask.bundle.js') }}"></script>
+        <script src="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.js') }}"></script>
 
         @yield('scripts')
 

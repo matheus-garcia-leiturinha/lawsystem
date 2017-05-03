@@ -41,7 +41,35 @@
         {{ Form::text('cidade') }}
 
         {{ Form::label('estado', 'Estado') }}
-        {{ Form::text('estado') }}
+        {{ Form::select('estado',array(
+            "AC" => "Acre",
+            "AL" => "Alagoas",
+            "AP" => "Amapá",
+            "AM" => "Amazonas",
+            "BA" => "Bahia",
+            "CE" => "Ceará",
+            "DF" => "Distrito Federal",
+            "ES" => "Espírito Santo",
+            "GO" => "Goiás",
+            "MA" => "Maranhão",
+            "MT" => "Mato Grosso",
+            "MS" => "Mato Grosso do Sul",
+            "MG" => "Minas Gerais",
+            "PA" => "Pará",
+            "PB" => "Paraíba",
+            "PR" => "Paraná",
+            "PE" => "Pernambuco",
+            "PI" => "Piauí",
+            "RJ" => "Rio de Janeiro",
+            "RN" => "Rio Grande do Norte",
+            "RS" => "Rio Grande do Sul",
+            "RO" => "Rondônia",
+            "RR" => "Roraima",
+            "SC" => "Santa Catarina",
+            "SP" => "São Paulo",
+            "SE" => "Sergipe",
+            "TO" => "Tocantins"
+        ),null,["class" => "selectpicker","data-live-search" => true ]) }}
 
         {{ Form::label('caixa_postal', 'Caixa Postal') }}
         {{ Form::text('caixa_postal') }}

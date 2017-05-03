@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 15);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10329,15 +10329,15 @@ return jQuery;
 
 /***/ }),
 
-/***/ 14:
+/***/ 15:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(4);
 
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {/**
@@ -10345,6 +10345,8 @@ module.exports = __webpack_require__(3);
  */
 
 $(document).ready(function () {
+
+    createMask();
 
     $("input[name='type']").on("change", function () {
 
@@ -10390,6 +10392,20 @@ $(document).ready(function () {
         return false;
     });
 });
+
+function createMask() {
+    // Mascaras
+    var cpf = $("input[name='ftype_value']");
+
+    var cpfmask = new Inputmask("999.999.999-99");
+    cpfmask.mask(cpf);
+
+    var cnpj = $("input[name='jtype_value']");
+
+    var cnpjmask = new Inputmask("99.999.999/9999-99");
+    cnpjmask.mask(cnpj);
+    // Fim máscaras
+}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })

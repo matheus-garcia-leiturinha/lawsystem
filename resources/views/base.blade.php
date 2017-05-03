@@ -37,6 +37,7 @@
         <script src="{{ asset('/js/lib/bootstrap.min.js') }}"></script>
         <script src="{{ asset('/js/datatables.js') }}"></script>
         <script src="{{ asset('/js/app.js') }}"></script>
+        <script src="{{ asset('/frameworks/inputmask/jquery.inputmask.bundle.js') }}"></script>
 
         @yield('scripts')
 

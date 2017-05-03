@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -12254,6 +12254,80 @@ $(document).ready(function () {
 
     $('#table').DataTable();
 });
+
+Form = {
+
+    isEmpty: function isEmpty(resource) {
+        if (!resource.val()) return true;
+
+        return false;
+    },
+
+    validateDoc: function validateDoc(type, number) {
+
+        if (type == 'cpf') {
+
+            var Soma;
+            var Resto;
+            Soma = 0;
+            if (number == "00000000000") return false;
+
+            for (i = 1; i <= 9; i++) {
+                Soma = Soma + parseInt(number.substring(i - 1, i)) * (11 - i);
+            }Resto = Soma * 10 % 11;
+
+            if (Resto == 10 || Resto == 11) Resto = 0;
+            if (Resto != parseInt(number.substring(9, 10))) return false;
+
+            Soma = 0;
+            for (i = 1; i <= 10; i++) {
+                Soma = Soma + parseInt(number.substring(i - 1, i)) * (12 - i);
+            }Resto = Soma * 10 % 11;
+
+            if (Resto == 10 || Resto == 11) Resto = 0;
+            if (Resto != parseInt(number.substring(10, 11))) return false;
+            return true;
+        } else {
+
+            cnpj = cnpj.replace(/[^\d]+/g, '');
+
+            if (cnpj == '') return false;
+
+            if (cnpj.length != 14) return false;
+
+            // Elimina CNPJs invalidos conhecidos
+            if (cnpj == "00000000000000" || cnpj == "11111111111111" || cnpj == "22222222222222" || cnpj == "33333333333333" || cnpj == "44444444444444" || cnpj == "55555555555555" || cnpj == "66666666666666" || cnpj == "77777777777777" || cnpj == "88888888888888" || cnpj == "99999999999999") return false;
+
+            // Valida DVs
+            tamanho = cnpj.length - 2;
+            numeros = cnpj.substring(0, tamanho);
+            digitos = cnpj.substring(tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+            for (i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2) pos = 9;
+            }
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            if (resultado != digitos.charAt(0)) return false;
+
+            tamanho = tamanho + 1;
+            numeros = cnpj.substring(0, tamanho);
+            soma = 0;
+            pos = tamanho - 7;
+            for (i = tamanho; i >= 1; i--) {
+                soma += numeros.charAt(tamanho - i) * pos--;
+                if (pos < 2) pos = 9;
+            }
+            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+            if (resultado != digitos.charAt(1)) return false;
+
+            return true;
+        }
+        return false;
+    }
+
+};
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
@@ -12269,13 +12343,20 @@ $(document).ready(function () {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 10 */,
+/* 10 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(9);
+__webpack_require__(9);
+module.exports = __webpack_require__(10);
 
 
 /***/ })

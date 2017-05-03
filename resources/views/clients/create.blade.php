@@ -7,11 +7,12 @@
     {{ Form::open(array('url' => 'clientes/save')) }}
 
         {{ Form::label('type', 'Física') }}
-        {{ Form::radio('type', 'cpf') }}
+        {{ Form::radio('type', 'cpf', ['checked' => 'checked']) }}
         {{ Form::label('type', 'Jurídica') }}
         {{ Form::radio('type', 'cnpj') }}
 
-        <div class="fisica">
+
+        <div class="doc cpf checked">
 
         {{ Form::label('fname', 'Nome') }}
         {{ Form::text('fname', '') }}
@@ -20,7 +21,7 @@
         {{ Form::text('ftype_value', '',["pattern" => "\\d{11}","title" => "Digite um CPF no formato: xxxxxxxxxxx","placeholder" => "xxxxxxxxxxx"]) }}
 
         </div>
-        <div class="juridica">
+        <div class="doc cnpj">
 
         {{ Form::label('jname', 'Razão Social') }}
         {{ Form::text('jname', '') }}

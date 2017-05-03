@@ -1,7 +1,6 @@
 {
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
-  "/css/clients.css": "/css/clients.css",
   "/js/lib/jquery.min.js": "/js/lib/jquery.min.js",
   "/js/lib/bootstrap.min.js": "/js/lib/bootstrap.min.js",
   "/js/datatables.js": "/js/datatables.js",

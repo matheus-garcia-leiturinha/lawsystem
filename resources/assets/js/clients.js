@@ -5,14 +5,17 @@
 
 $(document).ready(function(){
 
+    createMask();
+
 
     $( "input[name='type']" ).on("change",function() {
 
-    createMask();
-       $(".doc").removeClass("checked");
 
-       var classname = "div.doc."+$(this).val();
-       $(classname).addClass("checked");
+        $(".doc").removeClass("checked");
+
+        var classname = "div.doc."+$(this).val();
+        $(classname).addClass("checked");
+        
     });
 
     $('form').on("submit", function(event){

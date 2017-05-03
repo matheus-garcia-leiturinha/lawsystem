@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -12244,7 +12244,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = ty
 });
 
 /***/ }),
-/* 2 */
+/* 2 */,
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -12289,19 +12290,19 @@ Form = {
             return true;
         } else {
 
-            cnpj = cnpj.replace(/[^\d]+/g, '');
+            number = number.replace(/[^\d]+/g, '');
 
-            if (cnpj == '') return false;
+            if (number == '') return false;
 
-            if (cnpj.length != 14) return false;
+            if (number.length != 14) return false;
 
-            // Elimina CNPJs invalidos conhecidos
-            if (cnpj == "00000000000000" || cnpj == "11111111111111" || cnpj == "22222222222222" || cnpj == "33333333333333" || cnpj == "44444444444444" || cnpj == "55555555555555" || cnpj == "66666666666666" || cnpj == "77777777777777" || cnpj == "88888888888888" || cnpj == "99999999999999") return false;
+            // Elimina numbers invalidos conhecidos
+            if (number == "00000000000000" || number == "11111111111111" || number == "22222222222222" || number == "33333333333333" || number == "44444444444444" || number == "55555555555555" || number == "66666666666666" || number == "77777777777777" || number == "88888888888888" || number == "99999999999999") return false;
 
             // Valida DVs
-            tamanho = cnpj.length - 2;
-            numeros = cnpj.substring(0, tamanho);
-            digitos = cnpj.substring(tamanho);
+            tamanho = number.length - 2;
+            numeros = number.substring(0, tamanho);
+            digitos = number.substring(tamanho);
             soma = 0;
             pos = tamanho - 7;
             for (i = tamanho; i >= 1; i--) {
@@ -12312,7 +12313,7 @@ Form = {
             if (resultado != digitos.charAt(0)) return false;
 
             tamanho = tamanho + 1;
-            numeros = cnpj.substring(0, tamanho);
+            numeros = number.substring(0, tamanho);
             soma = 0;
             pos = tamanho - 7;
             for (i = tamanho; i >= 1; i--) {
@@ -12331,18 +12332,12 @@ Form = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 3 */,
 /* 4 */,
 /* 5 */,
 /* 6 */,
 /* 7 */,
 /* 8 */,
-/* 9 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 9 */,
 /* 10 */
 /***/ (function(module, exports) {
 
@@ -12351,11 +12346,11 @@ Form = {
 /***/ }),
 /* 11 */,
 /* 12 */,
-/* 13 */
+/* 13 */,
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
-__webpack_require__(9);
+__webpack_require__(3);
 module.exports = __webpack_require__(10);
 
 

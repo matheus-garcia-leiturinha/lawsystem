@@ -17,7 +17,7 @@
         {{ Form::text('fname', '') }}
 
         {{ Form::label('ftype_value', 'CPF') }}
-        {{ Form::text('ftype_value', '',["pattern" => "\\d{11}","title" => "Digite um CPF"]) }}
+        {{ Form::text('ftype_value', '',["title" => "Digite um CPF"]) }}
 
         </div>
         <div class="juridica">
@@ -26,7 +26,7 @@
         {{ Form::text('jname', '') }}
 
         {{ Form::label('jtype_value', 'CNPJ') }}
-        {{ Form::text('jtype_value', '',["pattern" => "[0-9]{8}\\[0-9]{6}","title" => "Digite um CNPJ"]) }}
+        {{ Form::text('jtype_value', '',["title" => "Digite um CNPJ"]) }}
         </div>
 
 

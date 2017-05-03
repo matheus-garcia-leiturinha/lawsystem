@@ -11,6 +11,11 @@ const { mix } = require('laravel-mix');
  |
  */
 
+var paths = {
+    'inputmask': 'node_modules/inputmask/dists/'
+};
+
+
 mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/clients.js', 'public/js')
     .js('resources/assets/js/process.js', 'public/js')
@@ -19,6 +24,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/libs/html5shiv.min.js', 'public/js/lib')
     .js('resources/assets/js/libs/bootstrap.min.js', 'public/js/lib')
     .js('resources/assets/js/libs/jquery.min.js', 'public/js/lib')
+    .js('resources/assets/frameworks/inputmask/jquery.inputmask.bundle.js', 'public/frameworks/inputmask')
+
+
    .less('resources/assets/less/app.less', 'public/css');
-
-

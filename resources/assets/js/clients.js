@@ -8,6 +8,7 @@ $(document).ready(function(){
 
     $( "input[name='type']" ).on("change",function() {
 
+    createMask();
        $(".doc").removeClass("checked");
 
        var classname = "div.doc."+$(this).val();
@@ -64,6 +65,19 @@ $(document).ready(function(){
         return false;
     });
 
-
-
 });
+
+function createMask()
+{
+    // Mascaras
+    var cpf = $("input[name='ftype_value']");
+
+    var cpfmask = new Inputmask("999.999.999-99");
+    cpfmask.mask(cpf)
+
+    var cnpj = $("input[name='jtype_value']");
+
+    var cnpjmask = new Inputmask("99.999.999/9999-99");
+    cnpjmask.mask(cnpj)
+    // Fim máscaras
+}

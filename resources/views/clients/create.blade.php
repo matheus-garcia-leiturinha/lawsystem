@@ -15,46 +15,49 @@
         <div class="doc cpf checked">
 
         {{ Form::label('fname', 'Nome') }}
-        {{ Form::text('fname', '') }}
+        {{ Form::text('fname', '',["class" => "form-control"]) }}
 
         {{ Form::label('ftype_value', 'CPF') }}
-        {{ Form::text('ftype_value', '',["title" => "Digite um CPF"]) }}
+        {{ Form::text('ftype_value', '',["title" => "Digite um CPF", "class" => "form-control"]) }}
 
         </div>
         <div class="doc cnpj">
 
         {{ Form::label('jname', 'Razão Social') }}
-        {{ Form::text('jname', '') }}
+        {{ Form::text('jname', '',["class" => "form-control"]) }}
 
         {{ Form::label('jtype_value', 'CNPJ') }}
-        {{ Form::text('jtype_value', '',["title" => "Digite um CNPJ"]) }}
+        {{ Form::text('jtype_value', '',["title" => "Digite um CNPJ", "class" => "form-control"]) }}
         </div>
 
 
         {{ Form::label('logradouro', 'Logradouro') }}
-        {{ Form::text('logradouro') }}
+        {{ Form::text('logradouro','',["class" => "form-control"]) }}
 
         {{ Form::label('numero', 'Numero') }}
-        {{ Form::text('numero') }}
+        {{ Form::text('numero','',["class" => "form-control"]) }}
+
+        {{ Form::label('complemento', 'Complemento') }}
+        {{ Form::text('complemento','',["class" => "form-control"]) }}
 
         {{ Form::label('cidade', 'Cidade') }}
-        {{ Form::text('cidade') }}
+        {{ Form::text('cidade','',["class" => "form-control"]) }}
 
         {{ Form::label('estado', 'Estado') }}
-        {{ Form::text('estado') }}
+        {{ Form::text('estado','',["class" => "form-control"]) }}
 
         {{ Form::label('caixa_postal', 'Caixa Postal') }}
-        {{ Form::text('caixa_postal') }}
+        {{ Form::text('caixa_postal','',["class" => "form-control"]) }}
 
         {{ Form::label('banco', 'Banco') }}
-        {{ Form::text('banco') }}
+        {{ Form::text('banco','',["class" => "form-control"]) }}
 
         {{ Form::label('agencia', 'Agencia') }}
-        {{ Form::text('agencia') }}
+        {{ Form::text('agencia','',["class" => "form-control"]) }}
 
         {{ Form::label('conta', 'Conta') }}
-        {{ Form::text('conta') }}
+        {{ Form::text('conta','',["class" => "form-control"]) }}
 
-        {{ Form::submit('Enviar') }}
+        {{ Form::submit('Enviar',["class"=>'btn btn-default']) }}
     {{ Form::close() }}
 @endsection

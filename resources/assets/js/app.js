@@ -9,6 +9,15 @@ $(document).ready(function(){
 
 });
 
+
+String.prototype.escapeRegExp = function(str) {
+    return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+}
+
+String.prototype.replaceAll =  function(str, find, replace) {
+    return str.replace(new RegExp(String.prototype.escapeRegExp(find), 'g'), replace);
+}
+
 Form =
 {
 
@@ -23,12 +32,27 @@ Form =
     validateDoc : function(type,number)
     {
 
+        number = String.prototype.replaceAll(number,'.', '');
+        number = String.prototype.replaceAll(number,'-','');
+        number = String.prototype.replaceAll(number,'/','');
+
+        console.log(number);
         if(type == 'cpf'){
 
             var Soma;
             var Resto;
             Soma = 0;
-            if (number == "00000000000") return false;
+            if (number == "00000000000" ||
+                number == "11111111111" ||
+                number == "22222222222" ||
+                number == "33333333333" ||
+                number == "44444444444" ||
+                number == "55555555555" ||
+                number == "66666666666" ||
+                number == "77777777777" ||
+                number == "88888888888" ||
+                number == "99999999999"
+            ) return false;
 
             for (i=1; i<=9; i++) Soma = Soma + parseInt(number.substring(i-1, i)) * (11 - i);
             Resto = (Soma * 10) % 11;

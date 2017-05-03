@@ -18,7 +18,7 @@ $(document).ready(function(){
         
     });
 
-    $('form').on("submit", function(event){
+    $('form button').on("click", function(event){
 
         event.preventDefault();
 
@@ -54,18 +54,18 @@ $(document).ready(function(){
         if(Form.isEmpty($( "input[name='logradouro']" )) ||
             Form.isEmpty($( "input[name='numero']" )) ||
             Form.isEmpty($( "input[name='cidade']" )) ||
-            Form.isEmpty($( "input[name='estado']" )) ||
-            Form.isEmpty($( "input[name='caixa_postal']" )) ||
-            Form.isEmpty($( "input[name='banco']" )) ||
-            Form.isEmpty($( "input[name='agencia']" )) ||
-            Form.isEmpty($( "input[name='conta']" ))
+            Form.isEmpty($( "input[name='estado']" ))
+            //Form.isEmpty($( "input[name='caixa_postal']" )) ||
+            //Form.isEmpty($( "input[name='banco']" )) ||
+            //Form.isEmpty($( "input[name='agencia']" )) ||
+            //Form.isEmpty($( "input[name='conta']" ))
         )
         {
              console.error("Algo de errado não está certo");
             return false;
         }
 
-
+        $("form").submit();
         return false;
     });
 

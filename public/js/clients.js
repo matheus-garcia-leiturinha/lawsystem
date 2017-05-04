@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10356,7 +10356,7 @@ $(document).ready(function () {
         $(classname).addClass("checked");
     });
 
-    $('form').on("submit", function (event) {
+    $("input['type=submit']").on("click", function (event) {
 
         event.preventDefault();
 
@@ -10385,10 +10385,17 @@ $(document).ready(function () {
                 break;
         }
 
-        if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("input[name='estado']")) || Form.isEmpty($("input[name='caixa_postal']")) || Form.isEmpty($("input[name='banco']")) || Form.isEmpty($("input[name='agencia']")) || Form.isEmpty($("input[name='conta']"))) {
-            console.error("Algo de errado não está certo");
-        }
+        if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("input[name='estado']"))
+        //Form.isEmpty($( "input[name='caixa_postal']" )) ||
+        //Form.isEmpty($( "input[name='banco']" )) ||
+        //Form.isEmpty($( "input[name='agencia']" )) ||
+        //Form.isEmpty($( "input[name='conta']" ))
+        ) {
+                console.error("Algo de errado não está certo");
+                return false;
+            }
 
+        $("form").submit();
         return false;
     });
 });

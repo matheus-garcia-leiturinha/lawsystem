@@ -22,8 +22,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
     .js('resources/assets/frameworks/inputmask/jquery.inputmask.bundle.js', 'public/frameworks/inputmask')
 
-    .copy('resources/assets/frameworks/select2/select2.css', 'public/frameworks/select2')
-    .js('resources/assets/frameworks/select2/select2.js', 'public/frameworks/select2')
+    .copy('resources/assets/frameworks/bootstrap-select/bootstrap-select.min.css', 'public/frameworks/bootstrap-select')
+    .js('resources/assets/frameworks/bootstrap-select/bootstrap-select.min.js', 'public/frameworks/bootstrap-select')
 
    .less('resources/assets/less/app.less', 'public/css')
    .less('resources/assets/less/clients.less', 'public/css');

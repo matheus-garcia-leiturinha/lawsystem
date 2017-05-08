@@ -10384,8 +10384,11 @@ $(document).ready(function () {
                 }
                 break;
         }
-
-        if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("input[name='estado']"))
+        console.log($("input[name='logradouro']").val());
+        console.log($("input[name='numero']").val());
+        console.log($("input[name='cidade']").val());
+        console.log($("input[name='estado']").val());
+        if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("select[name='estado']"))
         //Form.isEmpty($( "input[name='caixa_postal']" )) ||
         //Form.isEmpty($( "input[name='banco']" )) ||
         //Form.isEmpty($( "input[name='agencia']" )) ||
@@ -10411,6 +10414,11 @@ function createMask() {
 
     var cnpjmask = new Inputmask("99.999.999/9999-99");
     cnpjmask.mask(cnpj);
+
+    var cep = $("input[name='cep']");
+
+    var cepmask = new Inputmask("99999-999");
+    cepmask.mask(cep);
     // Fim máscaras
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))

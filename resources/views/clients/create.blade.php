@@ -54,7 +54,7 @@
         {{ Form::text('cidade','',["class" => "form-control", "placeholder" => "Cidade"]) }}
 
 
-            <select class="selectpicker s1" data-live-search=true title="Estado">
+            <select class="selectpicker s1" data-live-search=true title="Estado" name="estado">
             	<option title="AC">Acre</option>
             	<option title="AL">Alagoas</option>
             	<option title="AP">Amapá</option>

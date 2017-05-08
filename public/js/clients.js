@@ -10356,7 +10356,7 @@ $(document).ready(function () {
         $(classname).addClass("checked");
     });
 
-    $("input['type=submit']").on("click", function (event) {
+    $("input[type=submit]").on("click", function (event) {
 
         event.preventDefault();
 

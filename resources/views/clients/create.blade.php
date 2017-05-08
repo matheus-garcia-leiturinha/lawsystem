@@ -48,8 +48,42 @@
                 {{ Form::text('complemento','',["class" => "form-control s2", "placeholder" => "Complemento"]) }}
             </div>
 
-            {{ Form::text('cidade','',["class" => "form-control", "placeholder" => "Cidade"]) }}
+        {{ Form::label('bairro', 'Bairro') }}
+        {{ Form::text('bairro','',["class" => "form-control"]) }}
 
+        {{ Form::text('cidade','',["class" => "form-control", "placeholder" => "Cidade"]) }}
+
+        {{ Form::label('estado', 'Estado') }}
+        {{--{{ Form::text('estado','',["class" => "form-control"]) }}--}}
+        {{ Form::select('estado',array(
+            "AC" => "Acre",
+            "AL" => "Alagoas",
+            "AP" => "Amapá",
+            "AM" => "Amazonas",
+            "BA" => "Bahia",
+            "CE" => "Ceará",
+            "DF" => "Distrito Federal",
+            "ES" => "Espírito Santo",
+            "GO" => "Goiás",
+            "MA" => "Maranhão",
+            "MT" => "Mato Grosso",
+            "MS" => "Mato Grosso do Sul",
+            "MG" => "Minas Gerais",
+            "PA" => "Pará",
+            "PB" => "Paraíba",
+            "PR" => "Paraná",
+            "PE" => "Pernambuco",
+            "PI" => "Piauí",
+            "RJ" => "Rio de Janeiro",
+            "RN" => "Rio Grande do Norte",
+            "RS" => "Rio Grande do Sul",
+            "RO" => "Rondônia",
+            "RR" => "Roraima",
+            "SC" => "Santa Catarina",
+            "SP" => "São Paulo",
+            "SE" => "Sergipe",
+            "TO" => "Tocantins"
+        ),null,["class" => "selectpicker","data-live-search" => true ]) }}
             <select class="selectpicker s1" data-live-search=true title="Estado">
             	<option title="AC">Acre</option>
             	<option title="AL">Alagoas</option>
@@ -87,7 +121,9 @@
         </div>
 
         <div class="block">
-            {{ Form::label('banco', 'Dados Bancários',["class"=>'block']) }}
+
+        {{ Form::label('cep', 'CEP') }}
+        {{ Form::text('cep','',["class" => "form-control"]) }}
 
             {{ Form::text('banco','',["class" => "form-control s2"]) }}
             {{ Form::text('agencia','',["class" => "form-control s1"]) }}

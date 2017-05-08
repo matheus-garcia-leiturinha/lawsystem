@@ -10360,6 +10360,8 @@ $(document).ready(function () {
 
         event.preventDefault();
 
+        // console.log($(".bootstrap-select .filter-option")[0].innerText);
+
         switch ($("input[name='type']:checked").val()) {
             case "cpf":
                 if (Form.isEmpty($("input[name='fname']"))) {
@@ -10368,7 +10370,7 @@ $(document).ready(function () {
                 }
                 var doc = $("input[name='ftype_value']").val();
                 if (!Form.validateDoc("cpf", doc)) {
-                    console.error("CPF INVALIDO");
+                    alert("CPF INVALIDO");
                     return false;
                 }
                 break;
@@ -10384,8 +10386,11 @@ $(document).ready(function () {
                 }
                 break;
         }
-
-        if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("input[name='estado']"))
+        //console.log("Estado");
+        //var abc = $(".bootstrap-select .filter-option").innerText;
+        //console.log(abc);
+        if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("input[name='cep']"))
+        //Form.isEmpty($(".bootstrap-select .filter-option")[0])
         //Form.isEmpty($( "input[name='caixa_postal']" )) ||
         //Form.isEmpty($( "input[name='banco']" )) ||
         //Form.isEmpty($( "input[name='agencia']" )) ||
@@ -10411,6 +10416,11 @@ function createMask() {
 
     var cnpjmask = new Inputmask("99.999.999/9999-99");
     cnpjmask.mask(cnpj);
+
+    var cep = $("input[name='cep']");
+
+    var cepmask = new Inputmask("99999-999");
+    cepmask.mask(cep);
     // Fim máscaras
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))

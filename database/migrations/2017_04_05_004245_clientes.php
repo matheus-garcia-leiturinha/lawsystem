@@ -26,6 +26,7 @@ class Clientes extends Migration
             $table->string('logradouro')->nullable();
             $table->string('numero')->nullable();
             $table->string('complemento')->nullable();
+            $table->string('bairro')->nullable();
             $table->string('cidade')->nullable();
             $table->string('estado')->nullable();
             $table->string('caixa_postal')->nullable();

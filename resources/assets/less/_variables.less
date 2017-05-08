@@ -1,6 +1,8 @@
 
-// Body
+// colors
 @body-bg: #f5f8fa;
+@font-color: #364f6b;
+@base-color: #fccc49;
 
 // Borders
 @laravel-border-color: darken(@body-bg, 10%);
@@ -18,7 +20,7 @@
 
 // Typography
 @icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-@font-family-sans-serif: "Raleway", sans-serif;
+@font-family-sans-serif: "Open Sans", sans-serif;
 @font-size-base: 14px;
 @line-height-base: 1.6;
 @text-color: #636b6f;
@@ -36,3 +38,210 @@
 
 // Panels
 @panel-default-heading-bg: #fff;
+
+
+/* Micro ClearFix Mixin */
+.clearfix{
+  zoom:1;
+  &:before, &:after{ content:""; display:table; }
+  &:after{ clear: both; }
+}
+
+
+body
+{
+  font-family: @font-family-sans-serif;
+}
+
+.s1
+{
+  max-width: 154px !important;
+  display: inline-block;
+}
+.s2
+{
+  max-width: 254px !important;
+  display: inline-block;
+}
+
+label
+{
+  color: @font-color;
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 700;
+
+  &.radio
+  {
+    width: 182px;
+    height: 59px;
+    border-radius: 10px;
+    border: 2px solid #e6e6e6;
+    background-color: #ffffff;
+
+    color: @font-color;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 14px 0;
+
+    display: inline-block;
+
+    margin: 0 20px 40px;
+
+
+    &.first
+    {
+      margin: 0 20px 40px 0;
+    }
+
+  }
+}
+
+input,select
+{
+
+  &::-moz-placeholder,
+  &::-webkit-input-placeholder,
+  &:-ms-input-placeholder,
+  &:-moz-placeholder
+  {
+    opacity: 0.5;
+    color: red;
+    font-family: "Open Sans";
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &[type=radio]
+  {
+    display: none;
+
+    &:checked
+    {
+      &+label
+      {
+        &.radio
+        {
+
+          color: white;
+          border: 2px solid @base-color;
+          background-color: @base-color;
+        }
+      }
+    }
+  }
+
+  &.form-control
+  {
+    box-shadow: initial !important;
+    outline: none !important;
+    border-radius: 10px !important;
+    border: 2px solid #e6e6e6 !important;
+    padding: 27px !important;
+
+
+    color: @font-color !important;
+    font-family: "Open Sans" !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+
+    &:focus
+    {
+      border: 2px solid @base-color !important;
+      border-color: @base-color !important;
+      box-shadow: none !important;
+    }
+
+    margin-bottom: 10px;
+    max-width: 505px;
+
+  }
+}
+
+.bootstrap-select
+{
+
+  display: block !important;
+  max-width: 505px;
+  outline:  none !important;
+  &.open
+  {
+    .dropdown-toggle
+    {
+      -webkit-box-shadow: initial;
+      box-shadow: initial;
+      color: @font-color;
+      background-color: white;
+      border-color: inherit;
+      border: 2px solid #e6e6e6 ;
+    }
+  }
+
+  .btn
+  {
+
+
+    border-radius: 10px;
+    outline: none !important;
+    color: @font-color !important;
+    text-shadow: initial;
+    background-image: initial;
+    filter: initial;
+    background-repeat: initial;
+    border-color: initial;
+    background-color: white;
+    border: 2px solid #e6e6e6;
+    padding: 15px 28px 14px;
+
+
+    &:not(.bs-placeholder) .filter-option
+    {
+
+      border-radius: 10px !important;
+      background-color: #ffffff !important;
+      color: @font-color;
+      font-family: "Open Sans";
+      font-size: 18px !important;
+      font-weight: 700;
+      padding-left: 30px;
+
+    }
+    &.bs-placeholder
+    {
+      font-family: "Open Sans" !important;
+      font-size: 18px !important;
+      font-weight: 600 !important;
+
+      span{
+        opacity: 0.5;
+        color: #000000 !important;
+      }
+    }
+  }
+}
+
+.block
+{
+  .clearfix;
+  display: block;
+
+  &:not(label)
+  {
+    margin-bottom: 30px;
+  }
+}
+
+.inline
+{
+
+  .clearfix;
+  display: inline-block;
+  margin: 0px 5px;
+
+  &.first
+  {
+    margin: 0px 5px 0 0;
+  }
+}

@@ -49,6 +49,7 @@ $(document).ready(function(){
                 }
                 break;
         }
+
         //console.log("Estado");
         //var abc = $(".bootstrap-select .filter-option").innerText;
         //console.log(abc);

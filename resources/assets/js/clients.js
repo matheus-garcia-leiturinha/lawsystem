@@ -2,11 +2,9 @@
  * Created by matheus garcia on 24/04/2017.
  */
 
-
 $(document).ready(function(){
 
     createMask();
-
 
     $( "input[name='type']" ).on("change",function() {
 
@@ -18,10 +16,11 @@ $(document).ready(function(){
         
     });
 
-    $("input['type=submit']").on("click", function(event){
+    $("input[type=submit]").on("click", function(event){
 
         event.preventDefault();
 
+       // console.log($(".bootstrap-select .filter-option")[0].innerText);
 
         switch($( "input[name='type']:checked").val())
         {
@@ -33,7 +32,7 @@ $(document).ready(function(){
                 var doc = $( "input[name='ftype_value']").val();
                 if(!Form.validateDoc("cpf",doc))
                 {
-                    console.error("CPF INVALIDO");
+                    alert("CPF INVALIDO");
                     return false;
                 }
                 break;
@@ -50,11 +49,14 @@ $(document).ready(function(){
                 }
                 break;
         }
-
+        //console.log("Estado");
+        //var abc = $(".bootstrap-select .filter-option").innerText;
+        //console.log(abc);
         if(Form.isEmpty($( "input[name='logradouro']" )) ||
             Form.isEmpty($( "input[name='numero']" )) ||
             Form.isEmpty($( "input[name='cidade']" )) ||
-            Form.isEmpty($( "input[name='estado']" ))
+            Form.isEmpty($( "input[name='cep']" ))
+            //Form.isEmpty($(".bootstrap-select .filter-option")[0])
             //Form.isEmpty($( "input[name='caixa_postal']" )) ||
             //Form.isEmpty($( "input[name='banco']" )) ||
             //Form.isEmpty($( "input[name='agencia']" )) ||
@@ -71,17 +73,24 @@ $(document).ready(function(){
 
 });
 
+
+
 function createMask()
 {
     // Mascaras
     var cpf = $("input[name='ftype_value']");
 
     var cpfmask = new Inputmask("999.999.999-99");
-    cpfmask.mask(cpf)
+    cpfmask.mask(cpf);
 
     var cnpj = $("input[name='jtype_value']");
 
     var cnpjmask = new Inputmask("99.999.999/9999-99");
-    cnpjmask.mask(cnpj)
+    cnpjmask.mask(cnpj);
+
+    var cep = $("input[name='cep']");
+
+    var cepmask = new Inputmask("99999-999");
+    cepmask.mask(cep);
     // Fim máscaras
 }

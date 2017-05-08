@@ -40,11 +40,14 @@
         {{ Form::label('complemento', 'Complemento') }}
         {{ Form::text('complemento','',["class" => "form-control"]) }}
 
+        {{ Form::label('bairro', 'Bairro') }}
+        {{ Form::text('bairro','',["class" => "form-control"]) }}
+
         {{ Form::label('cidade', 'Cidade') }}
         {{ Form::text('cidade','',["class" => "form-control"]) }}
 
         {{ Form::label('estado', 'Estado') }}
-        {{ Form::text('estado','',["class" => "form-control"]) }}
+        {{--{{ Form::text('estado','',["class" => "form-control"]) }}--}}
         {{ Form::select('estado',array(
             "AC" => "Acre",
             "AL" => "Alagoas",
@@ -77,6 +80,9 @@
 
         {{ Form::label('caixa_postal', 'Caixa Postal') }}
         {{ Form::text('caixa_postal','',["class" => "form-control"]) }}
+
+        {{ Form::label('cep', 'CEP') }}
+        {{ Form::text('cep','',["class" => "form-control"]) }}
 
         {{ Form::label('banco', 'Banco') }}
         {{ Form::text('banco','',["class" => "form-control"]) }}

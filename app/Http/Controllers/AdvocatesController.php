@@ -18,14 +18,12 @@ class AdvocatesController extends Controller
 
     }
 
-
     public function criar()
     {
         return view('advocates.create');
 
 
     }
-
     public function save(Request $request)
     {
 
@@ -34,15 +32,16 @@ class AdvocatesController extends Controller
         $telefone = $request->input('telefone');
         $email = $request->input('email');
 
-        $advogado = new Advogados();
-        $advogado->nome = $nome;
-        $advogado->oab = $oab;
-        $advogado->telefone = $telefone;
-        $advogado->email = $email;
-        $advogado->save();
+        $advocates = new Advogados;
+        $advocates->nome = $nome;
+        $advocates->oab = $oab;
+        $advocates->telefone = $telefone;
+        $advocates->email = $email;
+        $advocates->save();
 
         return redirect()->route('advogados.listar');
 
-
     }
+
+
 }

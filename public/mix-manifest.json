@@ -6,6 +6,7 @@
   "/js/lib/bootstrap.min.js": "/js/lib/bootstrap.min.js",
   "/js/datatables.js": "/js/datatables.js",
   "/js/clients.js": "/js/clients.js",
+  "/js/advocates.js": "/js/advocates.js",
   "/frameworks/inputmask/jquery.inputmask.bundle.js": "/frameworks/inputmask/jquery.inputmask.bundle.js",
   "/frameworks/bootstrap-select/bootstrap-select.min.js": "/frameworks/bootstrap-select/bootstrap-select.min.js",
   "/js/process.js": "/js/process.js",

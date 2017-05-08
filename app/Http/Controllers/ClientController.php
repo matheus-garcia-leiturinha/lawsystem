@@ -69,8 +69,11 @@ class ClientController extends Controller
                 break;
         }
 
+        $cep = $request->input('cep');
         $logradouro = $request->input('logradouro');
         $numero = $request->input('numero');
+        $complemento = $request->input('complemento');
+        $bairro = $request->input('bairro');
         $cidade = $request->input('cidade');
         $estado = $request->input('estado');
         $caixa_postal = $request->input('caixa_postal');
@@ -85,11 +88,15 @@ class ClientController extends Controller
 
         $client = new Clientes;
             $client->razao_social = $name;
+            $client->cep = $cep;
             $client->logradouro = $logradouro;
-            $client->document_id = $document->id;
+            $client->numero = $numero;
+            $client->complemento = $complemento;
+            $client->bairro = $bairro;
             $client->cidade = $cidade;
             $client->estado = $estado;
             $client->caixa_postal = $caixa_postal;
+            $client->document_id = $document->id;
             $client->banco = $banco;
             $client->agencia = $agencia;
             $client->conta = $conta;

@@ -6,10 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
 
-        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
         <!-- Fonts -->
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+        <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type='text/css'>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,13 +18,15 @@
             <script src="{{ asset('/js/lib/respond.min.js') }}"></script>
         <![endif]-->
 
+        @yield('styles')
+
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap-theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/datatables.css') }}">
-        <link rel="stylesheet" href="{{ asset('/frameworks/select2/select2.css') }}">
+        <link rel="stylesheet" href="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.css') }}">
 
-        @yield('styles')
 
+        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     </head>
 
     <body>
@@ -39,7 +41,7 @@
         <script src="{{ asset('/js/datatables.js') }}"></script>
         <script src="{{ asset('/js/app.js') }}"></script>
         <script src="{{ asset('/frameworks/inputmask/jquery.inputmask.bundle.js') }}"></script>
-        <script src="{{ asset('/frameworks/select2/select2.js') }}"></script>
+        <script src="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.js') }}"></script>
 
         @yield('scripts')
 

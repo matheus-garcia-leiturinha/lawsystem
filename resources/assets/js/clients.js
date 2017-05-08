@@ -22,7 +22,6 @@ $(document).ready(function(){
 
         event.preventDefault();
 
-
         switch($( "input[name='type']:checked").val())
         {
             case "cpf":

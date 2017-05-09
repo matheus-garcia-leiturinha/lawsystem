@@ -20,12 +20,14 @@ $(document).ready(function(){
         if(Form.isEmpty($( "input[name='nome']" )) ||
             Form.isEmpty($( "input[name='oab']" )) ||
             Form.isEmpty($( "input[name='telefone']" )) ||
-            Form.isEmpty($( "input[name='email']" ))
+            !Form.validateEmail($( "input[name='email']" )[0].value)
         )
         {
             console.error("Algo de errado não está certo");
             return false;
         }
+
+
 
         $("form").submit();
         return false;

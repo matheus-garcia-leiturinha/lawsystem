@@ -51,13 +51,15 @@ $(document).ready(function(){
         }
 
         //console.log("Estado");
-        //var abc = $(".bootstrap-select .filter-option").innerText;
-        //console.log(abc);
+        var abc = $(".bootstrap-select .filter-option")[0].innerText;
+        console.log(abc);
         if(Form.isEmpty($( "input[name='logradouro']" )) ||
             Form.isEmpty($( "input[name='numero']" )) ||
             Form.isEmpty($( "input[name='cidade']" )) ||
-            Form.isEmpty($( "input[name='cep']" ))
-            //Form.isEmpty($(".bootstrap-select .filter-option")[0])
+            Form.isEmpty($( "input[name='cep']" )) ||
+            $(".bootstrap-select .filter-option")[0].innerText == "Estado"
+
+
             //Form.isEmpty($( "input[name='caixa_postal']" )) ||
             //Form.isEmpty($( "input[name='banco']" )) ||
             //Form.isEmpty($( "input[name='agencia']" )) ||

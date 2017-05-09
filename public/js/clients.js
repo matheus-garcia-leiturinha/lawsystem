@@ -10360,6 +10360,8 @@ $(document).ready(function () {
 
         event.preventDefault();
 
+        // console.log($(".bootstrap-select .filter-option")[0].innerText);
+
         switch ($("input[name='type']:checked").val()) {
             case "cpf":
                 if (Form.isEmpty($("input[name='fname']"))) {
@@ -10384,11 +10386,12 @@ $(document).ready(function () {
                 }
                 break;
         }
-        console.log($("input[name='logradouro']").val());
-        console.log($("input[name='numero']").val());
-        console.log($("input[name='cidade']").val());
-        console.log($("input[name='estado']").val());
-        if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("select[name='estado']"))
+
+        //console.log("Estado");
+        var abc = $(".bootstrap-select .filter-option")[0].innerText;
+        console.log(abc);
+        if (Form.isEmpty($("input[name='logradouro']")) || Form.isEmpty($("input[name='numero']")) || Form.isEmpty($("input[name='cidade']")) || Form.isEmpty($("input[name='cep']")) || $(".bootstrap-select .filter-option")[0].innerText == "Estado"
+
         //Form.isEmpty($( "input[name='caixa_postal']" )) ||
         //Form.isEmpty($( "input[name='banco']" )) ||
         //Form.isEmpty($( "input[name='agencia']" )) ||

@@ -1,7 +1,10 @@
 /**
  * Created by Pedro on 08/05/2017.
  */
+
 $(document).ready(function(){
+
+
 
     $("input[type=submit]").on("click", function(event){
 

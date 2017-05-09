@@ -26,6 +26,14 @@ class VaraController extends Controller
 
     }
 
+    public function editar($id)
+    {
+        $vara = Vara::find($id)->toArray();
+        return view('varas.edit', ['vara' => $vara ]);
+
+
+    }
+
     public function save(Request $request)
     {
 
@@ -33,14 +41,29 @@ class VaraController extends Controller
         $nome = $request->input('nome');
         $cidade = $request->input('cidade');
 
-        $vara = new Vara();
-        $vara->id = $id;
+        $vara = Vara::find($id);
+
+        if(!$vara)
+        {
+            $vara = new Vara();
+            $vara->id = $id;
+        }
+
+
+
         $vara->nome = $nome;
         $vara->cidade = $cidade;
+
         $vara->save();
 
         return redirect()->route('varas.listar');
 
 
+    }
+
+    public function deletar($id){
+
+        $vara = Vara::find($id);
+        $vara->delete();
     }
 }

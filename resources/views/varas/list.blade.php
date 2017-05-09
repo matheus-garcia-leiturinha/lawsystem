@@ -15,6 +15,7 @@
                   <th>Número</th>
                   <th>Nome</th>
                   <th>Cidade</th>
+                  <th>Ações</th>
               </tr>
           </thead>
           <tfoot>
@@ -22,6 +23,8 @@
                   <th>Número</th>
                   <th>Nome</th>
                   <th>Cidade</th>
+                  <th>Ações</th>
+
               </tr>
           </tfoot>
           <tbody>
@@ -31,6 +34,7 @@
                         <td>{{ $vara->id }}</td>
                         <td>{{ $vara->nome }}</td>
                         <td>{{ $vara->cidade }}</td>
+                        <td></td>
                   </tr>
               @endforeach
 

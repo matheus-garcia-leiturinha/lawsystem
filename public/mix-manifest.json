@@ -3,6 +3,8 @@
   "/css/app.css": "/css/app.css",
   "/css/clients.css": "/css/clients.css",
   "/js/lib/jquery.min.js": "/js/lib/jquery.min.js",
+  "/js/varas.js": "/js/varas.js",
+  "/js/tribunais.js": "/js/tribunais.js",
   "/js/process.js": "/js/process.js",
   "/js/lib/bootstrap.min.js": "/js/lib/bootstrap.min.js",
   "/js/datatables.js": "/js/datatables.js",
@@ -11,7 +13,5 @@
   "/frameworks/inputmask/jquery.inputmask.bundle.js": "/frameworks/inputmask/jquery.inputmask.bundle.js",
   "/frameworks/bootstrap-select/bootstrap-select.min.js": "/frameworks/bootstrap-select/bootstrap-select.min.js",
   "/js/lib/respond.min.js": "/js/lib/respond.min.js",
-  "/js/lib/html5shiv.min.js": "/js/lib/html5shiv.min.js",
-  "/js/varas.js": "/js/varas.js",
-  "/js/tribunais.js": "/js/tribunais.js"
+  "/js/lib/html5shiv.min.js": "/js/lib/html5shiv.min.js"
 }

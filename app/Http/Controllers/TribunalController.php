@@ -26,6 +26,14 @@ class TribunalController extends Controller
 
     }
 
+    public function editar($id)
+    {
+        $tribunal = Tribunal::find($id)->toArray();
+        return view('tribunais.edit', ['tribunal' => $tribunal ]);
+
+
+    }
+
     public function save(Request $request)
     {
 
@@ -33,8 +41,14 @@ class TribunalController extends Controller
         $nome = $request->input('nome');
         $estado = $request->input('estado');
 
-        $tribunal = new Tribunal();
-        $tribunal->id = $id;
+        $tribunal = Tribunal::find($id);
+
+        if(!$tribunal)
+        {
+            $tribunal = new Tribunal();
+            $tribunal->id = $id;
+        }
+
         $tribunal->nome = $nome;
         $tribunal->estado = $estado;
         $tribunal->save();
@@ -42,5 +56,11 @@ class TribunalController extends Controller
         return redirect()->route('tribunais.listar');
 
 
+    }
+
+    public function deletar($id){
+
+        $tribunal = Tribunal::find($id);
+        $tribunal->delete();
     }
 }

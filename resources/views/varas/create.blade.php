@@ -9,7 +9,7 @@
        {{ Form::label('id', 'Numero') }}
        {{ Form::Text('id', '',["class" => "form-control"]) }}
 
-       {{ Form::label('nome', 'Vara') }}
+       {{ Form::label('nome', 'Nome da Vara Hahahaha') }}
        {{ Form::Text('nome', '',["class" => "form-control"]) }}
 
        {{ Form::label('cidade', 'Cidade') }}

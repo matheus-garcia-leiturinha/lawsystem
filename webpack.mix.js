@@ -14,6 +14,8 @@ const { mix } = require('laravel-mix');
 mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/clients.js', 'public/js')
     .js('resources/assets/js/advocates.js', 'public/js')
+    .js('resources/assets/js/tribunais.js', 'public/js')
+    .js('resources/assets/js/varas.js', 'public/js')
     .js('resources/assets/js/process.js', 'public/js')
     .js('resources/assets/js/datatables.js', 'public/js')
     .js('resources/assets/js/libs/respond.min.js', 'public/js/lib')

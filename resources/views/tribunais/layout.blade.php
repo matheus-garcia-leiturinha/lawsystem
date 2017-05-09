@@ -12,6 +12,6 @@
 
     @parent();
 
-	<script src="{{ asset('/js/tribunal.js') }}"></script>
+	<script src="{{ asset('/js/tribunais.js') }}"></script>
 
 @endsection

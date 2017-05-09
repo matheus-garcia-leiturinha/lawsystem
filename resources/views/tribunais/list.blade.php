@@ -12,12 +12,14 @@
   <table id="table" class="display" cellspacing="0" width="100%">
           <thead>
               <tr>
+                  <th>Número</th>
                   <th>Nome</th>
                   <th>Cidade</th>
               </tr>
           </thead>
           <tfoot>
               <tr>
+                  <th>Número</th>
                   <th>Nome</th>
                   <th>Cidade</th>
               </tr>
@@ -26,6 +28,7 @@
 
               @foreach ($tribunais as $tribunal)
                   <tr>
+                        <td>{{ $tribunal->id }}</td>
                         <td>{{ $tribunal->nome }}</td>
                         <td>{{ $tribunal->estado }}</td>
                   </tr>

@@ -2,11 +2,9 @@
  * Created by matheus garcia on 24/04/2017.
  */
 
-
 $(document).ready(function(){
 
     createMask();
-
 
     $( "input[name='type']" ).on("change",function() {
 
@@ -21,6 +19,8 @@ $(document).ready(function(){
     $("input[type=submit]").on("click", function(event){
 
         event.preventDefault();
+
+       // console.log($(".bootstrap-select .filter-option")[0].innerText);
 
         switch($( "input[name='type']:checked").val())
         {
@@ -49,14 +49,17 @@ $(document).ready(function(){
                 }
                 break;
         }
-console.log($( "input[name='logradouro']").val());
-console.log($( "input[name='numero']").val());
-console.log($( "input[name='cidade']").val());
-console.log($( "input[name='estado']").val());
+
+        //console.log("Estado");
+        var abc = $(".bootstrap-select .filter-option")[0].innerText;
+        console.log(abc);
         if(Form.isEmpty($( "input[name='logradouro']" )) ||
             Form.isEmpty($( "input[name='numero']" )) ||
             Form.isEmpty($( "input[name='cidade']" )) ||
-            Form.isEmpty($( "select[name='estado']" ))
+            Form.isEmpty($( "input[name='cep']" )) ||
+            $(".bootstrap-select .filter-option")[0].innerText == "Estado"
+
+
             //Form.isEmpty($( "input[name='caixa_postal']" )) ||
             //Form.isEmpty($( "input[name='banco']" )) ||
             //Form.isEmpty($( "input[name='agencia']" )) ||
@@ -72,6 +75,8 @@ console.log($( "input[name='estado']").val());
     });
 
 });
+
+
 
 function createMask()
 {

@@ -29,6 +29,21 @@ Form =
         return false;
     },
 
+    validateEmail : function(email)
+    {
+
+
+        var emailValido = /^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/;
+
+        if(!emailValido.test(email)){
+            console.log("Entrou");
+            return false;
+        }
+
+        return true;
+
+    },
+
     validateDoc : function(type,number)
     {
 

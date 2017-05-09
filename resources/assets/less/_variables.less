@@ -53,6 +53,12 @@ body
   font-family: @font-family-sans-serif;
 }
 
+.s0
+{
+  max-width: 84px !important;
+  display: inline-block;
+
+}
 .s1
 {
   max-width: 154px !important;
@@ -94,6 +100,17 @@ label
     &.first
     {
       margin: 0 20px 40px 0;
+    }
+
+    &.s0
+    {
+      margin: 0 10px 0px;
+
+
+      &.first
+      {
+        margin: 0 10px 0px 0;
+      }
     }
 
   }
@@ -165,6 +182,7 @@ input,select
 
   display: block !important;
   max-width: 505px;
+  width: inherit !important;
   outline:  none !important;
   &.open
   {
@@ -217,6 +235,31 @@ input,select
       span{
         opacity: 0.5;
         color: #000000 !important;
+      }
+    }
+  }
+
+  .dropdown-menu
+  {
+    li
+    {
+      a
+      {
+
+        color: @font-color;
+        font-family: "Open Sans";
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 33px;
+        padding: 5px 50px;
+
+        &:hover
+        {
+          background-color: fadeout(black,95%);
+          background-image: none!important;
+          filter: none!important;
+          background-repeat: none!important;
+        }
       }
     }
   }

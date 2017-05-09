@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
 
+        <script src="{{ asset('/lib/js/jquery-3.2.1.min.js') }}"></script>
 
         <!-- Fonts -->
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -20,10 +21,13 @@
 
         @yield('styles')
 
+
+        <link rel="stylesheet" href="{{ asset('/frameworks/jquery-ui/jquery-ui.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap-theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/datatables.css') }}">
         <link rel="stylesheet" href="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/frameworks/datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
 
 
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
@@ -36,12 +40,14 @@
             @yield('content')
         </div>
 
-        <script src="{{ asset('/js/lib/jquery.min.js') }}"></script>
+        <script src="{{ asset('/frameworks/jquery-ui/jquery-ui.min.js') }}"></script>
         <script src="{{ asset('/js/lib/bootstrap.min.js') }}"></script>
         <script src="{{ asset('/js/datatables.js') }}"></script>
         <script src="{{ asset('/js/app.js') }}"></script>
         <script src="{{ asset('/frameworks/inputmask/jquery.inputmask.bundle.js') }}"></script>
         <script src="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.js') }}"></script>
+        <script src="{{ asset('/frameworks/moment/min/moment.min.js') }}"></script>
+        <script src="{{ asset('/frameworks/datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
 
         @yield('scripts')
 

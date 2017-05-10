@@ -1,4 +1,6 @@
 
+@import "../frameworks/font-awesome-4.7.0/less/font-awesome.less";
+
 // colors
 @body-bg: #f5f8fa;
 @font-color: #364f6b;
@@ -142,6 +144,11 @@ xmp {
 html,
 body {
   height: 100%;
+}
+
+.content
+{
+  background-color: white;
 }
 
 article,
@@ -295,6 +302,7 @@ label
   font-family: "Open Sans";
   font-size: 22px;
   font-weight: 700;
+  margin-bottom: 14px;
 
   &.radio
   {
@@ -403,6 +411,26 @@ input,select
   max-width: 505px;
   width: inherit !important;
   outline:  none !important;
+
+  &.no-search
+  {
+    .fa
+    {
+      display: none;
+    }
+  }
+
+  .dropdown-toggle
+  {
+
+    .fa
+    {
+      position: absolute;
+      left: 20px;
+      top: 17px;
+    }
+  }
+
   &.open
   {
     .dropdown-toggle

@@ -5,9 +5,6 @@
 
 @section('content')
 
-    <a type="button" class="btn btn-primary btn-lg" href={{ url('/tribunais/criar') }} >Criar Tribunal</a>
-
-
 
   <table id="table" class="display" cellspacing="0" width="100%">
           <thead>

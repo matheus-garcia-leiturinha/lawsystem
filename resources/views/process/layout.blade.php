@@ -1,5 +1,3 @@
-
-
 @extends('base')
 
 @section('styles')
@@ -15,8 +13,6 @@
 @endsection
 
 @section('scripts')
-
-    @parent();
 
 	<script src="{{ asset('/js/process.js') }}"></script>
 

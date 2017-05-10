@@ -32,15 +32,36 @@ class AdvocatesController extends Controller
         $telefone = $request->input('telefone');
         $email = $request->input('email');
 
-        $advocates = new Advogados;
-        $advocates->nome = $nome;
-        $advocates->oab = $oab;
-        $advocates->telefone = $telefone;
-        $advocates->email = $email;
-        $advocates->save();
+        $advocate = Advogados::find($request->input('id'));
+
+        if(!$advocate)
+        {
+            $advocate = new Advogados();
+            $advocate->id = $request->input('id');
+        }
+
+        $advocate->nome = $nome;
+        $advocate->oab = $oab;
+        $advocate->telefone = $telefone;
+        $advocate->email = $email;
+        $advocate->save();
 
         return redirect()->route('advogados.listar');
 
+    }
+
+    public function editar($id)
+    {
+        $advocate = Advogados::find($id)->toArray();
+        return view('advocates.edit', ['advocate' => $advocate ]);
+
+
+    }
+
+    public function deletar($id){
+
+        $advocate = Advogados::find($id);
+        $advocate->delete();
     }
 
 

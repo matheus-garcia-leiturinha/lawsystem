@@ -69,6 +69,16 @@ class ClientController extends Controller
                 break;
         }
 
+        $client = Clientes::find($request->input('id'));
+        $document = Documents::find($client->document_id);
+
+        if(!$client)
+        {
+            $document = new Documents;
+            $client = new Clientes;
+            $client->id = $request->input('id');
+        }
+
         $cep = $request->input('cep');
         $logradouro = $request->input('logradouro');
         $numero = $request->input('numero');
@@ -81,12 +91,12 @@ class ClientController extends Controller
         $agencia = $request->input('agencia');
         $conta = $request->input('conta');
 
-        $document = new Documents;
-            $document->type = $type;
-            $document->number = $type_value;
+
+        $document->type = $type;
+        $document->number = $type_value;
         $document->save();
 
-        $client = new Clientes;
+
             $client->razao_social = $name;
             $client->cep = $cep;
             $client->logradouro = $logradouro;
@@ -105,5 +115,23 @@ class ClientController extends Controller
         return redirect()->route('clientes.listar');
 
 
+    }
+
+    public function editar($id)
+    {
+        $client = Clientes::find($id)->toArray();
+        $document = Documents::find($client['document_id'])->toArray();
+        return view('clients.edit', ['client' => $client, 'document' => $document ]);
+
+
+    }
+
+    public function deletar($id){
+
+        $client = Clientes::find($id);
+        $document = Documents::find($client->document_id);
+
+        $client->delete();
+        $document->delete();
     }
 }

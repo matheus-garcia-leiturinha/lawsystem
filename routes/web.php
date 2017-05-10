@@ -19,6 +19,8 @@ Route::group(['prefix' => 'clientes'], function () {
 
     Route::get('/', 'ClientController@listar')->name('clientes.listar');
     Route::get('/criar', 'ClientController@criar')->name('clientes.criar');
+    Route::get('/editar/{id}', 'ClientController@editar')->name('clientes.editar');
+    Route::get('/deletar/{id}', 'ClientController@deletar')->name('clientes.deletar');
     Route::post('/save', 'ClientController@save')->name('clientes.salvar');
 
 });
@@ -34,6 +36,8 @@ Route::group(['prefix' => 'advogados'], function () {
 
     Route::get('/', 'AdvocatesController@listar')->name('advogados.listar');
     Route::get('/criar', 'AdvocatesController@criar')->name('advogados.criar');
+    Route::get('/editar/{id}', 'AdvocatesController@editar')->name('advogados.editar');
+    Route::get('/deletar/{id}', 'AdvocatesController@deletar')->name('advogados.deletar');
     Route::post('/save', 'AdvocatesController@save')->name('advogados.salvar');
 
 });

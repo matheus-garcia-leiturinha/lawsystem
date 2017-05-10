@@ -3,7 +3,13 @@ require('./datatables');
 
 $(document).ready(function(){
 
-    $('#table').DataTable();
+    //$('#table').DataTable();
+
+    $('#table').dataTable( {
+        "language": {
+            "emptyTable": "Você não possui informações nesse cadastro"
+        }
+    } );
 
 
 

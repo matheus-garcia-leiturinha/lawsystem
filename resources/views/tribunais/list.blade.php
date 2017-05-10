@@ -14,14 +14,14 @@
               <tr>
                   <th>Número</th>
                   <th>Nome</th>
-                  <th>Cidade</th>
+                  <th>Estado</th>
               </tr>
           </thead>
           <tfoot>
               <tr>
                   <th>Número</th>
                   <th>Nome</th>
-                  <th>Cidade</th>
+                  <th>Estado</th>
               </tr>
           </tfoot>
           <tbody>

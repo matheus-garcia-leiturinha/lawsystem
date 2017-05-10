@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 23);
+/******/ 	return __webpack_require__(__webpack_require__.s = 28);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10329,7 +10329,7 @@ return jQuery;
 
 /***/ }),
 
-/***/ 10:
+/***/ 11:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {/**
@@ -10338,12 +10338,10 @@ return jQuery;
 
 $(document).ready(function () {
 
-    var cliente = $(".bootstrap-select button[data-id=cliente] .filter-option")[0].innerText;
     var tribunal = $(".bootstrap-select button[data-id=tribunal] .filter-option")[0].innerText;
     var vara = $(".bootstrap-select button[data-id=vara] .filter-option")[0].innerText;
     var adv_responsavel = $(".bootstrap-select button[data-id=adv_responsavel] .filter-option")[0].innerText;
     var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
-    var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
 
     $('.selectpicker').on('change', function () {
 
@@ -10364,18 +10362,15 @@ $(document).ready(function () {
                 break;
         }
     });
-
-    window.setTimeout("jQuery('#date').datetimepicker()", 400);
-    window.setTimeout("jQuery('#datepicker').datetimepicker()", 400);
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 
-/***/ 23:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(10);
+module.exports = __webpack_require__(11);
 
 
 /***/ })

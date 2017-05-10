@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Advogados;
+use App\Clientes;
 use App\Pericia;
 use App\Processos;
 use App\Tribunal;
@@ -28,14 +29,16 @@ class ProcessController extends Controller
     public function criar()
     {
 
+        $clientes = Clientes::all()->toArray();
         $tribunais = Tribunal::all()->toArray();
         $varas = Vara::all()->toArray();
         $advogados = Advogados::all()->toArray();
         $contrarios = Contrario::all()->toArray();
-
         $pericias = Pericia::all()->toArray();
 
+
         return view('process.create',[
+            "clientes" => $clientes ,
             "tribunais" => $tribunais ,
             "varas" => $varas,
             "advogados" => $advogados,

@@ -2,6 +2,12 @@
 
 @extends('base')
 
+@section('styles')
+
+    <link rel="stylesheet" href="{{ asset('/css/process.css') }}">
+
+@endsection
+
 @section('content')
 
     @parent();

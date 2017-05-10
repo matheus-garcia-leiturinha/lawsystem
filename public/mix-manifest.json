@@ -1,8 +1,11 @@
 {
   "/js/app.js": "/js/app.js",
   "/css/app.css": "/css/app.css",
+  "/css/home.css": "/css/home.css",
   "/css/process.css": "/css/process.css",
   "/css/clients.css": "/css/clients.css",
+  "/js/varas.js": "/js/varas.js",
+  "/js/tribunais.js": "/js/tribunais.js",
   "/js/process.js": "/js/process.js",
   "/js/lib/bootstrap.min.js": "/js/lib/bootstrap.min.js",
   "/js/datatables.js": "/js/datatables.js",

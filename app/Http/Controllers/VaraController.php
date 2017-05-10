@@ -65,5 +65,7 @@ class VaraController extends Controller
 
         $vara = Vara::find($id);
         $vara->delete();
+
+        return redirect()->route('varas.listar');
     }
 }

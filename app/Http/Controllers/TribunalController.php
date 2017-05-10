@@ -62,5 +62,7 @@ class TribunalController extends Controller
 
         $tribunal = Tribunal::find($id);
         $tribunal->delete();
+
+        return redirect()->route('tribunais.listar');
     }
 }

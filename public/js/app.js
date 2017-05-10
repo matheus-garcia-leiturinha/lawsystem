@@ -12255,7 +12255,13 @@ __webpack_require__(1);
 
 $(document).ready(function () {
 
-    $('#table').DataTable();
+    //$('#table').DataTable();
+
+    $('#table').dataTable({
+        "language": {
+            "emptyTable": "Você não possui informações nesse cadastro"
+        }
+    });
 });
 
 String.prototype.escapeRegExp = function (str) {

@@ -70,13 +70,17 @@ class ClientController extends Controller
         }
 
         $client = Clientes::find($request->input('id'));
-        $document = Documents::find($client->document_id);
+
 
         if(!$client)
         {
             $document = new Documents;
             $client = new Clientes;
             $client->id = $request->input('id');
+        }
+        else{
+
+            $document = Documents::find($client->document_id);
         }
 
         $cep = $request->input('cep');
@@ -133,5 +137,7 @@ class ClientController extends Controller
 
         $client->delete();
         $document->delete();
+
+        return redirect()->route('clientes.listar');
     }
 }

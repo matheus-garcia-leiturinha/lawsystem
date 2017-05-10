@@ -62,6 +62,8 @@ class AdvocatesController extends Controller
 
         $advocate = Advogados::find($id);
         $advocate->delete();
+
+        return redirect()->route('advogados.listar');
     }
 
 

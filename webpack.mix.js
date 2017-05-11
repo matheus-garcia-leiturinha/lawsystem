@@ -17,6 +17,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/js/tribunais.js', 'public/js')
     .js('resources/assets/js/varas.js', 'public/js')
     .js('resources/assets/js/process.js', 'public/js')
+    .js('resources/assets/js/contrarios.js', 'public/js')
     .js('resources/assets/js/datatables.js', 'public/js')
     .js('resources/assets/js/libs/respond.min.js', 'public/js/lib')
     .js('resources/assets/js/libs/html5shiv.min.js', 'public/js/lib')
@@ -31,6 +32,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .less('resources/assets/less/app.less', 'public/css')
    .less('resources/assets/less/home.less', 'public/css')
    .less('resources/assets/less/process.less', 'public/css')
-   .less('resources/assets/less/clients.less', 'public/css');
+   .less('resources/assets/less/clients.less', 'public/css')
+   .less('resources/assets/less/contrarios.less', 'public/css');
 
 

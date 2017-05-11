@@ -1,400 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);/* `XHTML, HTML4, HTML5 Reset
-----------------------------------------------------------------------------------------------------*/
-a,
-abbr,
-acronym,
-address,
-applet,
-article,
-aside,
-audio,
-b,
-big,
-blockquote,
-body,
-canvas,
-caption,
-center,
-cite,
-code,
-dd,
-del,
-details,
-dfn,
-dialog,
-div,
-dl,
-dt,
-em,
-embed,
-fieldset,
-figcaption,
-figure,
-font,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-hgroup,
-hr,
-html,
-i,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-main,
-mark,
-menu,
-meter,
-nav,
-object,
-ol,
-output,
-p,
-pre,
-progress,
-q,
-rp,
-rt,
-ruby,
-s,
-samp,
-section,
-small,
-span,
-strike,
-strong,
-sub,
-summary,
-sup,
-table,
-tbody,
-td,
-tfoot,
-th,
-thead,
-time,
-tr,
-tt,
-u,
-ul,
-var,
-video,
-xmp {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
-}
-html,
-body {
-  height: 100%;
-}
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section {
-  /*
-    Override the default (display: inline) for
-    browsers that do not recognize HTML5 tags.
-
-    IE8 (and lower) requires a shiv:
-    http://ejohn.org/blog/html5-shiv
-  */
-  display: block;
-}
-b,
-strong {
-  /*
-    Makes browsers agree.
-    IE + Opera = font-weight: bold.
-    Gecko + WebKit = font-weight: bolder.
-  */
-  font-weight: bold;
-}
-img {
-  color: transparent;
-  font-size: 0;
-  vertical-align: middle;
-  /*
-    For IE.
-    http://css-tricks.com/ie-fix-bicubic-scaling-for-images
-  */
-  -ms-interpolation-mode: bicubic;
-}
-ol,
-ul {
-  list-style: none;
-}
-li {
-  /*
-    For IE6 + IE7:
-
-    "display: list-item" keeps bullets from
-    disappearing if hasLayout is triggered.
-  */
-  display: list-item;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-th,
-td,
-caption {
-  font-weight: normal;
-  vertical-align: top;
-  text-align: left;
-}
-q {
-  quotes: none;
-}
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-sub,
-sup,
-small {
-  font-size: 75%;
-}
-sub,
-sup {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sub {
-  bottom: -0.25em;
-}
-sup {
-  top: -0.5em;
-}
-svg {
-  /*
-    For IE9. Without, occasionally draws shapes
-    outside the boundaries of <svg> rectangle.
-  */
-  overflow: hidden;
-}
-* {
-  box-sizing: border-box;
-}
-/* Micro ClearFix Mixin */
-.clearfix {
-  zoom: 1;
-}
-.clearfix:before,
-.clearfix:after {
-  content: "";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-body {
-  font-family: "Open Sans", sans-serif;
-}
-.s0 {
-  max-width: 84px !important;
-  display: inline-block;
-}
-.s1 {
-  max-width: 154px !important;
-  display: inline-block;
-}
-.s2 {
-  max-width: 254px !important;
-  display: inline-block;
-}
-label {
-  color: #364f6b;
-  font-family: "Open Sans";
-  font-size: 22px;
-  font-weight: 700;
-}
-label.radio {
-  width: 182px;
-  height: 59px;
-  border-radius: 10px;
-  border: 2px solid #e6e6e6;
-  background-color: #ffffff;
-  color: #364f6b;
-  font-family: "Open Sans";
-  font-size: 18px;
-  font-weight: 600;
-  text-align: center;
-  padding: 14px 0;
-  display: inline-block;
-  margin: 0 20px 40px;
-}
-label.radio.first {
-  margin: 0 20px 40px 0;
-}
-label.radio.s0 {
-  margin: 0 10px 0px;
-}
-label.radio.s0.first {
-  margin: 0 10px 0px 0;
-}
-input::-moz-placeholder,
-select::-moz-placeholder,
-input::-webkit-input-placeholder,
-select::-webkit-input-placeholder,
-input:-ms-input-placeholder,
-select:-ms-input-placeholder,
-input:-moz-placeholder,
-select:-moz-placeholder {
-  opacity: 0.5;
-  color: red;
-  font-family: "Open Sans";
-  font-size: 18px;
-  font-weight: 600;
-}
-input[type=radio],
-select[type=radio] {
-  display: none;
-}
-input[type=radio]:checked + label.radio,
-select[type=radio]:checked + label.radio {
-  color: white;
-  border: 2px solid #fccc49;
-  background-color: #fccc49;
-}
-input.form-control,
-select.form-control {
-  box-shadow: initial !important;
-  outline: none !important;
-  border-radius: 10px !important;
-  border: 2px solid #e6e6e6 !important;
-  padding: 27px !important;
-  color: #364f6b !important;
-  font-family: "Open Sans" !important;
-  font-size: 18px !important;
-  font-weight: 600 !important;
-  margin-bottom: 10px;
-  max-width: 505px;
-}
-input.form-control:focus,
-select.form-control:focus {
-  border: 2px solid #fccc49 !important;
-  border-color: #fccc49 !important;
-  box-shadow: none !important;
-}
-.bootstrap-select {
-  display: block !important;
-  max-width: 505px;
-  width: inherit !important;
-  outline: none !important;
-}
-.bootstrap-select.open .dropdown-toggle {
-  box-shadow: initial;
-  color: #364f6b;
-  background-color: white;
-  border-color: inherit;
-  border: 2px solid #e6e6e6 ;
-}
-.bootstrap-select .btn {
-  border-radius: 10px;
-  outline: none !important;
-  color: #364f6b !important;
-  text-shadow: initial;
-  background-image: initial;
-  -webkit-filter: initial;
-          filter: initial;
-  background-repeat: initial;
-  border-color: initial;
-  background-color: white;
-  border: 2px solid #e6e6e6;
-  padding: 15px 28px 14px;
-}
-.bootstrap-select .btn:not(.bs-placeholder) .filter-option {
-  border-radius: 10px !important;
-  background-color: #ffffff !important;
-  color: #364f6b;
-  font-family: "Open Sans";
-  font-size: 18px !important;
-  font-weight: 700;
-  padding-left: 30px;
-}
-.bootstrap-select .btn.bs-placeholder {
-  font-family: "Open Sans" !important;
-  font-size: 18px !important;
-  font-weight: 600 !important;
-}
-.bootstrap-select .btn.bs-placeholder span {
-  opacity: 0.5;
-  color: #000000 !important;
-}
-.bootstrap-select .dropdown-menu li a {
-  color: #364f6b;
-  font-family: "Open Sans";
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 33px;
-  padding: 5px 50px;
-}
-.bootstrap-select .dropdown-menu li a:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  background-image: none!important;
-  -webkit-filter: none!important;
-          filter: none!important;
-  background-repeat: none!important;
-}
-.block {
-  zoom: 1;
-  display: block;
-}
-.block:before,
-.block:after {
-  content: "";
-  display: table;
-}
-.block:after {
-  clear: both;
-}
-.block:not(label) {
-  margin-bottom: 30px;
-}
-.inline {
-  zoom: 1;
-  display: inline-block;
-  margin: 0px 5px;
-}
-.inline:before,
-.inline:after {
-  content: "";
-  display: table;
-}
-.inline:after {
-  clear: both;
-}
-.inline.first {
-  margin: 0px 5px 0 0;
-}
-a:hover,
-button:hover {
-  opacity: 0.8;
-}
-/*!
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);/*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
@@ -2726,4 +2330,412 @@ button:hover {
   margin: 0;
   overflow: visible;
   clip: auto;
+}
+/* `XHTML, HTML4, HTML5 Reset
+----------------------------------------------------------------------------------------------------*/
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+html,
+body {
+  height: 100%;
+}
+.content {
+  background-color: white;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  /*
+    Override the default (display: inline) for
+    browsers that do not recognize HTML5 tags.
+
+    IE8 (and lower) requires a shiv:
+    http://ejohn.org/blog/html5-shiv
+  */
+  display: block;
+}
+b,
+strong {
+  /*
+    Makes browsers agree.
+    IE + Opera = font-weight: bold.
+    Gecko + WebKit = font-weight: bolder.
+  */
+  font-weight: bold;
+}
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+  /*
+    For IE.
+    http://css-tricks.com/ie-fix-bicubic-scaling-for-images
+  */
+  -ms-interpolation-mode: bicubic;
+}
+ol,
+ul {
+  list-style: none;
+}
+li {
+  /*
+    For IE6 + IE7:
+
+    "display: list-item" keeps bullets from
+    disappearing if hasLayout is triggered.
+  */
+  display: list-item;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th,
+td,
+caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+q {
+  quotes: none;
+}
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+sub,
+sup,
+small {
+  font-size: 75%;
+}
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+svg {
+  /*
+    For IE9. Without, occasionally draws shapes
+    outside the boundaries of <svg> rectangle.
+  */
+  overflow: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+/* Micro ClearFix Mixin */
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.s0 {
+  max-width: 84px !important;
+  display: inline-block;
+}
+.s1 {
+  max-width: 154px !important;
+  display: inline-block;
+}
+.s2 {
+  max-width: 254px !important;
+  display: inline-block;
+}
+label {
+  color: #364f6b;
+  font-family: "Open Sans";
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+label.radio {
+  width: 182px;
+  height: 59px;
+  border-radius: 10px;
+  border: 2px solid #e6e6e6;
+  background-color: #ffffff;
+  color: #364f6b;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding: 14px 0;
+  display: inline-block;
+  margin: 0 20px 40px;
+}
+label.radio.first {
+  margin: 0 20px 40px 0;
+}
+label.radio.s0 {
+  margin: 0 10px 0px;
+}
+label.radio.s0.first {
+  margin: 0 10px 0px 0;
+}
+input::-moz-placeholder,
+select::-moz-placeholder,
+input::-webkit-input-placeholder,
+select::-webkit-input-placeholder,
+input:-ms-input-placeholder,
+select:-ms-input-placeholder,
+input:-moz-placeholder,
+select:-moz-placeholder {
+  opacity: 0.5;
+  color: red;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 600;
+}
+input[type=radio],
+select[type=radio] {
+  display: none;
+}
+input[type=radio]:checked + label.radio,
+select[type=radio]:checked + label.radio {
+  color: white;
+  border: 2px solid #fccc49;
+  background-color: #fccc49;
+}
+input.form-control,
+select.form-control {
+  box-shadow: initial !important;
+  outline: none !important;
+  border-radius: 10px !important;
+  border: 2px solid #e6e6e6 !important;
+  padding: 27px !important;
+  color: #364f6b !important;
+  font-family: "Open Sans" !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  margin-bottom: 10px;
+  max-width: 505px;
+}
+input.form-control:focus,
+select.form-control:focus {
+  border: 2px solid #fccc49 !important;
+  border-color: #fccc49 !important;
+  box-shadow: none !important;
+}
+.bootstrap-select {
+  display: block !important;
+  max-width: 505px;
+  width: inherit !important;
+  outline: none !important;
+}
+.bootstrap-select.no-search .fa {
+  display: none;
+}
+.bootstrap-select .dropdown-toggle .fa {
+  position: absolute;
+  left: 20px;
+  top: 17px;
+}
+.bootstrap-select.open .dropdown-toggle {
+  box-shadow: initial;
+  color: #364f6b;
+  background-color: white;
+  border-color: inherit;
+  border: 2px solid #e6e6e6 ;
+}
+.bootstrap-select .btn {
+  border-radius: 10px;
+  outline: none !important;
+  color: #364f6b !important;
+  text-shadow: initial;
+  background-image: initial;
+  -webkit-filter: initial;
+          filter: initial;
+  background-repeat: initial;
+  border-color: initial;
+  background-color: white;
+  border: 2px solid #e6e6e6;
+  padding: 15px 28px 14px;
+}
+.bootstrap-select .btn:not(.bs-placeholder) .filter-option {
+  border-radius: 10px !important;
+  background-color: #ffffff !important;
+  color: #364f6b;
+  font-family: "Open Sans";
+  font-size: 18px !important;
+  font-weight: 700;
+  padding-left: 30px;
+}
+.bootstrap-select .btn.bs-placeholder {
+  font-family: "Open Sans" !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+.bootstrap-select .btn.bs-placeholder span {
+  opacity: 0.5;
+  color: #000000 !important;
+}
+.bootstrap-select .dropdown-menu li a {
+  color: #364f6b;
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 33px;
+  padding: 5px 50px;
+}
+.bootstrap-select .dropdown-menu li a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  background-image: none!important;
+  -webkit-filter: none!important;
+          filter: none!important;
+  background-repeat: none!important;
+}
+.block {
+  zoom: 1;
+  display: block;
+}
+.block:before,
+.block:after {
+  content: "";
+  display: table;
+}
+.block:after {
+  clear: both;
+}
+.block:not(label) {
+  margin-bottom: 30px;
+}
+.inline {
+  zoom: 1;
+  display: inline-block;
+  margin: 0px 5px;
+}
+.inline:before,
+.inline:after {
+  content: "";
+  display: table;
+}
+.inline:after {
+  clear: both;
+}
+.inline.first {
+  margin: 0px 5px 0 0;
+}
+a:hover,
+button:hover {
+  opacity: 0.8;
 }

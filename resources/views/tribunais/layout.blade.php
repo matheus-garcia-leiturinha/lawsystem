@@ -10,8 +10,6 @@
 
 @section('scripts')
 
-    @parent();
-
 	<script src="{{ asset('/js/tribunais.js') }}"></script>
 
 @endsection

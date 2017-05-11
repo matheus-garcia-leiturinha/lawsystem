@@ -16,8 +16,6 @@
 
 @section('scripts')
 
-    @parent();
-
 	<script src="{{ asset('/js/clients.js') }}"></script>
 
 @endsection

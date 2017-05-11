@@ -10,8 +10,6 @@
 
 @section('scripts')
 
-    @parent();
-
 	<script src="{{ asset('/js/advocates.js') }}"></script>
 
 @endsection

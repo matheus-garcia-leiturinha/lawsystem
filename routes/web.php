@@ -74,6 +74,17 @@ Route::group(['prefix' => 'contrarios'], function () {
 
 });
 
+Route::group(['prefix' => 'pericias'], function () {
+
+    Route::get('/', 'ExpertiseController@listar')->name('pericias.listar');
+    Route::get('/criar', 'ExpertiseController@criar')->name('pericias.criar');
+    Route::get('/editar/{id}', 'ExpertiseController@editar')->name('pericias.editar');
+    Route::get('/deletar/{id}', 'ExpertiseController@deletar')->name('pericias.deletar');
+    Route::post('/save', 'ExpertiseController@save')->name('pericias.salvar');
+
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

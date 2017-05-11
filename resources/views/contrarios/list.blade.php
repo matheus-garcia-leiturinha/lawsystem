@@ -16,6 +16,7 @@
             <th>CPF/CNPF</th>
             <th>Telefone</th>
             <th>Email</th>
+            <th>Opções</th>
         </tr>
         </thead>
         <tfoot>
@@ -24,6 +25,7 @@
             <th>CPF/CNPF</th>
             <th>Telefone</th>
             <th>Email</th>
+            <th>Opções</th>
 
         </tr>
         </tfoot>
@@ -35,7 +37,10 @@
                 <td>{{ $contrario->documents->number }}</td>
                 <td>{{ $contrario->telefone }}</td>
                 <td>{{ $contrario->email }}</td>
-                <td></td>
+                <td>
+                    <a href="{{ url('/contrarios/editar/'.$contrario->id) }}"><i class="fa fa-edit"></i></a>
+                    <a href="{{ url('/contrarios/deletar/'.$contrario->id) }}"><i class="fa fa-trash"></i></a>
+                </td>
             </tr>
         @endforeach
 

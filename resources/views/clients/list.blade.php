@@ -14,6 +14,7 @@
                   <th>Estado</th>
                   <th>Tipo do Documento</th>
                   <th>Documento</th>
+                  <th>Opções</th>
               </tr>
           </thead>
           <tfoot>
@@ -24,6 +25,7 @@
                   <th>Estado</th>
                   <th>Tipo do Documento</th>
                   <th>Documento</th>
+                  <th>Opções</th>
               </tr>
           </tfoot>
           <tbody>
@@ -36,6 +38,10 @@
                         <td>{{ $client->estado }}</td>
                         <td>{{ $client->documents->type }}</td>
                         <td>{{ $client->documents->number }}</td>
+                        <td>
+                            <a href="{{ url('/clientes/editar/'.$client->id) }}"><i class="fa fa-edit"></i></a>
+                            <a href="{{ url('/clientes/deletar/'.$client->id) }}"><i class="fa fa-trash"></i></a>
+                        </td>
                   </tr>
               @endforeach
 

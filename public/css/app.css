@@ -2754,3 +2754,6 @@ a:hover,
 button:hover {
   opacity: 0.8;
 }
+#table .fa {
+  margin: 0 10px;
+}

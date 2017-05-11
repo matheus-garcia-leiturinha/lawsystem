@@ -28,6 +28,8 @@
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap-theme.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/datatables.css') }}">
         <link rel="stylesheet" href="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/frameworks/material/dataTables.material.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/frameworks/material/material.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/frameworks/datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
 
         <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">

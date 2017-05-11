@@ -28,6 +28,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .js('resources/assets/frameworks/inputmask/jquery.inputmask.bundle.js', 'public/frameworks/inputmask')
 
     .copy('resources/assets/frameworks/bootstrap-select/bootstrap-select.min.css', 'public/frameworks/bootstrap-select')
+    .copy('resources/assets/frameworks/material/dataTables.material.min.css', 'public/frameworks/material')
+    .copy('resources/assets/frameworks/material/material.min.css', 'public/frameworks/material')
     .js('resources/assets/frameworks/bootstrap-select/bootstrap-select.min.js', 'public/frameworks/bootstrap-select')
 
    .less('resources/assets/less/app.less', 'public/css')

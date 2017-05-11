@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -12255,7 +12255,13 @@ __webpack_require__(1);
 
 $(document).ready(function () {
 
-    $('#table').DataTable();
+    //$('#table').DataTable();
+
+    $('#table').dataTable({
+        "language": {
+            "emptyTable": "Você não possui informações nesse cadastro"
+        }
+    });
 });
 
 String.prototype.escapeRegExp = function (str) {
@@ -12375,13 +12381,13 @@ Form = {
 /* 14 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: ENOENT: no such file or directory, open 'C:\\wamp64\\www\\cardilloassociados\\resources\\assets\\less\\layout.less'\n    at Error (native)\n    at C:\\wamp64\\www\\cardilloassociados\\node_modules\\webpack\\lib\\NormalModule.js:141:35\n    at C:\\wamp64\\www\\cardilloassociados\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\wamp64\\www\\cardilloassociados\\node_modules\\loader-runner\\lib\\LoaderRunner.js:200:19\n    at C:\\wamp64\\www\\cardilloassociados\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:62:14\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)");
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleBuildError: Module build failed: Error: ENOENT: no such file or directory, open 'C:\\wamp64\\www\\cardilloassociados\\resources\\assets\\less\\layout.less'\n    at Error (native)\n    at C:\\wamp64\\www\\cardilloassociados\\node_modules\\webpack\\lib\\NormalModule.js:141:35\n    at C:\\wamp64\\www\\cardilloassociados\\node_modules\\loader-runner\\lib\\LoaderRunner.js:364:11\n    at C:\\wamp64\\www\\cardilloassociados\\node_modules\\loader-runner\\lib\\LoaderRunner.js:200:19\n    at C:\\wamp64\\www\\cardilloassociados\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:62:14\n    at _combinedTickCallback (internal/process/next_tick.js:67:7)\n    at process._tickCallback (internal/process/next_tick.js:98:9)");
 
 /***/ }),
 /* 16 */
@@ -12390,17 +12396,24 @@ Form = {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 17 */,
+/* 17 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 18 */,
 /* 19 */,
-/* 20 */
+/* 20 */,
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
 __webpack_require__(13);
 __webpack_require__(14);
 __webpack_require__(15);
-module.exports = __webpack_require__(16);
+__webpack_require__(16);
+module.exports = __webpack_require__(17);
 
 
 /***/ })

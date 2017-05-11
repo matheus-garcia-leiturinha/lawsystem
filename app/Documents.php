@@ -16,4 +16,8 @@ class Documents extends Model
     public function clients() {
         return $this->BelongsTo('App\Clientes','document_id','id');
     }
+
+    public function contrario() {
+        return $this->BelongsTo('App\Contrario','document_id','id');
+    }
 }

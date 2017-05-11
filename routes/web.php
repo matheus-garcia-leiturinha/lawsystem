@@ -64,6 +64,27 @@ Route::group(['prefix' => 'varas'], function () {
 
 });
 
+Route::group(['prefix' => 'contrarios'], function () {
+
+    Route::get('/', 'ContrarioController@listar')->name('contrarios.listar');
+    Route::get('/criar', 'ContrarioController@criar')->name('contrarios.criar');
+    Route::get('/editar/{id}', 'ContrarioController@editar')->name('contrarios.editar');
+    Route::get('/deletar/{id}', 'ContrarioController@deletar')->name('contrarios.deletar');
+    Route::post('/save', 'ContrarioController@save')->name('contrarios.salvar');
+
+});
+
+Route::group(['prefix' => 'pericias'], function () {
+
+    Route::get('/', 'ExpertiseController@listar')->name('pericias.listar');
+    Route::get('/criar', 'ExpertiseController@criar')->name('pericias.criar');
+    Route::get('/editar/{id}', 'ExpertiseController@editar')->name('pericias.editar');
+    Route::get('/deletar/{id}', 'ExpertiseController@deletar')->name('pericias.deletar');
+    Route::post('/save', 'ExpertiseController@save')->name('pericias.salvar');
+
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

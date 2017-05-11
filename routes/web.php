@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::group(['prefix' => 'clientes'], function () {
 
@@ -63,3 +63,8 @@ Route::group(['prefix' => 'varas'], function () {
     Route::post('/save', 'VaraController@save')->name('varas.salvar');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+Route::get('/logout', 'HomeController@logout');

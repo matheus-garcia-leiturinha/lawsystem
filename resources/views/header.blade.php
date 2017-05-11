@@ -20,8 +20,7 @@
                 @if (Auth::check())
                     <a href="{{ url('/logout') }}"><i class="fa fa-sign-out"></i>Sair</a>
                 @else
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
+                    <a class="login" href="{{ url('/login') }}"><i class="fa fa-sign-in"></i>Login</a>
                 @endif
             </div>
         @endif

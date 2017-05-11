@@ -9,7 +9,7 @@
 
 
 
-    <table id="table" class="display" cellspacing="0" width="100%">
+    <table id="table" class="mdl-data-table" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th>Nome</th>

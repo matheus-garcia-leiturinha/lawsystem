@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -12382,7 +12382,7 @@ Form = {
 /* 15 */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed: ModuleNotFoundError: Module not found: Error: Can't resolve '../../../public/images/new-process-inactive.png' in 'C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\resources\\assets\\less'\n    at factoryCallback (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\webpack\\lib\\Compilation.js:259:39)\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\webpack\\lib\\NormalModuleFactory.js:234:19\n    at onDoneResolving (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\webpack\\lib\\NormalModuleFactory.js:59:20)\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\webpack\\lib\\NormalModuleFactory.js:126:20\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\async\\dist\\async.js:3838:9\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\async\\dist\\async.js:421:16\n    at iteratorCallback (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\async\\dist\\async.js:996:13)\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\async\\dist\\async.js:906:16\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\async\\dist\\async.js:3835:13\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\webpack\\lib\\NormalModuleFactory.js:121:22\n    at onResolved (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\Resolver.js:70:11)\n    at loggingCallbackWrapper (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at afterInnerCallback (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\Resolver.js:138:10)\n    at loggingCallbackWrapper (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at Resolver.applyPluginsAsyncSeriesBailResult1 (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\tapable\\lib\\Tapable.js:181:46)\n    at innerCallback (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\Resolver.js:125:19)\n    at loggingCallbackWrapper (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\tapable\\lib\\Tapable.js:283:15\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\UnsafeCachePlugin.js:38:4\n    at loggingCallbackWrapper (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at afterInnerCallback (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\Resolver.js:138:10)\n    at loggingCallbackWrapper (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at Resolver.applyPluginsAsyncSeriesBailResult1 (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\tapable\\lib\\Tapable.js:181:46)\n    at innerCallback (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\Resolver.js:125:19)\n    at loggingCallbackWrapper (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\tapable\\lib\\Tapable.js:283:15\n    at innerCallback (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\Resolver.js:123:11)\n    at loggingCallbackWrapper (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\createInnerCallback.js:31:19)\n    at C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\tapable\\lib\\Tapable.js:283:15\n    at resolver.doResolve.createInnerCallback (C:\\Users\\Pedro\\Documents\\Projetos\\lawsystem\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:44:6)");
 
 /***/ }),
 /* 16 */
@@ -12397,17 +12397,24 @@ Form = {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 18 */,
+/* 18 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 19 */,
 /* 20 */,
-/* 21 */
+/* 21 */,
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
 __webpack_require__(14);
 __webpack_require__(15);
 __webpack_require__(16);
-module.exports = __webpack_require__(17);
+__webpack_require__(17);
+module.exports = __webpack_require__(18);
 
 
 /***/ })

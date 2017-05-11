@@ -22,6 +22,7 @@
         @yield('styles')
 
 
+
         <link rel="stylesheet" href="{{ asset('/frameworks/jquery-ui/jquery-ui.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/css/lib/bootstrap-theme.min.css') }}">
@@ -29,14 +30,14 @@
         <link rel="stylesheet" href="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.css') }}">
         <link rel="stylesheet" href="{{ asset('/frameworks/datetimepicker/build/css/bootstrap-datetimepicker.min.css') }}">
 
-
-        <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('/css/layout.css') }}">
     </head>
 
     <body>
 
-        <a type="button" class="btn btn-primary btn-lg" href={{ url('/') }} >HOME</a>
-        <div class="container">
+        @include('header')
+
+        <div class="content">
             @yield('content')
         </div>
 

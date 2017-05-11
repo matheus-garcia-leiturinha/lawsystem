@@ -9,12 +9,14 @@
         <thead>
         <tr>
             <th>Tipo</th>
+            <th>Opções</th>
 
         </tr>
         </thead>
         <tfoot>
         <tr>
             <th>Tipo</th>
+            <th>Opções</th>
 
 
         </tr>
@@ -24,6 +26,10 @@
         @foreach ($pericias as $pericia)
             <tr>
                 <td>{{ $pericia->type }}</td>
+                <td>
+                    <a href="{{ url('/varas/editar/'.$vara->id) }}"><i class="fa fa-edit"></i></a>
+                    <a href="{{ url('/varas/deletar/'.$vara->id) }}"><i class="fa fa-trash"></i></a>
+                </td>
 
 
             </tr>

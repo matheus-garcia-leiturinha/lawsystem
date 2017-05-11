@@ -63,3 +63,13 @@ Route::group(['prefix' => 'varas'], function () {
     Route::post('/save', 'VaraController@save')->name('varas.salvar');
 
 });
+
+Route::group(['prefix' => 'contrarios'], function () {
+
+    Route::get('/', 'ContrarioController@listar')->name('contrarios.listar');
+    Route::get('/criar', 'ContrarioController@criar')->name('contrarios.criar');
+    Route::get('/editar/{id}', 'ContrarioController@editar')->name('contrarios.editar');
+    Route::get('/deletar/{id}', 'ContrarioController@deletar')->name('contrarios.deletar');
+    Route::post('/save', 'ContrarioController@save')->name('contrarios.salvar');
+
+});

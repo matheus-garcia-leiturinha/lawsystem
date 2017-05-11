@@ -27,13 +27,13 @@
 
               @foreach ($varas as $vara)
                   <tr>
-                        <td>{{ $vara->id }}</td>
-                        <td>{{ $vara->nome }}</td>
-                        <td>{{ $vara->cidade }}</td>
-                        <td>
-                            <a href="{{ url('/varas/editar/'.$vara->id) }}"><i class="fa fa-edit"></i></a>
-                            <a href="{{ url('/varas/deletar/'.$vara->id) }}"><i class="fa fa-trash"></i></a>
-                        </td>
+                    <td>{{ $vara->id }}</td>
+                    <td>{{ $vara->nome }}</td>
+                    <td>{{ $vara->cidade }}</td>
+                    <td>
+                        <a href="{{ url('/varas/editar/'.$vara->id) }}"><i class="fa fa-edit"></i></a>
+                        <a href="{{ url('/varas/deletar/'.$vara->id) }}"><i class="fa fa-trash"></i></a>
+                    </td>
                   </tr>
               @endforeach
 

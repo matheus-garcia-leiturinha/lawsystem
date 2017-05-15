@@ -27,8 +27,8 @@
             <tr>
                 <td>{{ $pericia->type }}</td>
                 <td>
-                    <a href="{{ url('/varas/editar/'.$vara->id) }}"><i class="fa fa-edit"></i></a>
-                    <a href="{{ url('/varas/deletar/'.$vara->id) }}"><i class="fa fa-trash"></i></a>
+                    <a href="{{ url('/pericias/editar/'.$pericia->id) }}"><i class="fa fa-edit"></i></a>
+                    <a href="{{ url('/pericias/deletar/'.$pericia->id) }}"><i class="fa fa-trash"></i></a>
                 </td>
 
 

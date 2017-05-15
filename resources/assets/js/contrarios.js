@@ -5,6 +5,7 @@ $(document).ready(function(){
 
     $( "input[name='type']" ).on("change",function() {
 
+        console.log('oi',$(this).val());
         $(".doc").removeClass("checked");
 
         var classname = "div.doc."+$(this).val();

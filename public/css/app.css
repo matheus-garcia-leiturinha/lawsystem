@@ -2650,6 +2650,10 @@ input[type=submit] {
   background-color: #ffb21a;
   box-shadow: 0px 2px 2px #b88219;
   color: #ffffff;
+  background-image: none;
+}
+input[type=submit]:hover {
+  background-color: #ffc34d;
 }
 .bootstrap-select {
   display: block !important;

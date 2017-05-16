@@ -106,7 +106,7 @@
         {{ Form::text('cidade',$contrario['cidade'],["class" => "form-control", "placeholder" => "Cidade"]) }}
 
 
-        <select class="selectpicker s1" data-live-search=true title="{{$contrario['estado']}}" name="estado">
+        <select class="selectpicker s1 no-search" data-live-search=true title="{{$contrario['estado']}}" name="estado">
             <option title="AC" value="Acre">Acre</option>
             <option title="AL" value="Alagoas">Alagoas</option>
             <option title="AP" value="Amapá">Amapá</option>
@@ -179,6 +179,6 @@
     {{ Form::close() }}
 
     <script>
-        $("option[value={{$contrario['estado']}}]").attr('selected','selected');
+        $("option[value='{{$contrario['estado']}}']").attr('selected','selected');
     </script>
 @endsection

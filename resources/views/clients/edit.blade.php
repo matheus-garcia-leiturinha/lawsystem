@@ -71,10 +71,6 @@
  }
 ?>
 
-
-
-
-
         <div class="block address">
 
             {{ Form::label('', 'Endereço') }}
@@ -94,7 +90,7 @@
         {{ Form::text('cidade',$client['cidade'],["class" => "form-control", "placeholder" => "Cidade"]) }}
 
 
-            <select class="selectpicker s1" data-live-search=true title="{{$client['estado']}}" name="estado">
+            <select class="selectpicker s1 no-search" data-live-search=true title="{{$client['estado']}}" name="estado">
                 <option title="AC" value="Acre">Acre</option>
                 <option title="AL" value="Alagoas">Alagoas</option>
                 <option title="AP" value="Amapá">Amapá</option>
@@ -123,6 +119,8 @@
                 <option title="SE" value="Sergipe">Sergipe</option>
                 <option title="TO" value="Tocantins">Tocantins</option>
             </select>
+
+            {{ Form::text('cep',$client['cep'],["class" => "form-control", "placeholder" => "CEP"]) }}
         </div>
 
         <div class="block">
@@ -132,12 +130,13 @@
 
         <div class="block">
 
-        {{ Form::label('cep', 'CEP') }}
-        {{ Form::text('cep',$client['cep'],["class" => "form-control"]) }}
+            {{ Form::label('dados_bancarios', 'Dados Bancários') }}
 
-            {{ Form::text('banco',$client['banco'],["class" => "form-control s2", "placeholder" => "Banco"]) }}
-            {{ Form::text('agencia',$client['agencia'],["class" => "form-control s1", "placeholder" => "Agência"]) }}
-            {{ Form::text('conta',$client['conta'],["class" => "form-control s1", "placeholder" => "Conta"]) }}
+            <div class="block">
+                    {{ Form::text('banco',$client['banco'],["class" => "form-control s2", "placeholder" => "Banco"]) }}
+                    {{ Form::text('agencia',$client['agencia'],["class" => "form-control s1", "placeholder" => "Agência"]) }}
+                    {{ Form::text('conta',$client['conta'],["class" => "form-control s1", "placeholder" => "Conta"]) }}
+            </div>
         </div>
 
         {{ Form::submit('Enviar',["class"=>'btn btn-default']) }}
@@ -145,6 +144,6 @@
     {{ Form::close() }}
 
     <script>
-        $("option[value={{$client['estado']}}]").attr('selected','selected');
+        $("option[value='{{$client['estado']}}']").attr('selected','selected');
     </script>
 @endsection

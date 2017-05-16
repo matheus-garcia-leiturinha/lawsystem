@@ -77,7 +77,11 @@
             	<option title="SE">Sergipe</option>
             	<option title="TO">Tocantins</option>
             </select>
+
+            {{ Form::text('cep','',["class" => "form-control", "placeholder" => "CEP"]) }}
         </div>
+
+
 
         <div class="block">
             {{ Form::label('caixa_postal', 'Caixa Postal') }}
@@ -86,12 +90,14 @@
 
         <div class="block">
 
-        {{ Form::label('cep', 'CEP') }}
-        {{ Form::text('cep','',["class" => "form-control"]) }}
+        {{ Form::label('dados_bancarios', 'Dados Bancários') }}
 
-            {{ Form::text('banco','',["class" => "form-control s2", "placeholder" => "Banco"]) }}
-            {{ Form::text('agencia','',["class" => "form-control s1", "placeholder" => "Agência"]) }}
-            {{ Form::text('conta','',["class" => "form-control s1", "placeholder" => "Conta"]) }}
+
+            <div class="block">
+                {{ Form::text('banco','',["class" => "form-control ", "placeholder" => "Banco"]) }}
+                {{ Form::text('agencia','',["class" => "form-control s1", "placeholder" => "Agência"]) }}
+                {{ Form::text('conta','',["class" => "form-control s1", "placeholder" => "Conta"]) }}
+            </div>
         </div>
 
         {{ Form::submit('Enviar',["class"=>'btn btn-default']) }}

@@ -49,8 +49,8 @@
         <script src="{{ asset('/js/app.js') }}"></script>
         <script src="{{ asset('/frameworks/inputmask/jquery.inputmask.bundle.js') }}"></script>
         <script src="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.js') }}"></script>
-        <script src="{{ asset('/frameworks/moment/min/moment.min.js') }}"></script>
-        <script src="{{ asset('/frameworks/datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
+        {{--<script src="{{ asset('/frameworks/moment/min/moment.min.js') }}"></script>--}}
+        {{--<script src="{{ asset('/frameworks/datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>--}}
 
         @yield('scripts')
 

@@ -51,8 +51,8 @@ $(document).ready(function(){
         }
 
         //console.log("Estado");
-        var abc = $(".bootstrap-select .filter-option")[0].innerText;
-        console.log(abc);
+        //var abc = $(".bootstrap-select .filter-option")[0].innerText;
+        //console.log(abc);
         if(Form.isEmpty($( "input[name='logradouro']" )) ||
             Form.isEmpty($( "input[name='numero']" )) ||
             Form.isEmpty($( "input[name='cidade']" )) ||

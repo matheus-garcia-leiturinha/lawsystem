@@ -40,6 +40,16 @@
         @include('header')
 
         <div class="content">
+
+            <div class="flash-message">
+                @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                  @if(Session::has('alert-' . $msg))
+
+                  <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                  @endif
+                @endforeach
+              </div> <!-- end .flash-message -->
+
             @yield('content')
         </div>
 
@@ -49,8 +59,8 @@
         <script src="{{ asset('/js/app.js') }}"></script>
         <script src="{{ asset('/frameworks/inputmask/jquery.inputmask.bundle.js') }}"></script>
         <script src="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.js') }}"></script>
-        {{--<script src="{{ asset('/frameworks/moment/min/moment.min.js') }}"></script>--}}
-        {{--<script src="{{ asset('/frameworks/datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>--}}
+        <script src="{{ asset('/frameworks/moment/min/moment.min.js') }}"></script>
+        <script src="{{ asset('/frameworks/datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
 
         @yield('scripts')
 

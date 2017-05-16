@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     createMask();
 
-    $("input[type=submit]").on("click", function(event){
+    $("form.advocates input[type=submit]").on("click", function(event){
 
         event.preventDefault();
 
@@ -27,9 +27,37 @@ $(document).ready(function(){
             return false;
         }
 
+        if($(this).parent().parent().hasClass('modal-body'))
+        {
 
+            $.ajax({
+                url:  $("form.advocates").attr('action'),
+                type: "post",
+                data: {
+                    _token :    $( "input[name='_token']")[0].value,
+                    nome:       $( "input[name='nome']")[0].value,
+                    nome:       $( "input[name='nome']")[0].value,
+                    oab:        $( "input[name='oab']")[0].value,
+                    telefone:   $( "input[name='telefone']")[0].value,
+                    email:      $( "input[name='email']")[0].value
+                },
+                success: function(data){ // What to do if we succeed
+                    response = JSON.parse(data);
+                    if(response['status'] == "OK"){
+                        alert(response['message']);
+                        $("[data-dismiss=modal]").trigger({ type: "click" });
+                    }
+                },
+                error: function(response){
+                    alert('Um erro acontenceu!');
+                }
+            });
+            return false;
+        }else
+        {
+            $("form.advocates").submit();
+        }
 
-        $("form").submit();
         return false;
     });
 

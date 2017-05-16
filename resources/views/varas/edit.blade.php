@@ -4,7 +4,7 @@
 @section('title', 'Editar Vara')
 
 @section('content')
-    {{ Form::open(array('url' => 'varas/save')) }}
+    {{ Form::open(array('url' => 'varas/save',"class" => "varas")) }}
 
        {{ Form::label('id', 'Numero') }}
        {{ Form::Text('id', $vara['id'],["class" => "form-control", "readonly" => "readonly"]) }}

@@ -34,6 +34,6 @@ $(document).ready(function(){
 
     });
 
-    window.setTimeout("$('#datetimepicker').datetimepicker()", 400);
+    window.setTimeout("$('#datetimepicker').datetimepicker()", 700);
 
 })

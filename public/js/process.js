@@ -10373,7 +10373,7 @@ $(document).ready(function () {
         }
     });
 
-    window.setTimeout("$('#datetimepicker').datetimepicker()", 400);
+    window.setTimeout("$('#datetimepicker').datetimepicker()", 700);
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 

@@ -4,7 +4,7 @@
 @section('title', 'Criar Advogados')
 
 @section('content')
-    {{ Form::open(array('url' => 'advogados/save')) }}
+    {{ Form::open(array('url' => 'advogados/save',"class" => "advocates")) }}
 
         {{ Form::hidden('id', $advocate['id']) }}
         {{ Form::label('nome', 'Nome') }}

@@ -5,7 +5,7 @@
 
 
 @section('content')
-    {{ Form::open(array('url' => 'pericias/save')) }}
+    {{ Form::open(array('url' => 'pericias/save',"class" => "pericias")) }}
 
     {{ Form::hidden('id', $pericia['id']) }}
 

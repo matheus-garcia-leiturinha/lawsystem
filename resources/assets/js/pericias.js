@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("input[type=submit]").on("click", function(event){
+    $("form.pericias input[type=submit]").on("click", function(event){
 
         event.preventDefault();
 
@@ -16,7 +16,7 @@ $(document).ready(function(){
             return false;
         }
 
-        $("form").submit();
+        $("form.pericias").submit();
         return false;
     });
 

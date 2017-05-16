@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 19);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10329,7 +10329,15 @@ return jQuery;
 
 /***/ }),
 
-/***/ 12:
+/***/ 19:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(8);
+
+
+/***/ }),
+
+/***/ 8:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {/**
@@ -10365,17 +10373,35 @@ $(document).ready(function () {
         }
     });
 
+    $("input[type=submit]").on("click", function (event) {
+
+        event.preventDefault();
+
+        var cliente = $(".bootstrap-select button[data-id=cliente] .filter-option")[0].innerText;
+        var adv_responsavel = $(".bootstrap-select button[data-id=adv_responsavel] .filter-option")[0].innerText;
+        var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
+        var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
+        var pericia = $(".bootstrap-select button[data-id=pericia] .filter-option")[0].innerText;
+
+        console.log(cliente);
+        console.log(adv_responsavel);
+        console.log($("input[name='polo']")[0].value);
+        console.log($("input[name='number']")[0].value);
+        console.log(adv_terceiro);
+        console.log(contrario);
+        console.log($("input[name='value']")[0].value);
+        console.log($("input[name='date']")[0].value);
+        console.log($("input[name='audiencia']")[0].value);
+        console.log($("input[name='pericias']")[0].value);
+
+        return false;
+
+        $("form").submit();
+    });
+
     window.setTimeout("$('#datetimepicker').datetimepicker()", 400);
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-
-/***/ 32:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(12);
-
 
 /***/ })
 

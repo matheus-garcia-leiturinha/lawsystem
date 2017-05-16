@@ -16,7 +16,7 @@ $(document).ready(function(){
         
     });
 
-    $("input[type=submit]").on("click", function(event){
+    $("form.clients input[type=submit]").on("click", function(event){
 
         event.preventDefault();
 
@@ -70,7 +70,7 @@ $(document).ready(function(){
             return false;
         }
 
-        $("form").submit();
+        $("form.clients").submit();
         return false;
     });
 

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("input[type=submit]").on("click", function(event){
+    $("form.tribunais input[type=submit]").on("click", function(event){
 
         event.preventDefault();
 
@@ -27,7 +27,7 @@ $(document).ready(function(){
             return false;
         }
 
-        $("form").submit();
+        $("form.tribunais").submit();
         return false;
     });
 

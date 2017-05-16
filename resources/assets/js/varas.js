@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 
 
-    $("input[type=submit]").on("click", function(event){
+    $("form.varas input[type=submit]").on("click", function(event){
 
         event.preventDefault();
 
@@ -22,7 +22,7 @@ $(document).ready(function(){
             return false;
         }
 
-        $("form").submit();
+        $("form.varas").submit();
         return false;
     });
 

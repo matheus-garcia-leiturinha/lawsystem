@@ -1,4 +1,4 @@
-{{ Form::open(array('url' => 'advogados/save')) }}
+{{ Form::open(array('url' => 'advogados/save',"class" => "advocates")) }}
 
     {{ Form::label('nome', 'Nome') }}
     {{ Form::Text('nome', '',["class" => "form-control"]) }}

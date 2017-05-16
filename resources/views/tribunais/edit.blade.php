@@ -4,7 +4,7 @@
 @section('title', 'Editar Trinunal')
 
 @section('content')
-    {{ Form::open(array('url' => 'tribunais/save')) }}
+    {{ Form::open(array('url' => 'tribunais/save',"class" => "tribunais")) }}
 
        {{ Form::label('id', 'Numero') }}
        {{ Form::Text('id', $tribunal['id'],["class" => "form-control", "readonly" => "readonly"]) }}

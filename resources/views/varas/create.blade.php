@@ -4,7 +4,7 @@
 @section('title', 'Criar Vara')
 
 @section('content')
-    {{ Form::open(array('url' => 'varas/save')) }}
+    {{ Form::open(array('url' => 'varas/save',"class" => "varas")) }}
 
        {{ Form::label('id', 'Numero') }}
        {{ Form::Text('id', '',["class" => "form-control"]) }}

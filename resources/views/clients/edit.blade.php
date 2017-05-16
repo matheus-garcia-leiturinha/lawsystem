@@ -4,7 +4,7 @@
 @section('title', 'Criar Clientes')
 
 @section('content')
-    {{ Form::open(array('url' => 'clientes/save')) }}
+    {{ Form::open(array('url' => 'clientes/save',"class" => "clients")) }}
 
         {{ Form::hidden('id', $client['id']) }}
 

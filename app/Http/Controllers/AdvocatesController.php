@@ -27,6 +27,9 @@ class AdvocatesController extends Controller
     public function save(Request $request)
     {
 
+
+
+
         $nome = $request->input('nome');
         $oab = $request->input('oab');
         $telefone = $request->input('telefone');
@@ -46,7 +49,20 @@ class AdvocatesController extends Controller
         $advocate->email = $email;
         $advocate->save();
 
-        return redirect()->route('advogados.listar');
+        $request->session()->flash('alert-success', 'Advogado adicionado!');
+
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            /* special ajax here */
+            $return = [];
+
+            $return['status'] = "OK";
+            $return['message'] = "Cadastro Efetuado com sucesso!";
+
+            die(json_encode($return));
+        }else
+        {
+            return redirect()->route('advogados.listar');
+        }
 
     }
 

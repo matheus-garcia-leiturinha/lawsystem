@@ -4,7 +4,7 @@
 @section('title', 'Criar Contrario')
 
 @section('content')
-    {{ Form::open(array('url' => 'contrarios/save')) }}
+    {{ Form::open(array('url' => 'contrarios/save',"class" => "contrarios")) }}
 
     {{ Form::hidden('id', $contrario['id']) }}
 

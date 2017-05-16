@@ -4,7 +4,7 @@
 @section('title', 'Criar Processos')
 
 @section('content')
-    {{ Form::open(array('url' => 'processos/save')) }}
+    {{ Form::open(array('url' => 'processos/save',"class" => "processos")) }}
 
 
         <div class="block">
@@ -197,7 +197,7 @@
       <div class="modal-body">
         @include('contrarios.modal')
 
-	    <script src="{{ asset('/js/contrario.js') }}"></script>
+	    <script src="{{ asset('/js/contrarios.js') }}"></script>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

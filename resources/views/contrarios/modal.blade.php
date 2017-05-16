@@ -1,4 +1,4 @@
-{{ Form::open(array('url' => 'contrarios/save')) }}
+{{ Form::open(array('url' => 'contrarios/save',"class" => "contrarios")) }}
 
 {{ Form::radio('type', 'cpf', ['checked' => 'checked'],['id'=> 'cpf']) }}
 {{ Form::label('cpf', 'Física',['class'=> 'radio first','checked' => 'checked']) }}

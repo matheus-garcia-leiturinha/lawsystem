@@ -2549,6 +2549,7 @@ svg {
 }
 body {
   font-family: "Open Sans", sans-serif;
+  padding-right: 0px !important;
 }
 .s0 {
   max-width: 84px !important;
@@ -2738,6 +2739,14 @@ input[type=submit]:hover {
 .block:not(label) {
   margin-bottom: 30px;
 }
+.create-new {
+  position: relative;
+  float: right;
+  color: #fccc49;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 600;
+}
 .inline {
   zoom: 1;
   display: inline-block;
@@ -2763,4 +2772,41 @@ button:hover {
 }
 #table .fa {
   margin: 0 10px;
+}
+.modal {
+  padding: 0 !important;
+}
+.modal .modal-dialog {
+  top: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.modal .modal-dialog .modal-content {
+  width: 100%;
+  min-height: 100%;
+}
+.modal .modal-dialog .modal-content .modal-header {
+  border-bottom: 0;
+}
+.modal .modal-dialog .modal-content .modal-header .close {
+  float: right;
+  opacity: 1;
+}
+.modal .modal-dialog .modal-content .modal-header .close span {
+  color: #fccc49;
+  font-size: 35px;
+}
+.modal .modal-dialog .modal-content .modal-header .modal-title {
+  color: #fccc49;
+  font-family: "Open Sans";
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 36px;
+  width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.modal .modal-dialog .modal-content .modal-body {
+  min-height: calc(100% - 130px);
 }

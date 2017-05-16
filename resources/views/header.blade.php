@@ -9,8 +9,8 @@
                     <a href="{{ url('/clientes/criar') }}">Cliente</a>
                     <a href="{{ url('/advogados/criar') }}">Advogado</a>
                     <a href="{{ url('/contrarios/criar') }}">Parte contrária</a>
-                    <a href="{{ url('/tribunais/criar') }}">Tribunais</a>
-                    <a href="{{ url('/varas/criar') }}">Varas</a>
+                    {{--<a href="{{ url('/tribunais/criar') }}">Tribunais</a>--}}
+                    {{--<a href="{{ url('/varas/criar') }}">Varas</a>--}}
                     <a href="{{ url('/pericias/criar') }}">Perícias</a>
               </div>
             </div>

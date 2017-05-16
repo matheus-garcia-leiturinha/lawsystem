@@ -10339,8 +10339,8 @@ return jQuery;
 $(document).ready(function () {
 
     var cliente = $(".bootstrap-select button[data-id=cliente] .filter-option")[0].innerText;
-    var tribunal = $(".bootstrap-select button[data-id=tribunal] .filter-option")[0].innerText;
-    var vara = $(".bootstrap-select button[data-id=vara] .filter-option")[0].innerText;
+    //var tribunal = $(".bootstrap-select button[data-id=tribunal] .filter-option")[0].innerText;
+    //var vara = $(".bootstrap-select button[data-id=vara] .filter-option")[0].innerText;
     var adv_responsavel = $(".bootstrap-select button[data-id=adv_responsavel] .filter-option")[0].innerText;
     var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
     var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
@@ -10365,8 +10365,7 @@ $(document).ready(function () {
         }
     });
 
-    window.setTimeout("jQuery('#date').datetimepicker()", 400);
-    window.setTimeout("jQuery('#datepicker').datetimepicker()", 400);
+    window.setTimeout("$('#datetimepicker').datetimepicker()", 400);
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 

@@ -278,6 +278,7 @@ svg {
 body
 {
   font-family: @font-family-sans-serif;
+  padding-right: 0px !important;
 }
 
 .s0
@@ -549,6 +550,18 @@ input[type=submit]
   {
     margin-bottom: 30px;
   }
+
+}
+
+
+.create-new
+{
+  position: relative;
+  float: right;
+  color: @base-color;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .inline
@@ -581,5 +594,52 @@ a,button
   .fa
   {
     margin: 0 10px;
+  }
+}
+
+.modal
+{
+  padding: 0 !important;
+
+  .modal-dialog {
+
+    top: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+
+    .modal-content {
+
+      width: 100%;
+      min-height: 100%;
+
+      .modal-header {
+        border-bottom: 0;
+        .close {
+          float: right;
+          opacity: 1;
+          span {
+            color: @base-color;
+            font-size: 35px;
+          }
+        }
+
+        .modal-title {
+
+          color: @base-color;
+          font-family: "Open Sans";
+          font-size: 36px;
+          font-weight: 700;
+          line-height: 36px;
+          width: 600px;
+          margin: 0 auto;
+          text-align: center;
+
+        }
+      }
+      .modal-body{
+        min-height: calc(~"100% - 130px");
+      }
+    }
   }
 }

@@ -106,7 +106,7 @@
             {{ Form::number('value', '',["class" => "form-control"]) }}
         </div>
 
-        <div class="block" id="date">
+        <div class="block datepickerblock" id="date">
             {{ Form::label('data_ajuizamento', 'Data do Ajuizamento') }}
             {{ Form::text('data_ajuizamento', '',["class" => "date form-control",'id' => 'datetimepicker']) }}
         </div>
@@ -122,6 +122,11 @@
                 {{ Form::label('false', 'Não',['class'=> 'radio s0']) }}
             </div>
 
+        </div>
+
+        <div class="block datepickerblock data_audiencia_inaugural">
+            {{ Form::label('data_audiencia_inaugural', 'Data da audiência inaugural') }}
+            {{ Form::text('data_audiencia_inaugural', '',["class" => "date form-control",'id' => 'datetimepicker2']) }}
         </div>
 
         <div class="block">
@@ -145,6 +150,16 @@
                     <option title="{{$pericia['type']}}" value="{{$pericia['id']}}">{{$pericia['type']}}</option>
                 @endforeach
             </select>
+        </div>
+
+        <div class="block pericia">
+            {{ Form::label('value_pericia', 'Honorários prévios de perícia') }}
+            {{ Form::number('value_pericia', '',["class" => "form-control"]) }}
+        </div>
+
+        <div class="block">
+            {{ Form::label('ocorrencia_inaugural', 'Ocorrência Inaugural') }}
+            {{ Form::textarea('ocorrencia_inaugural', '',["class" => "form-control"]) }}
         </div>
 
         {{ Form::submit('Enviar') }}

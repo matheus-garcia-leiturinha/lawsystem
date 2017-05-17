@@ -57,6 +57,8 @@ class AdvocatesController extends Controller
 
             $return['status'] = "OK";
             $return['message'] = "Cadastro Efetuado com sucesso!";
+            $return['name'] = $advocate->nome;
+            $return['id'] = $advocate->id;
 
             die(json_encode($return));
         }else

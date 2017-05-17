@@ -7,6 +7,7 @@
         <title>@yield('title')</title>
 
         <script src="{{ asset('/lib/js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('/lib/js/bootstrap-select.min.js') }}"></script>
 
         <!-- Fonts -->
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -58,7 +59,6 @@
         <script src="{{ asset('/js/datatables.js') }}"></script>
         <script src="{{ asset('/js/app.js') }}"></script>
         <script src="{{ asset('/frameworks/inputmask/jquery.inputmask.bundle.js') }}"></script>
-        <script src="{{ asset('/frameworks/bootstrap-select/bootstrap-select.min.js') }}"></script>
         <script src="{{ asset('/frameworks/moment/min/moment.min.js') }}"></script>
         <script src="{{ asset('/frameworks/datetimepicker/build/js/bootstrap-datetimepicker.min.js') }}"></script>
 

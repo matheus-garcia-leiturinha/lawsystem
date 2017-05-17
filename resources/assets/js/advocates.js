@@ -45,7 +45,17 @@ $(document).ready(function(){
                     response = JSON.parse(data);
                     if(response['status'] == "OK"){
                         alert(response['message']);
-                        $("[data-dismiss=modal]").trigger({ type: "click" });
+                        $("[data-dismiss=modal]").trigger({ type: "click" })
+
+                        $(".selectpicker[name=adv_responsavel]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+                        $(".selectpicker[name=adv_terceiro]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+
+                        console.log($('.selectpicker[name=adv_responsavel]'))
+                        window.setTimeout(function()
+                        {
+                            $('.selectpicker[name=adv_responsavel]').selectpicker('refresh');
+                            $('.selectpicker[name=adv_terceiro]').selectpicker('refresh');
+                        },500);
                     }
                 },
                 error: function(response){

@@ -36,4 +36,8 @@ $(document).ready(function(){
 
     window.setTimeout("$('#datetimepicker').datetimepicker()", 700);
 
+
+    $('.selectpicker[name=adv_responsavel]').selectpicker('refresh');
+    $('.selectpicker[name=adv_terceiro]').selectpicker('refresh');
+
 })

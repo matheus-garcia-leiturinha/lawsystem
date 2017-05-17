@@ -70,7 +70,54 @@ $(document).ready(function(){
             return false;
         }
 
-        $("form.clients").submit();
+        if($(this).parent().parent().hasClass('modal-body'))
+        {
+
+            $.ajax({
+                url:  $("form.clients").attr('action'),
+                type: "post",
+                data: {
+                    _token :        $( "input[name='_token']")[0].value,
+                    type:           $( "input[name='type']:checked")[0].value,
+                    fname:          $( "input[name='fname']")[0].value,
+                    ftype_value:    $( "input[name='ftype_value']")[0].value,
+                    jname:          $( "input[name='jname']")[0].value,
+                    jtype_value:    $( "input[name='jtype_value']")[0].value,
+                    logradouro:     $( "input[name='logradouro']")[0].value,
+                    numero:         $( "input[name='numero']")[0].value,
+                    complemento:    $( "input[name='complemento']")[0].value,
+                    bairro:         $( "input[name='bairro']")[0].value,
+                    cidade:         $( "input[name='cidade']")[0].value,
+                    estado:         $(".bootstrap-select .filter-option")[0].innerText,
+                    cep:            $( "input[name='cep']")[0].value,
+                    caixa_postal:   $( "input[name='caixa_postal']")[0].value,
+                    banco:          $( "input[name='banco']")[0].value,
+                    agencia:        $( "input[name='agencia']")[0].value,
+                    conta:          $( "input[name='conta']")[0].value
+                },
+                success: function(data){ // What to do if we succeed
+                    response = JSON.parse(data);
+                    if(response['status'] == "OK"){
+                        alert(response['message']);
+                        $("[data-dismiss=modal]").trigger({ type: "click" })
+
+                        $(".selectpicker[name=cliente]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+
+                        window.setTimeout(function()
+                        {
+                            $('.selectpicker[name=cliente]').selectpicker('refresh');
+                        },500);
+                    }
+                },
+                error: function(response){
+                    alert('Um erro acontenceu!');
+                }
+            });
+            return false;
+        }else
+        {
+            $("form.clients").submit();
+        }
         return false;
     });
 

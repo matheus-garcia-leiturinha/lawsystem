@@ -99,7 +99,20 @@ class ContrarioController extends Controller
         $contrario->nome_mae = $nome_mae;
         $contrario->save();
 
-        return redirect()->route('contrarios.listar');
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            /* special ajax here */
+            $return = [];
+
+            $return['status'] = "OK";
+            $return['message'] = "Cadastro Efetuado com sucesso!";
+            $return['name'] = $contrario->nome;
+            $return['id'] = $contrario->id;
+
+            die(json_encode($return));
+        }else {
+
+            return redirect()->route('contrarios.listar');
+        }
 
 
     }

@@ -116,8 +116,23 @@ class ClientController extends Controller
             $client->conta = $conta;
         $client->save();
 
-        return redirect()->route('clientes.listar');
 
+
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            /* special ajax here */
+            $return = [];
+
+            $return['status'] = "OK";
+            $return['message'] = "Cadastro Efetuado com sucesso!";
+            $return['name'] = $client->razao_social;
+            $return['id'] = $client->id;
+
+            die(json_encode($return));
+        }else
+        {
+
+            return redirect()->route('clientes.listar');
+        }
 
     }
 

@@ -67,21 +67,34 @@ $(document).ready(function(){
 
     $( "form.processos input[name='pericias']" ).on("change",function() {
 
-        console.log($(this).val());
-
         switch($(this).val())
         {
             case "0":
                 $("div.block.pericia").removeClass('active');
-                $("div.block.pericia .selectpicker").val("").trigger('change')
+                $("div.block.pericia .selectpicker").val("").trigger('change');
+                $("div.block.pericia input[name=value_pericia]").val("");
                 break;
             case "1":
                 $("div.block.pericia").addClass('active');
                 break;
         }
     });
+    $( "form.processos input[name='audiencia']" ).on("change",function() {
+
+        switch($(this).val())
+        {
+            case "0":
+                $("div.block.data_audiencia_inaugural").removeClass('active');
+                $("div.block.data_audiencia_inaugural input").val("");
+                break;
+            case "1":
+                $("div.block.data_audiencia_inaugural").addClass('active');
+                break;
+        }
+    });
 
     window.setTimeout("$('#datetimepicker').datetimepicker()", 700);
+    window.setTimeout("$('#datetimepicker2').datetimepicker()", 700);
 
 
     $('.selectpicker[name=adv_responsavel]').selectpicker('refresh');

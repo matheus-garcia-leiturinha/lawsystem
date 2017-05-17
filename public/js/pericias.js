@@ -24,7 +24,7 @@ $(document).ready(function(){
                 type: "post",
                 data: {
                     _token :        $( "form.pericias input[name='_token']")[0].value,
-                    type:           $( "form.pericias input[name='type']:checked")[0].value
+                    type:           $( "form.pericias input[name='type']")[0].value
                 },
                 success: function(data){ // What to do if we succeed
                     response = JSON.parse(data);

@@ -22,14 +22,14 @@ $(document).ready(function(){
 
        // console.log($(".bootstrap-select .filter-option")[0].innerText);
 
-        switch($( "input[name='type']:checked").val())
+        switch($( "form.clients input[name='type']:checked").val())
         {
             case "cpf":
-                if(Form.isEmpty($( "input[name='fname']" ))){
+                if(Form.isEmpty($( "form.clients input[name='fname']" ))){
                     console.error("Campo nome está em branco");
                     return false;
                 }
-                var doc = $( "input[name='ftype_value']").val();
+                var doc = $( "form.clients input[name='ftype_value']").val();
                 if(!Form.validateDoc("cpf",doc))
                 {
                     console.error("CPF INVALIDO");
@@ -37,11 +37,11 @@ $(document).ready(function(){
                 }
                 break;
             case "cnpj":
-                if(Form.isEmpty($( "input[name='jname']" ))){
+                if(Form.isEmpty($( "form.clients input[name='jname']" ))){
                     console.error("Campo razão social está em branco");
                     return false;
                 }
-                var doc = $( "input[name='jtype_value']").val();
+                var doc = $( "form.clients input[name='jtype_value']").val();
                 if(!Form.validateDoc("cnpj",doc))
                 {
                     console.error("CNPJ INVALIDO");
@@ -53,10 +53,10 @@ $(document).ready(function(){
         //console.log("Estado");
         //var abc = $(".bootstrap-select .filter-option")[0].innerText;
         //console.log(abc);
-        if(Form.isEmpty($( "input[name='logradouro']" )) ||
-            Form.isEmpty($( "input[name='numero']" )) ||
-            Form.isEmpty($( "input[name='cidade']" )) ||
-            Form.isEmpty($( "input[name='cep']" )) ||
+        if(Form.isEmpty($( "form.clients input[name='logradouro']" )) ||
+            Form.isEmpty($( "form.clients input[name='numero']" )) ||
+            Form.isEmpty($( "form.clients input[name='cidade']" )) ||
+            Form.isEmpty($( "form.clients input[name='cep']" )) ||
             $(".bootstrap-select .filter-option")[0].innerText == "Estado"
 
 
@@ -77,23 +77,23 @@ $(document).ready(function(){
                 url:  $("form.clients").attr('action'),
                 type: "post",
                 data: {
-                    _token :        $( "input[name='_token']")[0].value,
-                    type:           $( "input[name='type']:checked")[0].value,
-                    fname:          $( "input[name='fname']")[0].value,
-                    ftype_value:    $( "input[name='ftype_value']")[0].value,
-                    jname:          $( "input[name='jname']")[0].value,
-                    jtype_value:    $( "input[name='jtype_value']")[0].value,
-                    logradouro:     $( "input[name='logradouro']")[0].value,
-                    numero:         $( "input[name='numero']")[0].value,
-                    complemento:    $( "input[name='complemento']")[0].value,
-                    bairro:         $( "input[name='bairro']")[0].value,
-                    cidade:         $( "input[name='cidade']")[0].value,
-                    estado:         $(".bootstrap-select .filter-option")[0].innerText,
-                    cep:            $( "input[name='cep']")[0].value,
-                    caixa_postal:   $( "input[name='caixa_postal']")[0].value,
-                    banco:          $( "input[name='banco']")[0].value,
-                    agencia:        $( "input[name='agencia']")[0].value,
-                    conta:          $( "input[name='conta']")[0].value
+                    _token :        $( "form.clients input[name='_token']")[0].value,
+                    type:           $( "form.clients input[name='type']:checked")[0].value,
+                    fname:          $( "form.clients input[name='fname']")[0].value,
+                    ftype_value:    $( "form.clients input[name='ftype_value']")[0].value,
+                    jname:          $( "form.clients input[name='jname']")[0].value,
+                    jtype_value:    $( "form.clients input[name='jtype_value']")[0].value,
+                    logradouro:     $( "form.clients input[name='logradouro']")[0].value,
+                    numero:         $( "form.clients input[name='numero']")[0].value,
+                    complemento:    $( "form.clients input[name='complemento']")[0].value,
+                    bairro:         $( "form.clients input[name='bairro']")[0].value,
+                    cidade:         $( "form.clients input[name='cidade']")[0].value,
+                    estado:         $( "form.clients .bootstrap-select .filter-option")[0].innerText,
+                    cep:            $( "form.clients input[name='cep']")[0].value,
+                    caixa_postal:   $( "form.clients input[name='caixa_postal']")[0].value,
+                    banco:          $( "form.clients input[name='banco']")[0].value,
+                    agencia:        $( "form.clients input[name='agencia']")[0].value,
+                    conta:          $( "form.clients input[name='conta']")[0].value
                 },
                 success: function(data){ // What to do if we succeed
                     response = JSON.parse(data);
@@ -128,17 +128,17 @@ $(document).ready(function(){
 function createMask()
 {
     // Mascaras
-    var cpf = $("input[name='ftype_value']");
+    var cpf = $("form.clients input[name='ftype_value']");
 
     var cpfmask = new Inputmask("999.999.999-99");
     cpfmask.mask(cpf)
 
-    var cnpj = $("input[name='jtype_value']");
+    var cnpj = $("form.clients input[name='jtype_value']");
 
     var cnpjmask = new Inputmask("99.999.999/9999-99");
     cnpjmask.mask(cnpj)
 
-    var cep = $("input[name='cep']");
+    var cep = $("form.clients input[name='cep']");
 
     var cepmask = new Inputmask("99999-999");
     cepmask.mask(cep)

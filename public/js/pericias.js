@@ -8,7 +8,7 @@ $(document).ready(function(){
         //console.log($( "input[name='id']")[0].value);
 
 
-        if(Form.isEmpty($( "input[name='type']" ))
+        if(Form.isEmpty($( "form.pericias input[name='type']" ))
 
         )
         {

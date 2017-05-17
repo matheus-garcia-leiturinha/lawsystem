@@ -11,16 +11,16 @@ $(document).ready(function(){
 
         event.preventDefault();
 
-       console.log($( "input[name='nome']")[0].value);
-       console.log($( "input[name='oab']")[0].value);
-       console.log($( "input[name='telefone']")[0].value);
-       console.log($( "input[name='email']")[0].value);
+       console.log($( "form.advocates input[name='nome']")[0].value);
+       console.log($( "form.advocates input[name='oab']")[0].value);
+       console.log($( "form.advocates input[name='telefone']")[0].value);
+       console.log($( "form.advocates input[name='email']")[0].value);
 
 
-        if(Form.isEmpty($( "input[name='nome']" )) ||
-            Form.isEmpty($( "input[name='oab']" )) ||
-            Form.isEmpty($( "input[name='telefone']" )) ||
-            !Form.validateEmail($( "input[name='email']" )[0].value)
+        if(Form.isEmpty($( "form.advocates input[name='nome']" )) ||
+            Form.isEmpty($( "form.advocates input[name='oab']" )) ||
+            Form.isEmpty($( "form.advocates input[name='telefone']" )) ||
+            !Form.validateEmail($( "form.advocates input[name='email']" )[0].value)
         )
         {
             console.error("Algo de errado não está certo");
@@ -34,12 +34,12 @@ $(document).ready(function(){
                 url:  $("form.advocates").attr('action'),
                 type: "post",
                 data: {
-                    _token :    $( "input[name='_token']")[0].value,
-                    nome:       $( "input[name='nome']")[0].value,
-                    nome:       $( "input[name='nome']")[0].value,
-                    oab:        $( "input[name='oab']")[0].value,
-                    telefone:   $( "input[name='telefone']")[0].value,
-                    email:      $( "input[name='email']")[0].value
+                    _token :    $( "form.advocates input[name='_token']")[0].value,
+                    nome:       $( "form.advocates input[name='nome']")[0].value,
+                    nome:       $( "form.advocates input[name='nome']")[0].value,
+                    oab:        $( "form.advocates input[name='oab']")[0].value,
+                    telefone:   $( "form.advocates input[name='telefone']")[0].value,
+                    email:      $( "form.advocates input[name='email']")[0].value
                 },
                 success: function(data){ // What to do if we succeed
                     response = JSON.parse(data);
@@ -78,7 +78,7 @@ $(document).ready(function(){
 function createMask()
 {
     // Mascaras
-    var telefone = $("input[name='telefone']");
+    var telefone = $("form.advocates input[name='telefone']");
 
     var telefonemask = new Inputmask({
         mask: ["(99) 9999-9999", "(99) 99999-9999"]

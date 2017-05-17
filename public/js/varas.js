@@ -10,12 +10,12 @@ $(document).ready(function(){
 
         event.preventDefault();
 
-        console.log($( "input[name='id']" )[0].value.length);
+        console.log($( "form.varas input[name='id']" )[0].value.length);
 
-        if(Form.isEmpty($( "input[name='id']" )) ||
-            Form.isEmpty($( "input[name='nome']" )) ||
-            Form.isEmpty($( "input[name='cidade']" )) ||
-            $( "input[name='id']" )[0].value.length != 4
+        if(Form.isEmpty($( "form.varas input[name='id']" )) ||
+            Form.isEmpty($( "form.varas input[name='nome']" )) ||
+            Form.isEmpty($( "form.varas input[name='cidade']" )) ||
+            $( "form.varas input[name='id']" )[0].value.length != 4
         )
         {
             console.error("Algo de errado não está certo");

@@ -32,16 +32,13 @@
 <div class="block">
     {{ Form::label('telefone', 'Telefone') }}
     {{ Form::Text('telefone', '',["class" => "form-control"]) }}
+</div>
+<div class="block">
+    {{ Form::label('email', 'E-Mail') }}
+    {{ Form::Text('email', '',["class" => "form-control"]) }}
 
 
 </div>
-
-{{ Form::label('email', 'E-Mail') }}
-<div class="input-group">
-    <span class="input-group-addon">@</span>
-    {{ Form::Text('email', '',["class" => "form-control","title" => "Digite um e-mail no formato: joe.dane@email.com","placeholder" => "joe.dane@email.com"]) }}
-</div>
-<br>
 
 <div class="block address">
 
@@ -62,7 +59,7 @@
     {{ Form::text('cidade','',["class" => "form-control", "placeholder" => "Cidade"]) }}
 
 
-    <select class="selectpicker s1" data-live-search=true title="Estado" name="estado">
+    <select class="selectpicker s1 no-search" data-live-search=true title="Estado" name="estado">
         <option title="AC">Acre</option>
         <option title="AL">Alagoas</option>
         <option title="AP">Amapá</option>
@@ -91,6 +88,9 @@
         <option title="SE">Sergipe</option>
         <option title="TO">Tocantins</option>
     </select>
+
+
+    {{ Form::text('cep','',["class" => "form-control","placeholder" => "CEP"]) }}
 </div>
 
 <div class="block">
@@ -98,17 +98,15 @@
     {{ Form::text('caixa_postal','',["class" => "form-control"]) }}
 </div>
 
-<div class="block">
 
-    {{ Form::label('cep', 'CEP') }}
-    {{ Form::text('cep','',["class" => "form-control"]) }}
-
-</div>
 
 <div class="block">
 
     {{ Form::label('pis', 'PIS') }}
-    {{ Form::text('pis','',["class" => "form-control s2"]) }}
+
+    <div class="block">
+        {{ Form::text('pis','',["class" => "form-control s2"]) }}
+    </div>
 
 </div>
 
@@ -116,10 +114,13 @@
 
     {{ Form::label('ctps', 'CTPS') }}
 
+    <div class="block">
 
-    {{ Form::text('ctps_numero','',["class" => "form-control s2", "placeholder" => "Número"]) }}
-    {{ Form::text('ctps_serie','',["class" => "form-control s1", "placeholder" => "Série"]) }}
-    {{ Form::text('ctps_estado','',["class" => "form-control s1", "placeholder" => "Estado"]) }}
+        {{ Form::text('ctps_numero','',["class" => "form-control ", "placeholder" => "Número"]) }}
+        {{ Form::text('ctps_serie','',["class" => "form-control s1", "placeholder" => "Série"]) }}
+        {{ Form::text('ctps_estado','',["class" => "form-control s1", "placeholder" => "Estado"]) }}
+
+    </div>
 </div>
 
 

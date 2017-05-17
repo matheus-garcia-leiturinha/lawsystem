@@ -71,7 +71,8 @@ $(document).ready(function(){
         {
             case "0":
                 $("div.block.pericia").removeClass('active');
-                $("div.block.pericia .selectpicker").val("").trigger('change')
+                $("div.block.pericia .selectpicker").val("").trigger('change');
+                $("div.block.pericia input[name=value_pericia]").val("");
                 break;
             case "1":
                 $("div.block.pericia").addClass('active');

@@ -114,10 +114,10 @@ $(document).ready(function(){
                 }
             });
             return false;
-        }else
-        {
+        }else {
             $("form.clients").submit();
         }
+
         return false;
     });
 

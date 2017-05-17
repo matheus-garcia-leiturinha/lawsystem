@@ -65,8 +65,21 @@ $(document).ready(function(){
 
     });
 
+    $( "form.processos input[name='pericias']" ).on("change",function() {
 
+        console.log($(this).val());
 
+        switch($(this).val())
+        {
+            case "0":
+                $("div.block.pericia").removeClass('active');
+                $("div.block.pericia .selectpicker").val("").trigger('change')
+                break;
+            case "1":
+                $("div.block.pericia").addClass('active');
+                break;
+        }
+    });
 
     window.setTimeout("$('#datetimepicker').datetimepicker()", 700);
 

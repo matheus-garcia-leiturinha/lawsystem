@@ -65,14 +65,17 @@ $(document).ready(function(){
 
     });
 
-    $( "input[name='pericias']" ).on("change",function() {
+    $( "form.processos input[name='pericias']" ).on("change",function() {
+
+        console.log($(this).val());
 
         switch($(this).val())
         {
-            case 0:
+            case "0":
                 $("div.block.pericia").removeClass('active');
+                $("div.block.pericia .selectpicker").val("").trigger('change')
                 break;
-            case 0:
+            case "1":
                 $("div.block.pericia").addClass('active');
                 break;
         }

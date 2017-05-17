@@ -48,7 +48,20 @@ class ExpertiseController extends Controller
         $pericia->type = $type;
         $pericia->save();
 
-        return redirect()->route('pericias.listar');
+        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+            /* special ajax here */
+            $return = [];
+
+            $return['status'] = "OK";
+            $return['message'] = "Cadastro Efetuado com sucesso!";
+            $return['name'] = $pericia->type;
+            $return['id'] = $pericia->id;
+
+            die(json_encode($return));
+        }else {
+
+            return redirect()->route('pericias.listar');
+        }
     }
 
     public function deletar($id)

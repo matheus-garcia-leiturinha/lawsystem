@@ -23,9 +23,9 @@ class CreateProcessTable extends Migration
             $table->increments('id');
 
             $table->string('numero_processual');
-            $table->smallInteger('natureza');
-            $table->integer('tribunal_id')->unsigned();
-            $table->integer('vara_id')->unsigned();
+            $table->smallInteger('natureza')->nullable();
+            $table->integer('tribunal_id')->unsigned()->nullable();
+            $table->integer('vara_id')->unsigned()->nullable();
 
 
             $table->enum('polo',['ativo','passivo']);
@@ -35,14 +35,12 @@ class CreateProcessTable extends Migration
             $table->date('data_ajuizamento');
 
             $table->dateTime('data_audiencia_inaugural')->nullable();
-            $table->enum('inaugural',['inical','una'])->nullable();
+            $table->enum('inaugural',['sim','não']);
             $table->string('ocorrencia_inaugural')->nullable();
 
-            $table->boolean('pericia');
+            $table->enum('pericia', ['sim','não']);
             $table->integer('pericia_id')->unsigned()->nullable();
-            $table->double('pericias_honorarios',15,2)->nullable();
-
-
+            $table->double('pericias_honorarios',15,2)->default(0)->nullable();
 
             $table->integer('contrario_id')->unsigned(); // author
             $table->integer('client_id')->unsigned(); // author

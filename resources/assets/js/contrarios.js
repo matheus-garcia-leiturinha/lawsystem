@@ -73,7 +73,58 @@ $(document).ready(function(){
             return false;
         }
 
-        $("form.contrarios").submit();
+        if($(this).parent().parent().hasClass('modal-body'))
+        {
+
+            $.ajax({
+                url:  $("form.contrarios").attr('action'),
+                type: "post",
+                data: {
+                    _token :        $( "input[name='_token']")[0].value,
+                    type:           $( "input[name='type']:checked")[0].value,
+                    fname:          $( "input[name='fname']")[0].value,
+                    ftype_value:    $( "input[name='ftype_value']")[0].value,
+                    jname:          $( "input[name='jname']")[0].value,
+                    jtype_value:    $( "input[name='jtype_value']")[0].value,
+                    telefone:       $( "input[name='telefone']")[0].value,
+                    email:          $( "input[name='email']")[0].value,
+                    logradouro:     $( "input[name='logradouro']")[0].value,
+                    numero:         $( "input[name='numero']")[0].value,
+                    complemento:    $( "input[name='complemento']")[0].value,
+                    bairro:         $( "input[name='bairro']")[0].value,
+                    cidade:         $( "input[name='cidade']")[0].value,
+                    estado:         $( ".bootstrap-select .filter-option")[0].innerText,
+                    caixa_postal:   $( "input[name='caixa_postal']")[0].value,
+                    cep:            $( "input[name='cep']")[0].value,
+                    pis:            $( "input[name='pis']")[0].value,
+                    ctps_numero:    $( "input[name='ctps_numero']")[0].value,
+                    ctps_serie:     $( "input[name='ctps_serie']")[0].value,
+                    ctps_estado:    $( "input[name='ctps_estado']")[0].value,
+                    mae:            $( "input[name='mae']")[0].value
+                },
+                success: function(data){ // What to do if we succeed
+                    response = JSON.parse(data);
+                    if(response['status'] == "OK"){
+                        alert(response['message']);
+                        $("[data-dismiss=modal]").trigger({ type: "click" })
+
+                        $(".selectpicker[name=contrario]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+
+                        window.setTimeout(function()
+                        {
+                            $('.selectpicker[name=contrario]').selectpicker('refresh');
+                        },500);
+                    }
+                },
+                error: function(response){
+                    alert('Um erro acontenceu !' + response);
+                }
+            });
+            return false;
+        }else {
+            $("form.contrarios").submit();
+        }
+
         return false;
     });
 

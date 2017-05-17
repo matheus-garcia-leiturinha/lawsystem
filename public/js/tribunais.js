@@ -17,10 +17,10 @@ $(document).ready(function(){
 
         console.log($( "input[name='id']" )[0].value.length);
 
-        if(Form.isEmpty($( "input[name='id']" )) ||
-            Form.isEmpty($( "input[name='nome']" )) ||
-            $(".bootstrap-select .filter-option")[0].innerText == "Estado" ||
-            $( "input[name='id']" )[0].value.length != 2
+        if(Form.isEmpty($( "form.tribunais input[name='id']" )) ||
+            Form.isEmpty($( "form.tribunais input[name='nome']" )) ||
+            $("form.tribunais .bootstrap-select .filter-option")[0].innerText == "Estado" ||
+            $( "form.tribunais input[name='id']" )[0].value.length != 2
         )
         {
             console.error("Algo de errado não está certo");

@@ -99,15 +99,7 @@
             </select>
         </div>
 
-        <div class="block">
-            {{ Form::label('pericia', 'Natureza da pericia') }}
-            <a class="create-new" data-toggle="modal" data-target="#modal_pericia">Criar novo</a>
-             <select class="selectpicker" data-live-search=true title=" " name="pericia" id="pericia">
-                @foreach($pericias as $pericia)
-                    <option title="{{$pericia['type']}}" value="{{$pericia['id']}}">{{$pericia['type']}}</option>
-                @endforeach
-             </select>
-        </div>
+
 
         <div class="block">
             {{ Form::label('value', 'Valor da causa') }}
@@ -124,9 +116,9 @@
             {{ Form::label('', 'Audiência inaugural') }}
 
             <div class="audiencias">
-                {{ Form::radio('audiencia', 1, ['checked' => 'checked'],['id'=> 'true']) }}
+                {{ Form::radio('audiencia', 1, false,['id'=> 'true']) }}
                 {{ Form::label('true', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('audiencia', 0,false,['id'=> 'false']) }}
+                {{ Form::radio('audiencia', 0,['checked' => 'checked'],['id'=> 'false']) }}
                 {{ Form::label('false', 'Não',['class'=> 'radio s0']) }}
             </div>
 
@@ -137,12 +129,22 @@
             {{ Form::label('', 'Motivo de perícia') }}
 
             <div class="pericias">
-                {{ Form::radio('pericias', 1, ['checked' => 'checked'],['id'=> 'true1']) }}
+                {{ Form::radio('pericias', 1, false,['id'=> 'true1']) }}
                 {{ Form::label('true1', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('pericias', 0,false,['id'=> 'false1']) }}
+                {{ Form::radio('pericias', 0,['checked' => 'checked'],['id'=> 'false1']) }}
                 {{ Form::label('false1', 'Não',['class'=> 'radio s0']) }}
             </div>
 
+        </div>
+
+        <div class="block pericia">
+            {{ Form::label('pericia', 'Natureza da pericia') }}
+            <a class="create-new" data-toggle="modal" data-target="#modal_pericia">Criar novo</a>
+            <select class="selectpicker" data-live-search=true title=" " name="pericia" id="pericia">
+                @foreach($pericias as $pericia)
+                    <option title="{{$pericia['type']}}" value="{{$pericia['id']}}">{{$pericia['type']}}</option>
+                @endforeach
+            </select>
         </div>
 
         {{ Form::submit('Enviar') }}

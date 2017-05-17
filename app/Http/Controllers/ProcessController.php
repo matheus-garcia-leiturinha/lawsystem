@@ -49,5 +49,39 @@ class ProcessController extends Controller
 
     }
 
+    public function save(Request $request){
+
+        $number = $request->input('number');
+        $polo = $request->input('polo');
+        $value = $request->input('value');
+        $data_ajuizamento = $request->input('data_ajuizamento');
+        $audiencia = $request->input('audiencia');
+        $pericias = $request->input('pericias');
+        $pericia = $request->input('pericia');
+        $contrario = $request->input('contrario');
+        $cliente = $request->input('cliente');
+        $adv_responsavel = $request->input('adv_responsavel');
+        $adv_terceiro = $request->input('adv_terceiro');
+
+        $processo = new Processos();
+
+        $processo->numero_processual = $number;
+        $processo->polo = $polo;
+        $processo->valor_causa = $value;
+        $processo->data_ajuizamento = $data_ajuizamento;
+        $processo->inaugural = $audiencia;
+        $processo->pericia = $pericias;
+        $processo->pericia_id = $pericia;
+        $processo->contrario_id = $contrario;
+        $processo->client_id = $cliente;
+        $processo->adv_owner = $adv_responsavel;
+        $processo->adv_third_party = $adv_terceiro;
+
+        $processo->save();
+
+
+
+    }
+
 
 }

@@ -34,32 +34,34 @@ $(document).ready(function(){
 
     });
 
-    $("input[type=submit]").on("click", function(event){
+    $("form.processos input[type=submit]").on("click", function(event){
 
         event.preventDefault();
 
 
-        var cliente = $(".bootstrap-select button[data-id=cliente] .filter-option")[0].innerText;
-        var adv_responsavel = $(".bootstrap-select button[data-id=adv_responsavel] .filter-option")[0].innerText;
-        var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
-        var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
-        var pericia = $(".bootstrap-select button[data-id=pericia] .filter-option")[0].innerText;
+        var cliente = $("select[name=cliente] option:selected")[0].value;
+        var adv_responsavel = $("select[name=adv_responsavel] option:selected")[0].value;
+        var adv_terceiro = $("select[name=adv_terceiro] option:selected")[0].value;
+        var contrario = $("select[name=contrario] option:selected")[0].value;
+       // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
+        var pericia = $("select[name=pericia] option:selected")[0].value;
 
         console.log(cliente);
         console.log(adv_responsavel);
-        console.log($( "input[name='polo']" )[0].value);
+        console.log($( "input[name='polo']:checked" )[0].value);
         console.log($( "input[name='number']" )[0].value);
         console.log(adv_terceiro);
         console.log(contrario);
+        console.log(pericia);
         console.log($( "input[name='value']" )[0].value);
-        console.log($( "input[name='date']" )[0].value);
-        console.log($( "input[name='audiencia']" )[0].value);
-        console.log($( "input[name='pericias']" )[0].value);
+        console.log($( "input[name='data_ajuizamento']" )[0].value);
+        console.log($( "input[name='audiencia']:checked" )[0].value);
+        console.log($( "input[name='pericias']:checked" )[0].value);
 
         return false;
 
 
-        $("form").submit();
+        $("form.processos").submit();
 
     });
 

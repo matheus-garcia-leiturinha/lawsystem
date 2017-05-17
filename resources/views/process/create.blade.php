@@ -22,9 +22,9 @@
             {{ Form::label('', 'Polo') }}
 
             <div class="polos">
-                {{ Form::radio('polo', 'ativo', ['checked' => 'checked'],['id'=> 'ativo']) }}
+                {{ Form::radio('polo', '1', ['checked' => 'checked'],['id'=> 'ativo']) }}
                 {{ Form::label('ativo', 'Ativo',['class'=> 'radio first','checked' => 'checked']) }}
-                {{ Form::radio('polo', 'passivo',false,['id'=> 'passivo']) }}
+                {{ Form::radio('polo', '0',false,['id'=> 'passivo']) }}
                 {{ Form::label('passivo', 'Passivo',['class'=> 'radio']) }}
             </div>
 
@@ -115,8 +115,8 @@
         </div>
 
         <div class="block" id="date">
-            {{ Form::label('date', 'Data do Ajuizamento') }}
-            {{ Form::text('date', '',["class" => "date form-control",'id' => 'datetimepicker']) }}
+            {{ Form::label('data_ajuizamento', 'Data do Ajuizamento') }}
+            {{ Form::text('data_ajuizamento', '',["class" => "date form-control",'id' => 'datetimepicker']) }}
         </div>
 
         <div class="block">
@@ -124,9 +124,9 @@
             {{ Form::label('', 'Audiência inaugural') }}
 
             <div class="audiencias">
-                {{ Form::radio('audiencia', 'true', ['checked' => 'checked'],['id'=> 'true']) }}
+                {{ Form::radio('audiencia', 1, ['checked' => 'checked'],['id'=> 'true']) }}
                 {{ Form::label('true', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('audiencia', 'false',false,['id'=> 'false']) }}
+                {{ Form::radio('audiencia', 0,false,['id'=> 'false']) }}
                 {{ Form::label('false', 'Não',['class'=> 'radio s0']) }}
             </div>
 
@@ -137,9 +137,9 @@
             {{ Form::label('', 'Motivo de perícia') }}
 
             <div class="pericias">
-                {{ Form::radio('pericias', 'true1', ['checked' => 'checked'],['id'=> 'true1']) }}
+                {{ Form::radio('pericias', 1, ['checked' => 'checked'],['id'=> 'true1']) }}
                 {{ Form::label('true1', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('pericias', 'false1',false,['id'=> 'false1']) }}
+                {{ Form::radio('pericias', 0,false,['id'=> 'false1']) }}
                 {{ Form::label('false1', 'Não',['class'=> 'radio s0']) }}
             </div>
 

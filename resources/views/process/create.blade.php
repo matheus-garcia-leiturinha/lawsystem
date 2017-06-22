@@ -31,7 +31,7 @@
         </div>
 
         <div class="block">
-            {{ Form::label('adv_respnsavel', 'Quem abriu o processo?') }}
+            {{ Form::label('adv_responsavel', 'Quem abriu o processo?') }}
 
             <a class="create-new" data-toggle="modal" data-target="#modal_adv">Criar novo</a>
              <select class="selectpicker" data-live-search=true title=" " name="adv_responsavel" id="adv_responsavel">
@@ -102,8 +102,8 @@
 
 
         <div class="block">
-            {{ Form::label('value', 'Valor da causa') }}
-            {{ Form::number('value', '',["class" => "form-control"]) }}
+            {{ Form::label('valor', 'Valor da causa') }}
+            {{ Form::number('valor', '',["class" => "form-control"]) }}
         </div>
 
         <div class="block datepickerblock" id="date">
@@ -153,8 +153,8 @@
         </div>
 
         <div class="block pericia">
-            {{ Form::label('value_pericia', 'Honorários prévios de perícia') }}
-            {{ Form::number('value_pericia', '',["class" => "form-control"]) }}
+            {{ Form::label('valor_pericia', 'Honorários prévios de perícia') }}
+            {{ Form::number('valor_pericia', '',["class" => "form-control"]) }}
         </div>
 
         <div class="block">

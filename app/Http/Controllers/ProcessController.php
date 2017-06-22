@@ -6,6 +6,7 @@ use App\Advogados;
 use App\Clientes;
 use App\Pericia;
 use App\Processos;
+use App\PericiaProcesso;
 use App\Tribunal;
 use App\Contrario;
 use App\Vara;
@@ -64,8 +65,6 @@ class ProcessController extends Controller
         $data_ajuizamento  = date("Y-m-d h:i", strtotime($request->input('data_ajuizamento')));
         //$data_ajuizamento = $request->input('data_ajuizamento');
         $audiencia = $request->input('audiencia');
-        $pericias = $request->input('pericias');
-        $pericia = $request->input('pericia');
         $contrario = $request->input('contrario');
         $cliente = $request->input('cliente');
         $adv_responsavel = $request->input('adv_responsavel');
@@ -73,7 +72,28 @@ class ProcessController extends Controller
         $data_ocorrencia_inaugural  = date("Y-m-d h:i", strtotime($request->input('data_ocorrencia_inaugural')));
         //$data_ocorrencia_inaugural = $request->input('data_ocorrencia_inaugural');
         $ocorrencia_inaugural = $request->input('ocorrencia_inaugural');
-        $value_pericia = $request->input('valor_pericia');
+
+        $pericias = $request->input('pericias');            // Se teve perícia
+        $pericia = $request->input('pericia_natureza');              // Motivo da perícia
+        $value_pericia = $request->input('pericia_honorario');  // Valor da perícia
+
+//        if($pericias == 1)
+//        {
+//            foreach($pericia as $key=>$type_pericia)
+//            {
+//                $pericia_processo = new PericiaProcesso();
+//                $pericia_processo->processo_id = 1;//$processo->id;
+//                $pericia_processo->pericia_id  = $type_pericia;
+//                $pericia_processo->pericias_honorarios       = $value_pericia[$key];
+//                $pericia_processo->save();
+//
+//                print_r($pericia_processo);
+//
+//            }
+//        }
+//
+//        die();
+
 
         //echo "Data " . $data_ajuizamento;
 
@@ -87,17 +107,27 @@ class ProcessController extends Controller
         $processo->data_ajuizamento = $data_ajuizamento;
         $processo->inaugural = $audiencia;
         $processo->pericia = $pericias;
-        $processo->pericia_id = $pericia;
         $processo->contrario_id = $contrario;
         $processo->client_id = $cliente;
         $processo->adv_owner = $adv_responsavel;
         $processo->adv_third_party = $adv_terceiro;
-        $processo->pericias_honorarios = $value_pericia;
         $processo->ocorrencia_inaugural = $ocorrencia_inaugural;
         $processo->data_audiencia_inaugural = $data_ocorrencia_inaugural;
 
         $processo->save();
 
+
+        if($pericias == 1)
+        {
+            foreach($pericia as $key=>$type_pericia)
+            {
+                $pericia_processo = new PericiaProcesso();
+                $pericia_processo->processo_id      = $processo->id;
+                $pericia_processo->pericia_id       = $type_pericia;
+                $pericia_processo->pericias_honorarios = $value_pericia[$key];
+                $pericia_processo->save();
+            }
+        }
 
 
     }

@@ -32,7 +32,7 @@ class CreateProcessTable extends Migration
 
             $table->double('valor_causa',15,2);
 
-            $table->date('data_ajuizamento');
+            $table->dateTime('data_ajuizamento');
 
             $table->dateTime('data_audiencia_inaugural')->nullable();
             $table->enum('inaugural',['sim','não']);

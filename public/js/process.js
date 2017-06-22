@@ -44,21 +44,26 @@ $(document).ready(function(){
         var pericia = $("select[name=pericia] option:selected")[0].value;
 
         console.log(cliente);
-        console.log(adv_responsavel);
         console.log($( "input[name='polo']:checked" )[0].value);
+        console.log(adv_responsavel);
         console.log($( "input[name='number']" )[0].value);
         console.log(adv_terceiro);
         console.log(contrario);
-        console.log(pericia);
-        console.log($( "input[name='value']" )[0].value);
+        console.log($( "input[name='valor']" )[0].value);
         console.log($( "input[name='data_ajuizamento']" )[0].value);
         console.log($( "input[name='audiencia']:checked" )[0].value);
+        console.log($( "input[name='data_audiencia_inaugural']" )[0].value);
         console.log($( "input[name='pericias']:checked" )[0].value);
+        console.log(pericia);
+        console.log($( "input[name='valor_pericia']" )[0].value);
+        console.log($( "textarea[name='ocorrencia_inaugural']").value);
 
-        return false;
+        //return false;
 
 
         $("form.processos").submit();
+
+        return false;
 
     });
 
@@ -120,8 +125,8 @@ $(document).ready(function(){
         }
     });
 
-    window.setTimeout("$('#datetimepicker').datetimepicker()", 700);
-    window.setTimeout("$('#datetimepicker2').datetimepicker()", 700);
+    window.setTimeout("$('#datetimepicker').datetimepicker({ format: 'DD/MM/YYYY HH:mm' })", 700);
+    window.setTimeout("$('#datetimepicker2').datetimepicker({ format: 'DD/MM/YYYY HH:mm' })", 700);
 
 
     $('.selectpicker[name=adv_responsavel]').selectpicker('refresh');

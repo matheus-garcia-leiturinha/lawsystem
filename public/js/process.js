@@ -2,12 +2,9 @@
  * Created by matheus garcia on 24/04/2017.
  */
 
-
 $(document).ready(function(){
 
-    var cliente = $(".bootstrap-select button[data-id=cliente] .filter-option")[0].innerText;
-    //var tribunal = $(".bootstrap-select button[data-id=tribunal] .filter-option")[0].innerText;
-    //var vara = $(".bootstrap-select button[data-id=vara] .filter-option")[0].innerText;
+
     var adv_responsavel = $(".bootstrap-select button[data-id=adv_responsavel] .filter-option")[0].innerText;
     var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
     var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
@@ -43,7 +40,7 @@ $(document).ready(function(){
         var adv_responsavel = $("select[name=adv_responsavel] option:selected")[0].value;
         var adv_terceiro = $("select[name=adv_terceiro] option:selected")[0].value;
         var contrario = $("select[name=contrario] option:selected")[0].value;
-       // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
+        // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
         var pericia = $("select[name=pericia] option:selected")[0].value;
 
         console.log(cliente);
@@ -84,6 +81,36 @@ $(document).ready(function(){
                 break;
         }
     });
+
+    $( "form.processos input[name='depositos']" ).on("change",function() {
+
+        switch($(this).val())
+        {
+            case "0":
+                $("div.block.deposito").removeClass('active');
+                $("div.block.deposito .selectpicker").val("").trigger('change');
+                $("div.block.deposito input[name=value_deposito]").val("");
+                break;
+            case "1":
+                $("div.block.deposito").addClass('active');
+                break;
+        }
+    });
+    $( "form.processos input[name='custos']" ).on("change",function() {
+
+        switch($(this).val())
+        {
+            case "0":
+                $("div.block.custo").removeClass('active');
+                $("div.block.custo .selectpicker").val("").trigger('change');
+                $("div.block.custo input[name=value_custo]").val("");
+                break;
+            case "1":
+                $("div.block.custo").addClass('active');
+                break;
+        }
+    });
+
     $( "form.processos input[name='audiencia']" ).on("change",function() {
 
         switch($(this).val())
@@ -105,4 +132,74 @@ $(document).ready(function(){
     $('.selectpicker[name=adv_responsavel]').selectpicker('refresh');
     $('.selectpicker[name=adv_terceiro]').selectpicker('refresh');
 
-})
+
+
+});
+
+var processo =
+{
+
+    add : function (type) {
+
+        switch (type) {
+            case 'pericia':
+
+                $(".pericias-component").append(
+                    '<div class="child">'
+                        +'<input name="pericia_natureza[]" type="hidden" value="'+$("select[name=pericia] option:selected")[0].value+'"/>'
+                        +'<input name="pericia_honorario[]"  type="hidden" value="'+$("div.block.pericia input[name=value_pericia]").val()+'"/>'
+                        +'<div class="values">'
+                            +'<span>'+$(".bootstrap-select button[data-id=pericia] .filter-option")[0].innerText+'</span>'
+                            +'<span>'+$("div.block.pericia input[name=value_pericia]").val()+'</span>'
+                        +'</div>'
+                        +'<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                    +'</div>'
+                );
+
+                $("div.block.pericia .selectpicker").val("").trigger('change');
+                $("div.block.pericia input[name=value_pericia]").val("");
+
+                break;
+            case 'deposito':
+                $(".depositos-component").append(
+                    '<div class="child">'
+                        +'<input name="deposito_motivo[]" type="hidden" value="'+$("select[name=deposito] option:selected")[0].value+'"/>'
+                        +'<input name="deposito_valor[]"  type="hidden" value="'+$("div.block.deposito input[name=value_deposito]").val()+'"/>'
+                        +'<div class="values">'
+                            +'<span>'+$(".bootstrap-select button[data-id=deposito] .filter-option")[0].innerText+'</span>'
+                            +'<span>'+$("div.block.deposito input[name=value_deposito]").val()+'</span>'
+                        +'</div>'
+                        +'<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                    +'</div>'
+                );
+
+                $("div.block.deposito .selectpicker").val("").trigger('change');
+                $("div.block.deposito input[name=value_deposito]").val("");
+
+                break;
+            case 'custo':
+                $(".custos-component").append(
+                    '<div class="child">'
+                        +'<input name="custo_motivo[]" type="hidden" value="'+$("select[name=custo] option:selected")[0].value+'"/>'
+                        +'<input name="custo_valor[]"  type="hidden" value="'+$("div.block.custo input[name=value_custo]").val()+'"/>'
+                        +'<div class="values">'
+                            +'<span>'+$(".bootstrap-select button[data-id=custo] .filter-option")[0].innerText+'</span>'
+                            +'<span>'+$("div.block.custo input[name=value_custo]").val()+'</span>'
+                        +'</div>'
+                        +'<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                    +'</div>'
+                );
+
+                $("div.block.custo .selectpicker").val("").trigger('change');
+                $("div.block.custo input[name=value_custo]").val("");
+
+                break;
+        }
+    },
+
+    remove: function (el)
+    {
+        $(el).parents(".child").remove()
+    }
+
+}

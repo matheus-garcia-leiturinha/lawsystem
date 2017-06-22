@@ -142,19 +142,109 @@
 
         </div>
 
-        <div class="block pericia">
-            {{ Form::label('pericia', 'Natureza da pericia') }}
-            <a class="create-new" data-toggle="modal" data-target="#modal_pericia">Criar novo</a>
-            <select class="selectpicker" data-live-search=true title=" " name="pericia" id="pericia">
-                @foreach($pericias as $pericia)
-                    <option title="{{$pericia['type']}}" value="{{$pericia['id']}}">{{$pericia['type']}}</option>
-                @endforeach
-            </select>
+        <div class="pericias-component">
+            <div class="block pericia">
+                {{ Form::label('pericia', 'Natureza da pericia') }}
+                <a class="create-new" data-toggle="modal" data-target="#modal_pericia">Criar novo</a>
+                <select class="selectpicker" data-live-search=true title=" " name="pericia" id="pericia">
+                    @foreach($pericias as $pericia)
+                        <option title="{{$pericia['type']}}" value="{{$pericia['id']}}">{{$pericia['type']}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="block pericia">
+                {{ Form::label('value_pericia', 'Honorários prévios de perícia') }}
+                {{ Form::number('value_pericia', '',["class" => "form-control"]) }}
+            </div>
+
+            <div class="block pericia">
+                <a onclick="processo.add('pericia');">Adicionar</a>
+            </div>
         </div>
 
-        <div class="block pericia">
-            {{ Form::label('valor_pericia', 'Honorários prévios de perícia') }}
-            {{ Form::number('valor_pericia', '',["class" => "form-control"]) }}
+        <div class="block">
+
+            {{ Form::label('', 'Depósito') }}
+
+            <div class="depositos">
+                {{ Form::radio('depositos', 1, false,['id'=> 'true2']) }}
+                {{ Form::label('true2', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                {{ Form::radio('depositos', 0,['checked' => 'checked'],['id'=> 'false2']) }}
+                {{ Form::label('false2', 'Não',['class'=> 'radio s0']) }}
+            </div>
+
+        </div>
+
+        <div class="depositos-component">
+            <div class="block deposito">
+                {{ Form::label('deposito', 'Motivo do deposito') }}
+                <a class="create-new" data-toggle="modal" data-target="#modal_deposito">Criar novo</a>
+                <select class="selectpicker" data-live-search=true title=" " name="deposito" id="deposito">
+                    @foreach($depositos as $deposito)
+                        <option title="{{$deposito['type']}}" value="{{$deposito['id']}}">{{$deposito['type']}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="block deposito">
+                {{ Form::label('value_deposito', 'Valor do depósito') }}
+                {{ Form::number('value_deposito', '',["class" => "form-control"]) }}
+            </div>
+
+            <div class="block deposito">
+                <a onclick="processo.add('deposito');">Adicionar</a>
+            </div>
+        </div>
+
+
+        <div class="block">
+
+            {{ Form::label('', 'Recolhimento') }}
+
+            <div class="custos">
+                {{ Form::radio('custos', 1, false,['id'=> 'true3']) }}
+                {{ Form::label('true3', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                {{ Form::radio('custos', 0,['checked' => 'checked'],['id'=> 'false3']) }}
+                {{ Form::label('false3', 'Não',['class'=> 'radio s0']) }}
+            </div>
+
+        </div>
+
+        <div class="custos-component">
+            <div class="block custo">
+                {{ Form::label('custo', 'Motivo do Recolhimento') }}
+                <a class="create-new" data-toggle="modal" data-target="#modal_custo">Criar novo</a>
+                <select class="selectpicker" data-live-search=true title=" " name="custo" id="custo">
+                    @foreach($custos as $custo)
+                        <option title="{{$custo['type']}}" value="{{$custo['id']}}">{{$custo['type']}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="block custo">
+                {{ Form::label('value_custo', 'Valor do Recolhimento') }}
+                {{ Form::number('value_custo', '',["class" => "form-control"]) }}
+            </div>
+
+            <div class="block custo">
+                <a onclick="processo.add('custo');">Adicionar</a>
+            </div>
+        </div>
+
+
+
+        <div class="block">
+
+            {{ Form::label('', 'Depósito Judicial') }}
+
+            <div class="deposito_judicial">
+                {{ Form::radio('deposito_judicial', 1, false,['id'=> 'true4']) }}
+                {{ Form::label('true4', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                {{ Form::radio('deposito_judicial', 0,['checked' => 'checked'],['id'=> 'false4']) }}
+                {{ Form::label('false4', 'Não',['class'=> 'radio s0']) }}
+            </div>
+
         </div>
 
         <div class="block">

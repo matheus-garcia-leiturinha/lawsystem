@@ -35,6 +35,8 @@ class ProcessController extends Controller
         $advogados = Advogados::all()->toArray();
         $contrarios = Contrario::all()->toArray();
         $pericias = Pericia::all()->toArray();
+        $depositos = Pericia::all()->toArray();
+        $custos = Pericia::all()->toArray();
 
 
         return view('process.create',[
@@ -43,7 +45,9 @@ class ProcessController extends Controller
             "varas" => $varas,
             "advogados" => $advogados,
             "contrarios" => $contrarios,
-            "pericias" => $pericias
+            "pericias" => $pericias,
+            "depositos" => $depositos,
+            "custos" => $custos,
         ]);
 
 

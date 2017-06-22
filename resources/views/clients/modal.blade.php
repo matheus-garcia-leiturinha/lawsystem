@@ -29,6 +29,23 @@
             </div>
         </div>
 
+        <div class="block">
+            {{ Form::label('email', 'Email') }}
+            {{ Form::text('email','',["class" => "form-control"]) }}
+        </div>
+
+        <div class="block">
+            {{ Form::label('telefone', 'Telefone') }}
+            {{ Form::text('telefone','',["class" => "form-control"]) }}
+        </div>
+
+        <div class="doc cnpj">
+            <div class="block">
+                {{ Form::label('contato', 'Contato Pessoal') }}
+                {{ Form::text('contato','',["class" => "form-control"]) }}
+            </div>
+        </div>
+
         <div class="block address">
 
             {{ Form::label('', 'Endereço') }}

@@ -82,7 +82,9 @@ class ClientController extends Controller
 
             $document = Documents::find($client->document_id);
         }
-
+        $email = $request->input('email');
+        $telefone = $request->input('telefone');
+        $contato = $request->input('contato');
         $cep = $request->input('cep');
         $logradouro = $request->input('logradouro');
         $numero = $request->input('numero');
@@ -100,7 +102,9 @@ class ClientController extends Controller
         $document->number = $type_value;
         $document->save();
 
-
+            $client->email = $email;
+            $client->telefone = $telefone;
+            $client->contato = $contato;
             $client->razao_social = $name;
             $client->cep = $cep;
             $client->logradouro = $logradouro;

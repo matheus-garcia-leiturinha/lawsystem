@@ -10,6 +10,8 @@ use App\PericiaProcesso;
 use App\Tribunal;
 use App\Contrario;
 use App\Vara;
+use App\Pedidos;
+use App\PedidoProcesso;
 use Illuminate\Http\Request;
 
 class ProcessController extends Controller
@@ -39,6 +41,8 @@ class ProcessController extends Controller
         $depositos = Pericia::all()->toArray();
         $custos = Pericia::all()->toArray();
 
+        $pedidos = Pedidos::all()->toArray();
+
 
         return view('process.create',[
             "clientes" => $clientes ,
@@ -49,6 +53,7 @@ class ProcessController extends Controller
             "pericias" => $pericias,
             "depositos" => $depositos,
             "custos" => $custos,
+            "pedidos" => $pedidos,
         ]);
 
 
@@ -73,9 +78,15 @@ class ProcessController extends Controller
         //$data_ocorrencia_inaugural = $request->input('data_ocorrencia_inaugural');
         $ocorrencia_inaugural = $request->input('ocorrencia_inaugural');
 
+        $tipo_processo = $request->input('tipo');
+
         $pericias = $request->input('pericias');            // Se teve perícia
         $pericia = $request->input('pericia_natureza');              // Motivo da perícia
         $value_pericia = $request->input('pericia_honorario');  // Valor da perícia
+
+        $pedido_motivo = $request->input('pedido_motivo');  // Pedido
+        $valor_pedido = $request->input('pedido_valor');  // Valor do pedido
+        $risco_pedido = $request->input('pedido_risco');  // Risco do pedido
 
 //        if($pericias == 1)
 //        {
@@ -103,6 +114,7 @@ class ProcessController extends Controller
 
         $processo->numero_processual = $number;
         $processo->polo = $polo;
+        $processo->type = $tipo_processo;
         $processo->valor_causa = $value;
         $processo->data_ajuizamento = $data_ajuizamento;
         $processo->inaugural = $audiencia;
@@ -129,6 +141,20 @@ class ProcessController extends Controller
             }
         }
 
+        if(isset($pedido_motivo)){
+
+            foreach($pedido_motivo as $key=>$type_pedido)
+            {
+                $pedido_processo = new PedidoProcesso();
+                $pedido_processo->processo_id   = $processo->id;
+                $pedido_processo->pedido_id     = $type_pedido;
+                $pedido_processo->pedido_valor  = $valor_pedido[$key];
+                $pedido_processo->risco         = $risco_pedido[$key];
+                $pedido_processo->save();
+            }
+        }
+
+        return redirect()->route('processos.listar');
 
     }
 

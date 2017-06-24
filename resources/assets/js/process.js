@@ -43,20 +43,20 @@ $(document).ready(function(){
         // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
         var pericia = $("select[name=pericia] option:selected")[0].value;
 
-        console.log(cliente);
-        console.log($( "input[name='polo']:checked" )[0].value);
-        console.log(adv_responsavel);
-        console.log($( "input[name='number']" )[0].value);
-        console.log(adv_terceiro);
-        console.log(contrario);
-        console.log($( "input[name='valor']" )[0].value);
-        console.log($( "input[name='data_ajuizamento']" )[0].value);
-        console.log($( "input[name='audiencia']:checked" )[0].value);
-        console.log($( "input[name='data_audiencia_inaugural']" )[0].value);
-        console.log($( "input[name='pericias']:checked" )[0].value);
-        console.log(pericia);
-        console.log($( "input[name='valor_pericia']" )[0].value);
-        console.log($( "textarea[name='ocorrencia_inaugural']").value);
+        //console.log(cliente);
+        //console.log($( "input[name='polo']:checked" )[0].value);
+        //console.log(adv_responsavel);
+        //console.log($( "input[name='number']" )[0].value);
+        //console.log(adv_terceiro);
+        //console.log(contrario);
+        //console.log($( "input[name='valor']" )[0].value);
+        //console.log($( "input[name='data_ajuizamento']" )[0].value);
+        //console.log($( "input[name='audiencia']:checked" )[0].value);
+        //console.log($( "input[name='data_audiencia_inaugural']" )[0].value);
+        //console.log($( "input[name='pericias']:checked" )[0].value);
+        //console.log(pericia);
+        //console.log($( "input[name='valor_pericia']" )[0].value);
+        //console.log($( "textarea[name='ocorrencia_inaugural']").value);
 
         //return false;
 
@@ -192,6 +192,28 @@ var processo =
 
                 $("div.block.custo .selectpicker").val("").trigger('change');
                 $("div.block.custo input[name=value_custo]").val("");
+
+                break;
+            case 'pedido':
+                console.log('oi');
+                $(".pedidos-component").append(
+                    '<div class="child">'
+                        +'<input name="pedido_motivo[]" type="hidden" value="'+$("select[name=pedido] option:selected")[0].value+'"/>'
+                        +'<div class="values">'
+                            +'<span>'+$(".bootstrap-select button[data-id=pedido] .filter-option")[0].innerText+'</span>'
+                            +'<input name="pedido_valor[]"  type="number" value="'+$("div.block.pedido input[name=value_pedido]").val()+'"/>'
+                            +'<select class="" data-live-search=true title=" " name="pedido_risco[]" id="pedido_risco">'
+                                +'<option title="possível" value="2">Possível</option>'
+                                +'<option title="provavel" value="3">Provável</option>'
+                                +'<option title="remoto" value="4">Remoto</option>'
+                            +'</select>'
+                        +'</div>'
+                        +'<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                    +'</div>'
+                );
+
+                $("div.block.pedido .selectpicker").val("").trigger('change');
+                $("div.block.pedido input[name=value_pedido]").val("");
 
                 break;
         }

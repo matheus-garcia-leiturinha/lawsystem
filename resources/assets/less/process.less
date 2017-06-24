@@ -8,12 +8,11 @@
     }
   }
 
-  .polos,.naturezas
+  .polos,.naturezas, .tipos
   {
     label {
       &.radio
       {
-
         margin: 0 20px;
         &.first {
 
@@ -49,7 +48,7 @@
   }
 
 
-  .pericias-component,.depositos-component,.custos-component
+  .pericias-component,.depositos-component,.custos-component,.pedidos-component
   {
     .child
     {
@@ -62,11 +61,13 @@
         border-bottom: 1px solid #f2f2f2;
         padding-bottom: 4px;
 
-        span
+        span,input,select
         {
           display: block;
           margin: 5px 0;
         }
+
+
       }
 
       a

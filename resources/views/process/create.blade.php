@@ -6,7 +6,6 @@
 @section('content')
     {{ Form::open(array('url' => 'processos/save',"class" => "processos")) }}
 
-
         <div class="block">
             {{ Form::label('cliente', 'Cliente') }}
             <a class="create-new" data-toggle="modal" data-target="#modal_client">Criar novo</a>
@@ -26,6 +25,30 @@
                 {{ Form::label('ativo', 'Ativo',['class'=> 'radio first','checked' => 'checked']) }}
                 {{ Form::radio('polo', '0',false,['id'=> 'passivo']) }}
                 {{ Form::label('passivo', 'Passivo',['class'=> 'radio']) }}
+            </div>
+
+        </div>
+
+        <div class="block">
+
+            {{ Form::label('', 'Tipo do Processo') }}
+
+            <div class="tipos">
+                {{ Form::radio('tipo', '1', ['checked' => 'checked'],['id'=> 'tipo1']) }}
+                {{ Form::label('tipo1', 'Tipo 1',['class'=> 'radio first column1','checked' => 'checked']) }}
+                {{ Form::radio('tipo', '2',false,['id'=> 'tipo2']) }}
+                {{ Form::label('tipo2', 'Tipo 2',['class'=> 'radio column1']) }}
+            </div>
+
+        </div>
+
+        <div class="block">
+
+            <div class="tipos">
+                {{ Form::radio('tipo', '3',false,['id'=> 'tipo3']) }}
+                {{ Form::label('tipo3', 'Tipo 3',['class'=> 'first radio']) }}
+                {{ Form::radio('tipo', '4',false,['id'=> 'tipo4']) }}
+                {{ Form::label('tipo4', 'Tipo 4',['class'=> 'radio']) }}
             </div>
 
         </div>
@@ -252,6 +275,21 @@
             {{ Form::textarea('ocorrencia_inaugural', '',["class" => "form-control"]) }}
         </div>
 
+        <div class="pedidos-component">
+            <div class="block pedido">
+                {{ Form::label('pedidos', 'Pedidos') }}
+                <select class="selectpicker" data-live-search=true title=" " name="pedido" id="pedido">
+                    @foreach($pedidos as $pedido)
+                        <option title="{{$pedido['type']}}" value="{{$pedido['id']}}">{{$pedido['type']}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="block pedido">
+                <a onclick="processo.add('pedido');">Adicionar</a>
+            </div>
+        </div>
+
         {{ Form::submit('Enviar') }}
     {{ Form::close() }}
 
@@ -312,6 +350,7 @@
     </div>
   </div>
 </div>
+
 <div class="modal fade" id="modal_pericia" tabindex="-1" role="dialog" aria-labelledby="modal_periciaModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

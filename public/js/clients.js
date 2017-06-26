@@ -145,5 +145,12 @@ function createMask()
 
     var cepmask = new Inputmask("99999-999");
     cepmask.mask(cep)
+
+    var telefone = $("form.clients input[name='telefone']");
+
+    var telefonemask = new Inputmask({
+        mask: ["(99) 9999-9999", "(99) 99999-9999"]
+    });
+    telefonemask.mask(telefone);
     // Fim máscaras
 }

@@ -20,6 +20,8 @@ return array(
     'CreatePericiaProcessoTable' => $baseDir . '/database/migrations/2017_06_22_024225_create_pericia_processo_table.php',
     'CreatePericiasTable' => $baseDir . '/database/migrations/2017_04_25_021436_create_pericias_table.php',
     'CreateProcessTable' => $baseDir . '/database/migrations/2017_04_25_022122_create_process_table.php',
+    'CreateRecolhimentoProcessoTable' => $baseDir . '/database/migrations/2017_06_26_015032_create_recolhimento_processo_table.php',
+    'CreateRecolhimentoTable' => $baseDir . '/database/migrations/2017_06_26_015027_create_recolhimento_table.php',
     'CreateTribunalTable' => $baseDir . '/database/migrations/2017_04_24_033834_create_tribunal_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CreateVaraTable' => $baseDir . '/database/migrations/2017_04_24_033843_create_vara_table.php',

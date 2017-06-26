@@ -335,6 +335,8 @@ class ComposerStaticInit66f5f0bc89590a9afd67c4dde9643000
         'CreatePericiaProcessoTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_22_024225_create_pericia_processo_table.php',
         'CreatePericiasTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_25_021436_create_pericias_table.php',
         'CreateProcessTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_25_022122_create_process_table.php',
+        'CreateRecolhimentoProcessoTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_26_015032_create_recolhimento_processo_table.php',
+        'CreateRecolhimentoTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_26_015027_create_recolhimento_table.php',
         'CreateTribunalTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_24_033834_create_tribunal_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CreateVaraTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_24_033843_create_vara_table.php',

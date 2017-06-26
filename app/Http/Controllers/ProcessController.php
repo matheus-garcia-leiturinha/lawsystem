@@ -10,6 +10,7 @@ use App\Pericia;
 use App\Processos;
 use App\PericiaProcesso;
 use App\Recolhimento;
+use App\RecolhimentoProcesso;
 use App\Tribunal;
 use App\Contrario;
 use App\Vara;
@@ -24,6 +25,7 @@ class ProcessController extends Controller
 
     public function listar()
     {
+
         $process = Processos::all();
 
 
@@ -64,33 +66,42 @@ class ProcessController extends Controller
 
     public function save(Request $request){
 
-        $number = $request->input('number');
-        $polo = $request->input('polo');
-        $value = $request->input('valor');
-        $data_ajuizamento  = date("Y-m-d", strtotime($request->input('data_ajuizamento')));
-        $audiencia = $request->input('audiencia');
-        $contrario = $request->input('contrario');
-        $cliente = $request->input('cliente');
-        $adv_responsavel = $request->input('adv_responsavel');
-        $adv_terceiro = $request->input('adv_terceiro');
-        $data_audiencia_inaugural  = date("Y-m-d H:i", strtotime($request->input('data_audiencia_inaugural')));
-        $ocorrencia_inaugural = $request->input('ocorrencia_inaugural');
+        $number                     = $request->input('number');
+        $polo                       = $request->input('polo');
+        $value                      = $request->input('valor');
+        $audiencia                  = $request->input('audiencia');
+        $contrario                  = $request->input('contrario');
+        $cliente                    = $request->input('cliente');
+        $adv_responsavel            = $request->input('adv_responsavel');
+        $adv_terceiro               = $request->input('adv_terceiro');
+        $ocorrencia_inaugural       = $request->input('ocorrencia_inaugural');
 
-        $tipo_processo      = $request->input('tipo');
 
-        $deposito_judicial  = $request->input('deposito_judicial');
+        $d_ajuizamento              = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_ajuizamento'))->format("m/d/Y");
+        $data_ajuizamento           = date("Y-m-d", strtotime($d_ajuizamento));
 
-        $pericias       = $request->input('pericias');              // Se teve perícia
-        $pericia        = $request->input('pericia_natureza');      // Motivo da perícia
-        $value_pericia  = $request->input('pericia_honorario');     // Valor da perícia
+        $d_inaugural                = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_audiencia_inaugural'))->format("m/d/Y H:i");
+        $data_audiencia_inaugural   = date("Y-m-d H:i", strtotime($d_inaugural));
 
-        $depositos       = $request->input('depositos');            // Se teve deposito
-        $deposito        = $request->input('deposito_motivo');      // Motivo da deposito
-        $value_deposito  = $request->input('deposito_valor');       // Valor da deposito
+        $tipo_processo              = $request->input('tipo');
 
-        $pedido_motivo  = $request->input('pedido_motivo');         // Pedido
-        $valor_pedido   = $request->input('pedido_valor');          // Valor do pedido
-        $risco_pedido   = $request->input('pedido_risco');          // Risco do pedido
+        $deposito_judicial          = $request->input('deposito_judicial');
+
+        $pericias                   = $request->input('pericias');             // Se teve perícia
+        $pericia                    = $request->input('pericia_natureza');     // Motivo da perícia
+        $value_pericia              = $request->input('pericia_honorario');    // Valor da perícia
+
+        $depositos                  = $request->input('depositos');            // Se teve deposito
+        $deposito                   = $request->input('deposito_motivo');      // Motivo da deposito
+        $value_deposito             = $request->input('deposito_valor');       // Valor da deposito
+
+        $recolhimentos              = $request->input('recolhimentos');        // Se teve recolhimento
+        $recolhimento               = $request->input('recolhimento_motivo');  // Motivo da recolhimento
+        $value_recolhimento         = $request->input('recolhimento_valor');   // Valor da recolhimento
+
+        $pedido_motivo              = $request->input('pedido_motivo');        // Pedido
+        $valor_pedido               = $request->input('pedido_valor');         // Valor do pedido
+        $risco_pedido               = $request->input('pedido_risco');         // Risco do pedido
 
 //        if($pericias == 1)
 //        {
@@ -155,6 +166,18 @@ class ProcessController extends Controller
                 $pedido_processo->deposito_id       = $type_deposito;
                 $pedido_processo->deposito_valor    = $value_deposito[$key];
                 $pedido_processo->save();
+            }
+        }
+
+        if($recolhimentos == 1 && isset($recolhimento))
+        {
+            foreach($recolhimento as $key=>$type_recolhimento)
+            {
+                $recolhimento_processo = new RecolhimentoProcesso();
+                $recolhimento_processo->processo_id         = $processo->id;
+                $recolhimento_processo->recolhimento_id     = $type_recolhimento;
+                $recolhimento_processo->recolhimento_valor  = $value_recolhimento[$key];
+                $recolhimento_processo->save();
             }
         }
 

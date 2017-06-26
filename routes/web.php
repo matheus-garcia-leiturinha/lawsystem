@@ -94,6 +94,15 @@ Route::group(['middleware' => 'auth','prefix' => 'depositos'], function () {
 
 });
 
+Route::group(['middleware' => 'auth','prefix' => 'recolhimentos'], function () {
+
+    Route::get('/', 'RecolhimentoController@listar')->name('recolhimentos.listar');
+    Route::get('/criar', 'RecolhimentoController@criar')->name('recolhimentos.criar');
+    Route::get('/editar/{id}', 'RecolhimentoController@editar')->name('recolhimentos.editar');
+    Route::get('/deletar/{id}', 'RecolhimentoController@deletar')->name('recolhimentos.deletar');
+    Route::post('/save', 'RecolhimentoController@save')->name('recolhimentos.salvar');
+
+});
 
 Auth::routes();
 

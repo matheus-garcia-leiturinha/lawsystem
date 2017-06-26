@@ -1,0 +1,73 @@
+.content .doc:not(.checked) {
+  display: none;
+}
+.content .polos label.radio,
+.content .naturezas label.radio,
+.content .tipos label.radio {
+  margin: 0 20px;
+}
+.content .polos label.radio.first,
+.content .naturezas label.radio.first,
+.content .tipos label.radio.first {
+  margin: 0 20px 0px 0;
+}
+.content .datepickerblock {
+  position: relative ;
+}
+.content .pericia,
+.content .deposito,
+.content .custo,
+.content .recolhimento {
+  display: none;
+}
+.content .pericia.active,
+.content .deposito.active,
+.content .custo.active,
+.content .recolhimento.active {
+  display: block;
+}
+.content .data_audiencia_inaugural {
+  display: none;
+}
+.content .data_audiencia_inaugural.active {
+  display: block;
+}
+.content .pericias-component .child,
+.content .depositos-component .child,
+.content .recolhimentos-component .child,
+.content .pedidos-component .child {
+  position: relative;
+  margin-bottom: 20px;
+}
+.content .pericias-component .child .values,
+.content .depositos-component .child .values,
+.content .recolhimentos-component .child .values,
+.content .pedidos-component .child .values {
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 4px;
+}
+.content .pericias-component .child .values span,
+.content .depositos-component .child .values span,
+.content .recolhimentos-component .child .values span,
+.content .pedidos-component .child .values span,
+.content .pericias-component .child .values input,
+.content .depositos-component .child .values input,
+.content .recolhimentos-component .child .values input,
+.content .pedidos-component .child .values input,
+.content .pericias-component .child .values select,
+.content .depositos-component .child .values select,
+.content .recolhimentos-component .child .values select,
+.content .pedidos-component .child .values select {
+  display: block;
+  margin: 5px 0;
+}
+.content .pericias-component .child a,
+.content .depositos-component .child a,
+.content .recolhimentos-component .child a,
+.content .pedidos-component .child a {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 20px;
+}

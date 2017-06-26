@@ -83,6 +83,9 @@ $(document).ready(function(){
                     ftype_value:    $( "form.clients input[name='ftype_value']")[0].value,
                     jname:          $( "form.clients input[name='jname']")[0].value,
                     jtype_value:    $( "form.clients input[name='jtype_value']")[0].value,
+                    email:    $( "form.clients input[name='email']")[0].value,
+                    telefone:    $( "form.clients input[name='telefone']")[0].value,
+                    contato:    $( "form.clients input[name='contato']")[0].value,
                     logradouro:     $( "form.clients input[name='logradouro']")[0].value,
                     numero:         $( "form.clients input[name='numero']")[0].value,
                     complemento:    $( "form.clients input[name='complemento']")[0].value,
@@ -142,5 +145,12 @@ function createMask()
 
     var cepmask = new Inputmask("99999-999");
     cepmask.mask(cep)
+
+    var telefone = $("form.clients input[name='telefone']");
+
+    var telefonemask = new Inputmask({
+        mask: ["(99) 9999-9999", "(99) 99999-9999"]
+    });
+    telefonemask.mask(telefone);
     // Fim máscaras
 }

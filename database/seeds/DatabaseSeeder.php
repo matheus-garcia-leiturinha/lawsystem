@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
 //        $this->call(TribunalTableSeeder::class);
 //        $this->call(VaraTableSeeder::class);
 //        $this->call(AdvocatesTableSeeder::class);
-        $this->call(PedidoTableSeeder::class);
+        $this->call(PedidosTableSeeder::class);
     }
 }

@@ -25,6 +25,9 @@ class Clientes extends Migration
             $table->string('cep')->nullable();
             $table->string('logradouro')->nullable();
             $table->string('numero')->nullable();
+            $table->string('email')->nullable();
+            $table->string('telefone')->nullable();
+            $table->string('contato')->nullable();
             $table->string('complemento')->nullable();
             $table->string('bairro')->nullable();
             $table->string('cidade')->nullable();

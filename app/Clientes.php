@@ -11,7 +11,7 @@ class Clientes extends Model
     protected $table = 'clientes';
 
     protected $fillable = [
-        'razao_social', 'logradouro', 'numero', 'cidade', 'estado', 'caixa_postal', 'document_id', 'banco', 'agencia', 'conta',
+        'razao_social', 'logradouro', 'numero', 'cidade', 'estado', 'caixa_postal', 'document_id', 'banco', 'agencia', 'conta', 'email','telefone','contato'
     ];
 
     protected $primaryKey = 'id';

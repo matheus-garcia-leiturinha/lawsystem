@@ -100,31 +100,31 @@
 
 
 
-<div class="block">
+<div class="doc cpf checked">
 
     {{ Form::label('pis', 'PIS') }}
 
     <div class="block">
-        {{ Form::text('pis','',["class" => "form-control s2"]) }}
+        {{ Form::number('pis','',["class" => "form-control s2"]) }}
     </div>
 
 </div>
 
-<div class="block">
+<div  class="doc cpf checked">
 
     {{ Form::label('ctps', 'CTPS') }}
 
     <div class="block">
 
-        {{ Form::text('ctps_numero','',["class" => "form-control ", "placeholder" => "Número"]) }}
-        {{ Form::text('ctps_serie','',["class" => "form-control s1", "placeholder" => "Série"]) }}
+        {{ Form::number('ctps_numero','',["class" => "form-control ", "placeholder" => "Número"]) }}
+        {{ Form::number('ctps_serie','',["class" => "form-control s1", "placeholder" => "Série"]) }}
         {{ Form::text('ctps_estado','',["class" => "form-control s1", "placeholder" => "Estado"]) }}
 
     </div>
 </div>
 
 
-<div class="block">
+<div  class="doc cpf checked">
 
     {{ Form::label('mae', 'Nome da Mãe') }}
     {{ Form::text('mae','',["class" => "form-control"]) }}

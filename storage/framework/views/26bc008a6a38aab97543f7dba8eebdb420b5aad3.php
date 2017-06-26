@@ -126,28 +126,28 @@
 
 
 
-<div class="block">
+<div class="doc cpf checked">
 
     <?php echo e(Form::label('pis', 'PIS')); ?>
 
 
     <div class="block">
-        <?php echo e(Form::text('pis','',["class" => "form-control s2"])); ?>
+        <?php echo e(Form::number('pis','',["class" => "form-control s2"])); ?>
 
     </div>
 
 </div>
 
-<div class="block">
+<div  class="doc cpf checked">
 
     <?php echo e(Form::label('ctps', 'CTPS')); ?>
 
 
     <div class="block">
 
-        <?php echo e(Form::text('ctps_numero','',["class" => "form-control ", "placeholder" => "Número"])); ?>
+        <?php echo e(Form::number('ctps_numero','',["class" => "form-control ", "placeholder" => "Número"])); ?>
 
-        <?php echo e(Form::text('ctps_serie','',["class" => "form-control s1", "placeholder" => "Série"])); ?>
+        <?php echo e(Form::number('ctps_serie','',["class" => "form-control s1", "placeholder" => "Série"])); ?>
 
         <?php echo e(Form::text('ctps_estado','',["class" => "form-control s1", "placeholder" => "Estado"])); ?>
 
@@ -156,7 +156,7 @@
 </div>
 
 
-<div class="block">
+<div  class="doc cpf checked">
 
     <?php echo e(Form::label('mae', 'Nome da Mãe')); ?>
 

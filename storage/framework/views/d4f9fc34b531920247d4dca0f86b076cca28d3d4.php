@@ -42,6 +42,29 @@
             </div>
         </div>
 
+        <div class="block">
+            <?php echo e(Form::label('email', 'Email')); ?>
+
+            <?php echo e(Form::text('email','',["class" => "form-control"])); ?>
+
+        </div>
+
+        <div class="block">
+            <?php echo e(Form::label('telefone', 'Telefone')); ?>
+
+            <?php echo e(Form::text('telefone','',["class" => "form-control"])); ?>
+
+        </div>
+
+        <div class="doc cnpj">
+            <div class="block">
+                <?php echo e(Form::label('contato', 'Contato Pessoal')); ?>
+
+                <?php echo e(Form::text('contato','',["class" => "form-control"])); ?>
+
+            </div>
+        </div>
+
         <div class="block address">
 
             <?php echo e(Form::label('', 'Endereço')); ?>

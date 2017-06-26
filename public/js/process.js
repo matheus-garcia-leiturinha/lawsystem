@@ -71,7 +71,7 @@ $(document).ready(function(){
 
         switch($(this).val())
         {
-            case "0":
+            case "2":
                 $("div.block.pericia").removeClass('active');
                 $("div.block.pericia .selectpicker").val("").trigger('change');
                 $("div.block.pericia input[name=value_pericia]").val("");
@@ -86,7 +86,7 @@ $(document).ready(function(){
 
         switch($(this).val())
         {
-            case "0":
+            case "2":
                 $("div.block.deposito").removeClass('active');
                 $("div.block.deposito .selectpicker").val("").trigger('change');
                 $("div.block.deposito input[name=value_deposito]").val("");
@@ -96,17 +96,17 @@ $(document).ready(function(){
                 break;
         }
     });
-    $( "form.processos input[name='custos']" ).on("change",function() {
+    $( "form.processos input[name='recolhimentos']" ).on("change",function() {
 
         switch($(this).val())
         {
-            case "0":
-                $("div.block.custo").removeClass('active');
-                $("div.block.custo .selectpicker").val("").trigger('change');
-                $("div.block.custo input[name=value_custo]").val("");
+            case "2":
+                $("div.block.recolhimento").removeClass('active');
+                $("div.block.recolhimento .selectpicker").val("").trigger('change');
+                $("div.block.recolhimento input[name=value_recolhimento]").val("");
                 break;
             case "1":
-                $("div.block.custo").addClass('active');
+                $("div.block.recolhimento").addClass('active');
                 break;
         }
     });
@@ -115,7 +115,7 @@ $(document).ready(function(){
 
         switch($(this).val())
         {
-            case "0":
+            case "2":
                 $("div.block.data_audiencia_inaugural").removeClass('active');
                 $("div.block.data_audiencia_inaugural input").val("");
                 break;

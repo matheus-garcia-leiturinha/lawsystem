@@ -125,7 +125,7 @@ $(document).ready(function(){
         }
     });
 
-    window.setTimeout("$('#datetimepicker').datetimepicker({ format: 'DD/MM/YYYY HH:mm' })", 700);
+    window.setTimeout("$('#datetimepicker').datetimepicker({ format: 'DD/MM/YYYY' })", 700);
     window.setTimeout("$('#datetimepicker2').datetimepicker({ format: 'DD/MM/YYYY HH:mm' })", 700);
 
 

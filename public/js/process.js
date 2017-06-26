@@ -181,25 +181,25 @@ var processo =
                     $("div.block.deposito input[name=value_deposito]").val("");
                 }
                 break;
-            case 'custo':
+            case 'recolhimento':
 
 
-                if($("select[name=custo] option:selected")[0].value != "")
+                if($("select[name=recolhimento] option:selected")[0].value != "")
                 {
-                    $(".custos-component").append(
+                    $(".recolhimentos-component").append(
                         '<div class="child">'
-                        +'<input name="custo_motivo[]" type="hidden" value="'+$("select[name=custo] option:selected")[0].value+'"/>'
-                        +'<input name="custo_valor[]"  type="hidden" value="'+$("div.block.custo input[name=value_custo]").val()+'"/>'
+                        +'<input name="recolhimento_motivo[]" type="hidden" value="'+$("select[name=recolhimento] option:selected")[0].value+'"/>'
+                        +'<input name="recolhimento_valor[]"  type="hidden" value="'+$("div.block.recolhimento input[name=value_recolhimento]").val()+'"/>'
                         +'<div class="values">'
-                        +'<span>'+$(".bootstrap-select button[data-id=custo] .filter-option")[0].innerText+'</span>'
-                        +'<span>'+$("div.block.custo input[name=value_custo]").val()+'</span>'
+                        +'<span>'+$(".bootstrap-select button[data-id=recolhimento] .filter-option")[0].innerText+'</span>'
+                        +'<span>'+$("div.block.recolhimento input[name=value_recolhimento]").val()+'</span>'
                         +'</div>'
                         +'<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
                         +'</div>'
                     );
 
-                    $("div.block.custo .selectpicker").val("").trigger('change');
-                    $("div.block.custo input[name=value_custo]").val("");
+                    $("div.block.recolhimento .selectpicker").val("").trigger('change');
+                    $("div.block.recolhimento input[name=value_recolhimento]").val("");
 
                 }
                 break;

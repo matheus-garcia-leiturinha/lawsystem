@@ -23,7 +23,7 @@
             <div class="polos">
                 {{ Form::radio('polo', '1', ['checked' => 'checked'],['id'=> 'ativo']) }}
                 {{ Form::label('ativo', 'Ativo',['class'=> 'radio first','checked' => 'checked']) }}
-                {{ Form::radio('polo', '0',false,['id'=> 'passivo']) }}
+                {{ Form::radio('polo', '2',false,['id'=> 'passivo']) }}
                 {{ Form::label('passivo', 'Passivo',['class'=> 'radio']) }}
             </div>
 
@@ -141,7 +141,7 @@
             <div class="audiencias">
                 {{ Form::radio('audiencia', 1, false,['id'=> 'true']) }}
                 {{ Form::label('true', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('audiencia', 0,['checked' => 'checked'],['id'=> 'false']) }}
+                {{ Form::radio('audiencia', 2,['checked' => 'checked'],['id'=> 'false']) }}
                 {{ Form::label('false', 'Não',['class'=> 'radio s0']) }}
             </div>
 
@@ -159,7 +159,7 @@
             <div class="pericias">
                 {{ Form::radio('pericias', 1, false,['id'=> 'true1']) }}
                 {{ Form::label('true1', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('pericias', 0,['checked' => 'checked'],['id'=> 'false1']) }}
+                {{ Form::radio('pericias', 2,['checked' => 'checked'],['id'=> 'false1']) }}
                 {{ Form::label('false1', 'Não',['class'=> 'radio s0']) }}
             </div>
 
@@ -193,7 +193,7 @@
             <div class="depositos">
                 {{ Form::radio('depositos', 1, false,['id'=> 'true2']) }}
                 {{ Form::label('true2', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('depositos', 0,['checked' => 'checked'],['id'=> 'false2']) }}
+                {{ Form::radio('depositos', 2,['checked' => 'checked'],['id'=> 'false2']) }}
                 {{ Form::label('false2', 'Não',['class'=> 'radio s0']) }}
             </div>
 
@@ -228,7 +228,7 @@
             <div class="custos">
                 {{ Form::radio('custos', 1, false,['id'=> 'true3']) }}
                 {{ Form::label('true3', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('custos', 0,['checked' => 'checked'],['id'=> 'false3']) }}
+                {{ Form::radio('custos', 2,['checked' => 'checked'],['id'=> 'false3']) }}
                 {{ Form::label('false3', 'Não',['class'=> 'radio s0']) }}
             </div>
 
@@ -264,7 +264,7 @@
             <div class="deposito_judicial">
                 {{ Form::radio('deposito_judicial', 1, false,['id'=> 'true4']) }}
                 {{ Form::label('true4', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('deposito_judicial', 0,['checked' => 'checked'],['id'=> 'false4']) }}
+                {{ Form::radio('deposito_judicial', 2,['checked' => 'checked'],['id'=> 'false4']) }}
                 {{ Form::label('false4', 'Não',['class'=> 'radio s0']) }}
             </div>
 

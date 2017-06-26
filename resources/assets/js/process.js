@@ -71,7 +71,7 @@ $(document).ready(function(){
 
         switch($(this).val())
         {
-            case "0":
+            case "2":
                 $("div.block.pericia").removeClass('active');
                 $("div.block.pericia .selectpicker").val("").trigger('change');
                 $("div.block.pericia input[name=value_pericia]").val("");
@@ -86,7 +86,7 @@ $(document).ready(function(){
 
         switch($(this).val())
         {
-            case "0":
+            case "2":
                 $("div.block.deposito").removeClass('active');
                 $("div.block.deposito .selectpicker").val("").trigger('change');
                 $("div.block.deposito input[name=value_deposito]").val("");
@@ -100,7 +100,7 @@ $(document).ready(function(){
 
         switch($(this).val())
         {
-            case "0":
+            case "2":
                 $("div.block.custo").removeClass('active');
                 $("div.block.custo .selectpicker").val("").trigger('change');
                 $("div.block.custo input[name=value_custo]").val("");
@@ -115,7 +115,7 @@ $(document).ready(function(){
 
         switch($(this).val())
         {
-            case "0":
+            case "2":
                 $("div.block.data_audiencia_inaugural").removeClass('active');
                 $("div.block.data_audiencia_inaugural input").val("");
                 break;

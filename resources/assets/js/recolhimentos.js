@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("form.depositos input[type=submit]").on("click", function(event){
+    $("form.recolhimentos input[type=submit]").on("click", function(event){
 
         event.preventDefault();
 
@@ -8,7 +8,7 @@ $(document).ready(function(){
         //console.log($( "input[name='id']")[0].value);
 
 
-        if(Form.isEmpty($( "form.depositos input[name='type']" ))
+        if(Form.isEmpty($( "form.recolhimentos input[name='type']" ))
 
         )
         {
@@ -20,11 +20,11 @@ $(document).ready(function(){
         {
 
             $.ajax({
-                url:  $("form.depositos").attr('action'),
+                url:  $("form.recolhimentos").attr('action'),
                 type: "post",
                 data: {
-                    _token :        $( "form.depositos input[name='_token']")[0].value,
-                    type:           $( "form.depositos input[name='type']")[0].value
+                    _token :        $( "form.recolhimentos input[name='_token']")[0].value,
+                    type:           $( "form.recolhimentos input[name='type']")[0].value
                 },
                 success: function(data){ // What to do if we succeed
                     response = JSON.parse(data);
@@ -32,11 +32,11 @@ $(document).ready(function(){
                         alert(response['message']);
                         $("[data-dismiss=modal]").trigger({ type: "click" })
 
-                        $(".selectpicker[name=deposito]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+                        $(".selectpicker[name=recolhimento]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
 
                         window.setTimeout(function()
                         {
-                            $('.selectpicker[name=deposito]').selectpicker('refresh');
+                            $('.selectpicker[name=recolhimento]').selectpicker('refresh');
                         },500);
                     }
                 },
@@ -46,7 +46,7 @@ $(document).ready(function(){
             });
             return false;
         }else {
-            $("form.depositos").submit();
+            $("form.recolhimentos").submit();
         }
         return false;
     });

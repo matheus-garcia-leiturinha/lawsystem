@@ -271,12 +271,12 @@
             <?php echo e(Form::label('', 'Recolhimento')); ?>
 
 
-            <div class="custos">
-                <?php echo e(Form::radio('custos', 1, false,['id'=> 'true3'])); ?>
+            <div class="recolhimentos">
+                <?php echo e(Form::radio('recolhimentos', 1, false,['id'=> 'true3'])); ?>
 
                 <?php echo e(Form::label('true3', 'Sim',['class'=> 'radio first s0','checked' => 'checked'])); ?>
 
-                <?php echo e(Form::radio('custos', 2,['checked' => 'checked'],['id'=> 'false3'])); ?>
+                <?php echo e(Form::radio('recolhimentos', 2,['checked' => 'checked'],['id'=> 'false3'])); ?>
 
                 <?php echo e(Form::label('false3', 'Não',['class'=> 'radio s0'])); ?>
 
@@ -284,27 +284,27 @@
 
         </div>
 
-        <div class="custos-component">
-            <div class="block custo">
-                <?php echo e(Form::label('custo', 'Motivo do Recolhimento')); ?>
+        <div class="recolhimentos-component">
+            <div class="block recolhimento">
+                <?php echo e(Form::label('recolhimento', 'Motivo do Recolhimento')); ?>
 
-                <a class="create-new" data-toggle="modal" data-target="#modal_custo">Criar novo</a>
-                <select class="selectpicker" data-live-search=true title=" " name="custo" id="custo">
-                    <?php $__currentLoopData = $custos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $custo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option title="<?php echo e($custo['type']); ?>" value="<?php echo e($custo['id']); ?>"><?php echo e($custo['type']); ?></option>
+                <a class="create-new" data-toggle="modal" data-target="#modal_recolhimento">Criar novo</a>
+                <select class="selectpicker" data-live-search=true title=" " name="recolhimento" id="recolhimento">
+                    <?php $__currentLoopData = $recolhimentos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $recolhimento): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option title="<?php echo e($recolhimento['type']); ?>" value="<?php echo e($recolhimento['id']); ?>"><?php echo e($recolhimento['type']); ?></option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </select>
             </div>
 
-            <div class="block custo">
-                <?php echo e(Form::label('value_custo', 'Valor do Recolhimento')); ?>
+            <div class="block recolhimento">
+                <?php echo e(Form::label('value_recolhimento', 'Valor do Recolhimento')); ?>
 
-                <?php echo e(Form::number('value_custo', '',["class" => "form-control"])); ?>
+                <?php echo e(Form::number('value_recolhimento', '',["class" => "form-control"])); ?>
 
             </div>
 
-            <div class="block custo">
-                <a onclick="processo.add('custo');">Adicionar</a>
+            <div class="block recolhimento">
+                <a onclick="processo.add('recolhimento');">Adicionar</a>
             </div>
         </div>
 
@@ -446,6 +446,26 @@
         <?php echo $__env->make('depositos.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 	    <script src="<?php echo e(asset('/js/depositos.js')); ?>"></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_recolhimento" tabindex="-1" role="dialog" aria-labelledby="modal_recolhimentoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_recolhimentoModalLabel">Cadastrar Motivo do Recolhimento</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo $__env->make('recolhimentos.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	    <script src="<?php echo e(asset('/js/recolhimentos.js')); ?>"></script>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

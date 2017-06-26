@@ -9,6 +9,7 @@ use App\DepositoProcesso;
 use App\Pericia;
 use App\Processos;
 use App\PericiaProcesso;
+use App\Recolhimento;
 use App\Tribunal;
 use App\Contrario;
 use App\Vara;
@@ -41,21 +42,21 @@ class ProcessController extends Controller
         $contrarios = Contrario::all()->toArray();
         $pericias = Pericia::all()->toArray();
         $depositos = Deposito::all()->toArray();
-        $custos = Pericia::all()->toArray();
+        $recolhimentos = Recolhimento::all()->toArray();
 
         $pedidos = Pedidos::all()->toArray();
 
 
         return view('process.create',[
-            "clientes" => $clientes ,
-            "tribunais" => $tribunais ,
-            "varas" => $varas,
-            "advogados" => $advogados,
-            "contrarios" => $contrarios,
-            "pericias" => $pericias,
-            "depositos" => $depositos,
-            "custos" => $custos,
-            "pedidos" => $pedidos,
+            "clientes"      => $clientes ,
+            "tribunais"     => $tribunais ,
+            "varas"         => $varas,
+            "advogados"     => $advogados,
+            "contrarios"    => $contrarios,
+            "pericias"      => $pericias,
+            "depositos"     => $depositos,
+            "recolhimentos" => $recolhimentos,
+            "pedidos"       => $pedidos,
         ]);
 
 

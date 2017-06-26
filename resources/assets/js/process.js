@@ -96,17 +96,17 @@ $(document).ready(function(){
                 break;
         }
     });
-    $( "form.processos input[name='custos']" ).on("change",function() {
+    $( "form.processos input[name='recolhimentos']" ).on("change",function() {
 
         switch($(this).val())
         {
             case "2":
-                $("div.block.custo").removeClass('active');
-                $("div.block.custo .selectpicker").val("").trigger('change');
-                $("div.block.custo input[name=value_custo]").val("");
+                $("div.block.recolhimento").removeClass('active');
+                $("div.block.recolhimento .selectpicker").val("").trigger('change');
+                $("div.block.recolhimento input[name=value_recolhimento]").val("");
                 break;
             case "1":
-                $("div.block.custo").addClass('active');
+                $("div.block.recolhimento").addClass('active');
                 break;
         }
     });

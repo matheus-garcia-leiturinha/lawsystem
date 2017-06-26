@@ -103,28 +103,8 @@ class ProcessController extends Controller
         $valor_pedido               = $request->input('pedido_valor');         // Valor do pedido
         $risco_pedido               = $request->input('pedido_risco');         // Risco do pedido
 
-//        if($pericias == 1)
-//        {
-//            foreach($pericia as $key=>$type_pericia)
-//            {
-//                $pericia_processo = new PericiaProcesso();
-//                $pericia_processo->processo_id = 1;//$processo->id;
-//                $pericia_processo->pericia_id  = $type_pericia;
-//                $pericia_processo->pericias_honorarios       = $value_pericia[$key];
-//                $pericia_processo->save();
-//
-//                print_r($pericia_processo);
-//
-//            }
-//        }
-//
-//        die();
 
-
-        //echo "Data " . $data_ajuizamento;
-
-        //exit();
-
+        // Criação do Processo
         $processo = new Processos();
 
         $processo->numero_processual        = $number;
@@ -145,6 +125,7 @@ class ProcessController extends Controller
         $processo->save();
 
 
+        // Criação das Perícias do Processo
         if($pericias == 1 && isset($pericia))
         {
             foreach($pericia as $key=>$type_pericia)
@@ -157,6 +138,7 @@ class ProcessController extends Controller
             }
         }
 
+        // Criação dos Depositos do Processo
         if($depositos == 1 && isset($deposito))
         {
             foreach($deposito as $key=>$type_deposito)
@@ -169,6 +151,7 @@ class ProcessController extends Controller
             }
         }
 
+        // Criação dos Recolhimentos do Processo
         if($recolhimentos == 1 && isset($recolhimento))
         {
             foreach($recolhimento as $key=>$type_recolhimento)
@@ -181,6 +164,7 @@ class ProcessController extends Controller
             }
         }
 
+        // Criação dos Peridos do Processo
         if(isset($pedido_motivo)){
 
             foreach($pedido_motivo as $key=>$type_pedido)

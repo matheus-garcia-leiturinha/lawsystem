@@ -144,59 +144,66 @@ var processo =
         switch (type) {
             case 'pericia':
 
-                $(".pericias-component").append(
-                    '<div class="child">'
-                        +'<input name="pericia_natureza[]" type="hidden" value="'+$("select[name=pericia] option:selected")[0].value+'"/>'
-                        +'<input name="pericia_honorario[]"  type="hidden" value="'+$("div.block.pericia input[name=value_pericia]").val()+'"/>'
-                        +'<div class="values">'
-                            +'<span>'+$(".bootstrap-select button[data-id=pericia] .filter-option")[0].innerText+'</span>'
-                            +'<span>'+$("div.block.pericia input[name=value_pericia]").val()+'</span>'
-                        +'</div>'
-                        +'<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
-                    +'</div>'
-                );
+                if($("select[name=pericia] option:selected")[0].value != "") {
+                    $(".pericias-component").append(
+                        '<div class="child">'
+                        + '<input name="pericia_natureza[]" type="hidden" value="' + $("select[name=pericia] option:selected")[0].value + '"/>'
+                        + '<input name="pericia_honorario[]"  type="hidden" value="' + $("div.block.pericia input[name=value_pericia]").val() + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $(".bootstrap-select button[data-id=pericia] .filter-option")[0].innerText + '</span>'
+                        + '<span>' + $("div.block.pericia input[name=value_pericia]").val() + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
 
-                $("div.block.pericia .selectpicker").val("").trigger('change');
-                $("div.block.pericia input[name=value_pericia]").val("");
-
+                    $("div.block.pericia .selectpicker").val("").trigger('change');
+                    $("div.block.pericia input[name=value_pericia]").val("");
+                }
                 break;
             case 'deposito':
-                $(".depositos-component").append(
-                    '<div class="child">'
-                        +'<input name="deposito_motivo[]" type="hidden" value="'+$("select[name=deposito] option:selected")[0].value+'"/>'
-                        +'<input name="deposito_valor[]"  type="hidden" value="'+$("div.block.deposito input[name=value_deposito]").val()+'"/>'
-                        +'<div class="values">'
-                            +'<span>'+$(".bootstrap-select button[data-id=deposito] .filter-option")[0].innerText+'</span>'
-                            +'<span>'+$("div.block.deposito input[name=value_deposito]").val()+'</span>'
-                        +'</div>'
-                        +'<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
-                    +'</div>'
-                );
 
-                $("div.block.deposito .selectpicker").val("").trigger('change');
-                $("div.block.deposito input[name=value_deposito]").val("");
 
+                if($("select[name=deposito] option:selected")[0].value != "") {
+                    $(".depositos-component").append(
+                        '<div class="child">'
+                        + '<input name="deposito_motivo[]" type="hidden" value="' + $("select[name=deposito] option:selected")[0].value + '"/>'
+                        + '<input name="deposito_valor[]"  type="hidden" value="' + $("div.block.deposito input[name=value_deposito]").val() + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $(".bootstrap-select button[data-id=deposito] .filter-option")[0].innerText + '</span>'
+                        + '<span>' + $("div.block.deposito input[name=value_deposito]").val() + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
+
+                    $("div.block.deposito .selectpicker").val("").trigger('change');
+                    $("div.block.deposito input[name=value_deposito]").val("");
+                }
                 break;
             case 'custo':
-                $(".custos-component").append(
-                    '<div class="child">'
+
+
+                if($("select[name=custo] option:selected")[0].value != "")
+                {
+                    $(".custos-component").append(
+                        '<div class="child">'
                         +'<input name="custo_motivo[]" type="hidden" value="'+$("select[name=custo] option:selected")[0].value+'"/>'
                         +'<input name="custo_valor[]"  type="hidden" value="'+$("div.block.custo input[name=value_custo]").val()+'"/>'
                         +'<div class="values">'
-                            +'<span>'+$(".bootstrap-select button[data-id=custo] .filter-option")[0].innerText+'</span>'
-                            +'<span>'+$("div.block.custo input[name=value_custo]").val()+'</span>'
+                        +'<span>'+$(".bootstrap-select button[data-id=custo] .filter-option")[0].innerText+'</span>'
+                        +'<span>'+$("div.block.custo input[name=value_custo]").val()+'</span>'
                         +'</div>'
                         +'<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
-                    +'</div>'
-                );
+                        +'</div>'
+                    );
 
-                $("div.block.custo .selectpicker").val("").trigger('change');
-                $("div.block.custo input[name=value_custo]").val("");
+                    $("div.block.custo .selectpicker").val("").trigger('change');
+                    $("div.block.custo input[name=value_custo]").val("");
 
+                }
                 break;
             case 'pedido':
-
-
                 if($("select[name=pedido] option:selected")[0].value != "")
                 {
                     $(".pedidos-component").append(
@@ -217,9 +224,7 @@ var processo =
 
                     $("div.block.pedido .selectpicker").val("").trigger('change');
                     $("div.block.pedido input[name=value_pedido]").val("");
-
                 }
-
                 break;
         }
     },

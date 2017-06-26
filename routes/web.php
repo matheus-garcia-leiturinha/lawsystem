@@ -84,6 +84,16 @@ Route::group(['middleware' => 'auth','prefix' => 'pericias'], function () {
 
 });
 
+Route::group(['middleware' => 'auth','prefix' => 'depositos'], function () {
+
+    Route::get('/', 'DepositoController@listar')->name('depositos.listar');
+    Route::get('/criar', 'DepositoController@criar')->name('depositos.criar');
+    Route::get('/editar/{id}', 'DepositoController@editar')->name('depositos.editar');
+    Route::get('/deletar/{id}', 'DepositoController@deletar')->name('depositos.deletar');
+    Route::post('/save', 'DepositoController@save')->name('depositos.salvar');
+
+});
+
 
 Auth::routes();
 

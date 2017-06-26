@@ -15,7 +15,7 @@ class PericiaProcesso extends Model
         return $this->BelongsTo('App\Processos','processo_id','id');
     }
     public function pericias() {
-        return $this->BelongsTo('App\Pericias','pericia_id','id');
+        return $this->BelongsTo('App\Pericia','pericia_id','id');
     }
 
 }

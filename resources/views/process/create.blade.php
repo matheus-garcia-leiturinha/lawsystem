@@ -225,33 +225,33 @@
 
             {{ Form::label('', 'Recolhimento') }}
 
-            <div class="custos">
-                {{ Form::radio('custos', 1, false,['id'=> 'true3']) }}
+            <div class="recolhimentos">
+                {{ Form::radio('recolhimentos', 1, false,['id'=> 'true3']) }}
                 {{ Form::label('true3', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('custos', 2,['checked' => 'checked'],['id'=> 'false3']) }}
+                {{ Form::radio('recolhimentos', 2,['checked' => 'checked'],['id'=> 'false3']) }}
                 {{ Form::label('false3', 'Não',['class'=> 'radio s0']) }}
             </div>
 
         </div>
 
-        <div class="custos-component">
-            <div class="block custo">
-                {{ Form::label('custo', 'Motivo do Recolhimento') }}
-                <a class="create-new" data-toggle="modal" data-target="#modal_custo">Criar novo</a>
-                <select class="selectpicker" data-live-search=true title=" " name="custo" id="custo">
-                    @foreach($custos as $custo)
-                        <option title="{{$custo['type']}}" value="{{$custo['id']}}">{{$custo['type']}}</option>
+        <div class="recolhimentos-component">
+            <div class="block recolhimento">
+                {{ Form::label('recolhimento', 'Motivo do Recolhimento') }}
+                <a class="create-new" data-toggle="modal" data-target="#modal_recolhimento">Criar novo</a>
+                <select class="selectpicker" data-live-search=true title=" " name="recolhimento" id="recolhimento">
+                    @foreach($recolhimentos as $recolhimento)
+                        <option title="{{$recolhimento['type']}}" value="{{$recolhimento['id']}}">{{$recolhimento['type']}}</option>
                     @endforeach
                 </select>
             </div>
 
-            <div class="block custo">
-                {{ Form::label('value_custo', 'Valor do Recolhimento') }}
-                {{ Form::number('value_custo', '',["class" => "form-control"]) }}
+            <div class="block recolhimento">
+                {{ Form::label('value_recolhimento', 'Valor do Recolhimento') }}
+                {{ Form::number('value_recolhimento', '',["class" => "form-control"]) }}
             </div>
 
-            <div class="block custo">
-                <a onclick="processo.add('custo');">Adicionar</a>
+            <div class="block recolhimento">
+                <a onclick="processo.add('recolhimento');">Adicionar</a>
             </div>
         </div>
 
@@ -363,6 +363,46 @@
         @include('pericias.modal')
 
 	    <script src="{{ asset('/js/pericias.js') }}"></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_deposito" tabindex="-1" role="dialog" aria-labelledby="modal_depositoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_depositoModalLabel">Cadastrar Motivo do Depósito</h4>
+      </div>
+      <div class="modal-body">
+        @include('depositos.modal')
+
+	    <script src="{{ asset('/js/depositos.js') }}"></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_recolhimento" tabindex="-1" role="dialog" aria-labelledby="modal_recolhimentoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_recolhimentoModalLabel">Cadastrar Motivo do Recolhimento</h4>
+      </div>
+      <div class="modal-body">
+        @include('recolhimentos.modal')
+
+	    <script src="{{ asset('/js/recolhimentos.js') }}"></script>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

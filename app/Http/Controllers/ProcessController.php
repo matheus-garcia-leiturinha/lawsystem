@@ -25,7 +25,6 @@ class ProcessController extends Controller
 
     public function listar()
     {
-
         $process = Processos::all();
 
 
@@ -76,12 +75,19 @@ class ProcessController extends Controller
         $adv_terceiro               = $request->input('adv_terceiro');
         $ocorrencia_inaugural       = $request->input('ocorrencia_inaugural');
 
+        if($request->input('data_ajuizamento')) {
+            $d_ajuizamento = \DateTime::createFromFormat("d/m/Y", $request->input('data_ajuizamento'))->format("m/d/Y");
+            $data_ajuizamento = date("Y-m-d", strtotime($d_ajuizamento));
+        }else
+        {
+            echo 'error';
+        }
 
-        $d_ajuizamento              = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_ajuizamento'))->format("m/d/Y");
-        $data_ajuizamento           = date("Y-m-d", strtotime($d_ajuizamento));
-
-        $d_inaugural                = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_audiencia_inaugural'))->format("m/d/Y H:i");
-        $data_audiencia_inaugural   = date("Y-m-d H:i", strtotime($d_inaugural));
+        if($request->input('data_audiencia_inaugural'))
+        {
+            $d_inaugural                = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_audiencia_inaugural'))->format("m/d/Y H:i");
+            $data_audiencia_inaugural   = date("Y-m-d H:i", strtotime($d_inaugural));
+        }
 
         $tipo_processo              = $request->input('tipo');
 
@@ -119,8 +125,10 @@ class ProcessController extends Controller
         $processo->adv_owner                = $adv_responsavel;
         $processo->adv_third_party          = $adv_terceiro;
         $processo->ocorrencia_inaugural     = $ocorrencia_inaugural;
-        $processo->data_audiencia_inaugural = $data_audiencia_inaugural;
         $processo->deposito_judicial        = $deposito_judicial;
+
+        if(isset($data_audiencia_inaugural))
+            $processo->data_audiencia_inaugural = $data_audiencia_inaugural;
 
         $processo->save();
 

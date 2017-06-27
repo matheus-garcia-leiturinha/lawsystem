@@ -23,7 +23,7 @@ $(document).ready(function(){
             $( "form.tribunais input[name='id']" )[0].value.length != 2
         )
         {
-            console.error("Algo de errado não está certo");
+            alert("Preencha o dado corretamente!");
             return false;
         }
 

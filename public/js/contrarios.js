@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     $( "form.contrarios input[name='type']" ).on("change",function() {
 
-        console.log('oi',$(this).val());
+       // console.log('oi',$(this).val());
         $(".doc").removeClass("checked");
 
         var classname = "div.doc."+$(this).val();
@@ -22,8 +22,8 @@ $(document).ready(function(){
         switch($( "form.contrarios input[name='type']:checked").val())
         {
             case "cpf":
-                if(Form.isEmpty($( "form.contrarios input[name='fname']" ))){
-                    console.error("Campo nome está em branco");
+                if(Form.isEmpty($( "form.contrarios input[name='fname']" )) || Form.isEmpty($( "form.contrarios input[name='ftype_value']" )) ){
+                    alert("Campo Nome ou CPF está em branco");
                     return false;
                 }
                 var doc = $( "form.contrarios input[name='ftype_value']").val();
@@ -34,8 +34,8 @@ $(document).ready(function(){
                 }
                 break;
             case "cnpj":
-                if(Form.isEmpty($( "form.contrarios input[name='jname']" ))){
-                    console.error("Campo razão social está em branco");
+                if(Form.isEmpty($( "form.contrarios input[name='jname']" )) || Form.isEmpty($( "form.contrarios input[name='jtype_value']" ))){
+                    alert("Campo Razão Social ou CNPF está em branco");
                     return false;
                 }
                 var doc = $( "form.contrarios input[name='jtype_value']").val();
@@ -48,28 +48,25 @@ $(document).ready(function(){
         }
 
         //console.log("Estado");
-        console.log($( "form.contrarios input[name='logradouro']" )[0].value);
-        console.log($( "form.contrarios input[name='numero']" )[0].value);
-        console.log($( "form.contrarios input[name='bairro']" )[0].value);
-        console.log($( "form.contrarios input[name='cidade']" )[0].value);
-        console.log($( "form.contrarios input[name='cep']" )[0].value);
-        var abc = $("form.contrarios .bootstrap-select .filter-option")[0].innerText;
-        console.log(abc);
+        //console.log($( "form.contrarios input[name='logradouro']" )[0].value);
+        //console.log($( "form.contrarios input[name='numero']" )[0].value);
+        //console.log($( "form.contrarios input[name='bairro']" )[0].value);
+        //console.log($( "form.contrarios input[name='cidade']" )[0].value);
+        //console.log($( "form.contrarios input[name='cep']" )[0].value);
+        //var abc = $("form.contrarios .bootstrap-select .filter-option")[0].innerText;
+        //console.log(abc);
         if(Form.isEmpty($( "form.contrarios input[name='logradouro']" )) ||
             Form.isEmpty($( "form.contrarios input[name='numero']" )) ||
             Form.isEmpty($( "form.contrarios input[name='bairro']" )) ||
             Form.isEmpty($( "form.contrarios input[name='cidade']" )) ||
             Form.isEmpty($( "form.contrarios input[name='cep']" )) ||
-            $("form.contrarios .bootstrap-select .filter-option")[0].innerText == "Estado"
+            $("form.contrarios .bootstrap-select .filter-option")[0].innerText == "Estado" ||
+            Form.isEmpty($( "form.contrarios input[name='telefone']" )) ||
+            Form.isEmpty($( "form.contrarios input[name='email']" ))
 
-
-        //Form.isEmpty($( "input[name='caixa_postal']" )) ||
-        //Form.isEmpty($( "input[name='banco']" )) ||
-        //Form.isEmpty($( "input[name='agencia']" )) ||
-        //Form.isEmpty($( "input[name='conta']" ))
         )
         {
-            console.error("Algo de errado não está certo");
+            alert("Preencha os dados corretamente!");
             return false;
         }
 

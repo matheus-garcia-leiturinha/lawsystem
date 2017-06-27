@@ -37,6 +37,7 @@ class CreateContrarioTable extends Migration
 
             $table->string('telefone')->nullable();
             $table->string('email')->nullable();
+            $table->string('contato')->nullable();
 
             $table->integer('pis')->nullable();
 

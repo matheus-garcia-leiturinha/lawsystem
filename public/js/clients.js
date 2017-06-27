@@ -25,26 +25,26 @@ $(document).ready(function(){
         switch($( "form.clients input[name='type']:checked").val())
         {
             case "cpf":
-                if(Form.isEmpty($( "form.clients input[name='fname']" ))){
-                    console.error("Campo nome está em branco");
+                if(Form.isEmpty($( "form.clients input[name='fname']" )) || Form.isEmpty($( "form.clients input[name='ftype_value']"))){
+                    alert("Campo Nome ou CPF está em branco");
                     return false;
                 }
                 var doc = $( "form.clients input[name='ftype_value']").val();
                 if(!Form.validateDoc("cpf",doc))
                 {
-                    console.error("CPF INVALIDO");
+                    alert("CPF INVALIDO");
                     return false;
                 }
                 break;
             case "cnpj":
-                if(Form.isEmpty($( "form.clients input[name='jname']" ))){
-                    console.error("Campo razão social está em branco");
+                if(Form.isEmpty($( "form.clients input[name='jname']" )) || Form.isEmpty($( "form.clients input[name='jtype_value']"))){
+                    alert("Campo Razão Social ou CNPF está em branco");
                     return false;
                 }
                 var doc = $( "form.clients input[name='jtype_value']").val();
                 if(!Form.validateDoc("cnpj",doc))
                 {
-                    console.error("CNPJ INVALIDO");
+                    alert("CNPJ INVALIDO");
                     return false;
                 }
                 break;
@@ -55,9 +55,12 @@ $(document).ready(function(){
         //console.log(abc);
         if(Form.isEmpty($( "form.clients input[name='logradouro']" )) ||
             Form.isEmpty($( "form.clients input[name='numero']" )) ||
+            Form.isEmpty($( "form.clients input[name='bairro']" )) ||
             Form.isEmpty($( "form.clients input[name='cidade']" )) ||
             Form.isEmpty($( "form.clients input[name='cep']" )) ||
-            $(".bootstrap-select .filter-option")[0].innerText == "Estado"
+            $(".bootstrap-select .filter-option")[0].innerText == "Estado" ||
+            Form.isEmpty($( "form.clients input[name='email']" )) ||
+            Form.isEmpty($( "form.clients input[name='telefone']" ))
 
 
             //Form.isEmpty($( "input[name='caixa_postal']" )) ||
@@ -66,7 +69,7 @@ $(document).ready(function(){
             //Form.isEmpty($( "input[name='conta']" ))
         )
         {
-             console.error("Algo de errado não está certo");
+             alert("Preencha os dados corretamente!");
             return false;
         }
 

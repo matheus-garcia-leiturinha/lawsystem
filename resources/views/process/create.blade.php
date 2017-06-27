@@ -34,10 +34,10 @@
             {{ Form::label('', 'Tipo do Processo') }}
 
             <div class="tipos">
-                {{ Form::radio('tipo', '1', ['checked' => 'checked'],['id'=> 'tipo1']) }}
-                {{ Form::label('tipo1', 'Tipo 1',['class'=> 'radio first column1','checked' => 'checked']) }}
-                {{ Form::radio('tipo', '2',false,['id'=> 'tipo2']) }}
-                {{ Form::label('tipo2', 'Tipo 2',['class'=> 'radio column1']) }}
+                {{ Form::radio('tipo', '1', ['checked' => 'checked'],['id'=> 'administrativo']) }}
+                {{ Form::label('administrativo', 'Administrativo',['class'=> 'radio first column1','checked' => 'checked']) }}
+                {{ Form::radio('tipo', '2',false,['id'=> 'cívil']) }}
+                {{ Form::label('cívil', 'Cívil',['class'=> 'radio column1']) }}
             </div>
 
         </div>
@@ -45,10 +45,20 @@
         <div class="block">
 
             <div class="tipos">
-                {{ Form::radio('tipo', '3',false,['id'=> 'tipo3']) }}
-                {{ Form::label('tipo3', 'Tipo 3',['class'=> 'first radio']) }}
-                {{ Form::radio('tipo', '4',false,['id'=> 'tipo4']) }}
-                {{ Form::label('tipo4', 'Tipo 4',['class'=> 'radio']) }}
+                {{ Form::radio('tipo', '3',false,['id'=> 'criminal']) }}
+                {{ Form::label('criminal', 'Criminal',['class'=> 'first radio']) }}
+                {{ Form::radio('tipo', '4',false,['id'=> 'trabalhista']) }}
+                {{ Form::label('trabalhista', 'Trabalhista',['class'=> 'radio']) }}
+            </div>
+
+        </div>
+
+        <div class="block">
+
+            <div class="tipos">
+                {{ Form::radio('tipo', '5',false,['id'=> 'tributário']) }}
+                {{ Form::label('tributário', 'Tributário',['class'=> 'first radio']) }}
+
             </div>
 
         </div>

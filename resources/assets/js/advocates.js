@@ -11,10 +11,10 @@ $(document).ready(function(){
 
         event.preventDefault();
 
-       console.log($( "form.advocates input[name='nome']")[0].value);
-       console.log($( "form.advocates input[name='oab']")[0].value);
-       console.log($( "form.advocates input[name='telefone']")[0].value);
-       console.log($( "form.advocates input[name='email']")[0].value);
+       //console.log($( "form.advocates input[name='nome']")[0].value);
+       //console.log($( "form.advocates input[name='oab']")[0].value);
+       //console.log($( "form.advocates input[name='telefone']")[0].value);
+       //console.log($( "form.advocates input[name='email']")[0].value);
 
 
         if(Form.isEmpty($( "form.advocates input[name='nome']" )) ||
@@ -22,8 +22,9 @@ $(document).ready(function(){
             Form.isEmpty($( "form.advocates input[name='telefone']" )) ||
             !Form.validateEmail($( "form.advocates input[name='email']" )[0].value)
         )
+
         {
-            console.error("Algo de errado não está certo");
+            alert("Preencha os dados corretamente!");
             return false;
         }
 

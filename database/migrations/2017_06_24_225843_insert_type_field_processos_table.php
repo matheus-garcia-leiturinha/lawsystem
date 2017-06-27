@@ -16,7 +16,7 @@ class InsertTypeFieldProcessosTable extends Migration
         Schema::table('processos', function($table) {
 
 
-            $table->enum('type',['tipo1','tipo2','tipo3','tipo4']);
+            $table->enum('type',['administrativo','cívil','criminal','trabalhista','tributário']);
         });
     }
 

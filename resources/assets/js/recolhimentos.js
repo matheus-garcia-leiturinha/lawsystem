@@ -12,7 +12,7 @@ $(document).ready(function(){
 
         )
         {
-            console.error("Algo de errado não está certo");
+            alert("Preencha o dado corretamente!");
             return false;
         }
 

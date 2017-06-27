@@ -49,7 +49,7 @@ Form =
         var emailValido = /^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/;
 
         if(!emailValido.test(email)){
-            console.log("Entrou");
+           // console.log("Entrou");
             return false;
         }
 
@@ -64,7 +64,7 @@ Form =
         number = String.prototype.replaceAll(number,'-','');
         number = String.prototype.replaceAll(number,'/','');
 
-        console.log(number);
+       // console.log(number);
         if(type == 'cpf'){
 
             var Soma;

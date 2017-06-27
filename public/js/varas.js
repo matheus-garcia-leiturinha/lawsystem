@@ -18,7 +18,7 @@ $(document).ready(function(){
             $( "form.varas input[name='id']" )[0].value.length != 4
         )
         {
-            console.error("Algo de errado não está certo");
+            alert("Preencha o dado corretamente!");
             return false;
         }
 

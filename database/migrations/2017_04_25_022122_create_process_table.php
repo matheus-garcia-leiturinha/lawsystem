@@ -39,8 +39,7 @@ class CreateProcessTable extends Migration
             $table->string('ocorrencia_inaugural')->nullable();
 
             $table->enum('pericia', ['sim','não']);
-            $table->integer('pericia_id')->unsigned()->nullable();
-            $table->double('pericias_honorarios',15,2)->default(0)->nullable();
+
 
             $table->integer('contrario_id')->unsigned(); // author
             $table->integer('client_id')->unsigned(); // author
@@ -65,7 +64,7 @@ class CreateProcessTable extends Migration
             $table->foreign('tribunal_id')->references('id')->on('tribunal');
             $table->foreign('vara_id')->references('id')->on('vara');
 
-            $table->foreign('pericia_id')->references('id')->on('pericias');
+
         });
     }
 

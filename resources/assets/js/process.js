@@ -43,6 +43,19 @@ $(document).ready(function(){
         // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
         var pericia = $("select[name=pericia] option:selected")[0].value;
 
+        if(Form.isEmpty($( "form.processos select[name=cliente]" )) ||
+            Form.isEmpty($( "form.processos select[name=adv_responsavel]" )) ||
+            Form.isEmpty($( "form.processos input[name='number']" )) ||
+            Form.isEmpty($( "form.processos select[name=adv_terceiro]" )) ||
+            Form.isEmpty($( "form.processos select[name=contrario]" )) ||
+            Form.isEmpty($( "form.processos input[name='valor']" )) ||
+            Form.isEmpty($( "form.processos input[name='data_ajuizamento']" ))
+        )
+        {
+            alert("Prencha os dados corretamente");
+            return false;
+        }
+
         //console.log(cliente);
         //console.log($( "input[name='polo']:checked" )[0].value);
         //console.log(adv_responsavel);

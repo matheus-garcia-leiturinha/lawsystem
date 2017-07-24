@@ -77,7 +77,7 @@
 
         <div class="block">
             {{ Form::label('number', 'Número do processo') }}
-            {{ Form::number('number', '',["class" => "form-control"]) }}
+            {{ Form::text('number', '',["class" => "form-control"]) }}
         </div>
 
         {{--<div class="block">--}}

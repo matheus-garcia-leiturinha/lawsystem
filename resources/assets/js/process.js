@@ -154,7 +154,44 @@ var processo =
 
     add : function (type) {
 
+        console.log('oi');
         switch (type) {
+            case 'cliente':
+
+                if($("select[name=cliente] option:selected")[0].value != "") {
+
+
+                    $(".clientes-component").append(
+                        '<div class="child">'
+                        + '<input name="cliente[]" type="hidden" value="' + $("select[name=cliente] option:selected")[0].value + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $(".bootstrap-select button[data-id=cliente] .filter-option")[0].innerText + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
+
+                    $("div.block.cliente .selectpicker").val("").trigger('change');
+                }
+                break;
+            case 'participante':
+
+                if($("div.block.participante input[name=participante]").val() != "") {
+
+
+                    $(".participantes-component").append(
+                        '<div class="child">'
+                        + '<input name="participante[]" type="hidden" value="' + $("div.block.participante input[name=participante]").val() + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $("div.block.participante input[name=participante]").val() + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
+
+                    $("div.block.participante input[name=participante]").val("");
+                }
+                break;
             case 'pericia':
 
                 if($("select[name=pericia] option:selected")[0].value != "") {

@@ -1,6 +1,21 @@
 <?php echo e(Form::open(array('url' => 'advogados/save',"class" => "advocates"))); ?>
 
 
+    <div class="block">
+
+        <div class="tipos">
+            <?php echo e(Form::radio('tipo', '2',true,['id'=> 'adv_interno'])); ?>
+
+            <?php echo e(Form::label('adv_interno', 'Interno',['class'=> 'first radio'])); ?>
+
+            <?php echo e(Form::radio('tipo', '1',false,['id'=> 'adv_contrario' ])); ?>
+
+            <?php echo e(Form::label('adv_contrario', 'Contrário',['class'=> 'radio'])); ?>
+
+        </div>
+
+    </div>
+
     <?php echo e(Form::label('nome', 'Nome')); ?>
 
     <?php echo e(Form::Text('nome', '',["class" => "form-control"])); ?>

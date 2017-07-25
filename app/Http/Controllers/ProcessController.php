@@ -36,28 +36,30 @@ class ProcessController extends Controller
     public function criar()
     {
 
-        $clientes = Clientes::all()->toArray();
-        $tribunais = Tribunal::all()->toArray();
-        $varas = Vara::all()->toArray();
-        $advogados = Advogados::all()->toArray();
-        $contrarios = Contrario::all()->toArray();
-        $pericias = Pericia::all()->toArray();
-        $depositos = Deposito::all()->toArray();
-        $recolhimentos = Recolhimento::all()->toArray();
+        $clientes               = Clientes::all()->toArray();
+        $tribunais              = Tribunal::all()->toArray();
+        $varas                  = Vara::all()->toArray();
+        $advogados              = Advogados::where('contrario', 2)->get()->toArray();
+        $advogados_contrario    = Advogados::where('contrario', 1)->get()->toArray();
+        $contrarios             = Contrario::all()->toArray();
+        $pericias               = Pericia::all()->toArray();
+        $depositos              = Deposito::all()->toArray();
+        $recolhimentos          = Recolhimento::all()->toArray();
 
-        $pedidos = Pedidos::all()->toArray();
+        $pedidos                = Pedidos::all()->toArray();
 
 
         return view('process.create',[
-            "clientes"      => $clientes ,
-            "tribunais"     => $tribunais ,
-            "varas"         => $varas,
-            "advogados"     => $advogados,
-            "contrarios"    => $contrarios,
-            "pericias"      => $pericias,
-            "depositos"     => $depositos,
-            "recolhimentos" => $recolhimentos,
-            "pedidos"       => $pedidos,
+            "clientes"              => $clientes ,
+            "tribunais"             => $tribunais ,
+            "varas"                 => $varas,
+            "advogados"             => $advogados,
+            "advogados_contrario"   => $advogados_contrario,
+            "contrarios"            => $contrarios,
+            "pericias"              => $pericias,
+            "depositos"             => $depositos,
+            "recolhimentos"         => $recolhimentos,
+            "pedidos"               => $pedidos,
         ]);
 
 

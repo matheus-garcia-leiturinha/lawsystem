@@ -4,16 +4,40 @@
     <?php echo e(Form::open(array('url' => 'processos/save',"class" => "processos"))); ?>
 
 
-        <div class="block">
-            <?php echo e(Form::label('cliente', 'Cliente')); ?>
 
-            <a class="create-new" data-toggle="modal" data-target="#modal_client">Criar novo</a>
-             <select class="selectpicker" data-live-search=true title=" " name="cliente" id="cliente">
-                <?php $__currentLoopData = $clientes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <option title="<?php echo e($client['razao_social']); ?>" value="<?php echo e($client['id']); ?>"><?php echo e($client['razao_social']); ?></option>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-             </select>
+
+
+        <div class="clientes-component">
+            <div class="block cliente">
+                <?php echo e(Form::label('cliente', 'Cliente')); ?>
+
+                <a class="create-new" data-toggle="modal" data-target="#modal_client">Criar novo</a>
+                 <select class="selectpicker" data-live-search=true title=" " name="cliente" id="cliente">
+                    <?php $__currentLoopData = $clientes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $client): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option title="<?php echo e($client['razao_social']); ?>" value="<?php echo e($client['id']); ?>"><?php echo e($client['razao_social']); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 </select>
+            </div>
+
+            <div class="block cliente">
+                <a onclick="processo.add('cliente');">Adicionar</a>
+            </div>
         </div>
+
+        <div class="participantes-component">
+            <div class="block participante">
+                <?php echo e(Form::label('participante', 'Participante')); ?>
+
+                <?php echo e(Form::text('participante', '',["class" => "form-control"])); ?>
+
+            </div>
+
+            <div class="block participante">
+                <a onclick="processo.add('participante');">Adicionar</a>
+            </div>
+        </div>
+
+
 
         <div class="block">
 
@@ -94,47 +118,16 @@
         <div class="block">
             <?php echo e(Form::label('number', 'Número do processo')); ?>
 
-            <?php echo e(Form::number('number', '',["class" => "form-control"])); ?>
+            <?php echo e(Form::text('number', '',["class" => "form-control"])); ?>
 
         </div>
-
-        
-
-            
-
-            
-                
-                
-                
-                
-            
-
-        
-
-        
-            
-             
-                
-                    
-                
-             
-        
-
-        
-            
-             
-                
-                    
-                
-             
-        
 
         <div class="block">
             <?php echo e(Form::label('adv_terceiro', 'Advogado contrário')); ?>
 
             <a class="create-new" data-toggle="modal" data-target="#modal_adv">Criar novo</a>
             <select class="selectpicker" data-live-search=true title=" " name="adv_terceiro" id="adv_terceiro">
-                <?php $__currentLoopData = $advogados; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $adv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <?php $__currentLoopData = $advogados_contrario; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $adv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <option title="<?php echo e($adv['nome']); ?>" value="<?php echo e($adv['id']); ?>"><?php echo e($adv['nome']); ?></option>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </select>

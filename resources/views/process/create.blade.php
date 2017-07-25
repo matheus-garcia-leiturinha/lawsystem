@@ -6,15 +6,37 @@
 @section('content')
     {{ Form::open(array('url' => 'processos/save',"class" => "processos")) }}
 
-        <div class="block">
-            {{ Form::label('cliente', 'Cliente') }}
-            <a class="create-new" data-toggle="modal" data-target="#modal_client">Criar novo</a>
-             <select class="selectpicker" data-live-search=true title=" " name="cliente" id="cliente">
-                @foreach($clientes as $client)
-                    <option title="{{$client['razao_social']}}" value="{{$client['id']}}">{{$client['razao_social']}}</option>
-                @endforeach
-             </select>
+
+
+
+        <div class="clientes-component">
+            <div class="block cliente">
+                {{ Form::label('cliente', 'Cliente') }}
+                <a class="create-new" data-toggle="modal" data-target="#modal_client">Criar novo</a>
+                 <select class="selectpicker" data-live-search=true title=" " name="cliente" id="cliente">
+                    @foreach($clientes as $client)
+                        <option title="{{$client['razao_social']}}" value="{{$client['id']}}">{{$client['razao_social']}}</option>
+                    @endforeach
+                 </select>
+            </div>
+
+            <div class="block cliente">
+                <a onclick="processo.add('cliente');">Adicionar</a>
+            </div>
         </div>
+
+        <div class="participantes-component">
+            <div class="block participante">
+                {{ Form::label('participante', 'Participante') }}
+                {{ Form::text('participante', '',["class" => "form-control"]) }}
+            </div>
+
+            <div class="block participante">
+                <a onclick="processo.add('participante');">Adicionar</a>
+            </div>
+        </div>
+
+
 
         <div class="block">
 
@@ -80,42 +102,11 @@
             {{ Form::text('number', '',["class" => "form-control"]) }}
         </div>
 
-        {{--<div class="block">--}}
-
-            {{--{{ Form::label('', 'Natureza') }}--}}
-
-            {{--<div class="naturezas">--}}
-                {{--{{ Form::radio('natureza', 'civil', ['checked' => 'checked'],['id'=> 'civil']) }}--}}
-                {{--{{ Form::label('civil', 'Cívil',['class'=> 'radio first','checked' => 'checked']) }}--}}
-                {{--{{ Form::radio('natureza', 'criminal',false,['id'=> 'criminal']) }}--}}
-                {{--{{ Form::label('criminal', 'Criminal',['class'=> 'radio']) }}--}}
-            {{--</div>--}}
-
-        {{--</div>--}}
-
-        {{--<div class="block">--}}
-            {{--{{ Form::label('tribunal', 'Tribunal') }}--}}
-             {{--<select class="selectpicker tribunal" data-live-search=true title=" " name="tribunal" id="tribunal">--}}
-                {{--@foreach($tribunais as $tribunal)--}}
-                    {{--<option title="{{$tribunal['nome']}}" value="{{$tribunal['id']}}">{{$tribunal['nome']}}</option>--}}
-                {{--@endforeach--}}
-             {{--</select>--}}
-        {{--</div>--}}
-
-        {{--<div class="block">--}}
-            {{--{{ Form::label('vara', 'Vara') }}--}}
-             {{--<select class="selectpicker" data-live-search=true title=" " name="vara" id="vara">--}}
-                {{--@foreach($varas as $vara)--}}
-                    {{--<option title="{{$vara['nome']}}" value="{{$vara['id']}}">{{$vara['nome']}}</option>--}}
-                {{--@endforeach--}}
-             {{--</select>--}}
-        {{--</div>--}}
-
         <div class="block">
             {{ Form::label('adv_terceiro', 'Advogado contrário') }}
             <a class="create-new" data-toggle="modal" data-target="#modal_adv">Criar novo</a>
             <select class="selectpicker" data-live-search=true title=" " name="adv_terceiro" id="adv_terceiro">
-                @foreach($advogados as $adv)
+                @foreach($advogados_contrario as $adv)
                     <option title="{{$adv['nome']}}" value="{{$adv['id']}}">{{$adv['nome']}}</option>
                 @endforeach
             </select>

@@ -26,10 +26,7 @@ class AdvocatesController extends Controller
     }
     public function save(Request $request)
     {
-
-
-
-
+        $type = $request->input('tipo');
         $nome = $request->input('nome');
         $oab = $request->input('oab');
         $telefone = $request->input('telefone');
@@ -47,6 +44,10 @@ class AdvocatesController extends Controller
         $advocate->oab = $oab;
         $advocate->telefone = $telefone;
         $advocate->email = $email;
+
+        if(isset($type))
+            $advocate->contrario = $type;
+
         $advocate->save();
 
         $request->session()->flash('alert-success', 'Advogado adicionado!');

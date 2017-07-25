@@ -35,14 +35,18 @@
 .content .pericias-component .child,
 .content .depositos-component .child,
 .content .recolhimentos-component .child,
-.content .pedidos-component .child {
+.content .pedidos-component .child,
+.content .clientes-component .child,
+.content .participantes-component .child {
   position: relative;
   margin-bottom: 20px;
 }
 .content .pericias-component .child .values,
 .content .depositos-component .child .values,
 .content .recolhimentos-component .child .values,
-.content .pedidos-component .child .values {
+.content .pedidos-component .child .values,
+.content .clientes-component .child .values,
+.content .participantes-component .child .values {
   border-bottom: 1px solid #f2f2f2;
   padding-bottom: 4px;
 }
@@ -50,21 +54,29 @@
 .content .depositos-component .child .values span,
 .content .recolhimentos-component .child .values span,
 .content .pedidos-component .child .values span,
+.content .clientes-component .child .values span,
+.content .participantes-component .child .values span,
 .content .pericias-component .child .values input,
 .content .depositos-component .child .values input,
 .content .recolhimentos-component .child .values input,
 .content .pedidos-component .child .values input,
+.content .clientes-component .child .values input,
+.content .participantes-component .child .values input,
 .content .pericias-component .child .values select,
 .content .depositos-component .child .values select,
 .content .recolhimentos-component .child .values select,
-.content .pedidos-component .child .values select {
+.content .pedidos-component .child .values select,
+.content .clientes-component .child .values select,
+.content .participantes-component .child .values select {
   display: block;
   margin: 5px 0;
 }
 .content .pericias-component .child a,
 .content .depositos-component .child a,
 .content .recolhimentos-component .child a,
-.content .pedidos-component .child a {
+.content .pedidos-component .child a,
+.content .clientes-component .child a,
+.content .participantes-component .child a {
   position: absolute;
   top: 50%;
   -webkit-transform: translateY(-50%);

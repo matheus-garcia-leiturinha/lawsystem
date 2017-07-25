@@ -16,8 +16,7 @@ $(document).ready(function(){
 
 
         if(Form.isEmpty($( "form.advocates input[name='nome']" )) ||
-            Form.isEmpty($( "form.advocates input[name='oab']" )) ||
-            Form.isEmpty($( "form.advocates input[name='telefone']" ))
+            Form.isEmpty($( "form.advocates input[name='oab']" ))
         )
 
         {

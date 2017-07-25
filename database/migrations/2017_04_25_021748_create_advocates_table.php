@@ -24,8 +24,8 @@ class CreateAdvocatesTable extends Migration
             $table->increments('id');
             $table->string('oab');
             $table->string('nome');
-            $table->string('telefone');
-            $table->string('email');
+            $table->string('telefone')->nullable();
+            $table->string('email')->nullable();
             $table->timestamps();
 
 

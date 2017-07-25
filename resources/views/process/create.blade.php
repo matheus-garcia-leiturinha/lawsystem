@@ -288,6 +288,7 @@
         <div class="pedidos-component">
             <div class="block pedido">
                 {{ Form::label('pedidos', 'Pedidos') }}
+                <a class="create-new" data-toggle="modal" data-target="#modal_pedido">Criar novo</a>
                 <select class="selectpicker" data-live-search=true title=" " name="pedido" id="pedido">
                     @foreach($pedidos as $pedido)
                         <option title="{{$pedido['type']}}" value="{{$pedido['id']}}">{{$pedido['type']}}</option>
@@ -413,6 +414,26 @@
         @include('recolhimentos.modal')
 
 	    <script src="{{ asset('/js/recolhimentos.js') }}"></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_pedido" tabindex="-1" role="dialog" aria-labelledby="modal_pedidoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_pedidoModalLabel">Cadastrar Pedido</h4>
+      </div>
+      <div class="modal-body">
+        @include('pedidos.modal')
+
+	    <script src="{{ asset('/js/pedidos.js') }}"></script>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -39,13 +39,13 @@
 
 
             <div class="tipos">
-                <?php echo e(Form::radio('tipo', '1', ['checked' => 'checked'],['id'=> 'tipo1'])); ?>
+                <?php echo e(Form::radio('tipo', '1', ['checked' => 'checked'],['id'=> 'administrativo'])); ?>
 
-                <?php echo e(Form::label('tipo1', 'Tipo 1',['class'=> 'radio first column1','checked' => 'checked'])); ?>
+                <?php echo e(Form::label('administrativo', 'Administrativo',['class'=> 'radio first column1','checked' => 'checked'])); ?>
 
-                <?php echo e(Form::radio('tipo', '2',false,['id'=> 'tipo2'])); ?>
+                <?php echo e(Form::radio('tipo', '2',false,['id'=> 'cívil'])); ?>
 
-                <?php echo e(Form::label('tipo2', 'Tipo 2',['class'=> 'radio column1'])); ?>
+                <?php echo e(Form::label('cívil', 'Cívil',['class'=> 'radio column1'])); ?>
 
             </div>
 
@@ -54,13 +54,25 @@
         <div class="block">
 
             <div class="tipos">
-                <?php echo e(Form::radio('tipo', '3',false,['id'=> 'tipo3'])); ?>
+                <?php echo e(Form::radio('tipo', '3',false,['id'=> 'criminal'])); ?>
 
-                <?php echo e(Form::label('tipo3', 'Tipo 3',['class'=> 'first radio'])); ?>
+                <?php echo e(Form::label('criminal', 'Criminal',['class'=> 'first radio'])); ?>
 
-                <?php echo e(Form::radio('tipo', '4',false,['id'=> 'tipo4'])); ?>
+                <?php echo e(Form::radio('tipo', '4',false,['id'=> 'trabalhista'])); ?>
 
-                <?php echo e(Form::label('tipo4', 'Tipo 4',['class'=> 'radio'])); ?>
+                <?php echo e(Form::label('trabalhista', 'Trabalhista',['class'=> 'radio'])); ?>
+
+            </div>
+
+        </div>
+
+        <div class="block">
+
+            <div class="tipos">
+                <?php echo e(Form::radio('tipo', '5',false,['id'=> 'tributário'])); ?>
+
+                <?php echo e(Form::label('tributário', 'Tributário',['class'=> 'first radio'])); ?>
+
 
             </div>
 
@@ -339,6 +351,7 @@
             <div class="block pedido">
                 <?php echo e(Form::label('pedidos', 'Pedidos')); ?>
 
+                <a class="create-new" data-toggle="modal" data-target="#modal_pedido">Criar novo</a>
                 <select class="selectpicker" data-live-search=true title=" " name="pedido" id="pedido">
                     <?php $__currentLoopData = $pedidos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $pedido): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option title="<?php echo e($pedido['type']); ?>" value="<?php echo e($pedido['id']); ?>"><?php echo e($pedido['type']); ?></option>
@@ -466,6 +479,26 @@
         <?php echo $__env->make('recolhimentos.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 	    <script src="<?php echo e(asset('/js/recolhimentos.js')); ?>"></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_pedido" tabindex="-1" role="dialog" aria-labelledby="modal_pedidoModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_pedidoModalLabel">Cadastrar Pedido</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo $__env->make('pedidos.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	    <script src="<?php echo e(asset('/js/pedidos.js')); ?>"></script>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

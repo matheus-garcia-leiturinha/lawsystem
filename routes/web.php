@@ -104,6 +104,16 @@ Route::group(['middleware' => 'auth','prefix' => 'recolhimentos'], function () {
 
 });
 
+Route::group(['middleware' => 'auth','prefix' => 'pedidos'], function () {
+
+    Route::get('/', 'PedidoController@listar')->name('pedidos.listar');
+    Route::get('/criar', 'PedidoController@criar')->name('pedidos.criar');
+    Route::get('/editar/{id}', 'PedidoController@editar')->name('pedidos.editar');
+    Route::get('/deletar/{id}', 'PedidoController@deletar')->name('pedidos.deletar');
+    Route::post('/save', 'PedidoController@save')->name('pedidos.salvar');
+
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

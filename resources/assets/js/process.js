@@ -297,11 +297,12 @@ function createMask()
     var numbermask = new Inputmask("9999999-99.9999.9.99.9999");
     numbermask.mask(number);
 
-    var valor = $( "form.processos input[name='valor']" );
+    //var valor = $( "form.processos input[name='valor']" );
+    $("form.processos input[name='valor']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: false});
 
-    var valormask = new Inputmask({
-        mask: ["9.99", "99.99", "999.99", "9999.99", "99999.99", "999999.99", "9999999.99", "99999999.99", "999999999.99", "9999999999.99"]
-    });
+   // var valormask = new Inputmask({
+ //       mask: ["9.99", "99.99", "999.99", "9999.99", "99999.99", "999999.99", "9999999.99", "99999999.99", "999999999.99", "9999999999.99"]
+  //  });
     valormask.mask(valor);
 
     var valor_pericia = $( "form.processos input[name='value_pericia']" );

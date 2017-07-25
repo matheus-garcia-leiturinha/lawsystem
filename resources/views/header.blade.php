@@ -15,6 +15,19 @@
               </div>
             </div>
         @endif
+        @if (Auth::check())
+            <div class="dropdown">
+              <button class="dropbtn"><i class="fa fa-plus"></i>Listas</button>
+              <div class="dropdown-content">
+                    <a href="{{ url('/clientes/') }}">Cliente</a>
+                    <a href="{{ url('/advogados/') }}">Advogado</a>
+                    <a href="{{ url('/contrarios/') }}">Parte contrária</a>
+                    {{--<a href="{{ url('/tribunais/') }}">Tribunais</a>--}}
+                    {{--<a href="{{ url('/varas/') }}">Varas</a>--}}
+                    <a href="{{ url('/pericias/') }}">Perícias</a>
+              </div>
+            </div>
+        @endif
 
         @if (Route::has('login'))
             <div class="links">

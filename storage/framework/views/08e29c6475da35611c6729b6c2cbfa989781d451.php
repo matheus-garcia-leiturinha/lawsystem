@@ -59,6 +59,7 @@
         <script src="<?php echo e(asset('/js/datatables.js')); ?>"></script>
         <script src="<?php echo e(asset('/js/app.js')); ?>"></script>
         <script src="<?php echo e(asset('/frameworks/inputmask/jquery.inputmask.bundle.js')); ?>"></script>
+        <script src="<?php echo e(asset('/frameworks/inputmask/jquery.maskMoney.min.js')); ?>"></script>
         <script src="<?php echo e(asset('/frameworks/moment/min/moment.min.js')); ?>"></script>
         <script src="<?php echo e(asset('/frameworks/datetimepicker/build/js/bootstrap-datetimepicker.min.js')); ?>"></script>
 

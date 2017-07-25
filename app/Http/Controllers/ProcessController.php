@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Advogados;
+use App\ClienteProcesso;
 use App\Clientes;
 use App\Deposito;
 use App\DepositoProcesso;
+use App\ParticipanteProcesso;
 use App\Pericia;
 use App\Processos;
 use App\PericiaProcesso;
@@ -65,75 +67,92 @@ class ProcessController extends Controller
 
     }
 
-    public function save(Request $request){
+    public function save(Request $request)
+    {
 
-        $number                     = $request->input('number');
-        $polo                       = $request->input('polo');
-        $value                      = $request->input('valor');
-        $audiencia                  = $request->input('audiencia');
-        $contrario                  = $request->input('contrario');
-        $cliente                    = $request->input('cliente');
-        $adv_responsavel            = $request->input('adv_responsavel');
-        $adv_terceiro               = $request->input('adv_terceiro');
-        $ocorrencia_inaugural       = $request->input('ocorrencia_inaugural');
+        $number = $request->input('number');
+        $polo = $request->input('polo');
+        $value = $request->input('valor');
+        $audiencia = $request->input('audiencia');
+        $contrario = $request->input('contrario');
+        $adv_responsavel = $request->input('adv_responsavel');
+        $adv_terceiro = $request->input('adv_terceiro');
+        $ocorrencia_inaugural = $request->input('ocorrencia_inaugural');
 
-        if($request->input('data_ajuizamento')) {
+        if ($request->input('data_ajuizamento')) {
             $d_ajuizamento = \DateTime::createFromFormat("d/m/Y", $request->input('data_ajuizamento'))->format("m/d/Y");
             $data_ajuizamento = date("Y-m-d", strtotime($d_ajuizamento));
-        }else
-        {
+        } else {
             echo 'error';
         }
 
-        if($request->input('data_audiencia_inaugural'))
-        {
-            $d_inaugural                = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_audiencia_inaugural'))->format("m/d/Y H:i");
-            $data_audiencia_inaugural   = date("Y-m-d H:i", strtotime($d_inaugural));
+        if ($request->input('data_audiencia_inaugural')) {
+            $d_inaugural = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_audiencia_inaugural'))->format("m/d/Y H:i");
+            $data_audiencia_inaugural = date("Y-m-d H:i", strtotime($d_inaugural));
         }
 
-        $tipo_processo              = $request->input('tipo');
+        $tipo_processo = $request->input('tipo');
 
-        $deposito_judicial          = $request->input('deposito_judicial');
+        $deposito_judicial = $request->input('deposito_judicial');
 
-        $pericias                   = $request->input('pericias');             // Se teve perícia
-        $pericia                    = $request->input('pericia_natureza');     // Motivo da perícia
-        $value_pericia              = $request->input('pericia_honorario');    // Valor da perícia
+        $pericias = $request->input('pericias');             // Se teve perícia
+        $pericia = $request->input('pericia_natureza');     // Motivo da perícia
+        $value_pericia = $request->input('pericia_honorario');    // Valor da perícia
 
-        $depositos                  = $request->input('depositos');            // Se teve deposito
-        $deposito                   = $request->input('deposito_motivo');      // Motivo da deposito
-        $value_deposito             = $request->input('deposito_valor');       // Valor da deposito
+        $depositos = $request->input('depositos');            // Se teve deposito
+        $deposito = $request->input('deposito_motivo');      // Motivo da deposito
+        $value_deposito = $request->input('deposito_valor');       // Valor da deposito
 
-        $recolhimentos              = $request->input('recolhimentos');        // Se teve recolhimento
-        $recolhimento               = $request->input('recolhimento_motivo');  // Motivo da recolhimento
-        $value_recolhimento         = $request->input('recolhimento_valor');   // Valor da recolhimento
+        $recolhimentos = $request->input('recolhimentos');        // Se teve recolhimento
+        $recolhimento = $request->input('recolhimento_motivo');  // Motivo da recolhimento
+        $value_recolhimento = $request->input('recolhimento_valor');   // Valor da recolhimento
 
-        $pedido_motivo              = $request->input('pedido_motivo');        // Pedido
-        $valor_pedido               = $request->input('pedido_valor');         // Valor do pedido
-        $risco_pedido               = $request->input('pedido_risco');         // Risco do pedido
+        $pedido_motivo = $request->input('pedido_motivo');        // Pedido
+        $valor_pedido = $request->input('pedido_valor');         // Valor do pedido
+        $risco_pedido = $request->input('pedido_risco');         // Risco do pedido
 
+        $clientes = $request->input('cliente_id');
+        $participantes = $request->input('participante_name');
 
         // Criação do Processo
         $processo = new Processos();
 
-        $processo->numero_processual        = $number;
-        $processo->polo                     = $polo;
-        $processo->type                     = $tipo_processo;
-        $processo->valor_causa              = $value;
-        $processo->data_ajuizamento         = $data_ajuizamento;
-        $processo->inaugural                = $audiencia;
-        $processo->pericia                  = $pericias;
-        $processo->contrario_id             = $contrario;
-        $processo->client_id                = $cliente;
-        $processo->adv_owner                = $adv_responsavel;
-        $processo->adv_third_party          = $adv_terceiro;
-        $processo->ocorrencia_inaugural     = $ocorrencia_inaugural;
-        $processo->deposito_judicial        = $deposito_judicial;
+        $processo->numero_processual = $number;
+        $processo->polo = $polo;
+        $processo->type = $tipo_processo;
+        $processo->valor_causa = $value;
+        $processo->data_ajuizamento = $data_ajuizamento;
+        $processo->inaugural = $audiencia;
+        $processo->pericia = $pericias;
+        $processo->contrario_id = $contrario;
+        $processo->adv_owner = $adv_responsavel;
+        $processo->adv_third_party = $adv_terceiro;
+        $processo->ocorrencia_inaugural = $ocorrencia_inaugural;
+        $processo->deposito_judicial = $deposito_judicial;
 
-        if(isset($data_audiencia_inaugural))
+        if (isset($data_audiencia_inaugural))
             $processo->data_audiencia_inaugural = $data_audiencia_inaugural;
 
         $processo->save();
 
+
+        foreach ($clientes as $key => $client) {
+            $clienteProcesso = new ClienteProcesso();
+            $clienteProcesso->cliente_id = $client;
+            $clienteProcesso->processo_id = $processo->id;
+            $clienteProcesso->save();
+        }
+
+        if (isset($participantes))
+        {
+            foreach($participantes as $key=>$participante)
+            {
+                $clienteProcesso = new ParticipanteProcesso();
+                $clienteProcesso->participante  = $participante;
+                $clienteProcesso->processo_id   = $processo->id;
+                $clienteProcesso->save();
+            }
+        }
 
         // Criação das Perícias do Processo
         if($pericias == 1 && isset($pericia))

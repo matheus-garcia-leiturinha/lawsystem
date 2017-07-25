@@ -15,6 +15,19 @@
               </div>
             </div>
         <?php endif; ?>
+        <?php if(Auth::check()): ?>
+            <div class="dropdown">
+              <button class="dropbtn"><i class="fa fa-plus"></i>Listas</button>
+              <div class="dropdown-content">
+                    <a href="<?php echo e(url('/clientes/')); ?>">Cliente</a>
+                    <a href="<?php echo e(url('/advogados/')); ?>">Advogado</a>
+                    <a href="<?php echo e(url('/contrarios/')); ?>">Parte contrária</a>
+                    
+                    
+                    <a href="<?php echo e(url('/pericias/')); ?>">Perícias</a>
+              </div>
+            </div>
+        <?php endif; ?>
 
         <?php if(Route::has('login')): ?>
             <div class="links">

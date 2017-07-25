@@ -29,6 +29,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .copy('resources/assets/js/libs/jquery-3.2.1.min.js', 'public/lib/js')
 
     .copy('resources/assets/frameworks/inputmask/jquery.inputmask.bundle.js', 'public/frameworks/inputmask')
+    .copy('resources/assets/frameworks/inputmask/jquery.maskMoney.min.js', 'public/frameworks/inputmask')
 
     .copy('resources/assets/frameworks/bootstrap-select/bootstrap-select.min.css', 'public/frameworks/bootstrap-select')
     .copy('resources/assets/frameworks/material/dataTables.material.min.css', 'public/frameworks/material')

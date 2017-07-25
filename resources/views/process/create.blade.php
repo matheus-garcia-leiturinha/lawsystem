@@ -36,8 +36,8 @@
             <div class="tipos">
                 {{ Form::radio('tipo', '1', ['checked' => 'checked'],['id'=> 'administrativo']) }}
                 {{ Form::label('administrativo', 'Administrativo',['class'=> 'radio first column1','checked' => 'checked']) }}
-                {{ Form::radio('tipo', '2',false,['id'=> 'cívil']) }}
-                {{ Form::label('cívil', 'Cívil',['class'=> 'radio column1']) }}
+                {{ Form::radio('tipo', '2',false,['id'=> 'cível']) }}
+                {{ Form::label('cível', 'Cível',['class'=> 'radio column1']) }}
             </div>
 
         </div>
@@ -77,7 +77,7 @@
 
         <div class="block">
             {{ Form::label('number', 'Número do processo') }}
-            {{ Form::text('number', '',["class" => "form-control"]) }}
+            {{ Form::text('number', '',["class" => "form-control" ]) }}
         </div>
 
         {{--<div class="block">--}}
@@ -136,7 +136,7 @@
 
         <div class="block">
             {{ Form::label('valor', 'Valor da causa') }}
-            {{ Form::number('valor', '',["class" => "form-control"]) }}
+            {{ Form::text('valor', '',["class" => "form-control"]) }}
         </div>
 
         <div class="block datepickerblock" id="date">
@@ -188,7 +188,7 @@
 
             <div class="block pericia">
                 {{ Form::label('value_pericia', 'Honorários prévios de perícia') }}
-                {{ Form::number('value_pericia', '',["class" => "form-control"]) }}
+                {{ Form::text('value_pericia', '',["class" => "form-control"]) }}
             </div>
 
             <div class="block pericia">
@@ -222,7 +222,7 @@
 
             <div class="block deposito">
                 {{ Form::label('value_deposito', 'Valor do depósito') }}
-                {{ Form::number('value_deposito', '',["class" => "form-control"]) }}
+                {{ Form::text('value_deposito', '',["class" => "form-control"]) }}
             </div>
 
             <div class="block deposito">
@@ -257,7 +257,7 @@
 
             <div class="block recolhimento">
                 {{ Form::label('value_recolhimento', 'Valor do Recolhimento') }}
-                {{ Form::number('value_recolhimento', '',["class" => "form-control"]) }}
+                {{ Form::text('value_recolhimento', '',["class" => "form-control"]) }}
             </div>
 
             <div class="block recolhimento">

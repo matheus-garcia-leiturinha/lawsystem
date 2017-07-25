@@ -43,7 +43,7 @@ $(document).ready(function(){
         // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
         var pericia = $("select[name=pericia] option:selected")[0].value;
 
-        if(Form.isEmpty($( "form.processos select[name=cliente]" )) ||
+        if($( ".clientes-component .child input" ).length < 1  ||
             Form.isEmpty($( "form.processos select[name=adv_responsavel]" )) ||
             Form.isEmpty($( "form.processos input[name='number']" )) ||
             Form.isEmpty($( "form.processos select[name=adv_terceiro]" )) ||
@@ -154,7 +154,6 @@ var processo =
 
     add : function (type) {
 
-        console.log('oi');
         switch (type) {
             case 'cliente':
 
@@ -163,7 +162,7 @@ var processo =
 
                     $(".clientes-component").append(
                         '<div class="child">'
-                        + '<input name="cliente[]" type="hidden" value="' + $("select[name=cliente] option:selected")[0].value + '"/>'
+                        + '<input name="cliente_id[]" type="hidden" value="' + $("select[name=cliente] option:selected")[0].value + '"/>'
                         + '<div class="values">'
                         + '<span>' + $(".bootstrap-select button[data-id=cliente] .filter-option")[0].innerText + '</span>'
                         + '</div>'
@@ -181,7 +180,7 @@ var processo =
 
                     $(".participantes-component").append(
                         '<div class="child">'
-                        + '<input name="participante[]" type="hidden" value="' + $("div.block.participante input[name=participante]").val() + '"/>'
+                        + '<input name="participante_name[]" type="hidden" value="' + $("div.block.participante input[name=participante]").val() + '"/>'
                         + '<div class="values">'
                         + '<span>' + $("div.block.participante input[name=participante]").val() + '</span>'
                         + '</div>'

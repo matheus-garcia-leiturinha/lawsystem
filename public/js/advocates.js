@@ -12,15 +12,11 @@ $(document).ready(function(){
         event.preventDefault();
 
        //console.log($( "form.advocates input[name='nome']")[0].value);
-       //console.log($( "form.advocates input[name='oab']")[0].value);
-       //console.log($( "form.advocates input[name='telefone']")[0].value);
-       //console.log($( "form.advocates input[name='email']")[0].value);
+      //  !Form.validateEmail($( "form.advocates input[name='email']" )[0].value)
 
 
         if(Form.isEmpty($( "form.advocates input[name='nome']" )) ||
-            Form.isEmpty($( "form.advocates input[name='oab']" )) ||
-            Form.isEmpty($( "form.advocates input[name='telefone']" )) ||
-            !Form.validateEmail($( "form.advocates input[name='email']" )[0].value)
+            Form.isEmpty($( "form.advocates input[name='oab']" ))
         )
 
         {

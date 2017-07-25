@@ -60,9 +60,9 @@ $(document).ready(function(){
             Form.isEmpty($( "form.contrarios input[name='bairro']" )) ||
             Form.isEmpty($( "form.contrarios input[name='cidade']" )) ||
             Form.isEmpty($( "form.contrarios input[name='cep']" )) ||
-            $("form.contrarios .bootstrap-select .filter-option")[0].innerText == "Estado" ||
-            Form.isEmpty($( "form.contrarios input[name='telefone']" )) ||
-            Form.isEmpty($( "form.contrarios input[name='email']" ))
+            $("form.contrarios .bootstrap-select .filter-option")[0].innerText == "Estado"
+
+
 
         )
         {

@@ -46,7 +46,7 @@ class AdvocatesController extends Controller
         $advocate->email = $email;
 
         if(isset($type))
-            $advocate->contrario = $type;
+            $advocate->tipo = $type;
 
         $advocate->save();
 
@@ -60,6 +60,7 @@ class AdvocatesController extends Controller
             $return['message'] = "Cadastro Efetuado com sucesso!";
             $return['name'] = $advocate->nome;
             $return['id'] = $advocate->id;
+            $return['type'] = $advocate->tipo;
 
             die(json_encode($return));
         }else

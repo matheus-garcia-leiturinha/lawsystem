@@ -33,7 +33,7 @@ $(document).ready(function(){
                 data: {
                     _token :    $( "form.advocates input[name='_token']")[0].value,
                     nome:       $( "form.advocates input[name='nome']")[0].value,
-                    nome:       $( "form.advocates input[name='nome']")[0].value,
+                    tipo:       $( "form.advocates input[name='tipo']:checked")[0].value,
                     oab:        $( "form.advocates input[name='oab']")[0].value,
                     telefone:   $( "form.advocates input[name='telefone']")[0].value,
                     email:      $( "form.advocates input[name='email']")[0].value
@@ -44,14 +44,26 @@ $(document).ready(function(){
                         alert(response['message']);
                         $("[data-dismiss=modal]").trigger({ type: "click" })
 
-                        $(".selectpicker[name=adv_responsavel]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
-                        $(".selectpicker[name=adv_terceiro]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+                        console.log(parseInt(response['type']));
 
-                        console.log($('.selectpicker[name=adv_responsavel]'))
+                        switch(parseInt(response['type']))
+                        {
+                            case 1:
+                                $(".selectpicker[name=adv_responsavel]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+                                break;
+                            case 2:
+                                $(".selectpicker[name=adv_terceiro]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+                                break;
+                            case 3:
+                                $(".selectpicker[name=adv_participante]").append('<option title="'+response['name']+'" value="'+response['id']+'">'+response['name']+'</option>');
+                                break;
+                        }
+
                         window.setTimeout(function()
                         {
                             $('.selectpicker[name=adv_responsavel]').selectpicker('refresh');
                             $('.selectpicker[name=adv_terceiro]').selectpicker('refresh');
+                            $('.selectpicker[name=adv_participante]').selectpicker('refresh');
                         },500);
                     }
                 },

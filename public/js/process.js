@@ -10,6 +10,29 @@ $(document).ready(function(){
     var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
     var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
 
+
+    $(document).on("click", ".openADV", function () {
+        var advType = $(this).data('id');
+
+        $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
+        $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
+        $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
+
+        switch(advType)
+        {
+            case "interno":
+
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
+                break;
+            case "contrario":
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
+                break;
+            case "participante":
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
+                break;
+        }
+    });
+
     $('.selectpicker').on('change', function(){
 
         var selected = $(this).find("option:selected").html();
@@ -194,6 +217,41 @@ var processo =
                     $("div.block.participante input[name=participante]").val("");
                 }
                 break;
+            case 'contrario':
+
+                if($("div.block.contrario input[name=contrario]").val() != "") {
+
+
+                    $(".contrarios-component").append(
+                        '<div class="child">'
+                        + '<input name="contrario_id[]" type="hidden" value="' + $("select[name=contrario] option:selected")[0].value + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
+
+                    $("div.block.contrario input[name=contrario]").val("");
+                }
+                break;
+            case 'advogado_participante':
+
+                if($("select[name=adv_participante] option:selected")[0].value != "") {
+                    $(".advogados-participantes-component").append(
+                        '<div class="child">'
+                        + '<input name="adv_participante_id[]" type="hidden" value="' + $("select[name=adv_participante] option:selected")[0].value + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $(".bootstrap-select button[data-id=adv_participante] .filter-option")[0].innerText + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
+
+                    $("div.block.adv_participante .selectpicker").val("").trigger('change');
+                    $("div.block.adv_participante input[name=adv_participante]").val("");
+                }
+                break;
             case 'pericia':
 
                 if($("select[name=pericia] option:selected")[0].value != "") {
@@ -302,23 +360,23 @@ function createMask()
    // var valormask = new Inputmask({
  //       mask: ["9.99", "99.99", "999.99", "9999.99", "99999.99", "999999.99", "9999999.99", "99999999.99", "999999999.99", "9999999999.99"]
   //  });
-    valormask.mask(valor);
+  //  valormask.mask(valor);
 
-    var valor_pericia = $( "form.processos input[name='value_pericia']" );
-
-    valormask.mask(valor_pericia);
-
-    var valor_deposito = $( "form.processos input[name='value_deposito']" );
-
-    valormask.mask(valor_deposito);
-
-    var valor_recolhimento = $( "form.processos input[name='value_recolhimento']" );
-
-    valormask.mask(valor_recolhimento);
-
-    var valor_pedido = $(".pedido_valor" );
-
-    valormask.mask(valor_pedido);
+    //var valor_pericia = $( "form.processos input[name='value_pericia']" );
+    //
+    //valormask.mask(valor_pericia);
+    //
+    //var valor_deposito = $( "form.processos input[name='value_deposito']" );
+    //
+    //valormask.mask(valor_deposito);
+    //
+    //var valor_recolhimento = $( "form.processos input[name='value_recolhimento']" );
+    //
+    //valormask.mask(valor_recolhimento);
+    //
+    //var valor_pedido = $(".pedido_valor" );
+    //
+    //valormask.mask(valor_pedido);
 
 
 }

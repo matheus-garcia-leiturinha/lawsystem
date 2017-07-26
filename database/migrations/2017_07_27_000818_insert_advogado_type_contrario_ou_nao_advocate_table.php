@@ -17,7 +17,7 @@ class InsertAdvogadoTypeContrarioOuNaoAdvocateTable extends Migration
 
         Schema::table('advogados', function($table) {
 
-            $table->enum('contrario',['sim','não'])->after('email');
+            $table->enum('tipo',['interno','contrario','participante'])->default('interno')->after('email');
         });
     }
 

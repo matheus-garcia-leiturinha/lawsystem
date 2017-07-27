@@ -32,6 +32,16 @@
 .content .data_audiencia_inaugural.active {
   display: block;
 }
+.content .pericias-component,
+.content .depositos-component,
+.content .recolhimentos-component,
+.content .pedidos-component,
+.content .clientes-component,
+.content .participantes-component,
+.content .advogados-participantes-component,
+.content .contrarios-component {
+  position: relative;
+}
 .content .pericias-component .child,
 .content .depositos-component .child,
 .content .recolhimentos-component .child,
@@ -94,4 +104,24 @@
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   right: 20px;
+}
+.content .pericias-component .add-new,
+.content .depositos-component .add-new,
+.content .recolhimentos-component .add-new,
+.content .pedidos-component .add-new,
+.content .clientes-component .add-new,
+.content .participantes-component .add-new,
+.content .advogados-participantes-component .add-new,
+.content .contrarios-component .add-new {
+  position: absolute;
+  width: 56px;
+  height: 58px;
+  top: 34px;
+  right: -49px;
+  z-index: 3;
+  border: 2px solid #e6e6e6;
+  border-left: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 18px 18px 18px 13px;
 }

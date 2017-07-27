@@ -19,8 +19,8 @@
                  </select>
             </div>
 
-            <div class="block cliente">
-                <a onclick="processo.add('cliente');">Adicionar</a>
+            <div class="cliente">
+                <a class="add-new" onclick="processo.add('cliente');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -32,8 +32,8 @@
 
             </div>
 
-            <div class="block participante">
-                <a onclick="processo.add('participante');">Adicionar</a>
+            <div class="participante">
+                <a class="add-new" onclick="processo.add('participante');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -49,8 +49,8 @@
                  </select>
             </div>
 
-            <div class="block advogado">
-                <a onclick="processo.add('advogado_participante');">Adicionar</a>
+            <div class="advogado">
+                <a class="add-new" onclick="processo.add('advogado_participante');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -160,8 +160,8 @@
                 </select>
             </div>
 
-            <div class="block contrario">
-                <a onclick="processo.add('contrario');">Adicionar</a>
+            <div class="contrario">
+                <a class="add-new" onclick="processo.add('contrario');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -242,8 +242,8 @@
 
             </div>
 
-            <div class="block pericia">
-                <a onclick="processo.add('pericia');">Adicionar</a>
+            <div class="pericia">
+                <a class="add-new" onclick="processo.add('pericia');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -284,8 +284,8 @@
 
             </div>
 
-            <div class="block deposito">
-                <a onclick="processo.add('deposito');">Adicionar</a>
+            <div class="deposito">
+                <a class="add-new" onclick="processo.add('deposito');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -327,8 +327,8 @@
 
             </div>
 
-            <div class="block recolhimento">
-                <a onclick="processo.add('recolhimento');">Adicionar</a>
+            <div class="recolhimento">
+                <a class="add-new" onclick="processo.add('recolhimento');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -371,8 +371,8 @@
                 </select>
             </div>
 
-            <div class="block pedido">
-                <a onclick="processo.add('pedido');">Adicionar</a>
+            <div class="pedido">
+                <a class="add-new" onclick="processo.add('pedido');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 

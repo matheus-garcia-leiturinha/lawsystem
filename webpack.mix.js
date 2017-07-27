@@ -36,6 +36,8 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .copy('resources/assets/frameworks/material/material.min.css', 'public/frameworks/material')
     .copy('resources/assets/frameworks/bootstrap-select/bootstrap-select.min.js', 'public/frameworks/bootstrap-select')
 
+    .copy('resources/assets/frameworks/datatables', 'public/css')
+
    .less('resources/assets/less/app.less', 'public/css')
    .less('resources/assets/less/layout.less', 'public/css')
    .less('resources/assets/less/home.less', 'public/css')

@@ -203,7 +203,18 @@
 
             <?php echo e(Form::text('data_audiencia_inaugural', '',["class" => "date form-control",'id' => 'datetimepicker2'])); ?>
 
+
+            <?php echo e(Form::radio('type_audiencia','una', ['checked' => 'checked'],['id'=> 'una'])); ?>
+
+            <?php echo e(Form::label('una', 'Una',['class'=> 'radio first','checked' => 'checked'])); ?>
+
+            <?php echo e(Form::radio('type_audiencia', 'inicial',false,['id'=> 'inicial'])); ?>
+
+            <?php echo e(Form::label('inicial', 'Inicial',['class'=> 'radio'])); ?>
+
         </div>
+
+
 
         <div class="block">
 

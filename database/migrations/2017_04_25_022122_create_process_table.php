@@ -45,6 +45,7 @@ class CreateProcessTable extends Migration
             $table->integer('client_id')->unsigned(); // author
             $table->integer('adv_owner')->unsigned();
             $table->integer('adv_third_party')->unsigned();
+            $table->enum('type_audiencia',['Una','Inicial']);
 
             $table->timestamps();
 

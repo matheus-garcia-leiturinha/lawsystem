@@ -110,6 +110,7 @@ class ProcessController extends Controller
         $pedido_motivo = $request->input('pedido_motivo');        // Pedido
         $valor_pedido = $request->input('pedido_valor');         // Valor do pedido
         $risco_pedido = $request->input('pedido_risco');         // Risco do pedido
+        $type_audiencia = $request->input('type_audiencia');
 
         $clientes = $request->input('cliente_id');
         $participantes = $request->input('participante_name');
@@ -129,6 +130,7 @@ class ProcessController extends Controller
         $processo->adv_third_party = $adv_terceiro;
         $processo->ocorrencia_inaugural = $ocorrencia_inaugural;
         $processo->deposito_judicial = $deposito_judicial;
+        $processo->type_audiencia = $type_audiencia;
 
         if (isset($data_audiencia_inaugural))
             $processo->data_audiencia_inaugural = $data_audiencia_inaugural;

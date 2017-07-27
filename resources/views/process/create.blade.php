@@ -151,7 +151,14 @@
         <div class="block datepickerblock data_audiencia_inaugural">
             {{ Form::label('data_audiencia_inaugural', 'Data da audiência inaugural') }}
             {{ Form::text('data_audiencia_inaugural', '',["class" => "date form-control",'id' => 'datetimepicker2']) }}
+
+            {{ Form::radio('type_audiencia','una', ['checked' => 'checked'],['id'=> 'una']) }}
+            {{ Form::label('una', 'Una',['class'=> 'radio first','checked' => 'checked']) }}
+            {{ Form::radio('type_audiencia', 'inicial',false,['id'=> 'inicial']) }}
+            {{ Form::label('inicial', 'Inicial',['class'=> 'radio']) }}
         </div>
+
+
 
         <div class="block">
 

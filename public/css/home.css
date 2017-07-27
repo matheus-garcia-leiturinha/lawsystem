@@ -2953,7 +2953,7 @@ main .block .box:hover {
   color: #ffffff;
 }
 main .block .box:hover .icon.new {
-  background-image: url(/images/new-process.png?2291a123a395c1b777c2bfd1458c5697);
+  background-image: url(/images/new-process.png?d41d8cd98f00b204e9800998ecf8427e);
 }
 main .block .box:hover .icon.follow {
   background-image: url(/images/follow-process.png?210e22ee1965042cc67f65de58878a0a);

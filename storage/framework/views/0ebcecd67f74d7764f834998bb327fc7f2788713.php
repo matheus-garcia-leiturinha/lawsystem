@@ -19,8 +19,8 @@
                  </select>
             </div>
 
-            <div class="block cliente">
-                <a onclick="processo.add('cliente');">Adicionar</a>
+            <div class="cliente">
+                <a class="add-new" onclick="processo.add('cliente');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -32,12 +32,27 @@
 
             </div>
 
-            <div class="block participante">
-                <a onclick="processo.add('participante');">Adicionar</a>
+            <div class="participante">
+                <a class="add-new" onclick="processo.add('participante');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
+        <div class="advogados-participantes-component">
+            <div class="block adv_participante">
+                <?php echo e(Form::label('advogado', 'Advogados Participantes')); ?>
 
+                <a class="openADV create-new" data-toggle="modal" data-target="#modal_adv" data-id="participante">Criar novo</a>
+                 <select class="selectpicker" data-live-search=true title=" " name="adv_participante" id="adv_participante">
+                    <?php $__currentLoopData = $advogados_participantes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $adv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option title="<?php echo e($adv['nome']); ?>" value="<?php echo e($adv['id']); ?>"><?php echo e($adv['nome']); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                 </select>
+            </div>
+
+            <div class="advogado">
+                <a class="add-new" onclick="processo.add('advogado_participante');"><i class="fa fa-plus"></i></a>
+            </div>
+        </div>
 
         <div class="block">
 
@@ -67,9 +82,9 @@
 
                 <?php echo e(Form::label('administrativo', 'Administrativo',['class'=> 'radio first column1','checked' => 'checked'])); ?>
 
-                <?php echo e(Form::radio('tipo', '2',false,['id'=> 'cívil'])); ?>
+                <?php echo e(Form::radio('tipo', '2',false,['id'=> 'cível'])); ?>
 
-                <?php echo e(Form::label('cívil', 'Cívil',['class'=> 'radio column1'])); ?>
+                <?php echo e(Form::label('cível', 'Cível',['class'=> 'radio column1'])); ?>
 
             </div>
 
@@ -106,7 +121,7 @@
             <?php echo e(Form::label('adv_responsavel', 'Quem abriu o processo?')); ?>
 
 
-            <a class="create-new" data-toggle="modal" data-target="#modal_adv">Criar novo</a>
+            <a class="openADV create-new" data-toggle="modal" data-target="#modal_adv" data-id="interno">Criar novo</a>
              <select class="selectpicker" data-live-search=true title=" " name="adv_responsavel" id="adv_responsavel">
                 <?php $__currentLoopData = $advogados; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $adv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <option title="<?php echo e($adv['nome']); ?>" value="<?php echo e($adv['id']); ?>"><?php echo e($adv['nome']); ?></option>
@@ -118,14 +133,14 @@
         <div class="block">
             <?php echo e(Form::label('number', 'Número do processo')); ?>
 
-            <?php echo e(Form::text('number', '',["class" => "form-control"])); ?>
+            <?php echo e(Form::text('number', '',["class" => "form-control" ])); ?>
 
         </div>
 
         <div class="block">
             <?php echo e(Form::label('adv_terceiro', 'Advogado contrário')); ?>
 
-            <a class="create-new" data-toggle="modal" data-target="#modal_adv">Criar novo</a>
+            <a class="openADV create-new" data-toggle="modal" data-target="#modal_adv" data-id="contrario">Criar novo</a>
             <select class="selectpicker" data-live-search=true title=" " name="adv_terceiro" id="adv_terceiro">
                 <?php $__currentLoopData = $advogados_contrario; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $adv): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <option title="<?php echo e($adv['nome']); ?>" value="<?php echo e($adv['id']); ?>"><?php echo e($adv['nome']); ?></option>
@@ -133,24 +148,28 @@
             </select>
         </div>
 
+        <div class="contrarios-component">
+            <div class="block contrario">
+                <?php echo e(Form::label('contrario', 'Parte contrária')); ?>
 
-        <div class="block">
-            <?php echo e(Form::label('contrario', 'Parte contrária')); ?>
+                <a class="create-new" data-toggle="modal" data-target="#modal_contrario">Criar novo</a>
+                <select class="selectpicker" data-live-search=true title=" " name="contrario" id="contrario">
+                    <?php $__currentLoopData = $contrarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contrario): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option title="<?php echo e($contrario['nome']); ?>" value="<?php echo e($contrario['id']); ?>"><?php echo e($contrario['nome']); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+            </div>
 
-            <a class="create-new" data-toggle="modal" data-target="#modal_contrario">Criar novo</a>
-            <select class="selectpicker" data-live-search=true title=" " name="contrario" id="contrario">
-                <?php $__currentLoopData = $contrarios; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contrario): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <option title="<?php echo e($contrario['nome']); ?>" value="<?php echo e($contrario['id']); ?>"><?php echo e($contrario['nome']); ?></option>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </select>
+            <div class="contrario">
+                <a class="add-new" onclick="processo.add('contrario');"><i class="fa fa-plus"></i></a>
+            </div>
         </div>
-
 
 
         <div class="block">
             <?php echo e(Form::label('valor', 'Valor da causa')); ?>
 
-            <?php echo e(Form::number('valor', '',["class" => "form-control"])); ?>
+            <?php echo e(Form::text('valor', '',["class" => "form-control"])); ?>
 
         </div>
 
@@ -219,12 +238,12 @@
             <div class="block pericia">
                 <?php echo e(Form::label('value_pericia', 'Honorários prévios de perícia')); ?>
 
-                <?php echo e(Form::number('value_pericia', '',["class" => "form-control"])); ?>
+                <?php echo e(Form::text('value_pericia', '',["class" => "form-control"])); ?>
 
             </div>
 
-            <div class="block pericia">
-                <a onclick="processo.add('pericia');">Adicionar</a>
+            <div class="pericia">
+                <a class="add-new" onclick="processo.add('pericia');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -261,12 +280,12 @@
             <div class="block deposito">
                 <?php echo e(Form::label('value_deposito', 'Valor do depósito')); ?>
 
-                <?php echo e(Form::number('value_deposito', '',["class" => "form-control"])); ?>
+                <?php echo e(Form::text('value_deposito', '',["class" => "form-control"])); ?>
 
             </div>
 
-            <div class="block deposito">
-                <a onclick="processo.add('deposito');">Adicionar</a>
+            <div class="deposito">
+                <a class="add-new" onclick="processo.add('deposito');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -304,12 +323,12 @@
             <div class="block recolhimento">
                 <?php echo e(Form::label('value_recolhimento', 'Valor do Recolhimento')); ?>
 
-                <?php echo e(Form::number('value_recolhimento', '',["class" => "form-control"])); ?>
+                <?php echo e(Form::text('value_recolhimento', '',["class" => "form-control"])); ?>
 
             </div>
 
-            <div class="block recolhimento">
-                <a onclick="processo.add('recolhimento');">Adicionar</a>
+            <div class="recolhimento">
+                <a class="add-new" onclick="processo.add('recolhimento');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -352,8 +371,15 @@
                 </select>
             </div>
 
-            <div class="block pedido">
-                <a onclick="processo.add('pedido');">Adicionar</a>
+            <div class="block pedido hide">
+                <?php echo e(Form::label('value_pedido', 'Valor do Pedido')); ?>
+
+                <?php echo e(Form::text('value_pedido', '',["class" => "form-control"])); ?>
+
+            </div>
+
+            <div class="pedido">
+                <a class="add-new" onclick="processo.add('pedido');"><i class="fa fa-plus"></i></a>
             </div>
         </div>
 
@@ -372,7 +398,6 @@
       </div>
       <div class="modal-body">
         <?php echo $__env->make('advocates.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
 	    <script src="<?php echo e(asset('/js/advocates.js')); ?>"></script>
       </div>
       <div class="modal-footer">

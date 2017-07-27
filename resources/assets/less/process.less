@@ -48,8 +48,26 @@
   }
 
 
-  .pericias-component,.depositos-component,.recolhimentos-component,.pedidos-component,.clientes-component,.participantes-component
+  .pericias-component,
+  .depositos-component,
+  .recolhimentos-component,
+  .pedidos-component,
+  .clientes-component,
+  .participantes-component,
+  .advogados-participantes-component,
+  .contrarios-component
   {
+
+    position: relative;
+
+    .block
+    {
+      .hide
+      {
+        display: none;
+      }
+    }
+
     .child
     {
       position: relative;
@@ -77,6 +95,21 @@
         transform: translateY(-50%);
         right: 20px;
       }
+    }
+
+    .add-new
+    {
+      position: absolute;
+      width: 56px;
+      height: 58px;
+      top: 34px;
+      right: -49px;
+      z-index: 3;
+      border: 2px solid #e6e6e6;
+      border-left: 0;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 18px 18px 18px 13px;
     }
   }
 }

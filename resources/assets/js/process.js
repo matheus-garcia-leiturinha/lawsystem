@@ -10,6 +10,29 @@ $(document).ready(function(){
     var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
     var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
 
+
+    $(document).on("click", ".openADV", function () {
+        var advType = $(this).data('id');
+
+        $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
+        $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
+        $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
+
+        switch(advType)
+        {
+            case "interno":
+
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
+                break;
+            case "contrario":
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
+                break;
+            case "participante":
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
+                break;
+        }
+    });
+
     $('.selectpicker').on('change', function(){
 
         var selected = $(this).find("option:selected").html();
@@ -27,6 +50,10 @@ $(document).ready(function(){
                 break;
             case "adv_terceiro":
                 adv_terceiro = selected;
+                break;
+            case "pedido":
+                $("div.block.pedido input[name=value_pedido]").parent().removeClass("hide");
+
                 break;
         }
 
@@ -205,6 +232,41 @@ var processo =
                     $("div.block.participante input[name=participante]").val("");
                 }
                 break;
+            case 'contrario':
+
+                if($("div.block.contrario input[name=contrario]").val() != "") {
+
+
+                    $(".contrarios-component").append(
+                        '<div class="child">'
+                        + '<input name="contrario_id[]" type="hidden" value="' + $("select[name=contrario] option:selected")[0].value + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
+
+                    $("div.block.contrario input[name=contrario]").val("");
+                }
+                break;
+            case 'advogado_participante':
+
+                if($("select[name=adv_participante] option:selected")[0].value != "") {
+                    $(".advogados-participantes-component").append(
+                        '<div class="child">'
+                        + '<input name="adv_participante_id[]" type="hidden" value="' + $("select[name=adv_participante] option:selected")[0].value + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $(".bootstrap-select button[data-id=adv_participante] .filter-option")[0].innerText + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
+
+                    $("div.block.adv_participante .selectpicker").val("").trigger('change');
+                    $("div.block.adv_participante input[name=adv_participante]").val("");
+                }
+                break;
             case 'pericia':
 
                 if($("select[name=pericia] option:selected")[0].value != "") {
@@ -272,10 +334,11 @@ var processo =
                     $(".pedidos-component").append(
                         '<div class="child">'
                         +'<input name="pedido_motivo[]" type="hidden" value="'+$("select[name=pedido] option:selected")[0].value+'"/>'
+                        +'<input name="pedido_valor[]" class="pedido_valor" type="hidden" value="'+$("div.block.pedido input[name=value_pedido]").val()+'"/>'
                         +'<div class="values">'
                         +'<span>'+$(".bootstrap-select button[data-id=pedido] .filter-option")[0].innerText+'</span>'
-                        +'<input name="pedido_valor[]" class="pedido_valor" type="text" value="'+$("div.block.pedido input[name=value_pedido]").val()+'"/>'
-                        +'<select class="" data-live-search=true title=" " name="pedido_risco[]" id="pedido_risco">'
+                        +'<span>'+$("div.block.pedido input[name=value_pedido]").val()+'</span>'
+                        +'<select class="" data-live-search=true title=" " name="pedido_risco[]" id="pedido_risco" class="pedido_risco">'
                         +'<option title="possível" value="2">Possível</option>'
                         +'<option title="provavel" value="3">Provável</option>'
                         +'<option title="remoto" value="4">Remoto</option>'
@@ -287,6 +350,8 @@ var processo =
 
                     $("div.block.pedido .selectpicker").val("").trigger('change');
                     $("div.block.pedido input[name=value_pedido]").val("");
+
+                    $("div.block.pedido input[name=value_pedido]").parent().addClass("hide");
                 }
                 break;
         }

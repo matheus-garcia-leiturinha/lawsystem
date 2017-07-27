@@ -4,16 +4,19 @@
     <div class="block">
 
         <div class="tipos">
-            <?php echo e(Form::radio('tipo', '2',true,['id'=> 'adv_interno'])); ?>
+            <?php echo e(Form::radio('tipo', '1',false,['id'=> 'adv_interno'])); ?>
 
-            <?php echo e(Form::label('adv_interno', 'Interno',['class'=> 'first radio'])); ?>
-
-            <?php echo e(Form::radio('tipo', '1',false,['id'=> 'adv_contrario' ])); ?>
-
-            <?php echo e(Form::label('adv_contrario', 'Contrário',['class'=> 'radio'])); ?>
+            <?php echo e(Form::radio('tipo', '2',false,['id'=> 'adv_contrario' ])); ?>
 
         </div>
 
+    </div>
+
+    <div class="block">
+        <div class="tipos">
+            <?php echo e(Form::radio('tipo', '3',false,['id'=> 'adv_participante' ])); ?>
+
+        </div>
     </div>
 
     <?php echo e(Form::label('nome', 'Nome')); ?>

@@ -37,9 +37,6 @@ $(document).ready(function(){
 
         var selected = $(this).find("option:selected").html();
 
-
-        console.log($(this).attr('name'));
-
         switch($(this).attr('name'))
         {
             case "tribunal":
@@ -74,16 +71,26 @@ $(document).ready(function(){
         // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
         var pericia = $("select[name=pericia] option:selected")[0].value;
 
+
         if($( ".clientes-component .child input" ).length < 1  ||
             Form.isEmpty($( "form.processos select[name=adv_responsavel]" )) ||
             Form.isEmpty($( "form.processos input[name='number']" )) ||
             Form.isEmpty($( "form.processos select[name=adv_terceiro]" )) ||
             Form.isEmpty($( "form.processos select[name=contrario]" )) ||
-            Form.isEmpty($( "form.processos input[name='valor']" )) ||
             Form.isEmpty($( "form.processos input[name='data_ajuizamento']" ))
         )
         {
             alert("Prencha os dados corretamente");
+            return false;
+        }
+    //    if($( "form.processos input[name='number']").length != 25){
+
+      //      alert("Número do processo não ta certo");
+    //        return false;
+    //    }
+
+        if($( "form.processos input[name='valor']" ).val($( "form.processos input[name='valor']" ).maskMoney('unmasked')[0]) < 0){
+            alert("Preencha o valor da causa");
             return false;
         }
 
@@ -104,6 +111,7 @@ $(document).ready(function(){
 
         //return false;
 
+        $( "form.processos input[name='valor']" ).val($( "form.processos input[name='valor']" ).maskMoney('unmasked')[0])
 
         $("form.processos").submit();
 
@@ -265,7 +273,7 @@ var processo =
                     $(".pericias-component").append(
                         '<div class="child">'
                         + '<input name="pericia_natureza[]" type="hidden" value="' + $("select[name=pericia] option:selected")[0].value + '"/>'
-                        + '<input name="pericia_honorario[]"  type="hidden" value=" '  + $("div.block.pericia input[name=value_pericia]").val() + '"/>'
+                        + '<input name="pericia_honorario[]"  type="hidden" value=" '  + $("div.block.pericia input[name=value_pericia]").maskMoney('unmasked')[0] + '"/>'
                         + '<div class="values">'
                         + '<span>' + $(".bootstrap-select button[data-id=pericia] .filter-option")[0].innerText + '</span>'
                         + '<span>' + $("div.block.pericia input[name=value_pericia]").val() + '</span>'
@@ -285,7 +293,7 @@ var processo =
                     $(".depositos-component").append(
                         '<div class="child">'
                         + '<input name="deposito_motivo[]" type="hidden" value="' + $("select[name=deposito] option:selected")[0].value + '"/>'
-                        + '<input name="deposito_valor[]"  type="hidden" value="' + $("div.block.deposito input[name=value_deposito]").val() + '"/>'
+                        + '<input name="deposito_valor[]"  type="hidden" value="' + $("div.block.deposito input[name=value_deposito]").maskMoney('unmasked')[0] + '"/>'
                         + '<div class="values">'
                         + '<span>' + $(".bootstrap-select button[data-id=deposito] .filter-option")[0].innerText + '</span>'
                         + '<span>' + $("div.block.deposito input[name=value_deposito]").val() + '</span>'
@@ -306,7 +314,7 @@ var processo =
                     $(".recolhimentos-component").append(
                         '<div class="child">'
                         +'<input name="recolhimento_motivo[]" type="hidden" value="'+$("select[name=recolhimento] option:selected")[0].value+'"/>'
-                        +'<input name="recolhimento_valor[]"  type="hidden" value="'+$("div.block.recolhimento input[name=value_recolhimento]").val()+'"/>'
+                        +'<input name="recolhimento_valor[]"  type="hidden" value="'+$("div.block.recolhimento input[name=value_recolhimento]").maskMoney('unmasked')[0]+'"/>'
                         +'<div class="values">'
                         +'<span>'+$(".bootstrap-select button[data-id=recolhimento] .filter-option")[0].innerText+'</span>'
                         +'<span>'+$("div.block.recolhimento input[name=value_recolhimento]").val()+'</span>'
@@ -364,29 +372,21 @@ function createMask()
     var numbermask = new Inputmask("9999999-99.9999.9.99.9999");
     numbermask.mask(number);
 
-    //var valor = $( "form.processos input[name='valor']" );
-    $("form.processos input[name='valor']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: false});
 
-   // var valormask = new Inputmask({
- //       mask: ["9.99", "99.99", "999.99", "9999.99", "99999.99", "999999.99", "9999999.99", "99999999.99", "999999999.99", "9999999999.99"]
-  //  });
-  //  valormask.mask(valor);
+    $("form.processos input[name='valor']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true, formatOnBlur: false, allowZero:true});
+    $("form.processos input[name='value_pericia']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true, formatOnBlur: false, allowZero:true});
+    $("form.processos input[name='value_deposito']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true, formatOnBlur: false, allowZero:true});
+    $("form.processos input[name='value_recolhimento']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true, formatOnBlur: false, allowZero:true});
 
-    //var valor_pericia = $( "form.processos input[name='value_pericia']" );
-    //
-    //valormask.mask(valor_pericia);
-    //
-    //var valor_deposito = $( "form.processos input[name='value_deposito']" );
-    //
-    //valormask.mask(valor_deposito);
-    //
-    //var valor_recolhimento = $( "form.processos input[name='value_recolhimento']" );
-    //
-    //valormask.mask(valor_recolhimento);
-    //
-    //var valor_pedido = $(".pedido_valor" );
-    //
-    //valormask.mask(valor_pedido);
+    var valormask = new Inputmask({
+        mask: ["9.99", "99.99", "999.99", "9999.99", "99999.99", "999999.99", "9999999.99", "99999999.99", "999999999.99", "9999999999.99"]
+   });
+
+
+
+    var valor_pedido = $(".pedido_valor" );
+
+    valormask.mask(valor_pedido);
 
 
 }

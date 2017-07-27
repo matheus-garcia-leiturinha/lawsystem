@@ -42,6 +42,16 @@
 .content .contrarios-component {
   position: relative;
 }
+.content .pericias-component .block .hide,
+.content .depositos-component .block .hide,
+.content .recolhimentos-component .block .hide,
+.content .pedidos-component .block .hide,
+.content .clientes-component .block .hide,
+.content .participantes-component .block .hide,
+.content .advogados-participantes-component .block .hide,
+.content .contrarios-component .block .hide {
+  display: none;
+}
 .content .pericias-component .child,
 .content .depositos-component .child,
 .content .recolhimentos-component .child,

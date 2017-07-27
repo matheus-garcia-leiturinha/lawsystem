@@ -305,6 +305,11 @@
                 </select>
             </div>
 
+            <div class="block pedido hide">
+                {{ Form::label('value_pedido', 'Valor do Pedido') }}
+                {{ Form::text('value_pedido', '',["class" => "form-control"]) }}
+            </div>
+
             <div class="pedido">
                 <a class="add-new" onclick="processo.add('pedido');"><i class="fa fa-plus"></i></a>
             </div>

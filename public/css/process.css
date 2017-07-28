@@ -1,0 +1,137 @@
+.content .doc:not(.checked) {
+  display: none;
+}
+.content .polos label.radio,
+.content .naturezas label.radio,
+.content .tipos label.radio {
+  margin: 0 20px;
+}
+.content .polos label.radio.first,
+.content .naturezas label.radio.first,
+.content .tipos label.radio.first {
+  margin: 0 20px 0px 0;
+}
+.content .datepickerblock {
+  position: relative ;
+}
+.content .pericia,
+.content .deposito,
+.content .custo,
+.content .recolhimento {
+  display: none;
+}
+.content .pericia.active,
+.content .deposito.active,
+.content .custo.active,
+.content .recolhimento.active {
+  display: block;
+}
+.content .data_audiencia_inaugural {
+  display: none;
+}
+.content .data_audiencia_inaugural.active {
+  display: block;
+}
+.content .pericias-component,
+.content .depositos-component,
+.content .recolhimentos-component,
+.content .pedidos-component,
+.content .clientes-component,
+.content .participantes-component,
+.content .advogados-participantes-component,
+.content .contrarios-component {
+  position: relative;
+}
+.content .pericias-component .block .hide,
+.content .depositos-component .block .hide,
+.content .recolhimentos-component .block .hide,
+.content .pedidos-component .block .hide,
+.content .clientes-component .block .hide,
+.content .participantes-component .block .hide,
+.content .advogados-participantes-component .block .hide,
+.content .contrarios-component .block .hide {
+  display: none;
+}
+.content .pericias-component .child,
+.content .depositos-component .child,
+.content .recolhimentos-component .child,
+.content .pedidos-component .child,
+.content .clientes-component .child,
+.content .participantes-component .child,
+.content .advogados-participantes-component .child,
+.content .contrarios-component .child {
+  position: relative;
+  margin-bottom: 20px;
+}
+.content .pericias-component .child .values,
+.content .depositos-component .child .values,
+.content .recolhimentos-component .child .values,
+.content .pedidos-component .child .values,
+.content .clientes-component .child .values,
+.content .participantes-component .child .values,
+.content .advogados-participantes-component .child .values,
+.content .contrarios-component .child .values {
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 4px;
+}
+.content .pericias-component .child .values span,
+.content .depositos-component .child .values span,
+.content .recolhimentos-component .child .values span,
+.content .pedidos-component .child .values span,
+.content .clientes-component .child .values span,
+.content .participantes-component .child .values span,
+.content .advogados-participantes-component .child .values span,
+.content .contrarios-component .child .values span,
+.content .pericias-component .child .values input,
+.content .depositos-component .child .values input,
+.content .recolhimentos-component .child .values input,
+.content .pedidos-component .child .values input,
+.content .clientes-component .child .values input,
+.content .participantes-component .child .values input,
+.content .advogados-participantes-component .child .values input,
+.content .contrarios-component .child .values input,
+.content .pericias-component .child .values select,
+.content .depositos-component .child .values select,
+.content .recolhimentos-component .child .values select,
+.content .pedidos-component .child .values select,
+.content .clientes-component .child .values select,
+.content .participantes-component .child .values select,
+.content .advogados-participantes-component .child .values select,
+.content .contrarios-component .child .values select {
+  display: block;
+  margin: 5px 0;
+}
+.content .pericias-component .child a,
+.content .depositos-component .child a,
+.content .recolhimentos-component .child a,
+.content .pedidos-component .child a,
+.content .clientes-component .child a,
+.content .participantes-component .child a,
+.content .advogados-participantes-component .child a,
+.content .contrarios-component .child a {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 20px;
+}
+.content .pericias-component .add-new,
+.content .depositos-component .add-new,
+.content .recolhimentos-component .add-new,
+.content .pedidos-component .add-new,
+.content .clientes-component .add-new,
+.content .participantes-component .add-new,
+.content .advogados-participantes-component .add-new,
+.content .contrarios-component .add-new {
+  position: absolute;
+  width: 56px;
+  height: 58px;
+  top: 34px;
+  right: -49px;
+  z-index: 3;
+  border: 2px solid #e6e6e6;
+  border-left: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 18px 18px 18px 13px;
+}

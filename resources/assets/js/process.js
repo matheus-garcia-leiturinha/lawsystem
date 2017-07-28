@@ -89,7 +89,7 @@ $(document).ready(function(){
     //        return false;
     //    }
 
-        if($( "form.processos input[name='valor']" ).val($( "form.processos input[name='valor']" ).maskMoney('unmasked')[0]) < 0){
+        if($( "form.processos input[name='valor']" ).maskMoney('unmasked')[0] < 0){
             alert("Preencha o valor da causa");
             return false;
         }

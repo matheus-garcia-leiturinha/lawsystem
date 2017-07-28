@@ -81,6 +81,7 @@ class ProcessController extends Controller
         $adv_responsavel        = $request->input('adv_responsavel');
         $adv_terceiro           = $request->input('adv_terceiro');
         $ocorrencia_inaugural   = $request->input('ocorrencia_inaugural');
+        $pericias               = $request->input('pericias');             // Se teve perícia
 
         if ($request->input('data_ajuizamento')) {
             $d_ajuizamento = \DateTime::createFromFormat("d/m/Y", $request->input('data_ajuizamento'))->format("m/d/Y");
@@ -171,7 +172,6 @@ class ProcessController extends Controller
             }
         }
 
-        $pericias           = $request->input('pericias');             // Se teve perícia
         $pericia            = $request->input('pericia');              // Motivo da perícia
         $value_pericia      = $request->input('value_pericia');        // Valor da perícia
 

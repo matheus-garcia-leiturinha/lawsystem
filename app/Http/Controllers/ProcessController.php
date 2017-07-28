@@ -109,9 +109,7 @@ class ProcessController extends Controller
         $recolhimento       = $request->input('recolhimento_motivo');  // Motivo da recolhimento
         $value_recolhimento = $request->input('recolhimento_valor');   // Valor da recolhimento
 
-        $pedido_motivo      = $request->input('pedido_motivo');        // Pedido
-        $valor_pedido       = $request->input('pedido_valor');         // Valor do pedido
-        $risco_pedido       = $request->input('pedido_risco');         // Risco do pedido
+
         $type_audiencia     = $request->input('type_audiencia');
 
         $clientes           = $request->input('cliente_id');
@@ -219,6 +217,10 @@ class ProcessController extends Controller
                 $recolhimento_processo->save();
             }
         }
+
+        $pedido_motivo      = $request->input('pedido_motivo');        // Pedido
+        $valor_pedido       = $request->input('pedido_valor');         // Valor do pedido
+        $risco_pedido       = $request->input('pedido_risco');         // Risco do pedido
 
         // Criação dos Peridos do Processo
         if(isset($pedido_motivo)){

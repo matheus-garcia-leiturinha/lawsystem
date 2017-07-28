@@ -1,6 +1,6 @@
 {{ Form::open(array('url' => 'advogados/save',"class" => "advocates")) }}
 
-    <div class="block">
+    <div class="">
 
         <div class="tipos">
             {{ Form::radio('tipo', '1',false,['id'=> 'adv_interno']) }}
@@ -9,7 +9,7 @@
 
     </div>
 
-    <div class="block">
+    <div class="">
         <div class="tipos">
             {{ Form::radio('tipo', '3',false,['id'=> 'adv_participante' ]) }}
         </div>

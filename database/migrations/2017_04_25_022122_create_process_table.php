@@ -40,8 +40,6 @@ class CreateProcessTable extends Migration
 
             $table->enum('pericia', ['sim','não']);
 
-
-            $table->integer('contrario_id')->unsigned(); // author
             $table->integer('client_id')->unsigned(); // author
             $table->integer('adv_owner')->unsigned();
             $table->integer('adv_third_party')->unsigned();
@@ -54,8 +52,6 @@ class CreateProcessTable extends Migration
         });
 
         Schema::table('processos', function($table) {
-
-            $table->foreign('contrario_id')->references('id')->on('contrario');
 
             $table->foreign('client_id')->references('id')->on('clientes');
 

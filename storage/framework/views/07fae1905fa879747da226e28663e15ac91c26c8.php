@@ -1,7 +1,7 @@
 <?php echo e(Form::open(array('url' => 'advogados/save',"class" => "advocates"))); ?>
 
 
-    <div class="block">
+    <div class="">
 
         <div class="tipos">
             <?php echo e(Form::radio('tipo', '1',false,['id'=> 'adv_interno'])); ?>
@@ -12,7 +12,7 @@
 
     </div>
 
-    <div class="block">
+    <div class="">
         <div class="tipos">
             <?php echo e(Form::radio('tipo', '3',false,['id'=> 'adv_participante' ])); ?>
 

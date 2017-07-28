@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Advogados;
+use App\AdvogadoParcipanteProcesso;
 use App\ClienteProcesso;
 use App\Clientes;
 use App\ContrarioProcesso;
@@ -163,7 +164,7 @@ class ProcessController extends Controller
         {
             foreach($adv_participantes as $key=>$adv)
             {
-                $advParticipanteProcesso                = new AdvogadoParticipanteProcesso();
+                $advParticipanteProcesso                = new AdvogadoParcipanteProcesso();
                 $advParticipanteProcesso->advogado_id   = $adv;
                 $advParticipanteProcesso->processo_id   = $processo->id;
                 $advParticipanteProcesso->save();

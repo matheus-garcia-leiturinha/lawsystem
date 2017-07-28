@@ -124,7 +124,7 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.block.pericia").removeClass('active');
+                $("div.pericia").removeClass('active');
                 $("div.block.pericia .selectpicker").val("").trigger('change');
                 $("div.block.pericia input[name=value_pericia]").val("");
                 break;
@@ -139,7 +139,7 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.block.deposito").removeClass('active');
+                $("div.deposito").removeClass('active');
                 $("div.block.deposito .selectpicker").val("").trigger('change');
                 $("div.block.deposito input[name=value_deposito]").val("");
                 break;
@@ -153,7 +153,7 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.block.recolhimento").removeClass('active');
+                $("div.recolhimento").removeClass('active');
                 $("div.block.recolhimento .selectpicker").val("").trigger('change');
                 $("div.block.recolhimento input[name=value_recolhimento]").val("");
                 break;

@@ -1,0 +1,3 @@
+.content .doc:not(.checked) {
+  display: none;
+}

@@ -26,6 +26,7 @@ class CreateAdvocatesTable extends Migration
             $table->string('nome');
             $table->string('telefone')->nullable();
             $table->string('email')->nullable();
+            $table->enum('tipo',['interno','contrario','participante'])->default('interno');
             $table->timestamps();
 
 

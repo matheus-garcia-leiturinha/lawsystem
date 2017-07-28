@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Advogados;
 use App\AdvogadoParcipanteProcesso;
+use App\Advogados;
 use App\ClienteProcesso;
 use App\Clientes;
 use App\ContrarioProcesso;

@@ -98,17 +98,8 @@ class ProcessController extends Controller
 
         $deposito_judicial  = $request->input('deposito_judicial');
 
-        $pericias           = $request->input('pericias');             // Se teve perícia
-        $pericia            = $request->input('pericia_natureza');     // Motivo da perícia
-        $value_pericia      = $request->input('pericia_honorario');    // Valor da perícia
 
-        $depositos          = $request->input('depositos');            // Se teve deposito
-        $deposito           = $request->input('deposito_motivo');      // Motivo da deposito
-        $value_deposito     = $request->input('deposito_valor');       // Valor da deposito
 
-        $recolhimentos      = $request->input('recolhimentos');        // Se teve recolhimento
-        $recolhimento       = $request->input('recolhimento_motivo');  // Motivo da recolhimento
-        $value_recolhimento = $request->input('recolhimento_valor');   // Valor da recolhimento
 
 
         $type_audiencia     = $request->input('type_audiencia');
@@ -180,6 +171,10 @@ class ProcessController extends Controller
             }
         }
 
+        $pericias           = $request->input('pericias');             // Se teve perícia
+        $pericia            = $request->input('pericia');              // Motivo da perícia
+        $value_pericia      = $request->input('value_pericia');        // Valor da perícia
+
         // Criação das Perícias do Processo
         if($pericias == 1 && isset($pericia))
         {
@@ -193,6 +188,10 @@ class ProcessController extends Controller
             }
         }
 
+        $depositos          = $request->input('depositos');            // Se teve deposito
+        $deposito           = $request->input('deposito');             // Motivo da deposito
+        $value_deposito     = $request->input('value_deposito');       // Valor da deposito
+
         // Criação dos Depositos do Processo
         if($depositos == 1 && isset($deposito))
         {
@@ -205,6 +204,10 @@ class ProcessController extends Controller
                 $pedido_processo->save();
             }
         }
+
+        $recolhimentos      = $request->input('recolhimentos');        // Se teve recolhimento
+        $recolhimento       = $request->input('recolhimento');         // Motivo da recolhimento
+        $value_recolhimento = $request->input('value_recolhimento');   // Valor da recolhimento
 
         // Criação dos Recolhimentos do Processo
         if($recolhimentos == 1 && isset($recolhimento))

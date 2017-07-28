@@ -129,7 +129,7 @@ $(document).ready(function(){
                 $("div.block.pericia input[name=value_pericia]").val("");
                 break;
             case "1":
-                $("div.block.pericia").addClass('active');
+                $("div.pericia").addClass('active');
                 break;
         }
     });
@@ -144,7 +144,7 @@ $(document).ready(function(){
                 $("div.block.deposito input[name=value_deposito]").val("");
                 break;
             case "1":
-                $("div.block.deposito").addClass('active');
+                $("div.deposito").addClass('active');
                 break;
         }
     });
@@ -158,7 +158,7 @@ $(document).ready(function(){
                 $("div.block.recolhimento input[name=value_recolhimento]").val("");
                 break;
             case "1":
-                $("div.block.recolhimento").addClass('active');
+                $("div.recolhimento").addClass('active');
                 break;
         }
     });

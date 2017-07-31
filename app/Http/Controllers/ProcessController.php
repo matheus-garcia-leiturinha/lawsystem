@@ -92,6 +92,10 @@ class ProcessController extends Controller
         if ($request->input('data_audiencia_inaugural')) {
             $d_inaugural = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_audiencia_inaugural'))->format("m/d/Y H:i");
             $data_audiencia_inaugural = date("Y-m-d H:i", strtotime($d_inaugural));
+            $type_audiencia     = $request->input('type_audiencia');
+        }
+        else{
+            $type_audiencia     =  NULL;
         }
 
         $tipo_processo      = $request->input('tipo');
@@ -110,8 +114,6 @@ class ProcessController extends Controller
         $recolhimento       = $request->input('recolhimento_motivo');  // Motivo da recolhimento
         $value_recolhimento = $request->input('recolhimento_valor');   // Valor da recolhimento
 
-
-        $type_audiencia     = $request->input('type_audiencia');
 
         $clientes           = $request->input('cliente_id');
         $participantes      = $request->input('participante_name');

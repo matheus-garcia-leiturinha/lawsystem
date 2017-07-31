@@ -11,12 +11,15 @@ $(document).ready(function(){
     var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
 
 
+    //$(".modal").on("hidden.bs.modal", function(){
+    //    $("#modal_adv input").removeAttr("checked");
+    //    $(".modal input[type=text], .modal input[type=number] ").val("");
+    //});
+
     $(document).on("click", ".openADV", function () {
         var advType = $(this).data('id');
 
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
+        console.log(advType);
 
         switch(advType)
         {
@@ -334,7 +337,7 @@ var processo =
                     $(".pedidos-component").append(
                         '<div class="child">'
                         +'<input name="pedido_motivo[]" type="hidden" value="'+$("select[name=pedido] option:selected")[0].value+'"/>'
-                        +'<input name="pedido_valor[]" class="pedido_valor" type="hidden" value="'+$("div.block.pedido input[name=value_pedido]").val()+'"/>'
+                        +'<input name="pedido_valor[]" class="pedido_valor" type="hidden" value="'+$("div.block.pedido input[name=value_pedido]").maskMoney('unmasked')[0]+'"/>'
                         +'<div class="values">'
                         +'<span>'+$(".bootstrap-select button[data-id=pedido] .filter-option")[0].innerText+'</span>'
                         +'<span>'+$("div.block.pedido input[name=value_pedido]").val()+'</span>'
@@ -377,6 +380,7 @@ function createMask()
     $("form.processos input[name='value_pericia']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true, formatOnBlur: false, allowZero:true});
     $("form.processos input[name='value_deposito']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true, formatOnBlur: false, allowZero:true});
     $("form.processos input[name='value_recolhimento']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true, formatOnBlur: false, allowZero:true});
+    $("form.processos input[name='value_pedido']").maskMoney({prefix:'R$ ', allowNegative: false, thousands:'.', decimal:',', affixesStay: true, formatOnBlur: false, allowZero:true});
 
     var valormask = new Inputmask({
         mask: ["9.99", "99.99", "999.99", "9999.99", "99999.99", "999999.99", "9999999.99", "99999999.99", "999999999.99", "9999999999.99"]

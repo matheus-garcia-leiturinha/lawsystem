@@ -1,13 +1,13 @@
 <?php echo e(Form::open(array('url' => 'contrarios/save',"class" => "contrarios"))); ?>
 
 
-<?php echo e(Form::radio('type', 'cpf', ['checked' => 'checked'],['id'=> 'cpf'])); ?>
+<?php echo e(Form::radio('type', 'contra_cpf', ['checked' => 'checked'],['id'=> 'cpf'])); ?>
 
-<?php echo e(Form::label('cpf', 'Física',['class'=> 'radio first','checked' => 'checked'])); ?>
+<?php echo e(Form::label('contra_cpf', 'Física',['class'=> 'radio first','checked' => 'checked'])); ?>
 
-<?php echo e(Form::radio('type', 'cnpj',false,['id'=> 'cnpj'])); ?>
+<?php echo e(Form::radio('type', 'contra_cnpj',false,['id'=> 'cnpj'])); ?>
 
-<?php echo e(Form::label('cnpj', 'Jurídica',['class'=> 'radio'])); ?>
+<?php echo e(Form::label('contra_cnpj', 'Jurídica',['class'=> 'radio'])); ?>
 
 
 

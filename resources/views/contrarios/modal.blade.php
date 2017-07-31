@@ -1,9 +1,9 @@
 {{ Form::open(array('url' => 'contrarios/save',"class" => "contrarios")) }}
 
-{{ Form::radio('type', 'cpf', ['checked' => 'checked'],['id'=> 'cpf']) }}
-{{ Form::label('cpf', 'Física',['class'=> 'radio first','checked' => 'checked']) }}
-{{ Form::radio('type', 'cnpj',false,['id'=> 'cnpj']) }}
-{{ Form::label('cnpj', 'Jurídica',['class'=> 'radio']) }}
+{{ Form::radio('type', 'contra_cpf', ['checked' => 'checked'],['id'=> 'cpf']) }}
+{{ Form::label('contra_cpf', 'Física',['class'=> 'radio first','checked' => 'checked']) }}
+{{ Form::radio('type', 'contra_cnpj',false,['id'=> 'cnpj']) }}
+{{ Form::label('contra_cnpj', 'Jurídica',['class'=> 'radio']) }}
 
 
 <div class="doc cpf checked">

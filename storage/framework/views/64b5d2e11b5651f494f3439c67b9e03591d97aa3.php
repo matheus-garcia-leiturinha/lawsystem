@@ -7,9 +7,9 @@
               <button class="dropbtn"><i class="fa fa-plus"></i>Outros cadastros</button>
               <div class="dropdown-content">
                     <a href="<?php echo e(url('/clientes/criar')); ?>">Cliente</a>
-                    <a href="<?php echo e(url('/advogados/criar')); ?>">Advogado</a>
-                    <a href="<?php echo e(url('/contrarios/criar')); ?>">Parte contrária</a>
-                    
+                  
+                  <a href="<?php echo e(url('/contrarios/criar')); ?>">Parte contrária</a>
+                  
                     
                     <a href="<?php echo e(url('/pericias/criar')); ?>">Perícias</a>
               </div>

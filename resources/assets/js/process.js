@@ -11,12 +11,15 @@ $(document).ready(function(){
     var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
 
 
+    //$(".modal").on("hidden.bs.modal", function(){
+    //    $("#modal_adv input").removeAttr("checked");
+    //    $(".modal input[type=text], .modal input[type=number] ").val("");
+    //});
+
     $(document).on("click", ".openADV", function () {
         var advType = $(this).data('id');
 
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
+        console.log(advType);
 
         switch(advType)
         {

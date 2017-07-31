@@ -135,17 +135,17 @@ function createMask()
     var cpf = $("form.contrarios input[name='ftype_value']");
 
     var cpfmask = new Inputmask("999.999.999-99");
-    cpfmask.mask(cpf)
+    cpfmask.mask(cpf);
 
     var cnpj = $("form.contrarios input[name='jtype_value']");
 
     var cnpjmask = new Inputmask("99.999.999/9999-99");
-    cnpjmask.mask(cnpj)
+    cnpjmask.mask(cnpj);
 
     var cep = $("form.contrarios input[name='cep']");
 
     var cepmask = new Inputmask("99999-999");
-    cepmask.mask(cep)
+    cepmask.mask(cep);
 
     var telefone = $("form.contrarios input[name='telefone']");
 

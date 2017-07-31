@@ -11,12 +11,15 @@ $(document).ready(function(){
     var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
 
 
+    //$(".modal").on("hidden.bs.modal", function(){
+    //    $("#modal_adv input").removeAttr("checked");
+    //    $(".modal input[type=text], .modal input[type=number] ").val("");
+    //});
+
     $(document).on("click", ".openADV", function () {
         var advType = $(this).data('id');
 
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
-        $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
+        console.log(advType);
 
         switch(advType)
         {
@@ -124,7 +127,7 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.pericia").removeClass('active');
+                $("div.block.pericia").removeClass('active');
                 $("div.block.pericia .selectpicker").val("").trigger('change');
                 $("div.block.pericia input[name=value_pericia]").val("");
                 break;
@@ -139,7 +142,7 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.deposito").removeClass('active');
+                $("div.block.deposito").removeClass('active');
                 $("div.block.deposito .selectpicker").val("").trigger('change');
                 $("div.block.deposito input[name=value_deposito]").val("");
                 break;
@@ -153,7 +156,7 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.recolhimento").removeClass('active');
+                $("div.block.recolhimento").removeClass('active');
                 $("div.block.recolhimento .selectpicker").val("").trigger('change');
                 $("div.block.recolhimento input[name=value_recolhimento]").val("");
                 break;

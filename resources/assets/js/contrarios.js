@@ -1,11 +1,11 @@
 
 $(document).ready(function(){
 
-    createMask();
+    contrario_createMask();
 
     $( "form.contrarios input[name='type']" ).on("change",function() {
 
-       // console.log('oi',$(this).val());
+       console.log('oi',$(this).val());
         $(".doc").removeClass("checked");
 
         var classname = "div.doc."+$(this).val();
@@ -129,7 +129,7 @@ $(document).ready(function(){
 
 
 
-function createMask()
+function contrario_createMask()
 {
     // Mascaras
     var cpf = $("form.contrarios input[name='ftype_value']");

@@ -4,7 +4,7 @@
 
 $(document).ready(function(){
 
-    createMask();
+    cliente_createMask();
 
     $( "input[name='type']" ).on("change",function() {
 
@@ -131,7 +131,7 @@ $(document).ready(function(){
 
 
 
-function createMask()
+function cliente_createMask()
 {
     // Mascaras
     var cpf = $("form.clients input[name='ftype_value']");

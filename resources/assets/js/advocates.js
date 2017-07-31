@@ -5,7 +5,7 @@
 $(document).ready(function(){
 
 
-    createMask();
+    adv_createMask();
 
     $("form.advocates input[type=submit]").on("click", function(event){
 
@@ -84,7 +84,7 @@ $(document).ready(function(){
 
 
 
-function createMask()
+function adv_createMask()
 {
     // Mascaras
     var telefone = $("form.advocates input[name='telefone']");

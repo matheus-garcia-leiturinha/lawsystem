@@ -124,12 +124,12 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.pericia").removeClass('active');
+                $("div.block.pericia").removeClass('active');
                 $("div.block.pericia .selectpicker").val("").trigger('change');
                 $("div.block.pericia input[name=value_pericia]").val("");
                 break;
             case "1":
-                $("div.pericia").addClass('active');
+                $("div.block.pericia").addClass('active');
                 break;
         }
     });
@@ -139,12 +139,12 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.deposito").removeClass('active');
+                $("div.block.deposito").removeClass('active');
                 $("div.block.deposito .selectpicker").val("").trigger('change');
                 $("div.block.deposito input[name=value_deposito]").val("");
                 break;
             case "1":
-                $("div.deposito").addClass('active');
+                $("div.block.deposito").addClass('active');
                 break;
         }
     });
@@ -153,12 +153,12 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.recolhimento").removeClass('active');
+                $("div.block.recolhimento").removeClass('active');
                 $("div.block.recolhimento .selectpicker").val("").trigger('change');
                 $("div.block.recolhimento input[name=value_recolhimento]").val("");
                 break;
             case "1":
-                $("div.recolhimento").addClass('active');
+                $("div.block.recolhimento").addClass('active');
                 break;
         }
     });

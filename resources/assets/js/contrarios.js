@@ -19,11 +19,6 @@ $(document).ready(function(){
 
         // console.log($(".bootstrap-select .filter-option")[0].innerText);
 
-        if($( "form.contrarios input[name='type']:checked").val() == "contr_cpf")
-            $( "form.contrarios input[name='type']:checked").val("cpf");
-        if($( "form.contrarios input[name='type']:checked").val() == "contr_cnpj")
-            $( "form.contrarios input[name='type']:checked").val("cnpj");
-
         switch($( "form.contrarios input[name='type']:checked").val())
         {
             case "cpf":

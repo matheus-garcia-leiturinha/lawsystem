@@ -11,10 +11,10 @@ $(document).ready(function(){
     var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
 
 
-    //$(".modal").on("hidden.bs.modal", function(){
-    //    $("#modal_adv input").removeAttr("checked");
-    //    $(".modal input[type=text], .modal input[type=number] ").val("");
-    //});
+    $(".modal").on("hidden.bs.modal", function(){
+        $("#modal_adv input").removeAttr("checked");
+        $(".modal input[type=text], .modal input[type=number] ").val("");
+    });
 
     $(document).on("click", ".openADV", function () {
         var advType = $(this).data('id');

@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     $( "form.contrarios input[name='type']" ).on("change",function() {
 
-       console.log('oi',$(this).val());
+
         $(".doc").removeClass("checked");
 
         var classname = "div.doc."+$(this).val();
@@ -41,7 +41,7 @@ $(document).ready(function(){
                 var doc = $( "form.contrarios input[name='jtype_value']").val();
                 if(!Form.validateDoc("cnpj",doc))
                 {
-                    console.error("CNPJ INVALIDO");
+                    alert("CNPF inválido");
                     return false;
                 }
                 break;

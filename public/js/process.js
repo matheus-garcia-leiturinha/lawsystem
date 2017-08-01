@@ -127,12 +127,12 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.block.pericia").removeClass('active');
+                $("div.pericia").removeClass('active');
                 $("div.block.pericia .selectpicker").val("").trigger('change');
                 $("div.block.pericia input[name=value_pericia]").val("");
                 break;
             case "1":
-                $("div.block.pericia").addClass('active');
+                $("div.pericia").addClass('active');
                 break;
         }
     });
@@ -142,12 +142,12 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.block.deposito").removeClass('active');
+                $("div.deposito").removeClass('active');
                 $("div.block.deposito .selectpicker").val("").trigger('change');
                 $("div.block.deposito input[name=value_deposito]").val("");
                 break;
             case "1":
-                $("div.block.deposito").addClass('active');
+                $("div.deposito").addClass('active');
                 break;
         }
     });
@@ -156,12 +156,12 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.block.recolhimento").removeClass('active');
+                $("div.recolhimento").removeClass('active');
                 $("div.block.recolhimento .selectpicker").val("").trigger('change');
                 $("div.block.recolhimento input[name=value_recolhimento]").val("");
                 break;
             case "1":
-                $("div.block.recolhimento").addClass('active');
+                $("div.recolhimento").addClass('active');
                 break;
         }
     });
@@ -171,11 +171,11 @@ $(document).ready(function(){
         switch($(this).val())
         {
             case "2":
-                $("div.block.data_audiencia_inaugural").removeClass('active');
+                $("div.data_audiencia_inaugural").removeClass('active');
                 $("div.block.data_audiencia_inaugural input").val("");
                 break;
             case "1":
-                $("div.block.data_audiencia_inaugural").addClass('active');
+                $("div.data_audiencia_inaugural").addClass('active');
                 break;
         }
     });

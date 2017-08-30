@@ -84,11 +84,6 @@
                     </a>
                 </div>
             @endforeach
-            <div class="child">
-            <input name="adv_participante_id[]" type="hidden" value="2">
-            <div class="values"><span>Charity Emmerich</span></div>
-            <a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>
-            </div>
         </div>
 
         <div class="block">
@@ -307,16 +302,23 @@
             {{ Form::label('', 'Recolhimento') }}
 
             <div class="recolhimentos">
-                {{ Form::radio('recolhimentos', 1, false,['id'=> 'true3']) }}
-                {{ Form::label('true3', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('recolhimentos', 2,['checked' => 'checked'],['id'=> 'false3']) }}
-                {{ Form::label('false3', 'Não',['class'=> 'radio s0']) }}
+                @if($hasRecolhimento)
+                    {{ Form::radio('recolhimentos', 1, ['checked' => 'checked'],['id'=> 'true3']) }}
+                    {{ Form::label('true3', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('recolhimentos', 2, false,['id'=> 'false3']) }}
+                    {{ Form::label('false3', 'Não',['class'=> 'radio s0']) }}
+                @else
+                    {{ Form::radio('recolhimentos', 1, false,['id'=> 'true3']) }}
+                    {{ Form::label('true3', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('recolhimentos', 2,['checked' => 'checked'],['id'=> 'false3']) }}
+                    {{ Form::label('false3', 'Não',['class'=> 'radio s0']) }}
+                @endif
             </div>
 
         </div>
 
         <div class="recolhimentos-component">
-            <div class="block recolhimento">
+            <div class="block recolhimento @if($hasRecolhimento) active @endif">
                 {{ Form::label('recolhimento', 'Motivo do Recolhimento') }}
                 <a class="create-new" data-toggle="modal" data-target="#modal_recolhimento">Criar novo</a>
                 <select class="selectpicker" data-live-search=true title=" " name="recolhimento" id="recolhimento">
@@ -326,14 +328,31 @@
                 </select>
             </div>
 
-            <div class="block recolhimento">
+            <div class="block recolhimento @if($hasRecolhimento) active @endif">
                 {{ Form::label('value_recolhimento', 'Valor do Recolhimento') }}
                 {{ Form::text('value_recolhimento', '',["class" => "form-control"]) }}
             </div>
 
-            <div class="recolhimento">
+            <div class="recolhimento @if($hasRecolhimento) active @endif">
                 <a class="add-new" onclick="processo.add('recolhimento');"><i class="fa fa-plus"></i></a>
             </div>
+
+
+            @foreach($recolhimentos_selected as $data)
+
+                <div class="child">
+                    <input name="recolhimento_motivo[]" type="hidden" value="{{$data['recolhimento_processo']['recolhimento_id']}}">
+                    <input name="recolhimento_valor[]" class="pedido_valor" type="hidden" value="{{$data['recolhimento_processo']['recolhimento_valor']}}">
+                    <div class="values">
+                        <span>{{$data['type']}}</span>
+                        <span>R$ {{number_format($data['recolhimento_processo']['recolhimento_valor'],2,',','.')}}</span>
+                    </div>
+                    <a onclick="processo.remove(this)">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+
+            @endforeach
         </div>
 
 
@@ -343,16 +362,23 @@
             {{ Form::label('', 'Depósito Judicial') }}
 
             <div class="depositos_judiciais">
-                {{ Form::radio('depositos_judiciais', 1, false,['id'=> 'true4']) }}
-                {{ Form::label('true4', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('depositos_judiciais', 2,['checked' => 'checked'],['id'=> 'false4']) }}
-                {{ Form::label('false4', 'Não',['class'=> 'radio s0']) }}
+                @if($hasDepositoJudicial)
+                    {{ Form::radio('depositos_judiciais', 1, ['checked' => 'checked'],['id'=> 'true4']) }}
+                    {{ Form::label('true4', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('depositos_judiciais', 2, false,['id'=> 'false4']) }}
+                    {{ Form::label('false4', 'Não',['class'=> 'radio s0']) }}
+                @else
+                    {{ Form::radio('depositos_judiciais', 1, false,['id'=> 'true4']) }}
+                    {{ Form::label('true4', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('depositos_judiciais', 2,['checked' => 'checked'],['id'=> 'false4']) }}
+                    {{ Form::label('false4', 'Não',['class'=> 'radio s0']) }}
+                @endif
             </div>
 
         </div>
 
         <div class="deposito_judicial-component">
-            <div class="block deposito_judicial">
+            <div class="block deposito_judicial @if($hasDepositoJudicial) active @endif">
                 {{ Form::label('deposito_judicial', 'Motivo do deposito') }}
                 <a class="create-new" data-toggle="modal" data-target="#modal_deposito_judicial">Criar novo</a>
                 <select class="selectpicker" data-live-search=true title=" " name="deposito_judicial" id="deposito_judicial">
@@ -362,14 +388,30 @@
                 </select>
             </div>
 
-            <div class="block deposito_judicial">
+            <div class="block deposito_judicial @if($hasDepositoJudicial) active @endif">
                 {{ Form::label('value_deposito_judicial', 'Valor do depósito Judicial') }}
                 {{ Form::text('value_deposito_judicial', '',["class" => "form-control"]) }}
             </div>
 
-            <div class="deposito_judicial">
+            <div class="deposito_judicial @if($hasDepositoJudicial) active @endif">
                 <a class="add-new" onclick="processo.add('deposito_judicial');"><i class="fa fa-plus"></i></a>
             </div>
+
+            @foreach($depositos_judiciais_selected as $data)
+
+                <div class="child">
+                    <input name="deposito_judicial_motivo[]" type="hidden" value="{{$data['deposito_judicial_processo']['deposito_judicial_id']}}">
+                    <input name="deposito_judicial_valor[]" class="pedido_valor" type="hidden" value="{{$data['deposito_judicial_processo']['deposito_valor']}}">
+                    <div class="values">
+                        <span>{{$data['type']}}</span>
+                        <span>R$ {{number_format($data['deposito_judicial_processo']['deposito_valor'],2,',','.')}}</span>
+                    </div>
+                    <a onclick="processo.remove(this)">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+
+            @endforeach
         </div>
 
         <div class="block">
@@ -399,10 +441,10 @@
             @foreach($pedidos_selected as $pedido_selected)
 
             <div class="child">
-                <input name="pedido_motivo[]" type="hidden" value="{{$pedido_selected['pedido_processo']['id']}}">
+                <input name="pedido_motivo[]" type="hidden" value="{{$pedido_selected['pedido_processo']['pedido_id']}}">
                 <input name="pedido_valor[]" class="pedido_valor" type="hidden" value="{{$pedido_selected['pedido_processo']['pedido_valor']}}">
                 <div class="values">
-                    <span>quo</span>
+                    <span>{{$pedido_selected['type']}}</span>
                     <span>R$ {{number_format($pedido_selected['pedido_processo']['pedido_valor'],2,',','.')}}</span>
                     <select class="" data-live-search="true" title=" " name="pedido_risco[]" id="pedido_risco">
                         @if($pedido_selected['pedido_processo']['risco'] == "possivel")
@@ -412,7 +454,7 @@
                         @endif
                         @if($pedido_selected['pedido_processo']['risco'] == "provavel")
                         <option title="provavel" value="3" selected>Provável</option>
-                        @else
+                        @elsex
                         <option title="provavel" value="3">Provável</option>
                         @endif
                         @if($pedido_selected['pedido_processo']['risco'] == "remoto")

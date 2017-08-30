@@ -368,6 +368,36 @@ class ProcessController extends Controller
                     );
             }
 
+            $pivot                      = RecolhimentoProcesso::where('processo_id', $id)->get();
+
+            $recolhimentos_selected  = [];
+            $hasRecolhimento        = false;
+
+            foreach($pivot as $p)
+            {
+                $hasRecolhimento = true;
+                $recolhimentos_selected[]     =
+                    array(
+                        'recolhimento_processo' => $p->toArray(),
+                        'type' => $p->recolhimento()->get()[0]->toArray()['type']
+                    );
+            }
+
+            $pivot                      = DepositoJudicialProcesso::where('processo_id', $id)->get();
+
+            $depositos_judiciais_selected   = [];
+            $hasDepositoJudicial            = false;
+
+            foreach($pivot as $p)
+            {
+                $hasDepositoJudicial = true;
+                $depositos_judiciais_selected[]     =
+                    array(
+                        'deposito_judicial_processo' => $p->toArray(),
+                        'type' => $p->deposito_judicial()->get()[0]->toArray()['type']
+                    );
+            }
+
             $polo_passivo_selected      = false;
             $polo_ativo_selected        = false;
             switch($process->polo){
@@ -459,7 +489,13 @@ class ProcessController extends Controller
                 'value_selected'            =>$value_selected             ,
                 'date_ajuizamento_selected' =>$date_ajuizamento_selected  ,
 
-                'ocorrencia_selected'       =>$ocorrencia_selected  ,
+                'ocorrencia_selected'       =>$ocorrencia_selected      ,
+
+                'hasRecolhimento'           =>$hasRecolhimento          ,
+                'recolhimentos_selected'    =>$recolhimentos_selected   ,
+
+                'hasDepositoJudicial'           =>$hasDepositoJudicial          ,
+                'depositos_judiciais_selected'  =>$depositos_judiciais_selected   ,
 
 
                 "clientes"                  => $clientes ,

@@ -373,6 +373,37 @@
             <div class="pedido">
                 <a class="add-new" onclick="processo.add('pedido');"><i class="fa fa-plus"></i></a>
             </div>
+            @foreach($pedidos_selected as $pedido_selected)
+
+            <div class="child">
+                <input name="pedido_motivo[]" type="hidden" value="{{$pedido_selected['pedido_processo']['id']}}">
+                <input name="pedido_valor[]" class="pedido_valor" type="hidden" value="{{$pedido_selected['pedido_processo']['pedido_valor']}}">
+                <div class="values">
+                    <span>quo</span>
+                    <span>R$ {{number_format($pedido_selected['pedido_processo']['pedido_valor'],2,',','.')}}</span>
+                    <select class="" data-live-search="true" title=" " name="pedido_risco[]" id="pedido_risco">
+                        @if($pedido_selected['pedido_processo']['risco'] == "possivel")
+                        <option title="possível" value="2" selected>Possível</option>
+                        @else
+                        <option title="possível" value="2">Possível</option>
+                        @endif
+                        @if($pedido_selected['pedido_processo']['risco'] == "provavel")
+                        <option title="provavel" value="3" selected>Provável</option>
+                        @else
+                        <option title="provavel" value="3">Provável</option>
+                        @endif
+                        @if($pedido_selected['pedido_processo']['risco'] == "remoto")
+                        <option title="remoto" value="4" selected>Remoto</option>
+                        @else
+                        <option title="remoto" value="4">Remoto</option>
+                        @endif
+                    </select>
+                </div>
+                <a onclick="processo.remove(this)">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </div>
+            @endforeach
         </div>
 
         {{ Form::submit('Enviar') }}

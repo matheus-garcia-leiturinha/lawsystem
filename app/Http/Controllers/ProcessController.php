@@ -288,22 +288,13 @@ class ProcessController extends Controller
             $pedidos_selected = [];
             foreach($pivot as $p)
             {
-                $pedidos_selected[]     = $p->pedido()->get()[0]->toArray();
+                $pedidos_selected[]     =
+                    array(
+                        'pedido_processo' => $p->toArray(),
+                        'type' => $p->pedido()->get()[0]->toArray()['type']
+                    );
             }
 
-
-            $polo_passivo_selected      = false;
-            $polo_ativo_selected        = false;
-            switch($process->polo){
-
-                case "ativo":
-                    $polo_ativo_selected = [ 'checked' => 'checked' ];
-                    break;
-                case "passivo":
-                    $polo_passivo_selected = [ 'checked' => 'checked' ];
-                    break;
-
-            }
             $polo_passivo_selected      = false;
             $polo_ativo_selected        = false;
             switch($process->polo){
@@ -373,6 +364,7 @@ class ProcessController extends Controller
                 "parts"                     => $parts ,
                 "advs_part_selected"        => $advs_part_selected ,
                 "conts_selected"            => $conts_selected ,
+                "pedidos_selected"          => $pedidos_selected ,
 
 
                 "polo_ativo_selected"       => $polo_ativo_selected ,

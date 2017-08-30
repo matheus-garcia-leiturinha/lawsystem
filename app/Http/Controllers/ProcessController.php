@@ -138,7 +138,6 @@ class ProcessController extends Controller
 
 
         if( isset( $processo_id  )){
-            echo "estou editando";
 
             $processo = Processos::find($processo_id);
 
@@ -166,8 +165,6 @@ class ProcessController extends Controller
             $processo->data_audiencia_inaugural = $data_audiencia_inaugural;
 
         if( isset( $processo_id  )) {
-
-            echo "dei update";
             $processo->update();
         }else
         {

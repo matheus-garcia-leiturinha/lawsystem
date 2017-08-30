@@ -8,6 +8,8 @@ use App\ClienteProcesso;
 use App\Clientes;
 use App\ContrarioProcesso;
 use App\Deposito;
+use App\DepositoJudicial;
+use App\DepositoJudicialProcesso;
 use App\DepositoProcesso;
 use App\ParticipanteProcesso;
 use App\Pericia;
@@ -49,6 +51,7 @@ class ProcessController extends Controller
         $contrarios                 = Contrario::all()->toArray();
         $pericias                   = Pericia::all()->toArray();
         $depositos                  = Deposito::all()->toArray();
+        $depositos_judiciais        = DepositoJudicial::all()->toArray();
         $recolhimentos              = Recolhimento::all()->toArray();
 
         $pedidos                    = Pedidos::all()->toArray();
@@ -64,6 +67,7 @@ class ProcessController extends Controller
             "contrarios"                => $contrarios,
             "pericias"                  => $pericias,
             "depositos"                 => $depositos,
+            "depositos_judiciais"       => $depositos_judiciais,
             "recolhimentos"             => $recolhimentos,
             "pedidos"                   => $pedidos,
         ]);
@@ -109,6 +113,10 @@ class ProcessController extends Controller
         $depositos          = $request->input('depositos');            // Se teve deposito
         $deposito           = $request->input('deposito_motivo');      // Motivo da deposito
         $value_deposito     = $request->input('deposito_valor');       // Valor da deposito
+
+        $depositos_judiciais    = $request->input('depositos_judiciais');            // Se teve deposito
+        $deposito_jud_mot       = $request->input('deposito_judicial_motivo');      // Motivo da deposito
+        $deposito_jud_val       = $request->input('deposito_judicial_valor');       // Valor da deposito
 
         $recolhimentos      = $request->input('recolhimentos');        // Se teve recolhimento
         $recolhimento       = $request->input('recolhimento_motivo');  // Motivo da recolhimento
@@ -205,6 +213,19 @@ class ProcessController extends Controller
                 $pedido_processo->deposito_id       = $type_deposito;
                 $pedido_processo->deposito_valor    = $value_deposito[$key];
                 $pedido_processo->save();
+            }
+        }
+
+        // Criação dos Deposito Judicial do Processo
+        if($depositos_judiciais == 1 && isset($deposito_jud_mot))
+        {
+            foreach($deposito_jud_mot as $key=>$type_deposito)
+            {
+                $dep_jud_proc                           = new DepositoJudicialProcesso();
+                $dep_jud_proc->processo_id              = $processo->id;
+                $dep_jud_proc->deposito_judicial_id     = $type_deposito;
+                $dep_jud_proc->deposito_valor           = $deposito_jud_val[$key];
+                $dep_jud_proc->save();
             }
         }
 
@@ -354,6 +375,7 @@ class ProcessController extends Controller
             $contrarios                 = Contrario::all()->toArray();
             $pericias                   = Pericia::all()->toArray();
             $depositos                  = Deposito::all()->toArray();
+            $depositos_judiciais        = DepositoJudicial::all()->toArray();
             $recolhimentos              = Recolhimento::all()->toArray();
 
             $pedidos                    = Pedidos::all()->toArray();
@@ -395,6 +417,7 @@ class ProcessController extends Controller
                 "contrarios"                => $contrarios,
                 "pericias"                  => $pericias,
                 "depositos"                 => $depositos,
+                "depositos_judiciais"       => $depositos_judiciais,
                 "recolhimentos"             => $recolhimentos,
                 "pedidos"                   => $pedidos,
             ]);

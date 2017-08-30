@@ -11,10 +11,10 @@ class DepositoProcesso extends Model
     protected $table = 'deposito_processo';
 
 
-    public function processos() {
-        return $this->BelongsTo('App\Processos','processo_id','id');
+    public function processo() {
+        return $this->hasOne('App\Processos','id','processo_id');
     }
-    public function depositos() {
-        return $this->BelongsTo('App\Deposito','deposito_id','id');
+    public function deposito() {
+        return $this->hasOne('App\Deposito','id','deposito_id');
     }
 }

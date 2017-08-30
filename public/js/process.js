@@ -114,6 +114,26 @@ var processo =
                     $("div.block.deposito input[name=value_deposito]").val("");
                 }
                 break;
+            case 'deposito_judicial':
+
+
+                if($("select[name=deposito_judicial] option:selected")[0].value != "") {
+                    $(".deposito_judicial-component").append(
+                        '<div class="child">'
+                        + '<input name="deposito_judicial_motivo[]" type="hidden" value="' + $("select[name=deposito_judicial] option:selected")[0].value + '"/>'
+                        + '<input name="deposito_judicial_valor[]"  type="hidden" value="' + $("div.block.deposito_judicial input[name=value_deposito_judicial]").maskMoney('unmasked')[0] + '"/>'
+                        + '<div class="values">'
+                        + '<span>' + $(".bootstrap-select button[data-id=deposito_judicial] .filter-option")[0].innerText + '</span>'
+                        + '<span>' + $("div.block.deposito_judicial input[name=value_deposito_judicial]").val() + '</span>'
+                        + '</div>'
+                        + '<a onclick="processo.remove(this)"><i class="fa fa-trash"></i></a>'
+                        + '</div>'
+                    );
+
+                    $("div.block.deposito_judicial .selectpicker").val("").trigger('change');
+                    $("div.block.deposito_judicial input[name=value_deposito_judicial]").val("");
+                }
+                break;
             case 'recolhimento':
 
 
@@ -330,6 +350,20 @@ $(document).ready(function(){
                 break;
             case "1":
                 $("div.deposito").addClass('active');
+                break;
+        }
+    });
+    $( "form.processos input[name='depositos_judiciais']" ).on("change",function() {
+
+        switch($(this).val())
+        {
+            case "2":
+                $("div.deposito_judicial").removeClass('active');
+                $("div.block.deposito_judicial .selectpicker").val("").trigger('change');
+                $("div.block.deposito_judicial input[name=value_deposito_judicial]").val("");
+                break;
+            case "1":
+                $("div.deposito_judicial").addClass('active');
                 break;
         }
     });

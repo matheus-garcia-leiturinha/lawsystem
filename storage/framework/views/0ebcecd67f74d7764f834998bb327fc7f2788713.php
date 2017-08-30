@@ -350,17 +350,41 @@
             <?php echo e(Form::label('', 'Depósito Judicial')); ?>
 
 
-            <div class="deposito_judicial">
-                <?php echo e(Form::radio('deposito_judicial', 1, false,['id'=> 'true4'])); ?>
+            <div class="depositos_judiciais">
+                <?php echo e(Form::radio('depositos_judiciais', 1, false,['id'=> 'true4'])); ?>
 
                 <?php echo e(Form::label('true4', 'Sim',['class'=> 'radio first s0','checked' => 'checked'])); ?>
 
-                <?php echo e(Form::radio('deposito_judicial', 2,['checked' => 'checked'],['id'=> 'false4'])); ?>
+                <?php echo e(Form::radio('depositos_judiciais', 2,['checked' => 'checked'],['id'=> 'false4'])); ?>
 
                 <?php echo e(Form::label('false4', 'Não',['class'=> 'radio s0'])); ?>
 
             </div>
 
+        </div>
+
+        <div class="deposito_judicial-component">
+            <div class="block deposito_judicial">
+                <?php echo e(Form::label('deposito_judicial', 'Motivo do deposito')); ?>
+
+                <a class="create-new" data-toggle="modal" data-target="#modal_deposito_judicial">Criar novo</a>
+                <select class="selectpicker" data-live-search=true title=" " name="deposito_judicial" id="deposito_judicial">
+                    <?php $__currentLoopData = $depositos_judiciais; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $deposito_judicial): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option title="<?php echo e($deposito_judicial['type']); ?>" value="<?php echo e($deposito_judicial['id']); ?>"><?php echo e($deposito_judicial['type']); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                </select>
+            </div>
+
+            <div class="block deposito_judicial">
+                <?php echo e(Form::label('value_deposito_judicial', 'Valor do depósito Judicial')); ?>
+
+                <?php echo e(Form::text('value_deposito_judicial', '',["class" => "form-control"])); ?>
+
+            </div>
+
+            <div class="deposito_judicial">
+                <a class="add-new" onclick="processo.add('deposito_judicial');"><i class="fa fa-plus"></i></a>
+            </div>
         </div>
 
         <div class="block">
@@ -488,6 +512,26 @@
         <?php echo $__env->make('depositos.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 	    <script src="<?php echo e(asset('/js/depositos.js')); ?>"></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_deposito_judicial" tabindex="-1" role="dialog" aria-labelledby="modal_deposito_judicialModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_deposito_judicialModalLabel">Cadastrar Motivo do Depósito</h4>
+      </div>
+      <div class="modal-body">
+        <?php echo $__env->make('deposito_judicial.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	    <script src="<?php echo e(asset('/js/deposito_judicial.js')); ?>"></script>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

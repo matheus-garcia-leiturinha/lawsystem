@@ -96,6 +96,16 @@ Route::group(['middleware' => 'auth','prefix' => 'depositos'], function () {
 
 });
 
+Route::group(['middleware' => 'auth','prefix' => 'deposito_judicial'], function () {
+
+    Route::get('/', 'DepositoJudicialController@listar')->name('deposito_judicial.listar');
+    Route::get('/criar', 'DepositoJudicialController@criar')->name('deposito_judicial.criar');
+    Route::get('/editar/{id}', 'DepositoJudicialController@editar')->name('deposito_judicial.editar');
+    Route::get('/deletar/{id}', 'DepositoJudicialController@deletar')->name('deposito_judicial.deletar');
+    Route::post('/save', 'DepositoJudicialController@save')->name('deposito_judicial.salvar');
+
+});
+
 Route::group(['middleware' => 'auth','prefix' => 'recolhimentos'], function () {
 
     Route::get('/', 'RecolhimentoController@listar')->name('recolhimentos.listar');

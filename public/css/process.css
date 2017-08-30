@@ -17,13 +17,15 @@
 .content .pericia,
 .content .deposito,
 .content .custo,
-.content .recolhimento {
+.content .recolhimento,
+.content .deposito_judicial {
   display: none;
 }
 .content .pericia.active,
 .content .deposito.active,
 .content .custo.active,
-.content .recolhimento.active {
+.content .recolhimento.active,
+.content .deposito_judicial.active {
   display: block;
 }
 .content .data_audiencia_inaugural {
@@ -34,6 +36,7 @@
 }
 .content .pericias-component,
 .content .depositos-component,
+.content .deposito_judicial-component,
 .content .recolhimentos-component,
 .content .pedidos-component,
 .content .clientes-component,
@@ -44,6 +47,7 @@
 }
 .content .pericias-component .block .hide,
 .content .depositos-component .block .hide,
+.content .deposito_judicial-component .block .hide,
 .content .recolhimentos-component .block .hide,
 .content .pedidos-component .block .hide,
 .content .clientes-component .block .hide,
@@ -54,6 +58,7 @@
 }
 .content .pericias-component .child,
 .content .depositos-component .child,
+.content .deposito_judicial-component .child,
 .content .recolhimentos-component .child,
 .content .pedidos-component .child,
 .content .clientes-component .child,
@@ -65,6 +70,7 @@
 }
 .content .pericias-component .child .values,
 .content .depositos-component .child .values,
+.content .deposito_judicial-component .child .values,
 .content .recolhimentos-component .child .values,
 .content .pedidos-component .child .values,
 .content .clientes-component .child .values,
@@ -76,6 +82,7 @@
 }
 .content .pericias-component .child .values span,
 .content .depositos-component .child .values span,
+.content .deposito_judicial-component .child .values span,
 .content .recolhimentos-component .child .values span,
 .content .pedidos-component .child .values span,
 .content .clientes-component .child .values span,
@@ -84,6 +91,7 @@
 .content .contrarios-component .child .values span,
 .content .pericias-component .child .values input,
 .content .depositos-component .child .values input,
+.content .deposito_judicial-component .child .values input,
 .content .recolhimentos-component .child .values input,
 .content .pedidos-component .child .values input,
 .content .clientes-component .child .values input,
@@ -92,6 +100,7 @@
 .content .contrarios-component .child .values input,
 .content .pericias-component .child .values select,
 .content .depositos-component .child .values select,
+.content .deposito_judicial-component .child .values select,
 .content .recolhimentos-component .child .values select,
 .content .pedidos-component .child .values select,
 .content .clientes-component .child .values select,
@@ -103,6 +112,7 @@
 }
 .content .pericias-component .child a,
 .content .depositos-component .child a,
+.content .deposito_judicial-component .child a,
 .content .recolhimentos-component .child a,
 .content .pedidos-component .child a,
 .content .clientes-component .child a,
@@ -117,6 +127,7 @@
 }
 .content .pericias-component .add-new,
 .content .depositos-component .add-new,
+.content .deposito_judicial-component .add-new,
 .content .recolhimentos-component .add-new,
 .content .pedidos-component .add-new,
 .content .clientes-component .add-new,

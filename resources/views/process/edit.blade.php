@@ -340,13 +340,34 @@
 
             {{ Form::label('', 'Depósito Judicial') }}
 
-            <div class="deposito_judicial">
-                {{ Form::radio('deposito_judicial', 1, false,['id'=> 'true4']) }}
+            <div class="depositos_judiciais">
+                {{ Form::radio('depositos_judiciais', 1, false,['id'=> 'true4']) }}
                 {{ Form::label('true4', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('deposito_judicial', 2,['checked' => 'checked'],['id'=> 'false4']) }}
+                {{ Form::radio('depositos_judiciais', 2,['checked' => 'checked'],['id'=> 'false4']) }}
                 {{ Form::label('false4', 'Não',['class'=> 'radio s0']) }}
             </div>
 
+        </div>
+
+        <div class="deposito_judicial-component">
+            <div class="block deposito_judicial">
+                {{ Form::label('deposito_judicial', 'Motivo do deposito') }}
+                <a class="create-new" data-toggle="modal" data-target="#modal_deposito_judicial">Criar novo</a>
+                <select class="selectpicker" data-live-search=true title=" " name="deposito_judicial" id="deposito_judicial">
+                    @foreach($depositos_judiciais as $deposito_judicial)
+                        <option title="{{$deposito_judicial['type']}}" value="{{$deposito_judicial['id']}}">{{$deposito_judicial['type']}}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="block deposito_judicial">
+                {{ Form::label('value_deposito_judicial', 'Valor do depósito Judicial') }}
+                {{ Form::text('value_deposito_judicial', '',["class" => "form-control"]) }}
+            </div>
+
+            <div class="deposito_judicial">
+                <a class="add-new" onclick="processo.add('deposito_judicial');"><i class="fa fa-plus"></i></a>
+            </div>
         </div>
 
         <div class="block">
@@ -498,6 +519,26 @@
         @include('depositos.modal')
 
 	    <script src="{{ asset('/js/depositos.js') }}"></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modal_deposito_judicial" tabindex="-1" role="dialog" aria-labelledby="modal_deposito_judicialModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modal_deposito_judicialModalLabel">Cadastrar Motivo do Depósito</h4>
+      </div>
+      <div class="modal-body">
+        @include('deposito_judicial.modal')
+
+	    <script src="{{ asset('/js/deposito_judicial.js') }}"></script>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

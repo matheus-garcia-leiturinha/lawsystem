@@ -280,12 +280,10 @@ $(document).ready(function(){
         if($( ".clientes-component .child input" ).length < 1  ||
             Form.isEmpty($( "form.processos select[name=adv_responsavel]" )) ||
             Form.isEmpty($( "form.processos input[name='number']" )) ||
-            Form.isEmpty($( "form.processos select[name=adv_terceiro]" )) ||
-            Form.isEmpty($( "form.processos select[name=contrario]" )) ||
             Form.isEmpty($( "form.processos input[name='data_ajuizamento']" ))
         )
         {
-            alert("Prencha os dados corretamente");
+            alert("Processo - Prencha os dados corretamente");
             return false;
         }
         //    if($( "form.processos input[name='number']").length != 25){

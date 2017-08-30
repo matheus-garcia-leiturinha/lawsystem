@@ -5,6 +5,8 @@
 @section('content')
 
     {{ Form::open(array('url' => 'processos/save',"class" => "processos")) }}
+
+        <input type="hidden" name="processo_id" value="{{$process->id}}"/>
         <div class="clientes-component">
             <div class="block cliente">
                 {{ Form::label('cliente', 'Cliente') }}

@@ -23,6 +23,7 @@ use App\Vara;
 use App\Pedidos;
 use App\PedidoProcesso;
 use Illuminate\Http\Request;
+use Mockery\CountValidator\Exception;
 
 class ProcessController extends Controller
 {
@@ -86,8 +87,14 @@ class ProcessController extends Controller
         $adv_terceiro           = $request->input('adv_terceiro');
         $ocorrencia_inaugural   = $request->input('ocorrencia_inaugural');
 
+        $processo_id = $request->input('processo_id');
+
+
+
         if ($request->input('data_ajuizamento')) {
-            $d_ajuizamento = \DateTime::createFromFormat("d/m/Y", $request->input('data_ajuizamento'))->format("m/d/Y");
+
+            $d_ajuizamento = \DateTime::createFromFormat("d/m/Y", date('d/m/Y',strtotime($request->input('data_ajuizamento'))))->format("m/d/Y");
+
             $data_ajuizamento = date("Y-m-d", strtotime($d_ajuizamento));
         } else {
             echo 'error';
@@ -128,9 +135,20 @@ class ProcessController extends Controller
         $adv_participantes  = $request->input('adv_participante_id');
         $contrarios         = $request->input('contrario_id');
 
-        // Criação do Processo
-        $processo = new Processos();
 
+
+        if( isset( $processo_id  )){
+            echo "estou editando";
+
+            $processo = Processos::find($processo_id);
+
+        }else
+        {
+            // Criação do Processo
+            $processo = new Processos();
+
+
+        }
         $processo->numero_processual    = $number;
         $processo->polo                 = $polo;
         $processo->type                 = $tipo_processo;
@@ -147,15 +165,33 @@ class ProcessController extends Controller
         if (isset($data_audiencia_inaugural))
             $processo->data_audiencia_inaugural = $data_audiencia_inaugural;
 
-        $processo->save();
+        if( isset( $processo_id  )) {
+
+            echo "dei update";
+            $processo->update();
+        }else
+        {
+
+            $processo->save();
+        }
 
 
+        ClienteProcesso::where('processo_id',$processo_id);
         foreach ($clientes as $key => $client) {
             $clienteProcesso                = new ClienteProcesso();
             $clienteProcesso->cliente_id    = $client;
             $clienteProcesso->processo_id   = $processo->id;
             $clienteProcesso->save();
+
+            foreach()
+            $id_clientes =
+            $select = "DELETE * FROM cliente_processo where cliente_id NOT IN ( $id_clientes )";
+
+
         }
+
+
+        die();
 
         if (isset($participantes))
         {
@@ -382,6 +418,8 @@ class ProcessController extends Controller
 
 
             return view('process.edit',[
+
+                "process"                   => $process,
                 "clientes_selected"         => $clientes_selected ,
                 "parts"                     => $parts ,
                 "advs_part_selected"        => $advs_part_selected ,

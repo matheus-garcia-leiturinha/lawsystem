@@ -9,10 +9,10 @@ class ContrarioProcesso extends Model
     //
     protected $table = 'contrario_processo';
 
-    public function processos() {
-        return $this->BelongsTo('App\Processos','processo_id','id');
+    public function processo() {
+        return $this->hasOne('App\Processos','id','processo_id');
     }
-    public function clientes() {
-        return $this->BelongsTo('App\Clientes','contrario_id','id');
+    public function contrario() {
+        return $this->hasOne('App\Contrario','id','contrario_id');
     }
 }

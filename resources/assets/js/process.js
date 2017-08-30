@@ -1,198 +1,3 @@
-/**
- * Created by matheus garcia on 24/94/2917.
- */
-
-$(document).ready(function(){
-
-    createMask();
-
-    var adv_responsavel = $(".bootstrap-select button[data-id=adv_responsavel] .filter-option")[0].innerText;
-    var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
-    var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
-
-
-    $(".modal").on("hidden.bs.modal", function(){
-        $("#modal_adv input").removeAttr("checked");
-        $(".modal input[type=text], .modal input[type=number] ").val("");
-    });
-
-    $(document).on("click", ".openADV", function () {
-        var advType = $(this).data('id');
-
-        console.log(advType);
-
-        switch(advType)
-        {
-            case "interno":
-
-                $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
-                break;
-            case "contrario":
-                $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
-                break;
-            case "participante":
-                $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
-                break;
-        }
-    });
-
-    $('.selectpicker').on('change', function(){
-
-        var selected = $(this).find("option:selected").html();
-
-        switch($(this).attr('name'))
-        {
-            case "tribunal":
-                tribunal = selected;
-                break;
-            case "vara":
-                vara = selected;
-                break;
-            case "adv_responsavel":
-                adv_responsavel = selected;
-                break;
-            case "adv_terceiro":
-                adv_terceiro = selected;
-                break;
-            case "pedido":
-                $("div.block.pedido input[name=value_pedido]").parent().removeClass("hide");
-
-                break;
-        }
-
-    });
-
-    $("form.processos input[type=submit]").on("click", function(event){
-
-        event.preventDefault();
-
-
-        var cliente = $("select[name=cliente] option:selected")[0].value;
-        var adv_responsavel = $("select[name=adv_responsavel] option:selected")[0].value;
-        var adv_terceiro = $("select[name=adv_terceiro] option:selected")[0].value;
-        var contrario = $("select[name=contrario] option:selected")[0].value;
-        // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
-        var pericia = $("select[name=pericia] option:selected")[0].value;
-
-
-        if($( ".clientes-component .child input" ).length < 1  ||
-            Form.isEmpty($( "form.processos select[name=adv_responsavel]" )) ||
-            Form.isEmpty($( "form.processos input[name='number']" )) ||
-            Form.isEmpty($( "form.processos select[name=adv_terceiro]" )) ||
-            Form.isEmpty($( "form.processos select[name=contrario]" )) ||
-            Form.isEmpty($( "form.processos input[name='data_ajuizamento']" ))
-        )
-        {
-            alert("Prencha os dados corretamente");
-            return false;
-        }
-    //    if($( "form.processos input[name='number']").length != 25){
-
-      //      alert("Número do processo não ta certo");
-    //        return false;
-    //    }
-
-        if($( "form.processos input[name='valor']" ).maskMoney('unmasked')[0] < 0){
-            alert("Preencha o valor da causa");
-            return false;
-        }
-
-        //console.log(cliente);
-        //console.log($( "input[name='polo']:checked" )[9].value);
-        //console.log(adv_responsavel);
-        //console.log($( "input[name='number']" )[9].value);
-        //console.log(adv_terceiro);
-        //console.log(contrario);
-        //console.log($( "input[name='valor']" )[9].value);
-        //console.log($( "input[name='data_ajuizamento']" )[9].value);
-        //console.log($( "input[name='audiencia']:checked" )[9].value);
-        //console.log($( "input[name='data_audiencia_inaugural']" )[9].value);
-        //console.log($( "input[name='pericias']:checked" )[9].value);
-        //console.log(pericia);
-        //console.log($( "input[name='valor_pericia']" )[9].value);
-        //console.log($( "textarea[name='ocorrencia_inaugural']").value);
-
-        //return false;
-
-        $( "form.processos input[name='valor']" ).val($( "form.processos input[name='valor']" ).maskMoney('unmasked')[0])
-
-        $("form.processos").submit();
-
-        return false;
-
-    });
-
-    $( "form.processos input[name='pericias']" ).on("change",function() {
-
-        switch($(this).val())
-        {
-            case "2":
-                $("div.pericia").removeClass('active');
-                $("div.block.pericia .selectpicker").val("").trigger('change');
-                $("div.block.pericia input[name=value_pericia]").val("");
-                break;
-            case "1":
-                $("div.pericia").addClass('active');
-                break;
-        }
-    });
-
-    $( "form.processos input[name='depositos']" ).on("change",function() {
-
-        switch($(this).val())
-        {
-            case "2":
-                $("div.deposito").removeClass('active');
-                $("div.block.deposito .selectpicker").val("").trigger('change');
-                $("div.block.deposito input[name=value_deposito]").val("");
-                break;
-            case "1":
-                $("div.deposito").addClass('active');
-                break;
-        }
-    });
-    $( "form.processos input[name='recolhimentos']" ).on("change",function() {
-
-        switch($(this).val())
-        {
-            case "2":
-                $("div.recolhimento").removeClass('active');
-                $("div.block.recolhimento .selectpicker").val("").trigger('change');
-                $("div.block.recolhimento input[name=value_recolhimento]").val("");
-                break;
-            case "1":
-                $("div.recolhimento").addClass('active');
-                break;
-        }
-    });
-
-    $( "form.processos input[name='audiencia']" ).on("change",function() {
-
-        switch($(this).val())
-        {
-            case "2":
-                $("div.data_audiencia_inaugural").removeClass('active');
-                $("div.block.data_audiencia_inaugural input").val("");
-                break;
-            case "1":
-                $("div.data_audiencia_inaugural").addClass('active');
-                break;
-        }
-    });
-
-    window.setTimeout("$('#datetimepicker').datetimepicker({ format: 'DD/MM/YYYY' })", 700);
-    window.setTimeout("$('#datetimepicker2').datetimepicker({ format: 'DD/MM/YYYY HH:mm' })", 700);
-
-
-    $('.selectpicker[name=adv_responsavel]').selectpicker('refresh');
-    $('.selectpicker[name=adv_terceiro]').selectpicker('refresh');
-
-
-
-});
-
-
-
 var processo =
 {
 
@@ -366,6 +171,214 @@ var processo =
     }
 
 }
+
+
+
+/**
+ * Created by matheus garcia on 24/94/2917.
+ */
+
+$(document).ready(function(){
+
+    if($('input[name=adv_owner_selected').val() != '')
+        $("div.block #adv_responsavel.selectpicker").val($('input[name=adv_owner_selected').val()).trigger('change');
+
+    if($('input[name=adv_contr_selected').val() != '')
+        $("div.block #adv_terceiro.selectpicker").val($('input[name=adv_contr_selected').val()).trigger('change');
+
+    createMask();
+
+    var adv_responsavel = $(".bootstrap-select button[data-id=adv_responsavel] .filter-option")[0].innerText;
+    var adv_terceiro = $(".bootstrap-select button[data-id=adv_terceiro] .filter-option")[0].innerText;
+    var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
+
+
+    $(".modal").on("hidden.bs.modal", function(){
+        $("#modal_adv input").removeAttr("checked");
+        $(".modal input[type=text], .modal input[type=number] ").val("");
+    });
+
+    $(document).on("click", ".openADV", function () {
+        var advType = $(this).data('id');
+
+        console.log(advType);
+
+        switch(advType)
+        {
+            case "interno":
+
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[0]).attr('checked', 'checked');
+                break;
+            case "contrario":
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[1]).attr('checked', 'checked');
+                break;
+            case "participante":
+                $($(".modal-body form.advocates .tipos input[name=tipo]")[2]).attr('checked', 'checked');
+                break;
+        }
+    });
+
+    $('.selectpicker').on('change', function(){
+
+        var selected = $(this).find("option:selected").html();
+
+        switch($(this).attr('name'))
+        {
+            case "tribunal":
+                tribunal = selected;
+                break;
+            case "vara":
+                vara = selected;
+                break;
+            case "adv_responsavel":
+                adv_responsavel = selected;
+                break;
+            case "adv_terceiro":
+                adv_terceiro = selected;
+                break;
+            case "pedido":
+                $("div.block.pedido input[name=value_pedido]").parent().removeClass("hide");
+
+                break;
+        }
+
+    });
+
+    $("form.processos input[type=submit]").on("click", function(event){
+
+        event.preventDefault();
+
+
+        var cliente = $("select[name=cliente] option:selected")[0].value;
+        var adv_responsavel = $("select[name=adv_responsavel] option:selected")[0].value;
+        var adv_terceiro = $("select[name=adv_terceiro] option:selected")[0].value;
+        var contrario = $("select[name=contrario] option:selected")[0].value;
+        // var contrario = $(".bootstrap-select button[data-id=contrario] .filter-option")[0].innerText;
+        var pericia = $("select[name=pericia] option:selected")[0].value;
+
+
+        if($( ".clientes-component .child input" ).length < 1  ||
+            Form.isEmpty($( "form.processos select[name=adv_responsavel]" )) ||
+            Form.isEmpty($( "form.processos input[name='number']" )) ||
+            Form.isEmpty($( "form.processos select[name=adv_terceiro]" )) ||
+            Form.isEmpty($( "form.processos select[name=contrario]" )) ||
+            Form.isEmpty($( "form.processos input[name='data_ajuizamento']" ))
+        )
+        {
+            alert("Prencha os dados corretamente");
+            return false;
+        }
+        //    if($( "form.processos input[name='number']").length != 25){
+
+        //      alert("Número do processo não ta certo");
+        //        return false;
+        //    }
+
+        if($( "form.processos input[name='valor']" ).maskMoney('unmasked')[0] < 0){
+            alert("Preencha o valor da causa");
+            return false;
+        }
+
+        //console.log(cliente);
+        //console.log($( "input[name='polo']:checked" )[9].value);
+        //console.log(adv_responsavel);
+        //console.log($( "input[name='number']" )[9].value);
+        //console.log(adv_terceiro);
+        //console.log(contrario);
+        //console.log($( "input[name='valor']" )[9].value);
+        //console.log($( "input[name='data_ajuizamento']" )[9].value);
+        //console.log($( "input[name='audiencia']:checked" )[9].value);
+        //console.log($( "input[name='data_audiencia_inaugural']" )[9].value);
+        //console.log($( "input[name='pericias']:checked" )[9].value);
+        //console.log(pericia);
+        //console.log($( "input[name='valor_pericia']" )[9].value);
+        //console.log($( "textarea[name='ocorrencia_inaugural']").value);
+
+        //return false;
+
+        $( "form.processos input[name='valor']" ).val($( "form.processos input[name='valor']" ).maskMoney('unmasked')[0])
+
+        $("form.processos").submit();
+
+        return false;
+
+    });
+
+    $( "form.processos input[name='pericias']" ).on("change",function() {
+
+        switch($(this).val())
+        {
+            case "2":
+                $("div.pericia").removeClass('active');
+                $("div.block.pericia .selectpicker").val("").trigger('change');
+                $("div.block.pericia input[name=value_pericia]").val("");
+                break;
+            case "1":
+                $("div.pericia").addClass('active');
+                break;
+        }
+    });
+
+    $( "form.processos input[name='depositos']" ).on("change",function() {
+
+        switch($(this).val())
+        {
+            case "2":
+                $("div.deposito").removeClass('active');
+                $("div.block.deposito .selectpicker").val("").trigger('change');
+                $("div.block.deposito input[name=value_deposito]").val("");
+                break;
+            case "1":
+                $("div.deposito").addClass('active');
+                break;
+        }
+    });
+    $( "form.processos input[name='recolhimentos']" ).on("change",function() {
+
+        switch($(this).val())
+        {
+            case "2":
+                $("div.recolhimento").removeClass('active');
+                $("div.block.recolhimento .selectpicker").val("").trigger('change');
+                $("div.block.recolhimento input[name=value_recolhimento]").val("");
+                break;
+            case "1":
+                $("div.recolhimento").addClass('active');
+                break;
+        }
+    });
+
+    $( "form.processos input[name='audiencia']" ).on("change",function() {
+
+        switch($(this).val())
+        {
+            case "2":
+                $("div.data_audiencia_inaugural").removeClass('active');
+                $("div.block.data_audiencia_inaugural input").val("");
+                break;
+            case "1":
+                $("div.data_audiencia_inaugural").addClass('active');
+                break;
+        }
+    });
+
+    if($('#datetimepicker').val() == "")
+        window.setTimeout("$('#datetimepicker').datetimepicker({ format: 'DD/MM/YYYY' })", 700);
+    else
+        window.setTimeout("$('#datetimepicker').datetimepicker({ format: 'YYYY/MM/DD', defaultDate: $('#datetimepicker').val()})", 700);
+
+    if($('#datetimepicker2').val() == "")
+        window.setTimeout("$('#datetimepicker2').datetimepicker({ format: 'DD/MM/YYYY HH:mm' })", 700);
+    else
+        window.setTimeout("$('#datetimepicker2').datetimepicker({ format: 'YYYY/MM/DD HH:mm', defaultDate: $('#datetimepicker2').val()})", 700);
+
+
+    $('.selectpicker[name=adv_responsavel]').selectpicker('refresh');
+    $('.selectpicker[name=adv_terceiro]').selectpicker('refresh');
+
+
+
+});
 
 function createMask()
 {

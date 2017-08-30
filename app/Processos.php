@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Processos extends Model
 {
     //
+    public function pivot() {
 
+        return $this->belongsToMany('App\ClienteProcesso', 'processo_id', 'id');
 
-    public function clients() {
-        return $this->BelongsTo('App\Clientes','client_id','id');
     }
 }

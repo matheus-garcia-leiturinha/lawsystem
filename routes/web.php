@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth','prefix' => 'processos'], function () {
 
     Route::get('/', 'ProcessController@listar')->name('processos.listar');
     Route::get('/criar', 'ProcessController@criar')->name('processos.criar');
+    Route::get('/editar/{id}', 'ProcessController@editar')->name('processos.editar');
+    Route::get('/deletar/{id}', 'ProcessController@deletar')->name('processos.deletar');
     Route::post('/save', 'ProcessController@save')->name('processos.salvar');
 });
 

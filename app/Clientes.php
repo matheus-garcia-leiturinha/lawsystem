@@ -19,4 +19,8 @@ class Clientes extends Model
     public function documents() {
         return $this->hasOne('App\Documents','id','document_id');
     }
+
+    public function process() {
+        return $this->BelongsToMany('App\Processos');
+    }
 }

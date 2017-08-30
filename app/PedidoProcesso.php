@@ -12,9 +12,9 @@ class PedidoProcesso extends Model
 
 
     public function processos() {
-        return $this->BelongsTo('App\Processos','processo_id','id');
+        return $this->BelongsTo('App\Processos','id','processo_id');
     }
-    public function pericias() {
-        return $this->BelongsTo('App\Pedido','pedido_id','id');
+    public function pedido() {
+        return $this->BelongsTo('App\Pedido','id','pedido_id');
     }
 }

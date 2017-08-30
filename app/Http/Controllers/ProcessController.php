@@ -244,4 +244,185 @@ class ProcessController extends Controller
     }
 
 
+    public function editar($id)
+    {
+        $process = Processos::find($id);
+
+        if($process instanceof Processos)
+        {
+            $pivot                      = ClienteProcesso::where('processo_id', $id)->get();
+
+            $clientes_selected = [];
+            foreach($pivot as $p)
+            {
+                $clientes_selected[]    = $p->cliente()->get()[0]->toArray();
+            }
+
+            $pivot                      = ParticipanteProcesso::where('processo_id', $id)->get();
+
+            $parts = [];
+            foreach($pivot as $p)
+            {
+                $parts[]                = $p->participante;
+            }
+
+
+            $pivot                      = AdvogadoParcipanteProcesso::where('processo_id', $id)->get();
+
+            $advs_part_selected = [];
+            foreach($pivot as $p)
+            {
+                $advs_part_selected[]   = $p->advogado()->get()[0]->toArray();
+            }
+
+            $pivot                      = ContrarioProcesso::where('processo_id', $id)->get();
+
+            $conts_selected = [];
+            foreach($pivot as $p)
+            {
+                $conts_selected[]       = $p->contrario()->get()[0]->toArray();
+            }
+
+            $pivot                      = PedidoProcesso::where('processo_id', $id)->get();
+
+            $pedidos_selected = [];
+            foreach($pivot as $p)
+            {
+                $pedidos_selected[]     = $p->pedido()->get()[0]->toArray();
+            }
+
+
+            $polo_passivo_selected      = false;
+            $polo_ativo_selected        = false;
+            switch($process->polo){
+
+                case "ativo":
+                    $polo_ativo_selected = [ 'checked' => 'checked' ];
+                    break;
+                case "passivo":
+                    $polo_passivo_selected = [ 'checked' => 'checked' ];
+                    break;
+
+            }
+            $polo_passivo_selected      = false;
+            $polo_ativo_selected        = false;
+            switch($process->polo){
+
+                case "ativo":
+                    $polo_ativo_selected = [ 'checked' => 'checked' ];
+                    break;
+                case "passivo":
+                    $polo_passivo_selected = [ 'checked' => 'checked' ];
+                    break;
+
+            }
+
+
+            $administrativo_selected    = false;
+            $civel_selected             = false;
+            $criminal_selected          = false;
+            $trabalhista_selected       = false;
+            $tributario_selected        = false;
+
+            switch($process->type){
+
+                // @todo - Mudar os cases para os nomes certos
+                case "type1":
+                    $administrativo_selected = [ 'checked' => 'checked' ];
+                    break;
+                case "type2":
+                    $civel_selected = [ 'checked' => 'checked' ];
+                    break;
+                case "tipo3":
+                    $criminal_selected = [ 'checked' => 'checked' ];
+                    break;
+                case "type4":
+                    $trabalhista_selected = [ 'checked' => 'checked' ];
+                    break;
+                case "type5":
+                    $tributario_selected = [ 'checked' => 'checked' ];
+                    break;
+            }
+
+            $advogado_selected          = Advogados::find($process->adv_owner)->toArray();
+            $number_selected            = $process->numero_processual;
+            $advogado_contr_selected    = Advogados::find($process->adv_third_party)->toArray();
+
+            $value_selected             = number_format($process->valor_causa,2,',','.');
+            $date_ajuizamento_selected  = $process->data_ajuizamento;
+
+            $ocorrencia_selected        = $process->ocorrencia_inaugural;
+
+            $clientes                   = Clientes::all()->toArray();
+
+            $tribunais                  = Tribunal::all()->toArray();
+            $varas                      = Vara::all()->toArray();
+            $advogados                  = Advogados::where('tipo', 1)->get()->toArray();
+            $advogados_contrario        = Advogados::where('tipo', 2)->get()->toArray();
+            $advogados_participantes    = Advogados::where('tipo', 3)->get()->toArray();
+            $contrarios                 = Contrario::all()->toArray();
+            $pericias                   = Pericia::all()->toArray();
+            $depositos                  = Deposito::all()->toArray();
+            $recolhimentos              = Recolhimento::all()->toArray();
+
+            $pedidos                    = Pedidos::all()->toArray();
+
+
+            return view('process.edit',[
+                "clientes_selected"         => $clientes_selected ,
+                "parts"                     => $parts ,
+                "advs_part_selected"        => $advs_part_selected ,
+                "conts_selected"            => $conts_selected ,
+
+
+                "polo_ativo_selected"       => $polo_ativo_selected ,
+                "polo_passivo_selected"     => $polo_passivo_selected ,
+
+
+                'administrativo_selected'   =>$administrativo_selected    ,
+                'civel_selected'            =>$civel_selected             ,
+                'criminal_selected'         =>$criminal_selected          ,
+                'trabalhista_selected'      =>$trabalhista_selected       ,
+                'tributario_selected'       =>$tributario_selected        ,
+
+                'advogado_selected'         =>$advogado_selected          ,
+                'number_selected'           =>$number_selected            ,
+                'advogado_contr_selected'   =>$advogado_contr_selected    ,
+                'value_selected'            =>$value_selected             ,
+                'date_ajuizamento_selected' =>$date_ajuizamento_selected  ,
+
+                'ocorrencia_selected'       =>$ocorrencia_selected  ,
+
+
+                "clientes"                  => $clientes ,
+                "tribunais"                 => $tribunais ,
+                "varas"                     => $varas,
+                "advogados"                 => $advogados,
+                "advogados_contrario"       => $advogados_contrario,
+                "advogados_participantes"   => $advogados_participantes,
+                "contrarios"                => $contrarios,
+                "pericias"                  => $pericias,
+                "depositos"                 => $depositos,
+                "recolhimentos"             => $recolhimentos,
+                "pedidos"                   => $pedidos,
+            ]);
+        }
+
+        else
+            return redirect()->route('processos.listar');
+
+        //return view('process.edit', ['process' => $process ]);
+
+
+    }
+
+    public function deletar($id){
+
+        $process = Processos::find($id);
+
+        $process->delete();
+
+        return redirect()->route('processos.listar');
+    }
+
 }

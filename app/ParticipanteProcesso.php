@@ -10,6 +10,6 @@ class ParticipanteProcesso extends Model
     protected $table = 'participante_processo';
 
     public function processos() {
-        return $this->BelongsTo('App\Processos','processo_id','id');
+        return $this->hasOne('App\Processos','id','processo_id');
     }
 }

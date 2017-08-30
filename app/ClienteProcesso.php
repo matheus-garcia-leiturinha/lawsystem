@@ -9,10 +9,10 @@ class ClienteProcesso extends Model
     //
     protected $table = 'cliente_processo';
 
-    public function processos() {
-        return $this->BelongsTo('App\Processos','processo_id','id');
+    public function processo() {
+        return $this->hasOne('App\Processos','id','processo_id');
     }
-    public function clientes() {
-        return $this->BelongsTo('App\Clientes','cliente_id','id');
+    public function cliente() {
+        return $this->hasOne('App\Clientes','id','cliente_id');
     }
 }

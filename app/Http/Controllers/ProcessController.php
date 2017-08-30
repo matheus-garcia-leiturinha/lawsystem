@@ -176,23 +176,21 @@ class ProcessController extends Controller
         }
 
 
-        ClienteProcesso::where('processo_id',$processo_id);
+        if( isset( $processo_id  )) {
+            ClienteProcesso::where('processo_id', $processo_id)->delete();
+        }
+
         foreach ($clientes as $key => $client) {
             $clienteProcesso                = new ClienteProcesso();
             $clienteProcesso->cliente_id    = $client;
             $clienteProcesso->processo_id   = $processo->id;
             $clienteProcesso->save();
 
-            foreach()
-            $id_clientes =
-            $select = "DELETE * FROM cliente_processo where cliente_id NOT IN ( $id_clientes )";
-
-
         }
 
-
-        die();
-
+        if( isset( $processo_id  )) {
+            ParticipanteProcesso::where('processo_id', $processo_id)->delete();
+        }
         if (isset($participantes))
         {
             foreach($participantes as $key=>$participante)
@@ -204,6 +202,9 @@ class ProcessController extends Controller
             }
         }
 
+        if( isset( $processo_id  )) {
+            AdvogadoParcipanteProcesso::where('processo_id', $processo_id)->delete();
+        }
         if (isset($adv_participantes))
         {
             foreach($adv_participantes as $key=>$adv)
@@ -215,6 +216,9 @@ class ProcessController extends Controller
             }
         }
 
+        if( isset( $processo_id  )) {
+            ContrarioProcesso::where('processo_id', $processo_id)->delete();
+        }
         if (isset($contrarios))
         {
             foreach($contrarios as $key=>$contrario)
@@ -227,6 +231,9 @@ class ProcessController extends Controller
         }
 
         // Criação das Perícias do Processo
+        if( isset( $processo_id  )) {
+            PericiaProcesso::where('processo_id', $processo_id)->delete();
+        }
         if($pericias == 1 && isset($pericia))
         {
             foreach($pericia as $key=>$type_pericia)
@@ -240,6 +247,9 @@ class ProcessController extends Controller
         }
 
         // Criação dos Depositos do Processo
+        if( isset( $processo_id  )) {
+            DepositoProcesso::where('processo_id', $processo_id)->delete();
+        }
         if($depositos == 1 && isset($deposito))
         {
             foreach($deposito as $key=>$type_deposito)
@@ -253,6 +263,9 @@ class ProcessController extends Controller
         }
 
         // Criação dos Deposito Judicial do Processo
+        if( isset( $processo_id  )) {
+            DepositoJudicialProcesso::where('processo_id', $processo_id)->delete();
+        }
         if($depositos_judiciais == 1 && isset($deposito_jud_mot))
         {
             foreach($deposito_jud_mot as $key=>$type_deposito)
@@ -266,6 +279,9 @@ class ProcessController extends Controller
         }
 
         // Criação dos Recolhimentos do Processo
+        if( isset( $processo_id  )) {
+            RecolhimentoProcesso::where('processo_id', $processo_id)->delete();
+        }
         if($recolhimentos == 1 && isset($recolhimento))
         {
             foreach($recolhimento as $key=>$type_recolhimento)
@@ -283,6 +299,9 @@ class ProcessController extends Controller
         $risco_pedido       = $request->input('pedido_risco');         // Risco do pedido
 
         // Criação dos Peridos do Processo
+        if( isset( $processo_id  )) {
+            PedidoProcesso::where('processo_id', $processo_id)->delete();
+        }
         if(isset($pedido_motivo)){
 
             foreach($pedido_motivo as $key=>$type_pedido)

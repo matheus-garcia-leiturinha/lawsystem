@@ -208,21 +208,33 @@
             {{ Form::label('', 'Audiência inaugural') }}
 
             <div class="audiencias">
-                {{ Form::radio('audiencia', 1, false,['id'=> 'true']) }}
-                {{ Form::label('true', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('audiencia', 2,['checked' => 'checked'],['id'=> 'false']) }}
-                {{ Form::label('false', 'Não',['class'=> 'radio s0']) }}
+                @if($hasAudiencia)
+                    {{ Form::radio('audiencia', 1, ['checked' => 'checked'],['id'=> 'true']) }}
+                    {{ Form::label('true', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('audiencia', 2,false,['id'=> 'false']) }}
+                    {{ Form::label('false', 'Não',['class'=> 'radio s0']) }}
+                @else
+                    {{ Form::radio('audiencia', 1, false,['id'=> 'true']) }}
+                    {{ Form::label('true', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('audiencia', 2,['checked' => 'checked'],['id'=> 'false']) }}
+                    {{ Form::label('false', 'Não',['class'=> 'radio s0']) }}
+                @endif
             </div>
 
         </div>
 
-        <div class="block datepickerblock data_audiencia_inaugural">
+        <div class="block datepickerblock data_audiencia_inaugural @if($hasAudiencia) active @endif">
             {{ Form::label('data_audiencia_inaugural', 'Data da audiência inaugural') }}
-            {{ Form::text('data_audiencia_inaugural', '',["class" => "date form-control",'id' => 'datetimepicker2']) }}
 
-            {{ Form::radio('type_audiencia','una', ['checked' => 'checked'],['id'=> 'una']) }}
+            @if($hasAudiencia)
+                {{ Form::text('data_audiencia_inaugural',$data_audiencia_selected,["class" => "date form-control",'id' => 'datetimepicker2']) }}
+            @else
+                {{ Form::text('data_audiencia_inaugural','',["class" => "date form-control",'id' => 'datetimepicker2']) }}
+            @endif
+
+            {{ Form::radio('type_audiencia','una', $una_selected,['id'=> 'una']) }}
             {{ Form::label('una', 'Una',['class'=> 'radio first','checked' => 'checked']) }}
-            {{ Form::radio('type_audiencia', 'inicial',false,['id'=> 'inicial']) }}
+            {{ Form::radio('type_audiencia', 'inicial',$inicial_selected,['id'=> 'inicial']) }}
             {{ Form::label('inicial', 'Inicial',['class'=> 'radio']) }}
         </div>
 
@@ -233,16 +245,24 @@
             {{ Form::label('', 'Motivo de perícia') }}
 
             <div class="pericias">
-                {{ Form::radio('pericias', 1, false,['id'=> 'true1']) }}
-                {{ Form::label('true1', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('pericias', 2,['checked' => 'checked'],['id'=> 'false1']) }}
-                {{ Form::label('false1', 'Não',['class'=> 'radio s0']) }}
+                @if($hasPericia)
+                    {{ Form::radio('pericias', 1, ['checked' => 'checked'],['id'=> 'true1']) }}
+                    {{ Form::label('true1', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('pericias', 2,false,['id'=> 'false1']) }}
+                    {{ Form::label('false1', 'Não',['class'=> 'radio s0']) }}
+                @else
+                    {{ Form::radio('pericias', 1, false,['id'=> 'true1']) }}
+                    {{ Form::label('true1', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('pericias', 2,['checked' => 'checked'],['id'=> 'false1']) }}
+                    {{ Form::label('false1', 'Não',['class'=> 'radio s0']) }}
+                @endif
+
             </div>
 
         </div>
 
         <div class="pericias-component">
-            <div class="block pericia">
+            <div class="block pericia @if($hasPericia) active @endif">
                 {{ Form::label('pericia', 'Natureza da pericia') }}
                 <a class="create-new" data-toggle="modal" data-target="#modal_pericia">Criar novo</a>
                 <select class="selectpicker" data-live-search=true title=" " name="pericia" id="pericia">
@@ -252,14 +272,30 @@
                 </select>
             </div>
 
-            <div class="block pericia">
+            <div class="block pericia @if($hasPericia) active @endif">
                 {{ Form::label('value_pericia', 'Honorários prévios de perícia') }}
                 {{ Form::text('value_pericia', '',["class" => "form-control"]) }}
             </div>
 
-            <div class="pericia">
+            <div class="pericia @if($hasPericia) active @endif">
                 <a class="add-new" onclick="processo.add('pericia');"><i class="fa fa-plus"></i></a>
             </div>
+
+            @foreach($pericias_selected as $data)
+
+                <div class="child">
+                    <input name="deposito_motivo[]" type="hidden" value="{{$data['pericia_processo']['pericia_id']}}">
+                    <input name="deposito_valor[]" class="pedido_valor" type="hidden" value="{{$data['pericia_processo']['pericias_honorarios']}}">
+                    <div class="values">
+                        <span>{{$data['type']}}</span>
+                        <span>R$ {{number_format($data['pericia_processo']['pericias_honorarios'],2,',','.')}}</span>
+                    </div>
+                    <a onclick="processo.remove(this)">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+
+            @endforeach
         </div>
 
         <div class="block">
@@ -267,16 +303,23 @@
             {{ Form::label('', 'Depósito') }}
 
             <div class="depositos">
-                {{ Form::radio('depositos', 1, false,['id'=> 'true2']) }}
-                {{ Form::label('true2', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
-                {{ Form::radio('depositos', 2,['checked' => 'checked'],['id'=> 'false2']) }}
-                {{ Form::label('false2', 'Não',['class'=> 'radio s0']) }}
+                @if($hasDeposito)
+                    {{ Form::radio('depositos', 1, ['checked' => 'checked'],['id'=> 'true2']) }}
+                    {{ Form::label('true2', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('depositos', 2,false,['id'=> 'false2']) }}
+                    {{ Form::label('false2', 'Não',['class'=> 'radio s0']) }}
+                @else
+                    {{ Form::radio('depositos', 1, false,['id'=> 'true2']) }}
+                    {{ Form::label('true2', 'Sim',['class'=> 'radio first s0','checked' => 'checked']) }}
+                    {{ Form::radio('depositos', 2,['checked' => 'checked'],['id'=> 'false2']) }}
+                    {{ Form::label('false2', 'Não',['class'=> 'radio s0']) }}
+                @endif
             </div>
 
         </div>
 
         <div class="depositos-component">
-            <div class="block deposito">
+            <div class="block deposito @if($hasDeposito) active @endif">
                 {{ Form::label('deposito', 'Motivo do deposito') }}
                 <a class="create-new" data-toggle="modal" data-target="#modal_deposito">Criar novo</a>
                 <select class="selectpicker" data-live-search=true title=" " name="deposito" id="deposito">
@@ -286,14 +329,30 @@
                 </select>
             </div>
 
-            <div class="block deposito">
+            <div class="block deposito @if($hasDeposito) active @endif">
                 {{ Form::label('value_deposito', 'Valor do depósito') }}
                 {{ Form::text('value_deposito', '',["class" => "form-control"]) }}
             </div>
 
-            <div class="deposito">
+            <div class="deposito @if($hasDeposito) active @endif">
                 <a class="add-new" onclick="processo.add('deposito');"><i class="fa fa-plus"></i></a>
             </div>
+
+            @foreach($depositos_selected as $data)
+
+                <div class="child">
+                    <input name="deposito_motivo[]" type="hidden" value="{{$data['deposito_processo']['deposito_id']}}">
+                    <input name="deposito_valor[]" class="pedido_valor" type="hidden" value="{{$data['deposito_processo']['deposito_valor']}}">
+                    <div class="values">
+                        <span>{{$data['type']}}</span>
+                        <span>R$ {{number_format($data['deposito_processo']['deposito_valor'],2,',','.')}}</span>
+                    </div>
+                    <a onclick="processo.remove(this)">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+
+            @endforeach
         </div>
 
 

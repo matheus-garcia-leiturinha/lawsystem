@@ -101,7 +101,7 @@ class ProcessController extends Controller
         }
 
         if ($request->input('data_audiencia_inaugural')) {
-            $d_inaugural = \DateTime::createFromFormat("d/m/Y H:i", $request->input('data_audiencia_inaugural'))->format("m/d/Y H:i");
+            $d_inaugural = \DateTime::createFromFormat("d/m/Y H:i",  date('d/m/Y H:i',strtotime($request->input('data_audiencia_inaugural'))))->format("m/d/Y H:i");
             $data_audiencia_inaugural = date("Y-m-d H:i", strtotime($d_inaugural));
             $type_audiencia     = $request->input('type_audiencia');
         }
@@ -398,6 +398,35 @@ class ProcessController extends Controller
                     );
             }
 
+            $pivot                      = DepositoProcesso::where('processo_id', $id)->get();
+
+            $depositos_selected   = [];
+            $hasDeposito          = false;
+
+            foreach($pivot as $p)
+            {
+                $hasDeposito = true;
+                $depositos_selected[]     =
+                    array(
+                        'deposito_processo' => $p->toArray(),
+                        'type' => $p->deposito()->get()[0]->toArray()['type']
+                    );
+            }
+            $pivot                      = PericiaProcesso::where('processo_id', $id)->get();
+
+            $pericias_selected   = [];
+            $hasPericia          = false;
+
+            foreach($pivot as $p)
+            {
+                $hasPericia = true;
+                $pericias_selected[]     =
+                    array(
+                        'pericia_processo' => $p->toArray(),
+                        'type' => $p->pericia()->get()[0]->toArray()['type']
+                    );
+            }
+
             $polo_passivo_selected      = false;
             $polo_ativo_selected        = false;
             switch($process->polo){
@@ -407,6 +436,24 @@ class ProcessController extends Controller
                     break;
                 case "passivo":
                     $polo_passivo_selected = [ 'checked' => 'checked' ];
+                    break;
+
+            }
+
+            $hasAudiencia = false;
+            if($process->inaugural == "sim")
+                $hasAudiencia = true;
+
+            $data_audiencia_selected = $process->data_audiencia_inaugural;
+            $una_selected           = false;
+            $inicial_selected       = false;
+            switch($process->type_audiencia){
+
+                case "Una":
+                    $una_selected       = [ 'checked' => 'checked' ];
+                    break;
+                case "passivo":
+                    $inicial_selected   = [ 'checked' => 'checked' ];
                     break;
 
             }
@@ -494,8 +541,20 @@ class ProcessController extends Controller
                 'hasRecolhimento'           =>$hasRecolhimento          ,
                 'recolhimentos_selected'    =>$recolhimentos_selected   ,
 
-                'hasDepositoJudicial'           =>$hasDepositoJudicial          ,
+                'hasDepositoJudicial'           =>$hasDepositoJudicial            ,
                 'depositos_judiciais_selected'  =>$depositos_judiciais_selected   ,
+
+                'hasAudiencia'                  =>$hasAudiencia             ,
+                'data_audiencia_selected'       =>$data_audiencia_selected  ,
+                'una_selected'                  =>$una_selected             ,
+                'inicial_selected'              =>$inicial_selected         ,
+
+                'hasPericia'                    =>$hasPericia               ,
+                'pericias_selected'             =>$pericias_selected        ,
+
+
+                'hasDeposito'           =>$hasDeposito          ,
+                'depositos_selected'    =>$depositos_selected   ,
 
 
                 "clientes"                  => $clientes ,

@@ -11,11 +11,11 @@ class PericiaProcesso extends Model
     protected $table = 'pericia_processo';
 
 
-    public function processos() {
-        return $this->BelongsTo('App\Processos','processo_id','id');
+    public function processo() {
+        return $this->hasOne('App\Processos','id','processo_id');
     }
-    public function pericias() {
-        return $this->BelongsTo('App\Pericia','pericia_id','id');
+    public function pericia() {
+        return $this->hasOne('App\Pericia','id','pericia_id');
     }
 
 }

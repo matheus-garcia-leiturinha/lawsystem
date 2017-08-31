@@ -526,7 +526,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="modal_deposito_judicialModalLabel">Cadastrar Motivo do Depósito</h4>
+        <h4 class="modal-title" id="modal_deposito_judicialModalLabel">Cadastrar Motivo do Depósito Judicial</h4>
       </div>
       <div class="modal-body">
         <?php echo $__env->make('deposito_judicial.modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
